@@ -75,7 +75,7 @@ body, html{
 }
 
 .heading-container{
-    padding: 220px 5% 5%;
+    padding: 220px 8% 5%;
     text-align: center;
     background-color:#59CE8F;
     font-family: 'Oswald', sans-serif;
@@ -88,7 +88,7 @@ body, html{
 
 @media(max-width:991px){
     .heading-container{
-        padding-top: 100px;
+        padding-top: 90px;
     }
 }
 
