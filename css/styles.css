@@ -86,7 +86,11 @@ body, html{
 .mission-statement{
     text-align: center;
     padding: 25px;
-   border-style: solid;
+    border-style: solid;
+}
+
+.mission-statement:hover{
+    background-color:#92cdda;
 }
 
 .mission-icon{
@@ -97,10 +101,17 @@ body, html{
 #mission{
     background-color: #E8F9FD;
     color: #000000;
+    height: 100%;
 }
 
-.mission-row{
-    width: 75%;
-    margin: auto;
+.mission-col{
+    padding: 0 2.5%;
 }
+
+@media(max-width:991px){
+    .mission-col{
+        padding: 0 25%;
+    }
+}
+
 
