@@ -24,8 +24,16 @@ body, html{
     font-family: 'Oswald', sans-serif;
 }
 
+.nav-link:active{
+    text-decoration: none;
+}
+
 .nav-link:hover{
     color: #59CE8F;
+}
+
+.nav-link:focus{
+    color: #E8F9FD;;
 }
 
 .fa-bars{
