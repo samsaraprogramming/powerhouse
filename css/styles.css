@@ -94,7 +94,11 @@ body, html{
     text-align: center;
     background-color:#59CE8F;
     font-family: 'Oswald', sans-serif;
-    height: 100%;
+    /* height: 100%; */
+    height: 900px;
+    background-image: url('../images/background2.png');
+    background-size: cover;
+    background-position: center center;
 }
 
 .main-heading{
