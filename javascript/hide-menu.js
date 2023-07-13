@@ -2,19 +2,21 @@ var prevScroll = 0;
 
 (function ($) {
 
-     prevScroll = $(window).scrollTop();
-
      // scroll functions
      $(window).scroll(function(e) {
      
           scroll = $(window).scrollTop()
 
-          
-          // add/remove class to navbar when scrolling to hide/show
-          $('.navbar')[(scroll - prevScroll >= 30 && $(window).scrollTop() >= 50) ? 'addClass' : 'removeClass']('navbar-hide');
-     
-          //if(scroll -prevScroll >= 10){
-          prevScroll = scroll;
+          if(scroll < 50){
+               $('.navbar')['removeClass']('navbar-hide');
+          }else if(scroll - prevScroll >= 20){
+               $('.navbar')['addClass']('navbar-hide');
+               prevScroll = scroll;
+          }
+          else if(prevScroll - scroll >= 20) {
+               $('.navbar')['removeClass']('navbar-hide');
+               prevScroll = scroll;
+          }
           //}
      
      });
