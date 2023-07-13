@@ -8,10 +8,14 @@ var prevScroll = 0;
      $(window).scroll(function(e) {
      
           scroll = $(window).scrollTop()
-         // add/remove class to navbar when scrolling to hide/show
-         $('.navbar')[(prevScroll - scroll <= 10 && $(window).scrollTop() >= 50) ? 'addClass' : 'removeClass']('navbar-hide');
 
-         prevScroll = scroll;
+          
+          // add/remove class to navbar when scrolling to hide/show
+          $('.navbar')[(scroll - prevScroll >= 30 && $(window).scrollTop() >= 50) ? 'addClass' : 'removeClass']('navbar-hide');
+     
+          //if(scroll -prevScroll >= 10){
+          prevScroll = scroll;
+          //}
      
      });
      
