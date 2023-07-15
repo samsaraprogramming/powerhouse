@@ -120,7 +120,7 @@ body, html{
 }
 
 .our-mission{
-    padding: 2.5% 1.5%;
+    padding: 2.5%;
     text-align: center;
 }
 
@@ -130,8 +130,18 @@ body, html{
     border-style: solid;
 }
 
-.mission-statement:hover, .info-slide:active{
+.explanation{
+    display: none;
+}
+
+.mission-statement:hover, .mission-statement:active{
     background-color:#92cdda;
+
+}
+
+.mission-col:hover>.explanation, .mission-col:active>.explanation{
+    display: inline;
+
 }
 
 .mission-icon{
@@ -153,6 +163,14 @@ body, html{
         padding: 0 25%;
     }
 }
+
+.tooltip{
+    font-size: 4.5em;
+}
+
+/* .tooltip-inner{
+    font-size: 2.5em;
+} */
 
 .contact-section{
     padding: 5%;
