@@ -43,6 +43,20 @@ body, html{
     color: #E8F9FD;;
 }
 
+.media-icon{
+    font-size: 1.5rem;
+}
+
+.media-link{
+    display: inline-block;
+}
+
+@media(max-width:991px){
+    .media-link{
+        padding-right: 3.5%;
+    }
+}
+
 .fa-bars{
     color: #E8F9FD;
 }
@@ -131,8 +145,16 @@ body, html{
 }
 
 .explanation{
-    display: none;
+    
+    font-size: 0rem;
+    transition: 
+        opacity 1s ease-out;
+
+    opacity: 0;
+    height: 0;
+    
 }
+
 
 .mission-statement:hover, .mission-statement:active{
     background-color:#92cdda;
@@ -140,8 +162,9 @@ body, html{
 }
 
 .explanation-container:hover>.explanation, .explanation-container:active>.explanation{
-    display: inline;
-
+    opacity: 1;
+    height: auto;
+    font-size:1rem;
 }
 
 .mission-icon{
@@ -173,13 +196,13 @@ body, html{
 } */
 
 .contact-section{
-    padding: 5%;
+    padding: 2.5% 5%;
     background-color: #59CE8F;
 }
 
 #contact-header{
     text-align: center;
-    
+    padding-bottom: 2.5%;
 }
 
 .contact-row{
@@ -208,6 +231,7 @@ body, html{
 }
 
 @media(max-width: 991px){
+
     .contact-details{
         font-size:1.25rem;
         text-align: center;
@@ -225,6 +249,21 @@ body, html{
     .contact-details{
         font-size:1rem;
     }
+
+    .contact-section{
+        padding: 5%;
+        background-color: #59CE8F;
+    }
 }
+.animated{
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  
+  .animated.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
 

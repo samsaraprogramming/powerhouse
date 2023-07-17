@@ -22,12 +22,13 @@
       @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Noto+Sans:ital,wght@0,300;0,400;0,500;1,900&family=Oswald&family=Roboto+Mono:ital,wght@0,700;1,200&display=swap');
     </style>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.compat.css" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/> -->
   </head>
 
   <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="javascript/hide-menu.js"></script>
+    <script src="javascript/viewport-fade-in.js"></script>
 
     <!-- Title -->
 
@@ -63,6 +64,13 @@
                   <li class="nav-item">
                     <a class="nav-link" data-bs-dismiss="offcanvas" href="#" onclick="$('html, body').animate({scrollTop: $('#contact').offset().top -100 }, 'slow')">Contact Us</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link media-link" href="https://www.instagram.com/powerhousept_"><i class="media-icon fa-brands fa-instagram"></i></a>
+                    <a class="nav-link media-link" href="https://www.facebook.com/people/Powerhouse-PT-Physical-Therapy/100094690571519/"><i class="media-icon fa-brands fa-facebook"></i></a>
+                  </li>
+                  <!-- <li class="nav-item">
+                    <a class="nav-link" href="https://www.instagram.com/powerhousept_"><i class="fa-brands fa-facebook"></i></a>
+                  </li> -->
                 </ul>
                 
               </div>
@@ -76,7 +84,7 @@
         <div class="row">
           <div class="col-12 main-heading-container">
             <!-- <h1 class="main-heading">Sports Physical Therapy</h1> -->
-            <img class="heading-logo" src="images/original-sticker.png" alt="original logo">
+            <img class="heading-logo animated" src="images/original-sticker.png" alt="original logo">
           </div>
           <div class="logo-container col-lg-6">
             <!-- <img class="barbell-lift" src="images/kettlebell.jpeg" alt="kinesiology"> -->
@@ -88,20 +96,20 @@
 
     <section id="mission">
         <div class="container-fluid our-mission">
-            <h2 id="mission-header">Our Mission</h2>
+            <h2 id="mission-header" class="animated">Our Mission</h2>
             <div class = "row mission-row g-3">
-                <div class="col-lg-4 mission-col">
+                <div class="col-lg-4 mission-col animated" data-inviewport="fade-rotate">
                   <div class ='explanation-container'>
                   <!-- <a href="#" data-bs-toggle="tooltip" data-container="body" data-bs-placement="top" title="We will make to look at the root cause of your problems and work on resolving them." style="color: inherit; text-decoration: none;"> -->
                     <div class="p-3 border-dark mission-statement">
                       <img class="mission-icon" src="images/root-cause2.png" alt="muscle icon">
                       <span>Root Cause Diagnosis</span>
                     </div>
-                    <span class ="explanation">We will ensure to find the root cause of your problems and work on resolving them.</span>
+                    <span class ="explanation">We will ensure to find the root cause of your issues and provide <nobr>long-term</nobr> solutions.</span>
                   </div>
                 <!-- </a> -->
                 </div>
-                <div class="col-lg-4 mission-col">
+                <div class="col-lg-4 mission-col animated">
                   <div class ='explanation-container'>
                     <div class="p-3 border-dark mission-statement">
                       <img class="mission-icon" src="images/pain-relief.png" alt="muscle icon">
@@ -110,13 +118,13 @@
                     <span class ="explanation">Work on relieving the source of your pain and correcting faulty movement patterns.</span>
                   </div>
                 </div>
-                <div class=" col-lg-4 mission-col">
+                <div class=" col-lg-4 mission-col animated">
                   <div class ='explanation-container'>
                     <div class="p-3 border-dark mission-statement">
                       <img class="mission-icon" src="images/muscle-icon2.png" alt="muscle icon">
                       <span>Build Strength</span>
                     </div>
-                    <span class ="explanation">Build strenght to ensure that you recover better than before.</span>
+                    <span class ="explanation">Build lifestyle changes to ensure you recover better than before.</span>
                   </div>
                   
                 </div>
