@@ -1,5 +1,3 @@
-var prevScroll = 0;
-
 (function ($) {
 
 
@@ -10,7 +8,7 @@ var prevScroll = 0;
 
             
 
-          if(scroll >= 250){
+          if(scroll >= 150){
                $('.animated')['addClass']('visible');
           }
      

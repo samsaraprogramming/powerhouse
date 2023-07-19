@@ -138,6 +138,12 @@ body, html{
     text-align: center;
 }
 
+@media(max-width:768px){
+    .our-mission{
+        padding: 5% 2.5%;
+    }
+}
+
 .mission-statement{
     text-align: center;
     padding: 25px;
@@ -156,7 +162,7 @@ body, html{
 }
 
 
-.mission-statement:hover, .mission-statement:active{
+.mission-statement:hover, .mission-statement:focus{
     background-color:#92cdda;
 
 }
