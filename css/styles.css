@@ -3,8 +3,13 @@ body, html{
     padding: 0;
     width: 100%;
     height: 100%;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Lato', sans-serif;
     font-weight: 900;
+}
+
+h2{
+    margin: 0;
+    padding: 0;
 }
 
 /* #title{
@@ -28,7 +33,7 @@ body, html{
 
 .nav-link{
     color: #E8F9FD;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 .nav-link:active{
@@ -104,15 +109,27 @@ body, html{
 }
 
 .heading-container{
-    padding: 220px 8% 5%;
+    padding: 75px 8% 5%;
     text-align: center;
     background-color:#59CE8F;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Loto', sans-serif;
     /* height: 100%; */
     height: 900px;
     background-image: url('../images/background-image.jpeg');
     background-size: cover;
     background-position: center center;
+}
+
+.message-container{
+    width: 85%;
+    margin: auto;
+    padding: 5% 0;
+}
+
+.heading-message{
+    display:inline;
+    color:#FFFFFF;
+    font-size: 4rem;
 }
 
 .main-heading{
@@ -126,12 +143,34 @@ body, html{
     .heading-container{
         padding-top: 125px;
     }
+    
+    .heading-message{
+        font-size: 3rem;
+    }
 }
 
 .heading-logo{
     padding-top: 75px;
     width: 100%;
 }
+
+.mission-heading{
+    text-align: center;
+    padding: 1% 0;
+    background-color: #0F6292;
+    color: #FFFFFF;
+}
+
+.mission-heading > h2{
+    width:75%;
+    margin: auto;
+    padding: 2.5%;
+}
+
+#mission-header{
+    padding-bottom: 2.5%; 
+}
+
 
 .our-mission{
     padding: 2.5%;
@@ -147,7 +186,8 @@ body, html{
 .mission-statement{
     text-align: center;
     padding: 25px;
-    border-style: solid;
+    font-size:1.5rem;
+    
 }
 
 .explanation{
