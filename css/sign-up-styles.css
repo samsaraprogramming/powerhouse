@@ -1,0 +1,354 @@
+body, html{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+}
+
+.navbar{
+  background-color: #000000;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.navbar-hide {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.navbar-content-container{
+  width: 85%;
+}
+
+.nav-link{
+  color: #E8F9FD;
+  font-family: 'Lato', sans-serif;
+}
+
+.nav-link:active{
+  text-decoration: none;
+}
+
+.nav-link:hover{
+  color: #59CE8F;
+}
+
+.nav-link:focus{
+  color: #E8F9FD;;
+}
+
+.media-icon{
+  font-size: 1.5rem;
+}
+
+.media-link{
+  display: inline-block;
+}
+
+@media(max-width:991px){
+  .media-link{
+      padding-right: 3.5%;
+  }
+}
+
+.fa-bars{
+  color: #E8F9FD;
+}
+
+.btn-close{
+  opacity: 1;
+}
+
+.mobile-logo{
+  display:none;
+  width: 60px;
+}
+
+.desktop-logo{
+  width: 80px;
+}
+
+@media(max-width: 991px){
+  .mobile-logo{
+      display: inline;
+  }
+
+  .desktop-logo{
+      display: none;
+  }
+}
+
+.offcanvas.offcanvas-end{
+  width: 100%;
+  background-color: #000000;
+  transition: transform 0.15s ease-in-out;
+}
+  
+
+.offcanvas-header{
+  width: 80%;
+}
+
+.offcanvas-body{
+  width: 80%;
+}
+
+.main-heading{
+  font-size: 2.5rem;
+  line-height: 1.5;
+  font-weight: 900;
+}
+
+
+
+
+.signup-form-heading-container{
+  text-align: center;
+  padding: 160px 5% 40px;
+  background-image: url('../images/toxix fitness texture_4.png');
+  background-size: cover;
+}
+
+.heading-logo{
+  padding-top: 75px;
+  width: 75%;
+  margin: auto;
+}
+
+
+@media (max-width:1280px){
+  .nav-link-text{
+    display: none;
+  }
+}
+
+@media (max-width:991px){
+  .navbar{
+    justify-content: left;
+    padding: 2%;
+  }
+
+  .nav-link-text{
+    display: inline;
+  }
+
+  .toxic-logo-nav{
+    width: 15%;
+    margin-left: 2%;
+  }
+
+  .navbar-brand-mobile{
+    display: block;
+    font-size: 1rem;
+    width: 80%;
+  }
+
+  .navbar-brand{
+    font-size: 1rem;
+    display: none;
+  }
+
+  .navbar-toggler{
+    z-index:23;
+  }
+
+  .brand-text{
+    font-size: 6vw;
+  }
+
+  .signup-form-heading-container{
+    padding: 20% 3% 7.5%;
+  }
+
+
+  .moto-heading{
+    font-size: 8vw;
+  }
+
+
+}
+
+
+
+
+.sign-up-form-heading{
+  padding: 5% 15% 1%;
+  text-align: center;
+  background-color: #000000;
+}
+
+
+
+
+
+.toxic-logo{
+  width: 50%;
+}
+
+.mayhem-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7.5% 0;
+}
+
+.mayhem-logo{
+  width: 60%;
+}
+
+
+
+.bottom-container{
+  background-color:#000000;
+  padding-top: 2%;
+  text-align: center;
+}
+
+.footer-menu{
+  padding: 0 30%;
+}
+
+.footer-column{
+  padding: 5% 3%;
+}
+
+.footer-link{
+  color: #2192FF;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  text-decoration: none;
+
+}
+
+@media (max-width:991px){
+  .footer-link span{
+    display: none;
+  }
+
+  .footer-menu{
+    padding: 0 35%;
+  }
+}
+
+.footer-link:hover{
+  color: #EAF6F6;
+}
+
+.copyright-text{
+  color: #EAF6F6;
+  font-size: 0.75rem;
+  padding: 20px 0;
+  margin: 0;
+}
+
+/* Sign-Up Section */
+
+
+
+.sign-up-form{
+  padding: 5% 30% 5%;
+  background-color: #000000;
+}
+
+
+.form-label{
+  color: #ffffff;
+}
+
+#location{
+  text-align: left;
+  padding: 3% 0 8%;
+  background-color: #7FB77E;
+
+}
+
+.location-header{
+  padding-bottom: 2%;
+}
+
+.contact-section{
+  padding: 2.5%;
+  background-color: #59CE8F;
+}
+
+#contact-header{
+  text-align: center;
+  padding-bottom: 2.5%;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.contact-row{
+  padding-bottom:15%;
+}
+
+.map{
+  width: 100%;
+  height: 100%;
+}
+
+.map-container{
+  width: 75%;
+  height: 100%;
+  margin:  auto;
+  
+}
+
+.contact-details{
+  font-size:1.125rem;
+  text-align: left;
+  width: 75%;
+  margin: auto;
+  padding-bottom: 5%;
+  
+}
+
+@media(max-width: 991px){
+
+  .contact-details{
+      font-size:1.25rem;
+      text-align: center;
+      padding-bottom: 2.5%;
+      width: 100%;
+  }
+
+  .map-container{
+      width: 75%;
+      height:75%;
+      margin:auto;
+  }
+}
+
+@media(max-width: 768px){
+  .contact-details{
+      font-size:1rem;
+  }
+
+  .contact-section{
+      padding: 5%;
+      background-color: #59CE8F;
+  }
+}
+
+@media(max-width: 576px){
+  .contact-details{
+      font-size: 1rem;
+  }
+}
+.animated{
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.animated.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.name{
+  font-weight: 700;
+  font-style: italic;
+}

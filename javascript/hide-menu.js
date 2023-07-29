@@ -7,7 +7,7 @@ var prevScroll = 0;
      
           scroll = $(window).scrollTop()
 
-          if(scroll < 50){
+          if(scroll <= 60){
                $('.navbar')['removeClass']('navbar-hide');
           }else if(scroll - prevScroll >= 20){
                $('.navbar')['addClass']('navbar-hide');
