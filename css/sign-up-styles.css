@@ -106,13 +106,12 @@ body, html{
 
 .signup-form-heading-container{
   text-align: center;
-  padding: 160px 5% 40px;
-  background-image: url('../images/toxix fitness texture_4.png');
+  padding: 20% 5% 10%;
+  background-image: url('../images/toxix fitness texture_4.jpg');
   background-size: cover;
 }
 
 .heading-logo{
-  padding-top: 75px;
   width: 75%;
   margin: auto;
 }
@@ -159,7 +158,7 @@ body, html{
   }
 
   .signup-form-heading-container{
-    padding: 20% 3% 7.5%;
+    padding-top: 15%;
   }
 
 
