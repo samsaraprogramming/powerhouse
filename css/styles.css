@@ -133,20 +133,20 @@ h2{
 .schedule-button{
     font-weight: 700;
     font-size: 2.25rem;
-    width:45%;  
+    width:47.5%;  
 }
 
 @media(max-width:991px){
     .schedule-button{
         /* font-size: 2rem; */
-        width: 57.5%;
+        width: 60.5%;
     }
 }
 
 @media(max-width: 768px){
     .schedule-button{
         /* font-size: 2rem; */
-        width:77.5%;
+        width:82.5%;
     }
 }
 
