@@ -61,6 +61,16 @@
                   <li class="nav-item">
                     <a class="nav-link" data-bs-dismiss="offcanvas" href="#" onclick="$('html, body').animate({scrollTop: $('#title').offset().top -100 }, 'slow')">Home</a>
                   </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                      <li><a class="dropdown-item" href="#" data-bs-dismiss="offcanvas" onclick="$('html, body').animate({scrollTop: $('#physical-therapy').offset().top -100 }, 'slow')">Orthopedic Physical Therapy</a></li>
+                      <li><a class="dropdown-item" href="#" data-bs-dismiss="offcanvas" onclick="$('html, body').animate({scrollTop: $('#sports-injury-prevention').offset().top -100 }, 'slow')">Sports Performance</a></li>
+                      <li><a class="dropdown-item" href="#" data-bs-dismiss="offcanvas" onclick="$('html, body').animate({scrollTop: $('#sports-injury-prevention').offset().top -100 }, 'slow')">Injury Prevention</a></li>
+                      <li><a class="dropdown-item" href="#" data-bs-dismiss="offcanvas">Dry Needling</a></li>
+                      <li><a class="dropdown-item" href="#" data-bs-dismiss="offcanvas">Manual therapy</a></li>
+                    </ul>
+                  </li>
                   <li class="nav-item">
                     <a class="nav-link" data-bs-dismiss="offcanvas" href="#" onclick="$('html, body').animate({scrollTop: $('#process').offset().top -100 }, 'slow')">Our Process</a>
                   </li>
@@ -145,7 +155,7 @@
           <div class="col-lg-6">
             <!-- <img src="images/orthopedic.jpeg" alt="orthopedic therapy picture" style="width: 100%;"> -->
           </div>
-          <div class="col-lg-12">
+          <div id="physical-therapy" class="col-lg-12">
             <h2 class="service-heading">Orthopedic Physical Therapy</h2>
             <br>
             <br>
@@ -159,7 +169,7 @@
           </div>
         </div>
         <div class="row services-row">
-          <div class="col-lg-12">
+          <div id="sports-injury-prevention" class="col-lg-12">
             <h2 class="service-heading">Performance & Sports Injury Prevention</h2>
             <br>
             <br>
@@ -178,9 +188,13 @@
     <section id="about-us">
       <div class="container-fluid about-us-container">
         <img class="profile-picture" src="images/dr-sandra.jpg" alt="Picture of Dr. Sandra Gomez DPT Founder">
-        <p>Dr. Sandra Gomez is a Laredo native in which she played soccer, volleyball, and track throughout her high school years. She attended the University of Texas at Austin to earn her Bachelors of Science along with playing Club Soccer at UT. Dr. Sandra then went on to attend Texas State University to earn her Doctorate in Physical Therapy.</p>
-        <br>
-        <p>Dr. Sandra has an extensive background in weight training along with working with college, semi-professional, and high school athletes. She has received on-going education on manual therapy and her main goal is to bridge the gap between performance, sports, and helping people understand more about their body to have long term results. She is very passionate about exercise, education, pain science and genuinely wants to provide the best care to her patients while ensuring she is providing the most updated evidence-based treatment. In her free time, Dr. Sandra likes to stay active and practice weight training, go hiking with her dogs, and continues to play soccer in leagues around the city. </p>
+        <h2 class ="profile-title">Dr. Sandra Gomez, PT, DPT</h2>
+        <div class="profile-summary">
+          <br>
+          <p>Dr. Sandra Gomez is a Laredo native in which she played soccer, volleyball, and track throughout her high school years. She attended the University of Texas at Austin to earn her Bachelors of Science along with playing Club Soccer at UT. Dr. Sandra then went on to attend Texas State University to earn her Doctorate in Physical Therapy.</p>
+          <br>
+          <p>Dr. Sandra has an extensive background in weight training along with working with college, semi-professional, and high school athletes. She has received on-going education on manual therapy and her main goal is to bridge the gap between performance, sports, and helping people understand more about their body to have long term results. She is very passionate about exercise, education, pain science and genuinely wants to give the best care to her patients while ensuring she is providing the most updated evidence-based treatment. In her free time, Dr. Sandra likes to stay active and practice weight training, go hiking with her dogs, and continues to play soccer in leagues around the city. </p>
+        </div>
       </div>
     </section>
 

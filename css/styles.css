@@ -104,6 +104,10 @@ h2{
     width: 80%;
 }
 
+.dropdown-menu{
+    background-color:#000000;
+}
+
 
 
 .heading-container{
@@ -275,8 +279,54 @@ h2{
 }
 
 .profile-picture{
-    width: 75%;
-    padding: 5%;
+    width: 45%;
+    padding: 5% 5% 3%;
+}
+
+@media(max-width:1200px){
+    .profile-picture{
+        width: 55%;
+        
+    }
+}
+
+@media(max-width:992px){
+    .profile-picture{
+        width: 65%;
+        
+    }
+}
+
+@media(max-width:768px){
+    .profile-picture{
+        width: 75%;
+        
+    }
+}
+
+@media(max-width:576px){
+    .profile-picture{
+        width: 95%;
+        padding: 5%;
+    }
+}
+
+
+
+.profile-summary{
+    padding: 0 20%;
+}
+
+@media(max-width:1200px){
+    .profile-summary{
+        padding: 0 15%;
+    }
+}
+
+@media(max-width:992px){
+    .profile-summary{
+        padding: 0 5%;
+    }
 }
 
 /* .tooltip-inner{
