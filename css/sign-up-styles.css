@@ -111,64 +111,16 @@ body, html{
   background-size: cover;
 }
 
+@media(max-width: 991px){
+  .signup-form-heading-container{
+    padding: 25% 5% 10%;
+  }
+}
+
 .heading-logo{
   width: 75%;
   margin: auto;
 }
-
-
-@media (max-width:1280px){
-  .nav-link-text{
-    display: none;
-  }
-}
-
-@media (max-width:991px){
-  .navbar{
-    justify-content: left;
-    padding: 2%;
-  }
-
-  .nav-link-text{
-    display: inline;
-  }
-
-  .toxic-logo-nav{
-    width: 15%;
-    margin-left: 2%;
-  }
-
-  .navbar-brand-mobile{
-    display: block;
-    font-size: 1rem;
-    width: 80%;
-  }
-
-  .navbar-brand{
-    font-size: 1rem;
-    display: none;
-  }
-
-  .navbar-toggler{
-    z-index:23;
-  }
-
-  .brand-text{
-    font-size: 6vw;
-  }
-
-  .signup-form-heading-container{
-    padding-top: 15%;
-  }
-
-
-  .moto-heading{
-    font-size: 8vw;
-  }
-
-
-}
-
 
 
 
@@ -178,69 +130,6 @@ body, html{
   background-color: #000000;
 }
 
-
-
-
-
-.toxic-logo{
-  width: 50%;
-}
-
-.mayhem-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 7.5% 0;
-}
-
-.mayhem-logo{
-  width: 60%;
-}
-
-
-
-.bottom-container{
-  background-color:#000000;
-  padding-top: 2%;
-  text-align: center;
-}
-
-.footer-menu{
-  padding: 0 30%;
-}
-
-.footer-column{
-  padding: 5% 3%;
-}
-
-.footer-link{
-  color: #2192FF;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.85rem;
-  text-decoration: none;
-
-}
-
-@media (max-width:991px){
-  .footer-link span{
-    display: none;
-  }
-
-  .footer-menu{
-    padding: 0 35%;
-  }
-}
-
-.footer-link:hover{
-  color: #EAF6F6;
-}
-
-.copyright-text{
-  color: #EAF6F6;
-  font-size: 0.75rem;
-  padding: 20px 0;
-  margin: 0;
-}
 
 /* Sign-Up Section */
 
@@ -256,16 +145,6 @@ body, html{
   color: #ffffff;
 }
 
-#location{
-  text-align: left;
-  padding: 3% 0 8%;
-  background-color: #7FB77E;
-
-}
-
-.location-header{
-  padding-bottom: 2%;
-}
 
 .contact-section{
   padding: 2.5%;
@@ -350,4 +229,10 @@ body, html{
 .name{
   font-weight: 700;
   font-style: italic;
+}
+
+.send-button{
+  margin-top: 5%;
+  font-size: 1.25rem;
+  font-weight: 700;
 }

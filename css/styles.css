@@ -179,38 +179,38 @@ h2{
     width: 100%;
 }
 
-.mission-heading{
+.process-heading{
     text-align: center;
     padding: 1% 0;
     background-color: #0F6292;
     color: #FFFFFF;
 }
 
-.mission-heading > h2{
+.process-heading > h2{
     width:75%;
     margin: auto;
     padding: 2.5%;
 }
 
-#mission-header{
+#process-header{
     padding-bottom: 2.5%; 
     font-weight: 700;
     font-style: italic;
 }
 
 
-.our-mission{
+.our-process{
     padding: 2.5%;
     text-align: center;
 }
 
 @media(max-width:768px){
-    .our-mission{
+    .our-process{
         padding: 5% 2.5%;
     }
 }
 
-.mission-statement{
+.process-statement{
     text-align: center;
     padding: 25px;
     font-size:1.5rem;
@@ -219,9 +219,10 @@ h2{
 
 .explanation{
     
-    font-size: 0rem;
+    font-size:.75rem;
     transition: 
-        opacity 1s ease-out;
+        opacity 1s ease,
+        font-size .5s ease;
 
     opacity: 0;
     height: 0;
@@ -229,39 +230,53 @@ h2{
 }
 
 
-.mission-statement:hover, .mission-statement:focus{
-    background-color:#92cdda;
+/* .process-statement:hover, .process-statement:focus{
+    
 
-}
+} */
 
 .explanation-container:hover>.explanation, .explanation-container:active>.explanation{
     opacity: 1;
     height: auto;
     font-size:1.2rem;
+    /* transition: 
+        font-size 1.25s ease; */
 }
 
-.mission-icon{
+.process-icon{
     display: block;
     margin: auto;
 }
 
-#mission{
+#process{
     background-color: #E8F9FD;
     color: #000000;
 }
 
-.mission-col{
+.process-col{
     padding: 0 2.5%;
 }
 
 @media(max-width:991px){
-    .mission-col{
+    .process-col{
         padding: 0 10%;
     }
 }
 
 .tooltip{
     font-size: 4.5em;
+}
+
+.about-us-container{
+    text-align: center;
+    padding: 2.5% 7.5%;
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.profile-picture{
+    width: 75%;
+    padding: 5%;
 }
 
 /* .tooltip-inner{
@@ -287,11 +302,13 @@ h2{
 .map{
     width: 100%;
     height: 100%;
+    
+
 }
 
 .map-container{
-    width: 75%;
-    height: 100%;
+    width: 100%;
+    height:225px;
     margin:  auto;
     
 }
@@ -312,12 +329,6 @@ h2{
         text-align: center;
         padding-bottom: 2.5%;
         width: 100%;
-    }
-
-    .map-container{
-        width: 75%;
-        height:75%;
-        margin:auto;
     }
 }
 
@@ -351,5 +362,31 @@ h2{
   .name{
     font-weight: 700;
     font-style: italic;
+  }
+
+  .services-row{
+    padding: 3.5% 2.5%;
+    text-align: center;
+  }
+
+  .service-heading{
+    font-weight: 900;
+    border-style: solid;
+    border-color:#7df487;
+    border-width: 0.25rem;
+    display: inline-block;
+    padding: 1% 2.5%;
+    background-color: #000000;
+    color:#FFFFFF;
+    font-size:2.25rem;
+  }
+
+  .service-info-text{
+    font-size: 1.5rem;
+  }
+
+  .physical-therapy-row{
+    background-color: #312f2f;
+    color:#FFFFFF;
   }
 
