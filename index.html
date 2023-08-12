@@ -59,26 +59,26 @@
               <div class="offcanvas-body container-fluid">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                   <li class="nav-item">
-                    <a class="nav-link" data-bs-dismiss="offcanvas" href="#" onclick="$('html, body').animate({scrollTop: $('#title').offset().top -100 }, 'slow')">Home</a>
+                    <a class="nav-link" data-bs-dismiss="offcanvas" href="#" onclick="$('html, body').animate({scrollTop: $('#title').offset().top -30 }, 'slow')">Home</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                      <li><a class="dropdown-item" href="#" data-bs-dismiss="offcanvas" onclick="$('html, body').animate({scrollTop: $('#physical-therapy').offset().top -100 }, 'slow')">Orthopedic Physical Therapy</a></li>
-                      <li><a class="dropdown-item" href="#" data-bs-dismiss="offcanvas" onclick="$('html, body').animate({scrollTop: $('#sports-injury-prevention').offset().top -100 }, 'slow')">Sports Performance</a></li>
-                      <li><a class="dropdown-item" href="#" data-bs-dismiss="offcanvas" onclick="$('html, body').animate({scrollTop: $('#sports-injury-prevention').offset().top -100 }, 'slow')">Injury Prevention</a></li>
+                      <li><a class="dropdown-item" href="#" data-bs-dismiss="offcanvas" onclick="$('html, body').animate({scrollTop: $('#physical-therapy').offset().top -30 }, 'slow')">Orthopedic Physical Therapy</a></li>
+                      <li><a class="dropdown-item" href="#" data-bs-dismiss="offcanvas" onclick="$('html, body').animate({scrollTop: $('#sports-injury-prevention').offset().top -30 }, 'slow')">Sports Performance</a></li>
+                      <li><a class="dropdown-item" href="#" data-bs-dismiss="offcanvas" onclick="$('html, body').animate({scrollTop: $('#sports-injury-prevention').offset().top -30}, 'slow')">Injury Prevention</a></li>
                       <li><a class="dropdown-item" href="#" data-bs-dismiss="offcanvas">Dry Needling</a></li>
                       <li><a class="dropdown-item" href="#" data-bs-dismiss="offcanvas">Manual therapy</a></li>
                     </ul>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" data-bs-dismiss="offcanvas" href="#" onclick="$('html, body').animate({scrollTop: $('#process').offset().top -100 }, 'slow')">Our Process</a>
+                    <a class="nav-link" data-bs-dismiss="offcanvas" href="#" onclick="$('html, body').animate({scrollTop: $('#process').offset().top -30 }, 'slow')">Our Process</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" data-bs-dismiss="offcanvas" href="#" onclick="$('html, body').animate({scrollTop: $('#about-us').offset().top -100 }, 'slow')">About Us</a>
+                    <a class="nav-link" data-bs-dismiss="offcanvas" href="#" onclick="$('html, body').animate({scrollTop: $('#about-us').offset().top -30 }, 'slow')">About Us</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" data-bs-dismiss="offcanvas" href="#" onclick="$('html, body').animate({scrollTop: $('#contact').offset().top -100 }, 'slow')">Contact Us</a>
+                    <a class="nav-link" data-bs-dismiss="offcanvas" href="#" onclick="$('html, body').animate({scrollTop: $('#contact').offset().top -30 }, 'slow')">Contact Us</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link media-link" href="https://www.instagram.com/powerhousept_"><i class="media-icon fa-brands fa-instagram"></i></a>
@@ -189,12 +189,31 @@
       <div class="container-fluid about-us-container">
         <img class="profile-picture" src="images/dr-sandra.jpg" alt="Picture of Dr. Sandra Gomez DPT Founder">
         <h2 class ="profile-title">Dr. Sandra Gomez, PT, DPT</h2>
-        <div class="profile-summary">
-          <br>
-          <p>Dr. Sandra Gomez is a Laredo native in which she played soccer, volleyball, and track throughout her high school years. She attended the University of Texas at Austin to earn her Bachelors of Science along with playing Club Soccer at UT. Dr. Sandra then went on to attend Texas State University to earn her Doctorate in Physical Therapy.</p>
-          <br>
-          <p>Dr. Sandra has an extensive background in weight training along with working with college, semi-professional, and high school athletes. She has received on-going education on manual therapy and her main goal is to bridge the gap between performance, sports, and helping people understand more about their body to have long term results. She is very passionate about exercise, education, pain science and genuinely wants to give the best care to her patients while ensuring she is providing the most updated evidence-based treatment. In her free time, Dr. Sandra likes to stay active and practice weight training, go hiking with her dogs, and continues to play soccer in leagues around the city. </p>
+        <br>
+        <div class="sandra-basic-summary">
+          <p>Doctor of Physical Therapy</p>
+          <p>Expertise in Orthopedics, Manual Therapy, & Strength Training</p>
+          <p>Certified Dry Needling Provider</p>
         </div>
+        
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" role="button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                Learn More
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body profile-summary">
+                <br>
+                <p>Dr. Sandra Gomez is a Laredo native in which she played soccer, volleyball, and track throughout her high school years. She attended the University of Texas at Austin to earn her Bachelors of Science along with playing Club Soccer at UT. Dr. Sandra then went on to attend Texas State University to earn her Doctorate in Physical Therapy.</p>
+                <br>
+                <p>Dr. Sandra has an extensive background in weight training along with working with college, semi-professional, and high school athletes. She has received on-going education on manual therapy and her main goal is to bridge the gap between performance, sports, and helping people understand more about their body to have long term results. She is very passionate about exercise, education, pain science and genuinely wants to give the best care to her patients while ensuring she is providing the most updated evidence-based treatment. In her free time, Dr. Sandra likes to stay active and practice weight training, go hiking with her dogs, and continues to play soccer in leagues around the city. </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
       </div>
     </section>
 
