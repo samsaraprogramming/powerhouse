@@ -59,26 +59,26 @@
               <div class="offcanvas-body container-fluid">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                   <li class="nav-item">
-                    <a class="nav-link" data-bs-dismiss="offcanvas" href="#" onclick="$('html, body').animate({scrollTop: $('#title').offset().top -30 }, 'slow')">Home</a>
+                    <a class="nav-link" data-bs-dismiss="offcanvas" href="#" onclick="$('html, body').animate({scrollTop: $('#title').offset().top -30 }, 'slow'); $('.navbar')['addClass']('navbar-hide');">Home</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                      <li><a class="dropdown-item" href="#" data-bs-dismiss="offcanvas" onclick="$('html, body').animate({scrollTop: $('#physical-therapy').offset().top -30 }, 'slow')">Orthopedic Physical Therapy</a></li>
-                      <li><a class="dropdown-item" href="#" data-bs-dismiss="offcanvas" onclick="$('html, body').animate({scrollTop: $('#sports-injury-prevention').offset().top -30 }, 'slow')">Sports Performance</a></li>
-                      <li><a class="dropdown-item" href="#" data-bs-dismiss="offcanvas" onclick="$('html, body').animate({scrollTop: $('#sports-injury-prevention').offset().top -30}, 'slow')">Injury Prevention</a></li>
+                      <li><a class="dropdown-item" href="#" data-bs-dismiss="offcanvas" onclick="$('html, body').animate({scrollTop: $('#physical-therapy').offset().top -30 }, 'slow'); window.setTimeout(function(){$('.navbar')['addClass']('navbar-hide')}, 1000);">Orthopedic Physical Therapy</a></li>
+                      <li><a class="dropdown-item" href="#" data-bs-dismiss="offcanvas" onclick="$('html, body').animate({scrollTop: $('#sports-injury-prevention').offset().top -30 }, 'slow'); window.setTimeout(function(){$('.navbar')['addClass']('navbar-hide')}, 1000);">Sports Performance</a></li>
+                      <li><a class="dropdown-item" href="#" data-bs-dismiss="offcanvas" onclick="$('html, body').animate({scrollTop: $('#sports-injury-prevention').offset().top -30}, 'slow'); window.setTimeout(function(){$('.navbar')['addClass']('navbar-hide')}, 1000);">Injury Prevention</a></li>
                       <li><a class="dropdown-item" href="#" data-bs-dismiss="offcanvas">Dry Needling</a></li>
                       <li><a class="dropdown-item" href="#" data-bs-dismiss="offcanvas">Manual therapy</a></li>
                     </ul>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" data-bs-dismiss="offcanvas" href="#" onclick="$('html, body').animate({scrollTop: $('#process').offset().top -30 }, 'slow')">Our Process</a>
+                    <a class="nav-link" data-bs-dismiss="offcanvas" href="#" onclick="$('html, body').animate({scrollTop: $('#process').offset().top -30 }, 'slow'); window.setTimeout(function(){$('.navbar')['addClass']('navbar-hide')}, 1000);">Our Process</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" data-bs-dismiss="offcanvas" href="#" onclick="$('html, body').animate({scrollTop: $('#about-us').offset().top -30 }, 'slow')">About Us</a>
+                    <a class="nav-link" data-bs-dismiss="offcanvas" href="#" onclick="$('html, body').animate({scrollTop: $('#about-us').offset().top -30 }, 'slow'); window.setTimeout(function(){$('.navbar')['addClass']('navbar-hide')}, 1000);">About Us</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" data-bs-dismiss="offcanvas" href="#" onclick="$('html, body').animate({scrollTop: $('#contact').offset().top -30 }, 'slow')">Contact Us</a>
+                    <a class="nav-link" data-bs-dismiss="offcanvas" href="#" onclick="$('html, body').animate({scrollTop: $('#contact').offset().top -30 }, 'slow'); window.setTimeout(function(){$('.navbar')['addClass']('navbar-hide')}, 1000);">Contact Us</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link media-link" href="https://www.instagram.com/powerhousept_"><i class="media-icon fa-brands fa-instagram"></i></a>
