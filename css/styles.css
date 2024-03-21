@@ -187,7 +187,7 @@ h2{
 .process-heading{
     text-align: center;
     padding: 1% 0;
-    background-color: #0F6292;
+    background-color: #1B6B93;
     color: #FFFFFF;
 }
 
@@ -254,7 +254,7 @@ h2{
 }
 
 #process{
-    background-color: #E8F9FD;
+    background-color: #A2FF86;
     color: #000000;
 }
 
@@ -371,7 +371,7 @@ h2{
 
 @media(max-width:576px){
     .accordion{
-        padding: 10% 5%;
+        padding: 5% 5% 10%;
     }
 }
 
@@ -413,7 +413,7 @@ h2{
 
 .contact-section{
     padding: 2.5%;
-    background-color: #59CE8F;
+    background-color: #A2FF86;
 }
 
 #contact-header{
@@ -467,7 +467,7 @@ h2{
 
     .contact-section{
         padding: 5%;
-        background-color: #59CE8F;
+        background-color: #A2FF86;
     }
 }
 
@@ -482,22 +482,22 @@ h2{
     transition: opacity 1s ease, transform 1s ease;
   }
   
-.animated.visible {
+  .animated.visible {
     opacity: 1;
     transform: translateX(0);
-}
+  }
 
-.name{
+  .name{
     font-weight: 700;
     font-style: italic;
-}
+  }
 
-.services-row{
+  .services-row{
     padding: 3.5% 2.5%;
     text-align: center;
-}
+  }
 
-.service-heading{
+  .service-heading{
     font-weight: 900;
     border-style: solid;
     border-color:#7df487;
@@ -507,18 +507,18 @@ h2{
     background-color: #000000;
     color:#FFFFFF;
     font-size:2.25rem;
-}
+  }
 
-.service-info-text{
+  .service-info-text{
     font-size: 1.5rem;
-}
+  }
 
-.physical-therapy-row{
+  .physical-therapy-row{
     background-color: #171616;
     color:#FFFFFF;
-}
-
-.footer-section{
+  }
+  
+  .footer-section{
     background-color: #000000;
     text-align: center;
     color: #ffffff;
@@ -560,20 +560,21 @@ text-align: center;
 
 @media(max-width: 991px){
 
-.footer-logo-container-mobile{
-    display: block;
-    text-align: center;
+    .footer-logo-container-mobile{
+        display: block;
+        text-align: center;
+    }
+
+    .footer-logo-container{
+        display: none;
+    }
+
+    .footer-copyright{
+        text-align: center;
+    }
+
+    .footer-links{
+        text-align: center;
+    }
 }
 
-.footer-logo-container{
-    display: none;
-}
-
-.footer-copyright{
-    text-align: center;
-}
-
-.footer-links{
-    text-align: center;
-}
-}
