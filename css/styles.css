@@ -12,12 +12,31 @@ h2{
     padding: 0;
 }
 
-/* #title{
-    height: 80%;
+/* .modal-content{
+    background-color: #000000;
 } */
 
-.navbar{
-    background-color: #000000;
+.modal-header{
+    background-color: #3771c7;
+    color: #FFFF;
+    text-align: center;
+}
+
+.modal-title{
+    width: 95%;
+}
+.modal-body{
+    text-align: center;
+}
+
+.modal-images{
+    width: 85%;
+    padding: 2.5% 0;
+}
+
+
+nav.navbar{
+    background-color: #000000 !important;
     opacity: 1;
     transition: opacity 0.5s ease;
 }
@@ -232,6 +251,7 @@ h2{
     opacity: 0;
     height: 0;
     
+    
 }
 
 
@@ -240,12 +260,47 @@ h2{
 
 } */
 
+
+
+@media(max-width:991px){
+    .explanation-container{
+        background-color: #7bfd54b5;
+        border-style: solid;
+        width: 75%;
+        height:95%;
+        margin: 1.5% auto;
+    }
+
+    .explanation-container:hover, explanation-container:active{
+        height:auto; 
+        width: 90%;
+        border-style: none;
+        transition: 
+        border-style 1s ease;
+        
+        background-color: #A2FF86;
+    }
+}
+
+@media(max-width:768px){
+    .explanation-container{
+        width: 85%;
+    }
+}
+
+@media(max-width:576px){
+    .explanation-container{
+        width: 95%;
+    }
+}
+
+
+
 .explanation-container:hover>.explanation, .explanation-container:active>.explanation{
     opacity: 1;
     height: auto;
     font-size:1.2rem;
-    /* transition: 
-        font-size 1.25s ease; */
+    
 }
 
 .process-icon{
