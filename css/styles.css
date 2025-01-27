@@ -360,8 +360,31 @@ h2{
     padding: 0;
 }
 
-.about-sandra{
+.about-team{
     padding: 2.5% 7.5%;
+}
+
+.personal-bullet-point{
+    padding: 10px;
+}
+
+.personal-summary-points{
+    margin:auto;
+    text-align:left;
+}
+
+.personal-points-container{
+    width:32.5%;
+    margin:auto;
+    text-align:center;
+    white-space: nowrap;
+}
+
+@media(max-width:1600px){
+    .personal-points-container{
+        width:40%;
+        white-space: unset;
+    }
 }
 
 .profile-picture{
@@ -374,6 +397,10 @@ h2{
         width: 55%;
         
     }
+
+    .personal-points-container{
+        width:50%;
+    }
 }
 
 @media(max-width:992px){
@@ -381,12 +408,19 @@ h2{
         width: 65%;
         
     }
+
+    .personal-points-container{
+        width:65%;
+    }
 }
 
 @media(max-width:768px){
     .profile-picture{
         width: 75%;
-        
+    }
+
+    .personal-points-container{
+        width:75%;
     }
 }
 
@@ -394,6 +428,10 @@ h2{
     .profile-picture{
         width: 95%;
         padding: 5%;
+    }
+
+    .personal-points-container{
+        width:95%;
     }
 }
 
@@ -415,10 +453,9 @@ h2{
     }
 }
 
-.sandra-basic-summary{
+.personal-summary-description{
     font-size: 1.25rem;
-    font-weight: 900;
-    
+    font-weight: 900; 
 }
 
 .accordion{
