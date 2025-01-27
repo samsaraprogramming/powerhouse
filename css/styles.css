@@ -261,7 +261,6 @@ h2{
 } */
 
 .process-col{
-    background-color:#c6e4ea;
     background-clip: content-box;
     color:black;
 }
@@ -298,8 +297,8 @@ h2{
 }
 
 .process-col:hover{
-    background-color:#88bafb;
-    color: white;
+    background-color:#bbd9ff;
+    color: black;
 }
 
 
