@@ -271,8 +271,6 @@ h2{
 @media(max-width:991px){
    
     .explanation-container{
-        background-color: #1B6B93;
-        border-style: solid;
         width: 75%;
         height:95%;
         margin: 1.5% auto;
