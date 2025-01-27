@@ -208,6 +208,8 @@ h2{
     padding: 1% 0;
     background-color: #9ae0eebf;
     color: #000000;
+    border-color:#0000001f;
+    border-style:solid;
 }
 
 .process-heading > h2{
@@ -297,7 +299,7 @@ h2{
 }
 
 .process-col:hover{
-    background-color:#bbd9ff;
+    background-color:#b8d4f9;
     color: black;
 }
 
