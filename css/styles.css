@@ -206,8 +206,8 @@ h2{
 .process-heading{
     text-align: center;
     padding: 1% 0;
-    background-color: #1B6B93;
-    color: #FFFFFF;
+    background-color: #9ae0eebf;
+    color: #000000;
 }
 
 .process-heading > h2{
@@ -261,17 +261,15 @@ h2{
 } */
 
 .process-col{
-    background-color:#1B6B93;
+    background-color:#c6e4ea;
     background-clip: content-box;
-    color:white;
+    color:black;
 }
 
 
 
 @media(max-width:991px){
-    .process-col{
-        background-color:#A2FF86;
-    }
+   
     .explanation-container{
         background-color: #1B6B93;
         border-style: solid;
@@ -286,8 +284,6 @@ h2{
         border-style: none;
         transition: 
         border-style 1s ease;
-        
-        background-color: #A2FF86;
     }
 }
 
@@ -304,8 +300,8 @@ h2{
 }
 
 .process-col:hover{
-    background-color:#A2FF86;
-    color: black;
+    background-color:#88bafb;
+    color: white;
 }
 
 
@@ -335,7 +331,7 @@ h2{
 }
 
 #process{
-    background-color: #A2FF86;
+    background-color: #c6e4ea;
     color: #000000;
 }
 
@@ -360,8 +356,31 @@ h2{
     padding: 0;
 }
 
-.about-sandra{
+.about-team{
     padding: 2.5% 7.5%;
+}
+
+.personal-bullet-point{
+    padding: 10px;
+}
+
+.personal-summary-points{
+    margin:auto;
+    text-align:left;
+}
+
+.personal-points-container{
+    width:32.5%;
+    margin:auto;
+    text-align:center;
+    white-space: nowrap;
+}
+
+@media(max-width:1600px){
+    .personal-points-container{
+        width:40%;
+        white-space: unset;
+    }
 }
 
 .profile-picture{
@@ -374,6 +393,10 @@ h2{
         width: 55%;
         
     }
+
+    .personal-points-container{
+        width:50%;
+    }
 }
 
 @media(max-width:992px){
@@ -381,12 +404,19 @@ h2{
         width: 65%;
         
     }
+
+    .personal-points-container{
+        width:65%;
+    }
 }
 
 @media(max-width:768px){
     .profile-picture{
         width: 75%;
-        
+    }
+
+    .personal-points-container{
+        width:75%;
     }
 }
 
@@ -394,6 +424,10 @@ h2{
     .profile-picture{
         width: 95%;
         padding: 5%;
+    }
+
+    .personal-points-container{
+        width:95%;
     }
 }
 
@@ -415,10 +449,9 @@ h2{
     }
 }
 
-.sandra-basic-summary{
+.personal-summary-description{
     font-size: 1.25rem;
-    font-weight: 900;
-    
+    font-weight: 900; 
 }
 
 .accordion{
@@ -494,7 +527,7 @@ h2{
 
 .contact-section{
     padding: 2.5%;
-    background-color: #A2FF86;
+    background-color: #c6e4ea;
 }
 
 #contact-header{
@@ -548,7 +581,6 @@ h2{
 
     .contact-section{
         padding: 5%;
-        background-color: #A2FF86;
     }
 }
 
@@ -581,7 +613,7 @@ h2{
   .service-heading{
     font-weight: 900;
     border-style: solid;
-    border-color:#7df487;
+    border-color:#2eabc5;
     border-width: 0.25rem;
     display: inline-block;
     padding: 1% 2.5%;
