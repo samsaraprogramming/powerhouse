@@ -28,12 +28,16 @@ body, html{
   font-family: 'Lato', sans-serif;
 }
 
+.navbar-nav .nav-link.show {
+  color: #E8F9FD;
+}
+
 .nav-link:active{
   text-decoration: none;
 }
 
 .nav-link:hover{
-  color: #59CE8F;
+  color: #8fb6ff;
 }
 
 .nav-link:focus{
@@ -97,7 +101,7 @@ body, html{
 }
 
 .dropdown-menu{
-  background-color:rgba(0,0,0, .7);
+  background-color:rgba(0,0,0, .9);
 }
 
 .main-heading{

@@ -56,17 +56,22 @@ h2{
     font-family: 'Lato', sans-serif;
 }
 
+.navbar-nav .nav-link.show {
+    color: #E8F9FD;
+}
+
 .nav-link:active{
     text-decoration: none;
 }
 
 .nav-link:hover{
-    color: #59CE8F;
+    color: #8fb6ff;
 }
 
 .nav-link:focus{
     color: #E8F9FD;;
 }
+
 
 .media-icon{
     font-size: 1.5rem;
@@ -125,7 +130,7 @@ h2{
 }
 
 .dropdown-menu{
-    background-color:rgba(0,0,0, .7);
+    background-color:rgba(0,0,0, .9);
     /* opacity: .7; */
 }
 
