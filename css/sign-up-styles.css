@@ -5,6 +5,7 @@ body, html{
   height: 100%;
   font-family: 'Lato', sans-serif;
   font-weight: 500;
+  background-color: #E8F9FF;
 }
 
 .navbar{
@@ -111,7 +112,7 @@ body, html{
 .signup-form-heading-container{
   text-align: center;
   padding: 20% 5% 10%;
-  background-image: url('../images/toxix fitness texture_4.jpg');
+  background-image: url('../images/blue-background.png');
   background-size: cover;
 }
 
@@ -152,7 +153,6 @@ body, html{
 
 .contact-section{
   padding: 2.5%;
-  background-color: #A2FF86;
 }
 
 #contact-header{

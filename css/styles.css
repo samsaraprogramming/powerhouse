@@ -5,6 +5,7 @@ body, html{
     height: 100%;
     font-family: 'Lato', sans-serif;
     font-weight: 900;
+    background-color: #E8F9FF;
 }
 
 h2{
@@ -206,7 +207,7 @@ h2{
 .process-heading{
     text-align: center;
     padding: 1% 0;
-    background-color: #9ae0eebf;
+    background-color: #cdf7ffbf;
     color: #000000;
     border-color:#0000001f;
     border-style:solid;
@@ -216,6 +217,7 @@ h2{
     width:75%;
     margin: auto;
     padding: 2.5%;
+    font-weight:900;
 }
 
 #process-header{
@@ -330,7 +332,6 @@ h2{
 }
 
 #process{
-    background-color: #c6e4ea;
     color: #000000;
 }
 
@@ -526,7 +527,6 @@ h2{
 
 .contact-section{
     padding: 2.5%;
-    background-color: #c6e4ea;
 }
 
 #contact-header{
