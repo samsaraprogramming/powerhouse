@@ -56,6 +56,10 @@ h2{
     font-family: 'Lato', sans-serif;
 }
 
+.navbar-nav .nav-link.show  {
+    color: #E8F9FD;
+}
+
 .nav-link:active{
     text-decoration: none;
 }
@@ -207,7 +211,7 @@ h2{
 .process-heading{
     text-align: center;
     padding: 1% 0;
-    background-color: #cdf7ffbf;
+    background-color: #b6def7bf;
     color: #000000;
     border-color:#0000001f;
     border-style:solid;
@@ -367,6 +371,7 @@ h2{
 .personal-summary-points{
     margin:auto;
     text-align:left;
+    list-style-position: inside;
 }
 
 .personal-points-container{
