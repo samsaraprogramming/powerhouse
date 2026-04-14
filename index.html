@@ -362,205 +362,74 @@
       </div>
 
       <div class="container-fluid heading-container">
-        <div class="wave-bg" aria-hidden="true">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1440 900"
-            preserveAspectRatio="xMidYMid slice"
-          >
-            <defs>
-              <!-- Brighter background (less crushed black) -->
-              <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#0a0f1a" />
-                <stop offset="100%" stop-color="#050912" />
-              </linearGradient>
+        <div class="wave-bg" aria-hidden="true" style="background: #050912; overflow: hidden;">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="cyan" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#00f2ff" />
+        <stop offset="100%" stop-color="#70f3ff" />
+      </linearGradient>
+      <linearGradient id="purple" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#bd93f9" />
+        <stop offset="100%" stop-color="#ff79c6" />
+      </linearGradient>
 
-              <!-- Brighter cyan -->
-              <linearGradient id="cyan" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#8be9fd" />
-                <stop offset="100%" stop-color="#38d9ff" />
-              </linearGradient>
+      <filter id="neon" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur stdDeviation="3" result="blur" />
+        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+      </filter>
 
-              <!-- Brighter purple -->
-              <linearGradient id="purple" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#d0bfff" />
-                <stop offset="100%" stop-color="#a78bfa" />
-              </linearGradient>
+      <style>
+        .line {
+          fill: none;
+          stroke-width: 1.2;
+          filter: url(#neon);
+          mix-blend-mode: screen; /* Makes overlapping lines brighter */
+          opacity: 0.5;
+        }
+        .fast { animation: pulse 4s ease-in-out infinite; }
+        .slow { animation: pulse 7s ease-in-out infinite; }
+        
+        @keyframes pulse {
+          0%, 100% { opacity: 0.4; stroke-width: 1.2; }
+          50% { opacity: 0.8; stroke-width: 1.8; }
+        }
+      </style>
+    </defs>
 
-              <!-- Slightly stronger glow -->
-              <filter id="glow">
-                <feGaussianBlur stdDeviation="5.5" result="blur" />
-                <feMerge>
-                  <feMergeNode in="blur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
+    <rect width="1440" height="900" fill="#050912" />
 
-              <style>
-                .line {
-                  fill: none;
-                  stroke-linecap: round;
-                  stroke-width: 1.4;
-                  opacity: 0.45; /* was ~0.35 */
-                  filter: url(#glow);
-                }
+    <g>
+      <path class="line fast" stroke="url(#cyan)">
+        <animate attributeName="d" dur="22s" repeatCount="indefinite" values="M-300 50 C 400 200, 900 -100, 1500 100 S 2100 300, 2600 50; M-300 120 C 450 250, 950 0, 1550 180 S 2150 350, 2650 120; M-300 50 C 400 200, 900 -100, 1500 100" />
+      </path>
+      <path class="line slow" stroke="url(#purple)">
+        <animate attributeName="d" dur="25s" repeatCount="indefinite" values="M-300 150 C 500 350, 1100 -50, 1700 150; M-300 80 C 550 300, 1150 50, 1750 100; M-300 150 C 500 350, 1100 -50, 1700 150" />
+      </path>
 
-                .pulse {
-                  animation: pulse 6s ease-in-out infinite;
-                }
+      <path class="line fast" stroke="url(#cyan)">
+        <animate attributeName="d" dur="18s" repeatCount="indefinite" values="M-300 400 C 500 100, 1100 900, 1700 400; M-300 500 C 600 200, 1200 800, 1800 500; M-300 400 C 500 100, 1100 900, 1700 400" />
+      </path>
+      <path class="line slow" stroke="url(#purple)">
+        <animate attributeName="d" dur="20s" repeatCount="indefinite" values="M-300 500 C 400 200, 1200 900, 1800 500; M-300 420 C 450 150, 1250 850, 1850 420; M-300 500 C 400 200, 1200 900, 1800 500" />
+      </path>
+      
+      <path class="line fast" stroke="url(#cyan)">
+        <animate attributeName="d" dur="24s" repeatCount="indefinite" values="M-300 650 C 600 300, 1200 700, 1800 650; M-300 600 C 650 350, 1250 650, 1850 600; M-300 650 C 600 300, 1200 700, 1800 650" />
+      </path>
+      <path class="line slow" stroke="url(#purple)">
+        <animate attributeName="d" dur="23s" repeatCount="indefinite" values="M-300 720 C 400 900, 1000 300, 1600 750; M-300 680 C 450 850, 1050 350, 1650 700; M-300 720 C 400 900, 1000 300, 1600 750" />
+      </path>
 
-                @keyframes pulse {
-                  0%,
-                  100% {
-                    opacity: 0.35;
-                  }
-                  50% {
-                    opacity: 0.75;
-                  }
-                }
-              </style>
-            </defs>
-
-            <rect width="1440" height="900" fill="url(#bgGrad)" />
-
-            <g>
-              <!-- TOP ZONE (near 0–200) -->
-              <path class="line pulse" stroke="url(#cyan)">
-                <animate
-                  attributeName="d"
-                  dur="22s"
-                  repeatCount="indefinite"
-                  values="
-                  M -300 50 C 400 200, 900 -100, 1500 100 S 2100 300, 2600 50;
-                  M -300 120 C 450 250, 950 0, 1550 180 S 2150 350, 2650 120;
-                  M -300 50 C 400 200, 900 -100, 1500 100 S 2100 300, 2600 50
-                  "
-                />
-              </path>
-
-              <path class="line pulse" stroke="url(#purple)">
-                <animate
-                  attributeName="d"
-                  dur="25s"
-                  repeatCount="indefinite"
-                  values="
-                  M -300 150 C 500 350, 1100 -50, 1700 150;
-                  M -300 80 C 550 300, 1150 50, 1750 100;
-                  M -300 150 C 500 350, 1100 -50, 1700 150
-                  "
-                />
-              </path>
-
-              <!-- MID ZONE -->
-              <path class="line pulse" stroke="url(#cyan)">
-                <animate
-                  attributeName="d"
-                  dur="18s"
-                  repeatCount="indefinite"
-                  values="
-                  M -300 400 C 500 100, 1100 900, 1700 400;
-                  M -300 500 C 600 200, 1200 800, 1800 500;
-                  M -300 400 C 500 100, 1100 900, 1700 400
-                  "
-                />
-              </path>
-
-              <path class="line pulse" stroke="url(#purple)">
-                <animate
-                  attributeName="d"
-                  dur="20s"
-                  repeatCount="indefinite"
-                  values="
-                  M -300 500 C 400 200, 1200 900, 1800 500;
-                  M -300 420 C 450 150, 1250 850, 1850 420;
-                  M -300 500 C 400 200, 1200 900, 1800 500
-                  "
-                />
-              </path>
-
-              <!-- LOWER MID -->
-              <path class="line pulse" stroke="url(#cyan)">
-                <animate
-                  attributeName="d"
-                  dur="24s"
-                  repeatCount="indefinite"
-                  values="
-                  M -300 650 C 600 300, 1200 700, 1800 650;
-                  M -300 600 C 650 350, 1250 650, 1850 600;
-                  M -300 650 C 600 300, 1200 700, 1800 650
-                  "
-                />
-              </path>
-
-              <path class="line pulse" stroke="url(#purple)">
-                <animate
-                  attributeName="d"
-                  dur="23s"
-                  repeatCount="indefinite"
-                  values="
-                  M -300 720 C 400 900, 1000 300, 1600 750;
-                  M -300 680 C 450 850, 1050 350, 1650 700;
-                  M -300 720 C 400 900, 1000 300, 1600 750
-                  "
-                />
-              </path>
-
-              <!-- BOTTOM ZONE (near 800–900) -->
-              <path class="line pulse" stroke="url(#cyan)">
-                <animate
-                  attributeName="d"
-                  dur="26s"
-                  repeatCount="indefinite"
-                  values="
-                  M -300 850 C 500 700, 1200 1000, 1800 850;
-                  M -300 780 C 550 650, 1250 950, 1850 780;
-                  M -300 850 C 500 700, 1200 1000, 1800 850
-                  "
-                />
-              </path>
-
-              <path class="line pulse" stroke="url(#purple)">
-                <animate
-                  attributeName="d"
-                  dur="27s"
-                  repeatCount="indefinite"
-                  values="
-                  M -300 820 C 600 600, 1300 1000, 1900 820;
-                  M -300 860 C 650 650, 1350 950, 1950 860;
-                  M -300 820 C 600 600, 1300 1000, 1900 820
-                  "
-                />
-              </path>
-
-              <!-- EXTRA CROSSING LINES -->
-              <path class="line pulse" stroke="url(#cyan)">
-                <animate
-                  attributeName="d"
-                  dur="19s"
-                  repeatCount="indefinite"
-                  values="
-                  M -300 200 C 700 500, 1400 400, 2000 150;
-                  M -300 300 C 750 550, 1450 350, 2050 200;
-                  M -300 200 C 700 500, 1400 400, 2000 150
-                  "
-                />
-              </path>
-
-              <path class="line pulse" stroke="url(#purple)">
-                <animate
-                  attributeName="d"
-                  dur="21s"
-                  repeatCount="indefinite"
-                  values="
-                  M -300 600 C 700 300, 1400 800, 2000 600;
-                  M -300 550 C 750 350, 1450 750, 2050 550;
-                  M -300 600 C 700 300, 1400 800, 2000 600
-                  "
-                />
-              </path>
-            </g>
-          </svg>
-        </div>
+      <path class="line fast" stroke="url(#cyan)" style="opacity:0.3">
+        <animate attributeName="d" dur="19s" repeatCount="indefinite" values="M-300 200 C 700 500, 1400 400, 2000 150; M-300 300 C 750 550, 1450 350, 2050 200; M-300 200 C 700 500, 1400 400, 2000 150" />
+      </path>
+      <path class="line slow" stroke="url(#purple)" style="opacity:0.3">
+        <animate attributeName="d" dur="21s" repeatCount="indefinite" values="M-300 600 C 700 300, 1400 800, 2000 600; M-300 550 C 750 350, 1450 750, 2050 550; M-300 600 C 700 300, 1400 800, 2000 600" />
+      </path>
+    </g>
+  </svg>
+</div>
 
         <div class="row">
           <div class="col-12 main-heading-container">
