@@ -1,192 +1,476 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <title>Powerhouse PT - Sports Physical Therapy Clinic in Laredo, Texas</title>
-  <meta name="description" content="Sports Physical Therapy practice in Laredo, Texas (TX) operated and owned by Sandra Gomez. Treatment services include pain-relief (pain relief), manual therapy, tissue specific exercise training, sports performance, injury prevention, dry needling"/>
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
+    <title>
+      Powerhouse PT - Sports Physical Therapy Clinic in Laredo, Texas
+    </title>
+    <meta
+      name="description"
+      content="Sports Physical Therapy practice in Laredo, Texas (TX) operated and owned by Sandra Gomez. Treatment services include pain-relief (pain relief), manual therapy, tissue specific exercise training, sports performance, injury prevention, dry needling"
+    />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <!-- CSS Stylesheets -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link rel="stylesheet" href="css/sign-up-styles.css?v=2.3.0" />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/46031f3086.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 
-  <!-- CSS Stylesheets -->
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/sign-up-styles.css?v=1.1.3">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/46031f3086.js" crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="javascript/hide-menu.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 750,
+        once: true,
+        offset: 60,
+        easing: "ease-out-cubic",
+      });
+    </script>
 
+    <!-- Title -->
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-</head>
-
-<body>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-  <script src="javascript/hide-menu.js"></script>
-  <script src="javascript/viewport-fade-in.js"></script>
-  
-  <!-- Title -->
-
-  <section id="title">
-    <div class="container-fluid navbar-container">
-
-      <!-- Nav Bar -->
-      <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
-        <div class="container-fluid navbar-content-container">
-          <a class="navbar-brand" href="https://www.powerhousesportspt.com/">
-            <img class="desktop-logo" src="images/p-logo-minty.png" alt="powerhouse pt physical therapy logo">
-            <img class="mobile-logo" src="images/p-logo-minty.png" alt="powerhouse pt physical therapy logo">
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-            <span class="toggler-lines" role="button" ><i class="fa-solid fa-bars" aria-hidden="true"></i></span>
-          </button>
-          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header container-fluid">
-              <img class="mobile-logo" src="images/p-logo-minty.png" alt="powerhouse pt physical therapy logo">
-              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body container-fluid">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item">
-                  <a class="nav-link" href="https://www.powerhousesportspt.com/">Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
-                  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                    <li><a class="dropdown-item" href="https://www.powerhousesportspt.com/#physical-therapy">Orthopedic Physical Therapy</a></li>
-                    <li><a class="dropdown-item" href="https://www.powerhousesportspt.com/#sports-injury-prevention">Sports Performance</a></li>
-                    <li><a class="dropdown-item" href="https://www.powerhousesportspt.com/#sports-injury-prevention">Injury Prevention</a></li>
-                    <li><a class="dropdown-item" href="#" data-bs-dismiss="offcanvas">Dry Needling</a></li>
-                    <li><a class="dropdown-item" href="#" data-bs-dismiss="offcanvas">Manual therapy</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="https://www.powerhousesportspt.com/#process">Our Process</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" data-bs-dismiss="offcanvas" href="https://www.powerhousesportspt.com/#about-us">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="https://www.powerhousesportspt.com/#contact">Contact Us</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link media-link" href="https://www.instagram.com/powerhousept_"><i class="media-icon fa-brands fa-instagram"></i></a>
-                  <a class="nav-link media-link" href="https://www.facebook.com/people/Powerhouse-PT-Physical-Therapy/100094690571519/"><i class="media-icon fa-brands fa-facebook"></i></a>
-                </li>
-                <!-- <li class="nav-item">
-                  <a class="nav-link" href="https://www.instagram.com/powerhousept_"><i class="fa-brands fa-facebook"></i></a>
-                </li> -->
-              </ul>
-              
+    <section id="title">
+      <div class="container-fluid navbar-container">
+        <!-- Nav Bar -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+          <div class="container-fluid navbar-content-container">
+            <a class="navbar-brand" href="https://www.powerhousesportspt.com/">
+              <img
+                class="desktop-logo"
+                src="images/p-logo-minty.png"
+                alt="powerhouse pt physical therapy logo"
+              />
+              <img
+                class="mobile-logo"
+                src="images/p-logo-minty.png"
+                alt="powerhouse pt physical therapy logo"
+              />
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasNavbar"
+              aria-controls="offcanvasNavbar"
+              aria-label="Toggle navigation"
+            >
+              <span class="toggler-lines" role="button"
+                ><i class="fa-solid fa-bars" aria-hidden="true"></i
+              ></span>
+            </button>
+            <div
+              class="offcanvas offcanvas-end"
+              tabindex="-1"
+              id="offcanvasNavbar"
+              aria-labelledby="offcanvasNavbarLabel"
+            >
+              <div class="offcanvas-header container-fluid">
+                <img
+                  class="mobile-logo"
+                  src="images/p-logo-minty.png"
+                  alt="powerhouse pt physical therapy logo"
+                />
+                <button
+                  type="button"
+                  class="btn-close btn-close-white"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="offcanvas-body container-fluid">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      href="/"
+                      >Home</a
+                    >
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      id="navbarDarkDropdownMenuLink"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                      >Services</a
+                    >
+                    <ul
+                      class="dropdown-menu dropdown-menu-dark"
+                      aria-labelledby="navbarDarkDropdownMenuLink"
+                    >
+                      <li>
+                        <a
+                          class="dropdown-item"
+                          href="/#physical-therapy"
+                          >Orthopedic Physical Therapy</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          class="dropdown-item"
+                          href="/#sports-injury-prevention"
+                          >Sports Performance</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          class="dropdown-item"
+                          href="/#sports-injury-prevention"
+                          >Injury Prevention</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          class="dropdown-item"
+                          href="#"
+                          data-bs-dismiss="offcanvas"
+                          >Dry Needling</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          class="dropdown-item"
+                          href="#"
+                          data-bs-dismiss="offcanvas"
+                          >Manual therapy</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      href="/#process"
+                      >Our Process</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      data-bs-dismiss="offcanvas"
+                      href="/#about-us"
+                      >About Us</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      href="/#contact"
+                      >Contact Us</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link media-link"
+                      href="https://www.instagram.com/powerhousept_"
+                      ><i class="media-icon fa-brands fa-instagram"></i
+                    ></a>
+                    <a
+                      class="nav-link media-link"
+                      href="https://www.facebook.com/people/Powerhouse-PT-Physical-Therapy/100094690571519/"
+                      ><i class="media-icon fa-brands fa-facebook"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-      </nav>
-
-    </div>
-
-    <div class="container-fluid signup-form-heading-container">
-
-      <div class="row">
-        <h1 style="font-size:0rem; margin:0;">Powerhouse PT - Sports Physical Therapy Clinic in Laredo, Texas</h1>
-        <img class="heading-logo animated" src="images/original-sticker-no-barbell-minty.png" alt="powerhouse pt physical therapy original logo">
+        </nav>
       </div>
-    </div>
 
-  </section>
+      <div class="container-fluid signup-form-heading-container">
+        <div class="row">
+          <h1 style="font-size: 0rem; margin: 0">
+            Powerhouse PT - Sports Physical Therapy Clinic in Laredo, Texas
+          </h1>
+          <img
+            class="heading-logo hero-logo-animate"
+            src="images/original-sticker-no-barbell-minty.png"
+            alt="powerhouse pt physical therapy original logo"
+          />
+        </div>
+      </div>
+    </section>
 
+    <!-- Sign Up Form -->
+    <section id="sign-up">
+      <div class="container-fluid sign-up-form">
+        <form id="contact-form" class="row g-3" novalidate>
+          <div class="col-md-6">
+            <label for="firstName" class="form-label">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              name="first_name"
+              required
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="lastName"
+              name="last_name"
+              required
+            />
+          </div>
+          <div class="col-12">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input
+              type="tel"
+              class="form-control"
+              id="phone"
+              name="phone"
+              required
+            />
+          </div>
+          <div class="col-12">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              required
+            />
+          </div>
+          <div class="col-12">
+            <label for="insurance" class="form-label">Insurance Provider</label>
+            <input
+              type="text"
+              class="form-control"
+              id="insurance"
+              name="insurance"
+              placeholder="If not applicable, enter N/A"
+              required
+            />
+          </div>
+          <div class="col-12">
+            <label for="goal" class="form-label">What's your goal?</label>
+            <textarea
+              class="form-control"
+              id="goal"
+              name="goal"
+              rows="3"
+              required
+            ></textarea>
+          </div>
+          <div class="col-12">
+            <button
+              type="submit"
+              id="submit-btn"
+              class="w-100 btn btn-primary send-button"
+            >
+              <span id="btn-text">Send</span>
+              <span
+                id="btn-spinner"
+                class="spinner-border spinner-border-sm ms-2"
+                role="status"
+                style="display: none"
+              ></span>
+            </button>
+          </div>
 
-  <!-- Sign Up Form -->
-  <section id="sign-up">
-    <div class="container-fluid sign-up-form">
-      <form action="https://formsubmit.co/94b5b21c900fa54b4c6ac3c5088ac7f8" class="row g-3" method="POST">
+          <!-- Success message -->
+          <div id="form-success" class="col-12" style="display: none">
+            <div class="alert form-alert-success" role="alert">
+              <i class="fa-solid fa-circle-check me-2"></i>
+              <strong>Message sent!</strong> We'll be in touch with you shortly.
+            </div>
+          </div>
 
-        <div class="col-md-6">
-          <label for="firstName" class="form-label">First Name</label>
-          <input type="text" class="form-control" id="firstName" name="First Name" required>
-        </div>
-        <div class="col-md-6">
-          <label for="lastName" class="form-label">Last Name</label>
-          <input type="text" class="form-control" id="lastName" name="Last Name" required>
-        </div>
-        <input type="hidden" name="_next" value="https://www.powerhousesportspt.com/">
-        <div class="col-12 phone-field">
-          <label for="phone" class="form-label">Phone Number</label>
-          <input type="tel" class="form-control" id="phone" name="Phone" required>
-        </div>
-        <div class="col-12 email-field">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" name="Email" required>
-        </div>
-        <div class="col-12 email-field">
-          <label for="insurance" class="form-label">Insurance Provider</label>
-          <input type="text" class="form-control" id="insurance" name="Insurance Provider" placeholder="If not applicable, enter N/A" required>
-        </div>
-        <div class="col-12 plan-field">
-          <label for="goal" class="form-label">What's your goal?</label>
-          <textarea name="Goal" class="form-control" id="goal" cols="30" rows="3" required></textarea>
-        </div>
-        <div class="col-12">
-          <button type="submit" class="w-100 btn btn-primary send-button">Send</button>
-        </div>
-        <input type="hidden" name="_subject" value="New Cutomer Inquiry from Website">
-        <input type="hidden" name="_captcha" value="false">
+          <!-- Error message -->
+          <div id="form-error" class="col-12" style="display: none">
+            <div class="alert form-alert-error" role="alert">
+              <i class="fa-solid fa-circle-exclamation me-2"></i>
+              <strong>Something went wrong.</strong> Please try again or call us
+              at <a href="tel:+19563076305">956-307-6305</a>.
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
 
-      </form>
-    </div>
+    <script>
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
 
-  </section>
+          const form = this;
+          const btn = document.getElementById("submit-btn");
+          const btnText = document.getElementById("btn-text");
+          const spinner = document.getElementById("btn-spinner");
+          const success = document.getElementById("form-success");
+          const error = document.getElementById("form-error");
 
-  <section id="contact">
-    <div class="container-fluid contact-section">
+          // Loading state
+          btn.disabled = true;
+          btnText.textContent = "Sending...";
+          spinner.style.display = "inline-block";
+          success.style.display = "none";
+          error.style.display = "none";
+
+          // Use FormData to grab all fields by their "name" attribute
+          const formData = new FormData(form);
+
+          // Send request to your PHP backend
+          fetch("contact.php", {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => {
+              if (!response.ok) throw new Error("Network response was not ok");
+              return response.json();
+            })
+            .then((data) => {
+              if (data.status === "success") {
+                success.style.display = "block";
+                form.reset();
+              } else {
+                throw new Error(data.message || "Unknown error");
+              }
+            })
+            .catch((err) => {
+              error.style.display = "block";
+              console.error("Submission error:", err);
+            })
+            .finally(() => {
+              btn.disabled = false;
+              btnText.textContent = "Send";
+              spinner.style.display = "none";
+            });
+        });
+    </script>
+
+    <section id="contact">
+      <div class="container-fluid contact-section">
         <h2 id="contact-header">GET THE QUALITY CARE YOU DESERVE</h2>
         <div class="row">
           <div class="col-lg-6">
             <div class="contact-details">
-              <span class ="name">Dr. Sandra Gomez, PT, DPT <br></span>
-              <span>Doctor of Physical Therapy<br></span>
-              <span><i class="fa-solid fa-phone"></i> Phone: <a href="tel:+19563076305">956-307-6305</a> <br></span>
-              <span><i class="fa-solid fa-fax"></i> Fax: 956-857-3229 <br></span>
-              <span><i class="fa-solid fa-envelope"></i> <a href="mailto:INFO@POWERHOUSESPORTSPT.COM">INFO@POWERHOUSESPORTSPT.COM</a><br></span>
-              <span><i class="fa-solid fa-location-dot"></i> <a href="https://maps.app.goo.gl/yDw3U9cw4icQMNew6">2446 SAN ISIDRO PKWY - LOCATED IN GOLD'S GYM</a><br></span>
+              <span class="name">Dr. Sandra Gomez, PT, DPT <br /></span>
+              <span>Doctor of Physical Therapy<br /></span>
+              <span
+                ><i class="fa-solid fa-phone"></i> Phone:
+                <a href="tel:+19563076305">956-307-6305</a> <br
+              /></span>
+              <span
+                ><i class="fa-solid fa-fax"></i> Fax: 956-857-3229 <br
+              /></span>
+              <span
+                ><i class="fa-solid fa-envelope"></i>
+                <a href="mailto:INFO@POWERHOUSESPORTSPT.COM"
+                  >INFO@POWERHOUSESPORTSPT.COM</a
+                ><br
+              /></span>
+              <span
+                ><i class="fa-solid fa-location-dot"></i>
+                <a href="https://maps.app.goo.gl/yDw3U9cw4icQMNew6"
+                  >2446 SAN ISIDRO PKWY - LOCATED IN GOLD'S GYM</a
+                ><br
+              /></span>
             </div>
           </div>
           <div class="col-lg-6">
             <div class="map-container">
-              <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14144.183157178339!2d-99.47684294475123!3d27.59210996997757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8660df5e4915f661%3A0xeb3d6faf8e9bb714!2sGold&#39;s%20Gym!5e0!3m2!1sen!2sus!4v1699897016741!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe
+                class="map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14144.183157178339!2d-99.47684294475123!3d27.59210996997757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8660df5e4915f661%3A0xeb3d6faf8e9bb714!2sGold&#39;s%20Gym!5e0!3m2!1sen!2sus!4v1699897016741!5m2!1sen!2sus"
+                width="600"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
         </div>
-    </div>
-  </section>
-  
-  <section id="footer">
-    <div class="container-fluid footer-section">
-      
+      </div>
+    </section>
+
+    <section id="footer">
+      <div class="container-fluid footer-section">
         <div class="row g-0">
           <div class="col-lg-4 footer-logo-container-mobile">
-            <img class="footer-logo" src="images/original-sticker-no-barbell-minty.png" alt="powerhouse pt physical therapy original logo">
+            <img
+              class="footer-logo"
+              src="images/original-sticker-no-barbell-minty.png"
+              alt="powerhouse pt physical therapy original logo"
+            />
           </div>
           <div class="col-lg-4 footer-copyright">
-            <span>Copyright © Powerhouse PT - Physical Therapy. All rights reserved.<br></span>
+            <span
+              >Copyright © Powerhouse PT - Physical Therapy. All rights
+              reserved.<br
+            /></span>
           </div>
           <div class="col-lg-4 footer-logo-container">
-            <img class="footer-logo" src="images/original-sticker-no-barbell-minty.png" alt="powerhouse pt physical therapy original logo">
+            <img
+              class="footer-logo"
+              src="images/original-sticker-no-barbell-minty.png"
+              alt="powerhouse pt physical therapy original logo"
+            />
           </div>
           <div class="col-lg-4 footer-links">
-            <a class="nav-link footer-link" href="https://www.instagram.com/powerhousept_"><i class="footer-icon fa-brands fa-instagram"></i></a>
-            <a class="nav-link footer-link" href="https://www.facebook.com/people/Powerhouse-PT-Physical-Therapy/100094690571519/"><i class="footer-icon fa-brands fa-facebook"></i></a>
+            <a
+              class="nav-link footer-link"
+              href="https://www.instagram.com/powerhousept_"
+              ><i class="footer-icon fa-brands fa-instagram"></i
+            ></a>
+            <a
+              class="nav-link footer-link"
+              href="https://www.facebook.com/people/Powerhouse-PT-Physical-Therapy/100094690571519/"
+              ><i class="footer-icon fa-brands fa-facebook"></i
+            ></a>
           </div>
-        </div>    
-    </div>
-  </section>
-</body>
-
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
