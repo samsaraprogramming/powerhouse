@@ -896,6 +896,22 @@ h2 {
   transition: background-color 0.2s ease;
 }
 
+.read-bio-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--cyan-primary);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
+
+.read-bio-link:hover {
+  text-decoration: underline;
+  color: var(--cyan-primary);
+}
+
 .accordion-button:not(.collapsed) {
   background-color: #1a1a1a !important;
   color: var(--cyan-primary) !important;
@@ -1074,21 +1090,21 @@ h2 {
   text-align: left;
   margin: 0;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-muted);
 }
 
 .footer-link {
   font-size: 1.2rem;
   padding: 0 1%;
   display: inline-block;
-  color: rgba(255, 255, 255, 0.6) !important;
+  color: var(--text-muted) !important;
   transition:
     color 0.2s ease,
     transform 0.2s ease;
 }
 
 .footer-link:hover {
-  color: var(--cyan-primary) !important;
+  color: var(--text-muted) !important;
   transform: translateY(-2px);
 }
 

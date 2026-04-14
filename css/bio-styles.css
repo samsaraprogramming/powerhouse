@@ -1,0 +1,185 @@
+/* ============================================
+   Bio Page Styles
+   ============================================ */
+
+:root {
+  --cyan-primary: #4ec9de;
+  --cyan-dark: #2aafc7;
+  --black: #0d0d0d;
+  --dark: #111111;
+  --dark-2: #1c1c1c;
+  --white: #ffffff;
+  --text-light: #e8f9fd;
+  --text-muted: #a0c4cd;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Lato", sans-serif;
+  background-color: var(--dark);
+  color: var(--white);
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================================
+   Navbar
+   ============================================ */
+
+.bio-navbar {
+  background-color: var(--black);
+  padding: 0.85rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  border-bottom: 1px solid rgba(78, 201, 222, 0.15);
+}
+
+.bio-navbar-logo {
+  height: 48px;
+}
+
+.back-link {
+  color: var(--cyan-primary);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+  color: var(--cyan-primary);
+}
+
+/* ============================================
+   Bio Page Layout
+   ============================================ */
+
+.bio-page {
+  padding-top: 74px;
+}
+
+.bio-header {
+  background-color: var(--black);
+  padding: 3.5rem 2rem 2.5rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(78, 201, 222, 0.15);
+}
+
+.bio-provider-name {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--white);
+  margin: 0 0 0.4rem;
+}
+
+.bio-provider-title {
+  font-size: 1.05rem;
+  color: var(--cyan-primary);
+  font-weight: 700;
+  margin: 0;
+}
+
+.bio-content {
+  padding: 50px 10%;
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.bio-photo {
+  width: 260px;
+  min-width: 260px;
+  border-radius: 12px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(78, 201, 222, 0.1);
+}
+
+.bio-text p {
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: var(--text-light);
+  margin-bottom: 1.25rem;
+}
+
+.bio-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+.bio-footer .footer-copyright {
+  color: var(--text-muted);
+}
+
+.bio-footer .footer-link {
+  color: var(--text-muted) !important;
+}
+
+.bio-footer .footer-link:hover {
+  color: var(--text-muted) !important;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 992px) {
+  .bio-content {
+    padding: 3rem 7%;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .bio-content {
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5rem 6%;
+    gap: 2rem;
+  }
+
+  .bio-photo {
+    width: 60%;
+    min-width: unset;
+  }
+
+  .bio-provider-name {
+    font-size: 1.7rem;
+  }
+
+  .bio-header {
+    padding: 2.5rem 1.5rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .bio-photo {
+    width: 80%;
+  }
+
+  .bio-content {
+    padding: 2rem 5%;
+  }
+
+  .bio-navbar {
+    padding: 0.75rem 1.25rem;
+  }
+}
