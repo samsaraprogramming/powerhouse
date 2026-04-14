@@ -34,7 +34,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
     />
-    <link rel="stylesheet" href="css/styles.css?v=2.6.1" />
+    <link rel="stylesheet" href="css/styles.css?v=2.6.2" />
 
     <!-- Font Awesome -->
     <script
@@ -126,6 +126,7 @@
         </div>
       </div>
     </div>
+
     <!-- Title -->
 
     <section id="title">
@@ -136,12 +137,12 @@
             <a class="navbar-brand" href="index.html">
               <img
                 class="desktop-logo"
-                src="images/p-logo-minty.png"
+                src="images/p-logo-minty.webp"
                 alt="powerhouse pt physical therapy logo"
               />
               <img
                 class="mobile-logo"
-                src="images/p-logo-minty.png"
+                src="images/p-logo-minty.webp"
                 alt="powerhouse pt physical therapy logo"
               />
             </a>
@@ -167,7 +168,7 @@
               <div class="offcanvas-header container-fluid">
                 <img
                   class="mobile-logo"
-                  src="images/p-logo-minty.png"
+                  src="images/p-logo-minty.webp"
                   alt="powerhouse pt physical therapy logo"
                 />
                 <button
@@ -189,7 +190,6 @@
                           { scrollTop: $('#title').offset().top - 30 },
                           'slow',
                         );
-                        $('.navbar')['addClass']('navbar-hide');
                       "
                       >Home</a
                     >
@@ -328,17 +328,9 @@
                   <li class="nav-item">
                     <a
                       class="nav-link"
-                      data-bs-dismiss="offcanvas"
-                      href="#"
-                      onclick="
-                        $('html, body').animate(
-                          { scrollTop: $('#contact').offset().top - 30 },
-                          'slow',
-                        );
-                        window.setTimeout(function () {
-                          $('.navbar')['addClass']('navbar-hide');
-                        }, 1000);
-                      "
+                    
+                      href="sign-up.html"
+                    
                       >Contact Us</a
                     >
                   </li>
@@ -416,7 +408,7 @@
             </h1>
             <img
               class="heading-logo hero-logo-animate"
-              src="images/original-sticker-no-barbell-minty.png"
+              src="images/original-sticker-no-barbell-minty.webp"
               alt="powerhouse pt physical therapy original logo"
             />
             <div class="message-container">
@@ -518,7 +510,7 @@
         <div class="row services-row physical-therapy-row g-0">
           <div class="col-lg-6 service-image-col" data-aos="fade-right">
             <img
-              src="images/orthopedic-sports-therapy.jpeg"
+              src="images/orthopedic-sports-therapy.webp"
               alt="Physical therapist treating a patient's knee"
               class="service-image"
             />
@@ -551,7 +543,7 @@
         <div class="row services-row g-0">
           <div
             id="sports-injury-prevention"
-            class="col-lg-6 service-text-col"
+            class="col-lg-6 service-text-col order-2 order-lg-1"
             data-aos="fade-right"
           >
             <h2 class="service-heading">
@@ -569,9 +561,9 @@
               future injuries.</span
             >
           </div>
-          <div class="col-lg-6 service-image-col" data-aos="fade-left">
+          <div class="col-lg-6 service-image-col order-1 order-lg-2" data-aos="fade-left">
             <img
-              src="images/sprint.jpeg"
+              src="images/sprint.webp"
               alt="Athlete in starting position on running track"
               class="service-image"
             />
@@ -580,15 +572,36 @@
         <div class="row services-row physical-therapy-row g-0">
           <div class="col-lg-6 service-image-col" data-aos="fade-right">
             <img
-              src="images/dry-needling.jpeg"
-              alt="Physical therapist performing dry needling on a patient's back"
+              src="images/gait-analysis.webp"
+              alt="Gait analysis assessment"
               class="service-image"
             />
           </div>
           <div
-            id="dry-needling"
+            id="gait-analysis"
             class="col-lg-6 service-text-col"
             data-aos="fade-left"
+          >
+            <h2 class="service-heading">Gait Analysis</h2>
+            <br />
+            <span class="service-info-text"
+              >Our gait analysis evaluates the way you walk and run to identify
+              movement inefficiencies, imbalances, and injury risk factors.</span
+            >
+            <br />
+            <br />
+            <span class="service-info-text"
+              >Using detailed assessment techniques, we pinpoint compensations
+              and develop a targeted plan to optimize your movement patterns and
+              performance.</span
+            >
+          </div>
+        </div>
+        <div class="row services-row g-0">
+          <div
+            id="dry-needling"
+            class="col-lg-6 service-text-col order-2 order-lg-1"
+            data-aos="fade-right"
           >
             <h2 class="service-heading">Dry Needling</h2>
             <br />
@@ -610,12 +623,26 @@
               muscle tightness, and sports-related injuries.</span
             >
           </div>
+          <div class="col-lg-6 service-image-col order-1 order-lg-2" data-aos="fade-left">
+            <img
+              src="images/dry-needling.webp"
+              alt="Physical therapist performing dry needling on a patient's back"
+              class="service-image"
+            />
+          </div>
         </div>
-        <div class="row services-row g-0">
+        <div class="row services-row physical-therapy-row g-0">
+          <div class="col-lg-6 service-image-col" data-aos="fade-right">
+            <img
+              src="images/cupping.webp"
+              alt="Cupping therapy session"
+              class="service-image"
+            />
+          </div>
           <div
             id="cupping"
             class="col-lg-6 service-text-col"
-            data-aos="fade-right"
+            data-aos="fade-left"
           >
             <h2 class="service-heading">Cupping</h2>
             <br />
@@ -633,13 +660,6 @@
             >
             <br />
           </div>
-          <div class="col-lg-6 service-image-col" data-aos="fade-left">
-            <img
-              src="images/cupping.jpeg"
-              alt="Cupping therapy session"
-              class="service-image"
-            />
-          </div>
         </div>
       </div>
     </section>
@@ -649,88 +669,7 @@
         <div class="about-team">
           <img
             class="profile-picture"
-            src="images/dr-sandra.jpg"
-            alt="Picture of Dr. Sandra Gomez DPT Founder"
-            data-aos="zoom-in"
-          />
-          <h2 class="profile-title" data-aos="fade-up" data-aos-delay="100">
-            Dr. Sandra Gomez, PT, DPT
-          </h2>
-          <br />
-          <div class="personal-summary-description">
-            <p>Doctor of Physical Therapy</p>
-            <p>Expertise in Orthopedics, Manual Therapy, & Strength Training</p>
-            <br />
-            <div class="personal-points-container">
-              <ul class="personal-summary-points">
-                <li class="personal-bullet-point">
-                  Extensive Training by Manual Therapy Institute
-                </li>
-                <li class="personal-bullet-point">
-                  Specialization in ACL Rehabilitation
-                </li>
-                <li class="personal-bullet-point">
-                  USA Weightlifting Level 1 Coach
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion" id="aboutSandraInfo">
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button
-                class="accordion-button collapsed"
-                role="button"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseOne"
-                aria-expanded="false"
-                aria-controls="collapseOne"
-              >
-                Learn More
-              </button>
-            </h2>
-            <div
-              id="collapseOne"
-              class="accordion-collapse collapse"
-              data-bs-parent="#aboutSandraInfo"
-            >
-              <div class="accordion-body profile-summary">
-                <br />
-                <p>
-                  Dr. Sandra Gomez is a Laredo native in which she played
-                  soccer, volleyball, and track throughout her high school
-                  years. She attended the University of Texas at Austin to earn
-                  her Bachelors of Science along with playing Club Soccer at UT.
-                  Dr. Sandra then went on to attend Texas State University to
-                  earn her Doctorate in Physical Therapy.
-                </p>
-                <br />
-                <p>
-                  Dr. Sandra has an extensive background in weight training
-                  along with working with college, semi-professional, and high
-                  school athletes. She has received on-going education on manual
-                  therapy and her main goal is to bridge the gap between
-                  performance, sports, and helping people understand more about
-                  their body to have long term results. She is very passionate
-                  about exercise, education, pain science and genuinely wants to
-                  give the best care to her patients while ensuring she is
-                  providing the most updated evidence-based treatment. In her
-                  free time, Dr. Sandra likes to stay active and practice weight
-                  training, go hiking with her dogs, and continues to play
-                  soccer in leagues around the city.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="about-team">
-          <img
-            class="profile-picture"
-            src="images/dr-leslie-edit.jpeg"
+            src="images/dr-leslie.webp"
             alt="Picture of Dr. Leslie Garcia, PT, DPT"
             data-aos="zoom-in"
           />
@@ -825,7 +764,7 @@
         <div class="about-team">
           <img
             class="profile-picture"
-            src="images/georgina-pta.jpeg"
+            src="images/georgina-pta.webp"
             alt="Picture of Georgina Morales, PTA"
             data-aos="zoom-in"
           />
@@ -915,7 +854,7 @@
         <div class="about-team">
           <img
             class="profile-picture"
-            src="images/alejandro.jpeg"
+            src="images/alejandro-pta.webp"
             alt="Picture of Alejandro Morales, PTA"
             data-aos="zoom-in"
           />
@@ -1006,6 +945,87 @@
             </div>
           </div>
         </div>
+
+        <div class="about-team">
+          <img
+            class="profile-picture"
+            src="images/dr-sandra.webp"
+            alt="Picture of Dr. Sandra Gomez DPT Founder"
+            data-aos="zoom-in"
+          />
+          <h2 class="profile-title" data-aos="fade-up" data-aos-delay="100">
+            Dr. Sandra Gomez, PT, DPT
+          </h2>
+          <br />
+          <div class="personal-summary-description">
+            <p>Doctor of Physical Therapy</p>
+            <p>Expertise in Orthopedics, Manual Therapy, & Strength Training</p>
+            <br />
+            <div class="personal-points-container">
+              <ul class="personal-summary-points">
+                <li class="personal-bullet-point">
+                  Extensive Training by Manual Therapy Institute
+                </li>
+                <li class="personal-bullet-point">
+                  Specialization in ACL Rehabilitation
+                </li>
+                <li class="personal-bullet-point">
+                  USA Weightlifting Level 1 Coach
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion" id="aboutSandraInfo">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                role="button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="false"
+                aria-controls="collapseOne"
+              >
+                Learn More
+              </button>
+            </h2>
+            <div
+              id="collapseOne"
+              class="accordion-collapse collapse"
+              data-bs-parent="#aboutSandraInfo"
+            >
+              <div class="accordion-body profile-summary">
+                <br />
+                <p>
+                  Dr. Sandra Gomez is a Laredo native in which she played
+                  soccer, volleyball, and track throughout her high school
+                  years. She attended the University of Texas at Austin to earn
+                  her Bachelors of Science along with playing Club Soccer at UT.
+                  Dr. Sandra then went on to attend Texas State University to
+                  earn her Doctorate in Physical Therapy.
+                </p>
+                <br />
+                <p>
+                  Dr. Sandra has an extensive background in weight training
+                  along with working with college, semi-professional, and high
+                  school athletes. She has received on-going education on manual
+                  therapy and her main goal is to bridge the gap between
+                  performance, sports, and helping people understand more about
+                  their body to have long term results. She is very passionate
+                  about exercise, education, pain science and genuinely wants to
+                  give the best care to her patients while ensuring she is
+                  providing the most updated evidence-based treatment. In her
+                  free time, Dr. Sandra likes to stay active and practice weight
+                  training, go hiking with her dogs, and continues to play
+                  soccer in leagues around the city.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1060,7 +1080,7 @@
           <div class="col-lg-4 footer-logo-container-mobile">
             <img
               class="footer-logo"
-              src="images/original-sticker-no-barbell-minty.png"
+              src="images/original-sticker-no-barbell-minty.webp"
               alt="powerhouse pt physical therapy original logo"
             />
           </div>
@@ -1073,7 +1093,7 @@
           <div class="col-lg-4 footer-logo-container">
             <img
               class="footer-logo"
-              src="images/original-sticker-no-barbell-minty.png"
+              src="images/original-sticker-no-barbell-minty.webp"
               alt="powerhouse pt physical therapy original logo"
             />
           </div>

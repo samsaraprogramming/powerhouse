@@ -33,7 +33,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
     />
-    <link rel="stylesheet" href="css/sign-up-styles.css?v=2.3.0" />
+    <link rel="stylesheet" href="css/sign-up-styles.css?v=2.3.1" />
 
     <!-- Font Awesome -->
     <script
@@ -41,7 +41,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -78,12 +77,12 @@
             <a class="navbar-brand" href="https://www.powerhousesportspt.com/">
               <img
                 class="desktop-logo"
-                src="images/p-logo-minty.png"
+                src="images/p-logo-minty.webp"
                 alt="powerhouse pt physical therapy logo"
               />
               <img
                 class="mobile-logo"
-                src="images/p-logo-minty.png"
+                src="images/p-logo-minty.webp"
                 alt="powerhouse pt physical therapy logo"
               />
             </a>
@@ -108,7 +107,7 @@
               <div class="offcanvas-header container-fluid">
                 <img
                   class="mobile-logo"
-                  src="images/p-logo-minty.png"
+                  src="images/p-logo-minty.webp"
                   alt="powerhouse pt physical therapy logo"
                 />
                 <button
@@ -121,11 +120,7 @@
               <div class="offcanvas-body container-fluid">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                   <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      href="/"
-                      >Home</a
-                    >
+                    <a class="nav-link" href="/">Home</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a
@@ -142,9 +137,7 @@
                       aria-labelledby="navbarDarkDropdownMenuLink"
                     >
                       <li>
-                        <a
-                          class="dropdown-item"
-                          href="/#physical-therapy"
+                        <a class="dropdown-item" href="/#physical-therapy"
                           >Orthopedic Physical Therapy</a
                         >
                       </li>
@@ -181,11 +174,7 @@
                     </ul>
                   </li>
                   <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      href="/#process"
-                      >Our Process</a
-                    >
+                    <a class="nav-link" href="/#process">Our Process</a>
                   </li>
                   <li class="nav-item">
                     <a
@@ -196,11 +185,7 @@
                     >
                   </li>
                   <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      href="/#contact"
-                      >Contact Us</a
-                    >
+                    <a class="nav-link" href="sign-up.html">Contact Us</a>
                   </li>
                   <li class="nav-item">
                     <a
@@ -228,111 +213,173 @@
           </h1>
           <img
             class="heading-logo hero-logo-animate"
-            src="images/original-sticker-no-barbell-minty.png"
+            src="images/original-sticker-no-barbell-minty.webp"
             alt="powerhouse pt physical therapy original logo"
           />
         </div>
       </div>
     </section>
 
-    <!-- Sign Up Form -->
+    <!-- Sign Up + Contact -->
     <section id="sign-up">
-      <div class="container-fluid sign-up-form">
-        <form id="contact-form" class="row g-3" novalidate>
-          <div class="col-md-6">
-            <label for="firstName" class="form-label">First Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="firstName"
-              name="first_name"
-              required
-            />
+      <div class="container-fluid sign-up-contact-wrapper">
+        <div class="row g-0">
+          <!-- Left: Form -->
+          <div class="col-lg-6 sign-up-form-col">
+            <h2 class="signup-col-title">Schedule A Free Call</h2>
+            <form id="contact-form" class="row g-3" novalidate>
+              <div class="col-md-6">
+                <label for="firstName" class="form-label">First Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="firstName"
+                  name="first_name"
+                  required
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="lastName"
+                  name="last_name"
+                  required
+                />
+              </div>
+              <div class="col-12">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="phone"
+                  name="phone"
+                  required
+                />
+              </div>
+              <div class="col-12">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  required
+                />
+              </div>
+              <div class="col-12">
+                <label for="insurance" class="form-label"
+                  >Insurance Provider</label
+                >
+                <select
+                  class="form-select"
+                  id="insurance"
+                  name="insurance"
+                  required
+                >
+                  <option value="" disabled selected>
+                    Select your insurance provider
+                  </option>
+                  <option value="None">None</option>
+                  <option value="Aetna">Aetna</option>
+                  <option value="Blue Cross Blue Shield">
+                    Blue Cross Blue Shield
+                  </option>
+                  <option value="Cigna">Cigna</option>
+                  <option value="Humana">Humana</option>
+                  <option value="Medicare">Medicare</option>
+                  <option value="Medicaid">Medicaid</option>
+                  <option value="Tricare">Tricare</option>
+                  <option value="UnitedHealthcare">UnitedHealthcare</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="goal" class="form-label">What's your goal?</label>
+                <textarea
+                  class="form-control"
+                  id="goal"
+                  name="goal"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+              <div class="col-12">
+                <button
+                  type="submit"
+                  id="submit-btn"
+                  class="w-100 btn btn-primary send-button"
+                >
+                  <span id="btn-text">Send</span>
+                  <span
+                    id="btn-spinner"
+                    class="spinner-border spinner-border-sm ms-2"
+                    role="status"
+                    style="display: none"
+                  ></span>
+                </button>
+              </div>
+
+              <!-- Success message -->
+              <div id="form-success" class="col-12" style="display: none">
+                <div class="alert form-alert-success" role="alert">
+                  <i class="fa-solid fa-circle-check me-2"></i>
+                  <strong>Message sent!</strong> We'll be in touch with you
+                  shortly.
+                </div>
+              </div>
+
+              <!-- Error message -->
+              <div id="form-error" class="col-12" style="display: none">
+                <div class="alert form-alert-error" role="alert">
+                  <i class="fa-solid fa-circle-exclamation me-2"></i>
+                  <strong>Something went wrong.</strong> Please try again or
+                  call us at <a href="tel:+19563076305">956-307-6305</a>.
+                </div>
+              </div>
+            </form>
           </div>
-          <div class="col-md-6">
-            <label for="lastName" class="form-label">Last Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="lastName"
-              name="last_name"
-              required
-            />
-          </div>
-          <div class="col-12">
-            <label for="phone" class="form-label">Phone Number</label>
-            <input
-              type="tel"
-              class="form-control"
-              id="phone"
-              name="phone"
-              required
-            />
-          </div>
-          <div class="col-12">
-            <label for="email" class="form-label">Email</label>
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              name="email"
-              required
-            />
-          </div>
-          <div class="col-12">
-            <label for="insurance" class="form-label">Insurance Provider</label>
-            <input
-              type="text"
-              class="form-control"
-              id="insurance"
-              name="insurance"
-              placeholder="If not applicable, enter N/A"
-              required
-            />
-          </div>
-          <div class="col-12">
-            <label for="goal" class="form-label">What's your goal?</label>
-            <textarea
-              class="form-control"
-              id="goal"
-              name="goal"
-              rows="3"
-              required
-            ></textarea>
-          </div>
-          <div class="col-12">
-            <button
-              type="submit"
-              id="submit-btn"
-              class="w-100 btn btn-primary send-button"
-            >
-              <span id="btn-text">Send</span>
+
+          <!-- Right: Contact Info + Map -->
+          <div class="col-lg-6 sign-up-contact-col">
+            <h2 class="signup-col-title">Contact Us</h2>
+            <div class="contact-details">
+              <span class="name">Dr. Sandra Gomez, PT, DPT <br /></span>
+              <span>Doctor of Physical Therapy<br /></span>
               <span
-                id="btn-spinner"
-                class="spinner-border spinner-border-sm ms-2"
-                role="status"
-                style="display: none"
-              ></span>
-            </button>
-          </div>
-
-          <!-- Success message -->
-          <div id="form-success" class="col-12" style="display: none">
-            <div class="alert form-alert-success" role="alert">
-              <i class="fa-solid fa-circle-check me-2"></i>
-              <strong>Message sent!</strong> We'll be in touch with you shortly.
+                ><i class="fa-solid fa-phone"></i> Phone:
+                <a href="tel:+19563076305">956-307-6305</a> <br
+              /></span>
+              <span
+                ><i class="fa-solid fa-fax"></i> Fax: 956-857-3229 <br
+              /></span>
+              <span
+                ><i class="fa-solid fa-envelope"></i>
+                <a href="mailto:INFO@POWERHOUSESPORTSPT.COM"
+                  >INFO@POWERHOUSESPORTSPT.COM</a
+                ><br
+              /></span>
+              <span
+                ><i class="fa-solid fa-location-dot"></i>
+                <a href="https://maps.app.goo.gl/yDw3U9cw4icQMNew6"
+                  >2446 SAN ISIDRO PKWY - LOCATED IN GOLD'S GYM</a
+                ><br
+              /></span>
+            </div>
+            <div class="map-container">
+              <iframe
+                class="map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14144.183157178339!2d-99.47684294475123!3d27.59210996997757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8660df5e4915f661%3A0xeb3d6faf8e9bb714!2sGold&#39;s%20Gym!5e0!3m2!1sen!2sus!4v1699897016741!5m2!1sen!2sus"
+                width="600"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
-
-          <!-- Error message -->
-          <div id="form-error" class="col-12" style="display: none">
-            <div class="alert form-alert-error" role="alert">
-              <i class="fa-solid fa-circle-exclamation me-2"></i>
-              <strong>Something went wrong.</strong> Please try again or call us
-              at <a href="tel:+19563076305">956-307-6305</a>.
-            </div>
-          </div>
-        </form>
+        </div>
       </div>
     </section>
 
@@ -388,59 +435,13 @@
         });
     </script>
 
-    <section id="contact">
-      <div class="container-fluid contact-section">
-        <h2 id="contact-header">GET THE QUALITY CARE YOU DESERVE</h2>
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="contact-details">
-              <span class="name">Dr. Sandra Gomez, PT, DPT <br /></span>
-              <span>Doctor of Physical Therapy<br /></span>
-              <span
-                ><i class="fa-solid fa-phone"></i> Phone:
-                <a href="tel:+19563076305">956-307-6305</a> <br
-              /></span>
-              <span
-                ><i class="fa-solid fa-fax"></i> Fax: 956-857-3229 <br
-              /></span>
-              <span
-                ><i class="fa-solid fa-envelope"></i>
-                <a href="mailto:INFO@POWERHOUSESPORTSPT.COM"
-                  >INFO@POWERHOUSESPORTSPT.COM</a
-                ><br
-              /></span>
-              <span
-                ><i class="fa-solid fa-location-dot"></i>
-                <a href="https://maps.app.goo.gl/yDw3U9cw4icQMNew6"
-                  >2446 SAN ISIDRO PKWY - LOCATED IN GOLD'S GYM</a
-                ><br
-              /></span>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="map-container">
-              <iframe
-                class="map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14144.183157178339!2d-99.47684294475123!3d27.59210996997757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8660df5e4915f661%3A0xeb3d6faf8e9bb714!2sGold&#39;s%20Gym!5e0!3m2!1sen!2sus!4v1699897016741!5m2!1sen!2sus"
-                width="600"
-                height="450"
-                style="border: 0"
-                allowfullscreen=""
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section id="footer">
       <div class="container-fluid footer-section">
         <div class="row g-0">
           <div class="col-lg-4 footer-logo-container-mobile">
             <img
               class="footer-logo"
-              src="images/original-sticker-no-barbell-minty.png"
+              src="images/original-sticker-no-barbell-minty.webp"
               alt="powerhouse pt physical therapy original logo"
             />
           </div>
@@ -453,7 +454,7 @@
           <div class="col-lg-4 footer-logo-container">
             <img
               class="footer-logo"
-              src="images/original-sticker-no-barbell-minty.png"
+              src="images/original-sticker-no-barbell-minty.webp"
               alt="powerhouse pt physical therapy original logo"
             />
           </div>
