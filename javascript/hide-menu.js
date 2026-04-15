@@ -1,24 +1,17 @@
 var prevScroll = 0;
 
-(function ($) {
+window.addEventListener('scroll', function () {
+  var scroll = window.scrollY;
+  var navbar = document.querySelector('.navbar');
+  if (!navbar) return;
 
-     // scroll functions
-     $(window).scroll(function(e) {
-     
-          scroll = $(window).scrollTop()
-
-          if(scroll < 50){
-               $('.navbar')['removeClass']('navbar-hide');
-          }else if(scroll - prevScroll >= 20){
-               $('.navbar')['addClass']('navbar-hide');
-               prevScroll = scroll;
-          }
-          else if(prevScroll - scroll >= 20) {
-               $('.navbar')['removeClass']('navbar-hide');
-               prevScroll = scroll;
-          }
-          //}
-     
-     });
-     
- })(jQuery);    
+  if (scroll < 50) {
+    navbar.classList.remove('navbar-hide');
+  } else if (scroll - prevScroll >= 20) {
+    navbar.classList.add('navbar-hide');
+    prevScroll = scroll;
+  } else if (prevScroll - scroll >= 20) {
+    navbar.classList.remove('navbar-hide');
+    prevScroll = scroll;
+  }
+});

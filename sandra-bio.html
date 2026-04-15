@@ -36,24 +36,70 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+    <script src="javascript/hide-menu.js"></script>
 
-    <nav class="bio-navbar">
-      <a href="index.html">
-        <img
-          class="bio-navbar-logo"
-          src="images/p-logo-minty.webp"
-          alt="Powerhouse PT logo"
-        />
-      </a>
-      <a href="index.html#about-us" class="back-link">
-        <i class="fa-solid fa-arrow-left"></i> Meet Our Team
-      </a>
-    </nav>
+    <section id="title">
+      <div class="container-fluid navbar-container">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+          <div class="container-fluid navbar-content-container">
+            <a class="navbar-brand" href="index.html">
+              <img class="desktop-logo" src="images/p-logo-minty.webp" alt="powerhouse pt physical therapy logo" />
+              <img class="mobile-logo" src="images/p-logo-minty.webp" alt="powerhouse pt physical therapy logo" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+              <span class="toggler-lines" role="button"><i class="fa-solid fa-bars" aria-hidden="true"></i></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+              <div class="offcanvas-header container-fluid">
+                <img class="mobile-logo" src="images/p-logo-minty.webp" alt="powerhouse pt physical therapy logo" />
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body container-fluid">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                      <li><a class="dropdown-item" href="index.html?scrollTo=physical-therapy">Orthopedic Physical Therapy</a></li>
+                      <li><a class="dropdown-item" href="index.html?scrollTo=sports-injury-prevention">Sports Performance &amp; Injury Prevention</a></li>
+                      <li><a class="dropdown-item" href="index.html?scrollTo=gait-analysis">Gait Analysis</a></li>
+                      <li><a class="dropdown-item" href="index.html?scrollTo=dry-needling">Dry Needling</a></li>
+                      <li><a class="dropdown-item" href="index.html?scrollTo=cupping">Cupping</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html?scrollTo=process">Our Process</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html?scrollTo=about-us">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="sign-up.html">Contact Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link media-link" href="https://www.instagram.com/powerhousept_"><i class="media-icon fa-brands fa-instagram"></i></a>
+                    <a class="nav-link media-link" href="https://www.facebook.com/people/Powerhouse-PT-Physical-Therapy/100094690571519/"><i class="media-icon fa-brands fa-facebook"></i></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </section>
 
     <div class="bio-page">
       <div class="bio-header">
         <h1 class="bio-provider-name">Dr. Sandra Gomez, PT, DPT</h1>
         <p class="bio-provider-title">Doctor of Physical Therapy &mdash; Founder &amp; Owner</p>
+      </div>
+
+      <div class="bio-back-row">
+        <a href="index.html?scrollTo=about-us" class="bio-back-link">
+          <i class="fa-solid fa-arrow-left"></i> Meet Our Team
+        </a>
       </div>
 
       <div class="bio-content">

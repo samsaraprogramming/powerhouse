@@ -66,6 +66,32 @@ body {
 }
 
 /* ============================================
+   Back Link (in content area)
+   ============================================ */
+
+.bio-back-row {
+  padding: 1.1rem 10%;
+  background-color: var(--dark);
+  border-bottom: 1px solid rgba(78, 201, 222, 0.08);
+}
+
+.bio-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--cyan-primary);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+}
+
+.bio-back-link:hover {
+  text-decoration: underline;
+  color: var(--cyan-primary);
+}
+
+/* ============================================
    Bio Page Layout
    ============================================ */
 

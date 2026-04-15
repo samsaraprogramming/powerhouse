@@ -93,6 +93,22 @@
         offset: 60,
         easing: "ease-out-cubic",
       });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const params = new URLSearchParams(window.location.search);
+        const section = params.get("scrollTo");
+        if (section) {
+          const target = document.getElementById(section);
+          if (target) {
+            setTimeout(function () {
+              const navbar = document.querySelector(".navbar");
+              const navHeight = navbar ? navbar.offsetHeight : 70;
+              const top = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+              window.scrollTo({ top: top, behavior: "smooth" });
+            }, 150);
+          }
+        }
+      });
     </script>
 
     <!-- Modal Popup  -->
@@ -247,6 +263,26 @@
                             }, 1000);
                           "
                           >Sports Performance & Injury Prevention</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          class="dropdown-item"
+                          href="#"
+                          data-bs-dismiss="offcanvas"
+                          onclick="
+                            $('html, body').animate(
+                              {
+                                scrollTop:
+                                  $('#gait-analysis').offset().top - 30,
+                              },
+                              'slow',
+                            );
+                            window.setTimeout(function () {
+                              $('.navbar')['addClass']('navbar-hide');
+                            }, 1000);
+                          "
+                          >Gait Analysis</a
                         >
                       </li>
                       <li>
@@ -538,6 +574,11 @@
               >Our goal is focused on helping you move better than before while
               being pain-free.</span
             >
+            <br />
+            <br />
+            <a href="service-orthopedic-pt.html" class="read-bio-link">
+              Learn More <i class="fa-solid fa-arrow-right"></i>
+            </a>
           </div>
         </div>
         <div class="row services-row g-0">
@@ -560,6 +601,11 @@
               >While ensuring that we maximize your performance and prevent any
               future injuries.</span
             >
+            <br />
+            <br />
+            <a href="service-sports-performance.html" class="read-bio-link">
+              Learn More <i class="fa-solid fa-arrow-right"></i>
+            </a>
           </div>
           <div class="col-lg-6 service-image-col order-1 order-lg-2" data-aos="fade-left">
             <img
@@ -595,6 +641,11 @@
               and develop a targeted plan to optimize your movement patterns and
               performance.</span
             >
+            <br />
+            <br />
+            <a href="service-gait-analysis.html" class="read-bio-link">
+              Learn More <i class="fa-solid fa-arrow-right"></i>
+            </a>
           </div>
         </div>
         <div class="row services-row g-0">
@@ -622,6 +673,11 @@
               >This technique is especially effective for chronic pain,
               muscle tightness, and sports-related injuries.</span
             >
+            <br />
+            <br />
+            <a href="service-dry-needling.html" class="read-bio-link">
+              Learn More <i class="fa-solid fa-arrow-right"></i>
+            </a>
           </div>
           <div class="col-lg-6 service-image-col order-1 order-lg-2" data-aos="fade-left">
             <img
@@ -659,6 +715,10 @@
               both injury recovery and performance enhancement.</span
             >
             <br />
+            <br />
+            <a href="service-cupping.html" class="read-bio-link">
+              Learn More <i class="fa-solid fa-arrow-right"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -864,8 +924,8 @@
             >
               <div class="accordion-body profile-summary">
                 <p>
-                  Our newest licensed physical therapy provider joining
-                  POWERHOUSE PT. A movement-focused clinician with a passion for
+                  Alejandro is our newest licensed physical therapy provider joining
+                  Powerhouse PT. A movement-focused clinician with a passion for
                   building strength, restoring function, and helping patients
                   perform at a higher level...
                 </p>
