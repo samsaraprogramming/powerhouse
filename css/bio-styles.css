@@ -11,6 +11,7 @@
   --white: #ffffff;
   --text-light: #e8f9fd;
   --text-muted: #a0c4cd;
+  --text-footer: #a0c4cd;
 }
 
 *,
@@ -32,21 +33,128 @@ body {
    Navbar
    ============================================ */
 
-.bio-navbar {
-  background-color: var(--black);
-  padding: 0.85rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 999;
-  border-bottom: 1px solid rgba(78, 201, 222, 0.15);
+/* ============================================
+   Navbar
+   ============================================ */
+.navbar {
+  background-color: var(--black) !important;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  border-bottom: 2px solid rgba(78, 201, 222, 0.25);
 }
 
-.bio-navbar-logo {
-  height: 48px;
+.navbar-hide {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.navbar-content-container {
+  width: 85%;
+}
+
+.nav-link {
+  color: var(--text-light);
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: color 0.2s ease;
+}
+
+.navbar-nav .nav-link.show {
+  color: var(--text-light);
+}
+
+.nav-link:active {
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: var(--cyan-primary);
+}
+
+.nav-link:focus {
+  color: var(--text-light);
+}
+
+.media-icon {
+  font-size: 1.5rem;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.media-link {
+  display: inline-block;
+}
+
+.media-link:hover .media-icon {
+  transform: scale(1.15);
+}
+
+@media (max-width: 991px) {
+  .media-link {
+    padding-right: 3.5%;
+  }
+}
+
+.fa-bars {
+  color: var(--text-light);
+}
+
+.btn-close {
+  opacity: 1;
+}
+
+.mobile-logo {
+  display: none;
+  width: 60px;
+}
+
+.desktop-logo {
+  width: 80px;
+}
+
+@media (max-width: 991px) {
+  .mobile-logo {
+    display: inline;
+  }
+
+  .desktop-logo {
+    display: none;
+  }
+}
+
+.offcanvas.offcanvas-end {
+  width: 100%;
+  background-color: var(--black);
+  transition: transform 0.15s ease-in-out;
+}
+
+.offcanvas-header {
+  width: 80%;
+}
+
+.offcanvas-body {
+  width: 80%;
+}
+
+.dropdown-menu {
+  background-color: rgba(0, 0, 0, 0.95);
+  border: 1px solid rgba(78, 201, 222, 0.2);
+  border-radius: var(--radius-sm);
+}
+
+.dropdown-item {
+  color: var(--text-light);
+  font-weight: 500;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(78, 201, 222, 0.15);
+  color: var(--cyan-primary);
 }
 
 .back-link {
@@ -150,18 +258,83 @@ body {
 /* ============================================
    Footer
    ============================================ */
-
-.bio-footer .footer-copyright {
-  color: var(--text-muted);
+/* ============================================
+   Footer
+   ============================================ */
+.footer-section {
+  background-color: var(--black);
+  text-align: center;
+  color: var(--white);
+  padding: 1.75% 0;
+  font-size: 0.85rem;
+  width: 100%;
+  border-top: 2px solid rgba(78, 201, 222, 0.25);
 }
 
-.bio-footer .footer-link {
-  color: var(--text-muted) !important;
+.footer-logo {
+  width: 130px;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
 }
 
-.bio-footer .footer-link:hover {
-  color: var(--text-muted) !important;
+.footer-logo:hover {
+  opacity: 1;
 }
+
+.footer-logo-container {
+  text-align: center;
+}
+
+.footer-copyright {
+  padding: 5px 5%;
+  text-align: left;
+  margin: 0;
+  font-weight: 400;
+  color: var(--text-footer);
+}
+
+.footer-link {
+  font-size: 1.2rem;
+  padding: 0 1%;
+  display: inline-block;
+  color: var(--text-footer) !important;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--text-footer) !important;
+  transform: translateY(-2px);
+}
+
+.footer-links {
+  text-align: right;
+  padding: 0 5%;
+}
+
+.footer-logo-container-mobile {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .footer-logo-container-mobile {
+    display: block;
+    text-align: center;
+  }
+
+  .footer-logo-container {
+    display: none;
+  }
+
+  .footer-copyright {
+    text-align: center;
+  }
+
+  .footer-links {
+    text-align: center;
+  }
+} 
 
 /* ============================================
    Responsive

@@ -26,10 +26,11 @@
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/service-styles.css" />
+    <link rel="stylesheet" href="css/service-styles.css?v=1.0.2" />
   </head>
 
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
@@ -51,6 +52,7 @@
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
               <div class="offcanvas-header container-fluid">
                 <img class="mobile-logo" src="images/p-logo-minty.webp" alt="powerhouse pt physical therapy logo" />
+                <span id="offcanvasNavbarLabel" class="visually-hidden">Navigation Menu</span>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
               </div>
               <div class="offcanvas-body container-fluid">
@@ -62,8 +64,8 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                       <li><a class="dropdown-item" href="index.html?scrollTo=physical-therapy">Orthopedic Physical Therapy</a></li>
-                      <li><a class="dropdown-item" href="index.html?scrollTo=sports-injury-prevention">Sports Performance &amp; Injury Prevention</a></li>
-                      <li><a class="dropdown-item" href="index.html?scrollTo=gait-analysis">Gait Analysis</a></li>
+                      <li><a class="dropdown-item" href="index.html?scrollTo=sports-injury-prevention">Sports Performance</a></li>
+                      <li><a class="dropdown-item" href="index.html?scrollTo=running-analysis">Running Analysis</a></li>
                       <li><a class="dropdown-item" href="index.html?scrollTo=dry-needling">Dry Needling</a></li>
                       <li><a class="dropdown-item" href="index.html?scrollTo=cupping">Cupping</a></li>
                     </ul>
@@ -78,8 +80,8 @@
                     <a class="nav-link" href="sign-up.html">Contact Us</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link media-link" href="https://www.instagram.com/powerhousept_"><i class="media-icon fa-brands fa-instagram"></i></a>
-                    <a class="nav-link media-link" href="https://www.facebook.com/people/Powerhouse-PT-Physical-Therapy/100094690571519/"><i class="media-icon fa-brands fa-facebook"></i></a>
+                    <a class="nav-link media-link" aria-label="Follow us on Instagram" href="https://www.instagram.com/powerhousept_"><i class="media-icon fa-brands fa-instagram" aria-hidden="true"></i></a>
+                    <a class="nav-link media-link" aria-label="Follow us on Facebook" href="https://www.facebook.com/people/Powerhouse-PT-Physical-Therapy/100094690571519/"><i class="media-icon fa-brands fa-facebook" aria-hidden="true"></i></a>
                   </li>
                 </ul>
               </div>
@@ -89,7 +91,7 @@
       </div>
     </section>
 
-    <div class="service-page">
+    <main class="service-page" id="main-content">
 
       <!-- Hero -->
       <div class="service-hero">
@@ -108,7 +110,7 @@
       <!-- Intro -->
       <div class="service-intro">
         <a href="index.html?scrollTo=cupping" class="service-back-link">
-          <i class="fa-solid fa-arrow-left"></i> Back to Services
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Services
         </a>
         <p class="service-intro-text">
           While most manual therapy techniques push down into tissue, cupping works differently — it lifts. By creating targeted suction on the skin and underlying fascia, cupping decompresses the layers of tissue that are often stuck together from injury, overuse, or chronic tension. At Powerhouse PT in Laredo, Texas, we use cupping as a clinical tool integrated with your broader treatment plan — not a standalone spa service. The result is reduced muscle soreness, improved tissue mobility, better circulation, and faster recovery from both injury and training.
@@ -141,32 +143,32 @@
         <hr class="section-divider" />
         <div class="service-details-grid">
           <div class="detail-card">
-            <div class="detail-card-icon"><i class="fa-solid fa-circle-up"></i></div>
+            <div class="detail-card-icon"><i aria-hidden="true" class="fa-solid fa-circle-up"></i></div>
             <p class="detail-card-title">Myofascial Decompression</p>
             <p class="detail-card-text">The suction from the cups lifts the skin and fascia away from the underlying tissue, separating layers that have become stuck or restricted — restoring the gliding motion between tissue layers.</p>
           </div>
           <div class="detail-card">
-            <div class="detail-card-icon"><i class="fa-solid fa-droplet"></i></div>
+            <div class="detail-card-icon"><i aria-hidden="true" class="fa-solid fa-droplet"></i></div>
             <p class="detail-card-title">Enhanced Blood Flow</p>
             <p class="detail-card-text">Cupping draws fresh blood into the treated area, delivering oxygen and nutrients while flushing out metabolic waste products that accumulate from intense training or prolonged inactivity.</p>
           </div>
           <div class="detail-card">
-            <div class="detail-card-icon"><i class="fa-solid fa-scissors"></i></div>
+            <div class="detail-card-icon"><i aria-hidden="true" class="fa-solid fa-scissors"></i></div>
             <p class="detail-card-title">Scar Tissue Breakdown</p>
             <p class="detail-card-text">Chronic injuries and post-surgical sites often develop dense scar tissue that restricts movement and causes pain. Cupping creates mechanical forces that help break down adhesions and restore tissue extensibility.</p>
           </div>
           <div class="detail-card">
-            <div class="detail-card-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+            <div class="detail-card-icon"><i aria-hidden="true" class="fa-solid fa-fire-flame-curved"></i></div>
             <p class="detail-card-title">Reduced Inflammation</p>
             <p class="detail-card-text">By promoting lymphatic drainage and improving local circulation, cupping helps reduce the inflammatory buildup in chronically tight muscles and injured tissues — accelerating the healing timeline.</p>
           </div>
           <div class="detail-card">
-            <div class="detail-card-icon"><i class="fa-solid fa-arrows-up-down-left-right"></i></div>
+            <div class="detail-card-icon"><i aria-hidden="true" class="fa-solid fa-arrows-up-down-left-right"></i></div>
             <p class="detail-card-title">Improved Range of Motion</p>
             <p class="detail-card-text">Dynamic cupping — moving the cups across the skin while suction is applied — provides a deep, moving stretch to fascial layers that traditional stretching and foam rolling can't always reach.</p>
           </div>
           <div class="detail-card">
-            <div class="detail-card-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <div class="detail-card-icon"><i aria-hidden="true" class="fa-solid fa-layer-group"></i></div>
             <p class="detail-card-title">Integrated with Your Treatment</p>
             <p class="detail-card-text">We don't use cupping in isolation. It's applied as a targeted component of a comprehensive treatment plan — combined with manual therapy, exercise, and education for lasting results.</p>
           </div>
@@ -216,11 +218,38 @@
         <a href="sign-up.html" class="service-cta-btn">Schedule a Free Call</a>
       </div>
 
-      <!-- Footer -->
-      <footer class="service-footer">
-        <span class="footer-copyright">Copyright © Powerhouse PT - Physical Therapy. All rights reserved.</span>
-      </footer>
+      <footer id="footer">
+      <div class="container-fluid footer-section">
+        <div class="row g-0">
+          <div class="col-lg-4 footer-logo-container-mobile">
+            <img
+              class="footer-logo"
+              src="images/powerhouse-logo.webp"
+              alt="powerhouse pt physical therapy original logo"
+            />
+          </div>
+          <div class="col-lg-4 footer-copyright">
+            <span>Copyright © Powerhouse PT - Physical Therapy. All rights reserved.<br /></span>
+          </div>
+          <div class="col-lg-4 footer-logo-container">
+            <img
+              class="footer-logo"
+              src="images/powerhouse-logo.webp"
+              alt="powerhouse pt physical therapy original logo"
+            />
+          </div>
+          <div class="col-lg-4 footer-links">
+            <a class="nav-link footer-link" aria-label="Follow us on Instagram" href="https://www.instagram.com/powerhousept_"
+              ><i class="footer-icon fa-brands fa-instagram" aria-hidden="true"></i
+            ></a>
+            <a class="nav-link footer-link" aria-label="Follow us on Facebook" href="https://www.facebook.com/people/Powerhouse-PT-Physical-Therapy/100094690571519/"
+              ><i class="footer-icon fa-brands fa-facebook" aria-hidden="true"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
 
-    </div>
+    </main>
   </body>
 </html>

@@ -26,10 +26,11 @@
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/service-styles.css" />
+    <link rel="stylesheet" href="css/service-styles.css?v=1.0.2" />
   </head>
 
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
@@ -51,6 +52,7 @@
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
               <div class="offcanvas-header container-fluid">
                 <img class="mobile-logo" src="images/p-logo-minty.webp" alt="powerhouse pt physical therapy logo" />
+                <span id="offcanvasNavbarLabel" class="visually-hidden">Navigation Menu</span>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
               </div>
               <div class="offcanvas-body container-fluid">
@@ -62,8 +64,8 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                       <li><a class="dropdown-item" href="index.html?scrollTo=physical-therapy">Orthopedic Physical Therapy</a></li>
-                      <li><a class="dropdown-item" href="index.html?scrollTo=sports-injury-prevention">Sports Performance &amp; Injury Prevention</a></li>
-                      <li><a class="dropdown-item" href="index.html?scrollTo=gait-analysis">Gait Analysis</a></li>
+                      <li><a class="dropdown-item" href="index.html?scrollTo=sports-injury-prevention">Sports Performance</a></li>
+                      <li><a class="dropdown-item" href="index.html?scrollTo=running-analysis">Running Analysis</a></li>
                       <li><a class="dropdown-item" href="index.html?scrollTo=dry-needling">Dry Needling</a></li>
                       <li><a class="dropdown-item" href="index.html?scrollTo=cupping">Cupping</a></li>
                     </ul>
@@ -78,8 +80,8 @@
                     <a class="nav-link" href="sign-up.html">Contact Us</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link media-link" href="https://www.instagram.com/powerhousept_"><i class="media-icon fa-brands fa-instagram"></i></a>
-                    <a class="nav-link media-link" href="https://www.facebook.com/people/Powerhouse-PT-Physical-Therapy/100094690571519/"><i class="media-icon fa-brands fa-facebook"></i></a>
+                    <a class="nav-link media-link" aria-label="Follow us on Instagram" href="https://www.instagram.com/powerhousept_"><i class="media-icon fa-brands fa-instagram" aria-hidden="true"></i></a>
+                    <a class="nav-link media-link" aria-label="Follow us on Facebook" href="https://www.facebook.com/people/Powerhouse-PT-Physical-Therapy/100094690571519/"><i class="media-icon fa-brands fa-facebook" aria-hidden="true"></i></a>
                   </li>
                 </ul>
               </div>
@@ -89,7 +91,7 @@
       </div>
     </section>
 
-    <div class="service-page">
+    <main class="service-page" id="main-content">
 
       <!-- Hero -->
       <div class="service-hero">
@@ -108,7 +110,7 @@
       <!-- Intro -->
       <div class="service-intro">
         <a href="index.html?scrollTo=dry-needling" class="service-back-link">
-          <i class="fa-solid fa-arrow-left"></i> Back to Services
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Services
         </a>
         <p class="service-intro-text">
           Dry needling is one of the most effective tools we have for reaching deep muscle dysfunction that hands-on therapy alone can't always access. At Powerhouse PT in Laredo, Texas, our certified dry needling providers use thin, sterile monofilament needles to target trigger points — those knotted, hypersensitive spots in muscle tissue that cause pain, restrict movement, and resist conventional treatment. When a needle hits an active trigger point, it creates a local twitch response that resets the muscle, flushes out inflammatory waste products, and triggers your body's natural healing response. The result is often faster, deeper relief than you can get from stretching or massage alone.
@@ -141,32 +143,32 @@
         <hr class="section-divider" />
         <div class="service-details-grid">
           <div class="detail-card">
-            <div class="detail-card-icon"><i class="fa-solid fa-syringe"></i></div>
+            <div class="detail-card-icon"><i aria-hidden="true" class="fa-solid fa-syringe"></i></div>
             <p class="detail-card-title">Trigger Point Release</p>
             <p class="detail-card-text">A sterile, thin needle is inserted into the knotted muscle band. The local twitch response you feel is the muscle resetting — releasing the contraction that's been driving your pain.</p>
           </div>
           <div class="detail-card">
-            <div class="detail-card-icon"><i class="fa-solid fa-droplet"></i></div>
+            <div class="detail-card-icon"><i aria-hidden="true" class="fa-solid fa-droplet"></i></div>
             <p class="detail-card-title">Improved Blood Flow</p>
             <p class="detail-card-text">The needle stimulates a hyperemia response — drawing fresh, oxygenated blood into the treated area to flush out inflammatory chemicals and supply nutrients needed for tissue repair.</p>
           </div>
           <div class="detail-card">
-            <div class="detail-card-icon"><i class="fa-solid fa-brain"></i></div>
+            <div class="detail-card-icon"><i aria-hidden="true" class="fa-solid fa-brain"></i></div>
             <p class="detail-card-title">Endorphin Release</p>
             <p class="detail-card-text">Dry needling activates your body's pain-modulating system, triggering the release of endorphins and serotonin — creating natural, lasting pain relief that extends well beyond the session itself.</p>
           </div>
           <div class="detail-card">
-            <div class="detail-card-icon"><i class="fa-solid fa-arrows-to-dot"></i></div>
+            <div class="detail-card-icon"><i aria-hidden="true" class="fa-solid fa-arrows-to-dot"></i></div>
             <p class="detail-card-title">Muscle Function Restoration</p>
             <p class="detail-card-text">By deactivating trigger points, we restore normal muscle length and firing patterns — allowing surrounding muscles to activate properly and reducing the strain that leads to re-injury.</p>
           </div>
           <div class="detail-card">
-            <div class="detail-card-icon"><i class="fa-solid fa-person-running"></i></div>
+            <div class="detail-card-icon"><i aria-hidden="true" class="fa-solid fa-person-running"></i></div>
             <p class="detail-card-title">Faster Athletic Recovery</p>
             <p class="detail-card-text">Athletes use dry needling to recover faster between training sessions, reduce delayed-onset muscle soreness, and address chronic tightness that limits training quality and performance.</p>
           </div>
           <div class="detail-card">
-            <div class="detail-card-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <div class="detail-card-icon"><i aria-hidden="true" class="fa-solid fa-layer-group"></i></div>
             <p class="detail-card-title">Combined with Manual Therapy</p>
             <p class="detail-card-text">Dry needling works best as part of a broader treatment plan. We integrate it with manual therapy and therapeutic exercise so the gains you make in the clinic carry over to real life.</p>
           </div>
@@ -217,10 +219,38 @@
       </div>
 
       <!-- Footer -->
-      <footer class="service-footer">
-        <span class="footer-copyright">Copyright © Powerhouse PT - Physical Therapy. All rights reserved.</span>
-      </footer>
+      <footer id="footer">
+      <div class="container-fluid footer-section">
+        <div class="row g-0">
+          <div class="col-lg-4 footer-logo-container-mobile">
+            <img
+              class="footer-logo"
+              src="images/powerhouse-logo.webp"
+              alt="powerhouse pt physical therapy original logo"
+            />
+          </div>
+          <div class="col-lg-4 footer-copyright">
+            <span>Copyright © Powerhouse PT - Physical Therapy. All rights reserved.<br /></span>
+          </div>
+          <div class="col-lg-4 footer-logo-container">
+            <img
+              class="footer-logo"
+              src="images/powerhouse-logo.webp"
+              alt="powerhouse pt physical therapy original logo"
+            />
+          </div>
+          <div class="col-lg-4 footer-links">
+            <a class="nav-link footer-link" aria-label="Follow us on Instagram" href="https://www.instagram.com/powerhousept_"
+              ><i class="footer-icon fa-brands fa-instagram" aria-hidden="true"></i
+            ></a>
+            <a class="nav-link footer-link" aria-label="Follow us on Facebook" href="https://www.facebook.com/people/Powerhouse-PT-Physical-Therapy/100094690571519/"
+              ><i class="footer-icon fa-brands fa-facebook" aria-hidden="true"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
 
-    </div>
+    </main>
   </body>
 </html>

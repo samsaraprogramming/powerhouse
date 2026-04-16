@@ -12,11 +12,33 @@
   --white: #ffffff;
   --text-light: #e8f9fd;
   --text-muted: #82c4d8;
+  --text-footer: #a0c4cd;
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.12);
   --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.18);
   --shadow-cyan: 0 4px 20px rgba(78, 201, 222, 0.3);
   --radius: 10px;
   --radius-sm: 6px;
+}
+
+/* ============================================
+   Skip Navigation
+   ============================================ */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: var(--cyan-primary);
+  color: var(--black);
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  z-index: 10000;
+  text-decoration: none;
+  border-radius: 0 0 8px 0;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 0;
 }
 
 /* ============================================
@@ -30,7 +52,7 @@ html {
   height: 100%;
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  background-color: var(--light-blue);
+  background-color: var(--black);
   color: var(--black);
 }
 
@@ -435,7 +457,7 @@ h2 {
 
 .heading-logo {
   padding-top: 75px;
-  width: 100%;
+  width: 80%;
 }
 
 /* ============================================
@@ -905,6 +927,7 @@ h2 {
   font-size: 0.95rem;
   text-decoration: none;
   margin-top: 0.5rem;
+  padding-bottom: 15px;
 }
 
 .read-bio-link:hover {
@@ -1090,21 +1113,21 @@ h2 {
   text-align: left;
   margin: 0;
   font-weight: 400;
-  color: var(--text-muted);
+  color: var(--text-footer);
 }
 
 .footer-link {
   font-size: 1.2rem;
   padding: 0 1%;
   display: inline-block;
-  color: var(--text-muted) !important;
+  color: var(--text-footer) !important;
   transition:
     color 0.2s ease,
     transform 0.2s ease;
 }
 
 .footer-link:hover {
-  color: var(--text-muted) !important;
+  color: var(--text-footer) !important;
   transform: translateY(-2px);
 }
 

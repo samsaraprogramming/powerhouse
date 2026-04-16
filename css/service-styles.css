@@ -31,6 +31,27 @@ body {
 }
 
 /* ============================================
+   Skip Navigation
+   ============================================ */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: var(--cyan-primary);
+  color: var(--black);
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  z-index: 10000;
+  text-decoration: none;
+  border-radius: 0 0 8px 0;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* ============================================
    Shared Navbar (Bootstrap)
    ============================================ */
 
@@ -39,6 +60,11 @@ body {
   opacity: 1;
   transition: opacity 0.5s ease;
   border-bottom: 2px solid rgba(78, 201, 222, 0.25);
+}
+
+.navbar-hide {
+  pointer-events: none;
+  opacity: 0;
 }
 
 .navbar-content-container {
@@ -438,22 +464,6 @@ body {
 }
 
 /* ============================================
-   Footer
-   ============================================ */
-
-.service-footer {
-  padding: 2rem;
-  background-color: var(--black);
-  text-align: center;
-  border-top: 1px solid rgba(78, 201, 222, 0.08);
-}
-
-.service-footer .footer-copyright {
-  color: var(--text-muted);
-  font-size: 0.85rem;
-}
-
-/* ============================================
    Responsive
    ============================================ */
 
@@ -529,5 +539,83 @@ body {
   .service-cta-banner {
     padding-left: 5%;
     padding-right: 5%;
+  }
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.footer-section {
+  background-color: var(--black);
+  text-align: center;
+  color: var(--white);
+  padding: 1.75% 0;
+  font-size: 0.85rem;
+  width: 100%;
+  border-top: 2px solid rgba(78, 201, 222, 0.25);
+}
+
+.footer-logo {
+  width: 130px;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.footer-logo:hover {
+  opacity: 1;
+}
+
+.footer-logo-container {
+  text-align: center;
+}
+
+.footer-copyright {
+  padding: 5px 5%;
+  text-align: left;
+  margin: 0;
+  font-weight: 400;
+  color: var(--text-footer);
+}
+
+.footer-link {
+  font-size: 1.2rem;
+  padding: 0 1%;
+  display: inline-block;
+  color: var(--text-footer) !important;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--text-footer) !important;
+  transform: translateY(-2px);
+}
+
+.footer-links {
+  text-align: right;
+  padding: 0 5%;
+}
+
+.footer-logo-container-mobile {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .footer-logo-container-mobile {
+    display: block;
+    text-align: center;
+  }
+
+  .footer-logo-container {
+    display: none;
+  }
+
+  .footer-copyright {
+    text-align: center;
+  }
+
+  .footer-links {
+    text-align: center;
   }
 }
