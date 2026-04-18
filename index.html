@@ -34,7 +34,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
     />
-    <link rel="stylesheet" href="css/styles.css?v=2.6.8" />
+    <link rel="stylesheet" href="css/styles.css?v=2.7.1" />
 
     <!-- Font Awesome -->
     <script
@@ -59,10 +59,10 @@
 
       $(document).ready(function () {
         if (!getCookie('popupSeen')) {
-          $(".modal").modal("show");
+          $(".modal.insurance-popup").modal("show");
         }
 
-        $(".modal").on("hide.bs.modal", function () {
+        $(".modal.insurance-popup").on("hide.bs.modal", function () {
           setCookie('popupSeen', 'true', 30);
         });
       });
@@ -113,7 +113,7 @@
     </script>
 
     <!-- Modal Popup  -->
-    <div class="modal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal insurance-popup" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
@@ -750,7 +750,7 @@
           <div class="reviews-track-container">
             <div class="reviews-track" id="reviewsTrack">
 
-              <!-- Review 1 -->
+              <!-- Review 1 — Dr. Leslie Garcia -->
               <div class="review-card">
                 <div class="review-card__top">
                   <div class="review-card__avatar">F</div>
@@ -768,25 +768,7 @@
                 <span class="review-card__provider">Dr. Leslie Garcia</span>
               </div>
 
-              <!-- Review 2 -->
-              <div class="review-card">
-                <div class="review-card__top">
-                  <div class="review-card__avatar">V</div>
-                  <div class="review-card__meta">
-                    <span class="review-card__name">Vanessa Rendon</span>
-                    <span class="review-card__date">a year ago</span>
-                  </div>
-                  <svg class="review-card__google-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.8 2.5 30.2 0 24 0 14.8 0 7 5.4 3 13.3l7.8 6C12.7 13.3 17.9 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7 5.4c4.1-3.8 6.5-9.4 6.2-16.2z"/><path fill="#FBBC05" d="M10.8 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A24 24 0 0 0 0 24c0 3.9.9 7.5 2.5 10.7l8.3-6z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7-5.4c-2 1.4-4.6 2.2-8.2 2.2-6.1 0-11.3-3.8-13.2-9.2l-8.3 6C6.9 42.6 14.8 48 24 48z"/></svg>
-                </div>
-                <div class="review-card__stars">
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <span class="review-card__tag">Shoulder &amp; Elbow Recovery</span>
-                <p class="review-card__text">"Dr. Sandra is by far the best in Laredo. Her one-on-one 60-minute sessions maximize her time and expertise with each individual. When my son began therapy he had no range of motion, and session by session she did wonders. Not only did she get his full range of motion back but she also strengthened his shoulder and elbow. We saw so much improvement, allowing him to go back to the sport he loves most — baseball. Highly recommended."</p>
-                <span class="review-card__provider">Dr. Sandra Gomez</span>
-              </div>
-
-              <!-- Review 3 -->
+              <!-- Review 2 — Dr. Sandra Gomez -->
               <div class="review-card">
                 <div class="review-card__top">
                   <div class="review-card__avatar">D</div>
@@ -804,187 +786,7 @@
                 <span class="review-card__provider">Dr. Sandra Gomez</span>
               </div>
 
-              <!-- Review 4 -->
-              <div class="review-card">
-                <div class="review-card__top">
-                  <div class="review-card__avatar">A</div>
-                  <div class="review-card__meta">
-                    <span class="review-card__name">Asela Acosta</span>
-                    <span class="review-card__date">5 months ago</span>
-                  </div>
-                  <svg class="review-card__google-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.8 2.5 30.2 0 24 0 14.8 0 7 5.4 3 13.3l7.8 6C12.7 13.3 17.9 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7 5.4c4.1-3.8 6.5-9.4 6.2-16.2z"/><path fill="#FBBC05" d="M10.8 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A24 24 0 0 0 0 24c0 3.9.9 7.5 2.5 10.7l8.3-6z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7-5.4c-2 1.4-4.6 2.2-8.2 2.2-6.1 0-11.3-3.8-13.2-9.2l-8.3 6C6.9 42.6 14.8 48 24 48z"/></svg>
-                </div>
-                <div class="review-card__stars">
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <span class="review-card__tag">Post-Back Surgery (10+ Years)</span>
-                <p class="review-card__text">"I had two previous back surgeries and after more than 10 years, I still had a lot of pain and could only make bare minimum movements. Dr. Leslie worked one-on-one with me every session, monitoring my progress and modifying exercises each visit. I started feeling good from the 2nd or 3rd session. Even after more than 10 years after surgery, I had not felt so strong and moved as quickly as I do now. It may sound odd, but you feel each part of your body come alive."</p>
-                <span class="review-card__provider">Dr. Leslie Garcia</span>
-              </div>
-
-              <!-- Review 5 -->
-              <div class="review-card">
-                <div class="review-card__top">
-                  <div class="review-card__avatar">P</div>
-                  <div class="review-card__meta">
-                    <span class="review-card__name">Paola G.</span>
-                    <span class="review-card__date">a year ago</span>
-                  </div>
-                  <svg class="review-card__google-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.8 2.5 30.2 0 24 0 14.8 0 7 5.4 3 13.3l7.8 6C12.7 13.3 17.9 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7 5.4c4.1-3.8 6.5-9.4 6.2-16.2z"/><path fill="#FBBC05" d="M10.8 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A24 24 0 0 0 0 24c0 3.9.9 7.5 2.5 10.7l8.3-6z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7-5.4c-2 1.4-4.6 2.2-8.2 2.2-6.1 0-11.3-3.8-13.2-9.2l-8.3 6C6.9 42.6 14.8 48 24 48z"/></svg>
-                </div>
-                <div class="review-card__stars">
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <span class="review-card__tag">Chronic Back Pain (Post-Surgery)</span>
-                <p class="review-card__text">"After my back surgery, I researched extensively to find the right PT. I made significant progress — way more than I ever expected — and I feel stronger than ever. After 6 years of chronic back pain following a car accident, I finally feel like I have my life back and I'm excited to continue making progress. Dr. Gomez was extremely knowledgeable, supportive, and attentive to my needs throughout my recovery. I highly recommend Powerhouse PT."</p>
-                <span class="review-card__provider">Dr. Sandra Gomez</span>
-              </div>
-
-              <!-- Review 6 -->
-              <div class="review-card">
-                <div class="review-card__top">
-                  <div class="review-card__avatar">J</div>
-                  <div class="review-card__meta">
-                    <span class="review-card__name">J Roycroft</span>
-                    <span class="review-card__date">a year ago</span>
-                  </div>
-                  <svg class="review-card__google-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.8 2.5 30.2 0 24 0 14.8 0 7 5.4 3 13.3l7.8 6C12.7 13.3 17.9 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7 5.4c4.1-3.8 6.5-9.4 6.2-16.2z"/><path fill="#FBBC05" d="M10.8 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A24 24 0 0 0 0 24c0 3.9.9 7.5 2.5 10.7l8.3-6z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7-5.4c-2 1.4-4.6 2.2-8.2 2.2-6.1 0-11.3-3.8-13.2-9.2l-8.3 6C6.9 42.6 14.8 48 24 48z"/></svg>
-                </div>
-                <div class="review-card__stars">
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <span class="review-card__tag">Severe Back Pain</span>
-                <p class="review-card__text">"Although I called last minute in severe back pain with minimal mobility, Powerhouse PT was able to accommodate me on specific days and times. After several weeks of PT I am happy to say I am back to 100% and daily life has been awesome ever since my pain went away. Dr. Sandra Gomez is very professional and takes the time to really know her clients. Appointments are dedicated one-on-one. I encourage you to visit her before seeing any other form of medical care."</p>
-                <span class="review-card__provider">Dr. Sandra Gomez</span>
-              </div>
-
-              <!-- Review 7 -->
-              <div class="review-card">
-                <div class="review-card__top">
-                  <div class="review-card__avatar">P</div>
-                  <div class="review-card__meta">
-                    <span class="review-card__name">Peter Kelley</span>
-                    <span class="review-card__date">a year ago</span>
-                  </div>
-                  <svg class="review-card__google-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.8 2.5 30.2 0 24 0 14.8 0 7 5.4 3 13.3l7.8 6C12.7 13.3 17.9 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7 5.4c4.1-3.8 6.5-9.4 6.2-16.2z"/><path fill="#FBBC05" d="M10.8 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A24 24 0 0 0 0 24c0 3.9.9 7.5 2.5 10.7l8.3-6z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7-5.4c-2 1.4-4.6 2.2-8.2 2.2-6.1 0-11.3-3.8-13.2-9.2l-8.3 6C6.9 42.6 14.8 48 24 48z"/></svg>
-                </div>
-                <div class="review-card__stars">
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <span class="review-card__tag">Lower Back Injury (Age 71)</span>
-                <p class="review-card__text">"My work has brought me to over 35 places in the USA. I sustained a lower back injury affecting my mobility and was on a path to steroid shots. After 5 sessions with Dr. Gomez I experienced less pain in my joints and lower back — without drugs. I am 71 years old and typically have to take meds to feel better. Dr. Gomez professionally diagnosed my problems and her one-on-one coaching guided me toward recovery. The city of Laredo is fortunate to have this hometown hero."</p>
-                <span class="review-card__provider">Dr. Sandra Gomez</span>
-              </div>
-
-              <!-- Review 8 -->
-              <div class="review-card">
-                <div class="review-card__top">
-                  <div class="review-card__avatar">O</div>
-                  <div class="review-card__meta">
-                    <span class="review-card__name">O.G.</span>
-                    <span class="review-card__date">a month ago</span>
-                  </div>
-                  <svg class="review-card__google-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.8 2.5 30.2 0 24 0 14.8 0 7 5.4 3 13.3l7.8 6C12.7 13.3 17.9 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7 5.4c4.1-3.8 6.5-9.4 6.2-16.2z"/><path fill="#FBBC05" d="M10.8 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A24 24 0 0 0 0 24c0 3.9.9 7.5 2.5 10.7l8.3-6z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7-5.4c-2 1.4-4.6 2.2-8.2 2.2-6.1 0-11.3-3.8-13.2-9.2l-8.3 6C6.9 42.6 14.8 48 24 48z"/></svg>
-                </div>
-                <div class="review-card__stars">
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <span class="review-card__tag">Golfer's Elbow</span>
-                <p class="review-card__text">"Dr. Leslie addressed my golfer's elbow with a lot of attention to detail. She allowed me to provide all the examples I could think of that exacerbated pain. The approach involved multiple plans of attack with future-proof strategies to avoid the injury coming back. I appreciate Dr. Leslie also providing digital documentation of what we discussed in our sessions, so I have a catalog of the processes and methods I needed to get back to 100%. Definitely recommend Powerhouse!"</p>
-                <span class="review-card__provider">Dr. Leslie Garcia</span>
-              </div>
-
-              <!-- Review 9 -->
-              <div class="review-card">
-                <div class="review-card__top">
-                  <div class="review-card__avatar">S</div>
-                  <div class="review-card__meta">
-                    <span class="review-card__name">Saul Saenz</span>
-                    <span class="review-card__date">2 years ago</span>
-                  </div>
-                  <svg class="review-card__google-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.8 2.5 30.2 0 24 0 14.8 0 7 5.4 3 13.3l7.8 6C12.7 13.3 17.9 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7 5.4c4.1-3.8 6.5-9.4 6.2-16.2z"/><path fill="#FBBC05" d="M10.8 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A24 24 0 0 0 0 24c0 3.9.9 7.5 2.5 10.7l8.3-6z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7-5.4c-2 1.4-4.6 2.2-8.2 2.2-6.1 0-11.3-3.8-13.2-9.2l-8.3 6C6.9 42.6 14.8 48 24 48z"/></svg>
-                </div>
-                <div class="review-card__stars">
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <span class="review-card__tag">Groin Tear (Athlete Recovery)</span>
-                <p class="review-card__text">"I was recovering from a groin tear and Dr. Sandra Gomez made the insurance process so easy for me. After 6 weeks I can already see so much improvement and the pain is nearly gone. Getting to work 1-on-1 with such a knowledgeable PT for the entire session really makes all the difference — she helps me correct my form through every exercise and pushes me to get stronger. Definitely the best therapy services for any athlete looking to get back to the grind!"</p>
-                <span class="review-card__provider">Dr. Sandra Gomez</span>
-              </div>
-
-              <!-- Review 10 -->
-              <div class="review-card">
-                <div class="review-card__top">
-                  <div class="review-card__avatar">M</div>
-                  <div class="review-card__meta">
-                    <span class="review-card__name">Morgan Raen</span>
-                    <span class="review-card__date">a year ago</span>
-                  </div>
-                  <svg class="review-card__google-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.8 2.5 30.2 0 24 0 14.8 0 7 5.4 3 13.3l7.8 6C12.7 13.3 17.9 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7 5.4c4.1-3.8 6.5-9.4 6.2-16.2z"/><path fill="#FBBC05" d="M10.8 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A24 24 0 0 0 0 24c0 3.9.9 7.5 2.5 10.7l8.3-6z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7-5.4c-2 1.4-4.6 2.2-8.2 2.2-6.1 0-11.3-3.8-13.2-9.2l-8.3 6C6.9 42.6 14.8 48 24 48z"/></svg>
-                </div>
-                <div class="review-card__stars">
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <span class="review-card__tag">Scoliosis</span>
-                <p class="review-card__text">"My daughter was consistently measuring up on her scoliosis Cobb angle for more than a year. Once she started Physical Therapy with Powerhouse, her scan came back considerably lower and she avoided being braced. We are so happy with the results and the custom therapy treatments developed for her. We strongly recommend Powerhouse Physical Therapy for any patient suffering from scoliosis."</p>
-                <span class="review-card__provider">Powerhouse PT Team</span>
-              </div>
-
-              <!-- Review 11 -->
-              <div class="review-card">
-                <div class="review-card__top">
-                  <div class="review-card__avatar">E</div>
-                  <div class="review-card__meta">
-                    <span class="review-card__name">Evelyn Quiroz</span>
-                    <span class="review-card__date">a year ago</span>
-                  </div>
-                  <svg class="review-card__google-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.8 2.5 30.2 0 24 0 14.8 0 7 5.4 3 13.3l7.8 6C12.7 13.3 17.9 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7 5.4c4.1-3.8 6.5-9.4 6.2-16.2z"/><path fill="#FBBC05" d="M10.8 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A24 24 0 0 0 0 24c0 3.9.9 7.5 2.5 10.7l8.3-6z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7-5.4c-2 1.4-4.6 2.2-8.2 2.2-6.1 0-11.3-3.8-13.2-9.2l-8.3 6C6.9 42.6 14.8 48 24 48z"/></svg>
-                </div>
-                <div class="review-card__stars">
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <span class="review-card__tag">Ankle Pain (Collegiate Basketball)</span>
-                <p class="review-card__text">"I was in pain every day from my right ankle — I couldn't even go down the stairs. After working with Dr. Gomez, just a few sessions showed improvement and now I am completely pain free. I am a collegiate basketball player and I now suffer from no pain and still play at a high level. She got me back to doing what I love without hesitation."</p>
-                <span class="review-card__provider">Dr. Sandra Gomez</span>
-              </div>
-
-              <!-- Review 12 -->
-              <div class="review-card">
-                <div class="review-card__top">
-                  <div class="review-card__avatar">M</div>
-                  <div class="review-card__meta">
-                    <span class="review-card__name">Mikey Casso</span>
-                    <span class="review-card__date">3 months ago</span>
-                  </div>
-                  <svg class="review-card__google-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.8 2.5 30.2 0 24 0 14.8 0 7 5.4 3 13.3l7.8 6C12.7 13.3 17.9 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7 5.4c4.1-3.8 6.5-9.4 6.2-16.2z"/><path fill="#FBBC05" d="M10.8 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A24 24 0 0 0 0 24c0 3.9.9 7.5 2.5 10.7l8.3-6z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7-5.4c-2 1.4-4.6 2.2-8.2 2.2-6.1 0-11.3-3.8-13.2-9.2l-8.3 6C6.9 42.6 14.8 48 24 48z"/></svg>
-                </div>
-                <div class="review-card__stars">
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <span class="review-card__tag">Running Form &amp; Injury Prevention</span>
-                <p class="review-card__text">"Before starting my appointments, I was very concerned with my form while running. I would get injured often and couldn't maintain consistent training. After a few weeks I noticed I got a lot stronger and my overall running improved tremendously — I even hit multiple personal records throughout my season. I highly recommend Powerhouse because every trainer is extremely attentive and driven into fixing any issues you may have."</p>
-                <span class="review-card__provider">Powerhouse PT Team</span>
-              </div>
-
-              <!-- Review 13 -->
-              <div class="review-card">
-                <div class="review-card__top">
-                  <div class="review-card__avatar">D</div>
-                  <div class="review-card__meta">
-                    <span class="review-card__name">Dominic Hernandez</span>
-                    <span class="review-card__date">2 years ago</span>
-                  </div>
-                  <svg class="review-card__google-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.8 2.5 30.2 0 24 0 14.8 0 7 5.4 3 13.3l7.8 6C12.7 13.3 17.9 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7 5.4c4.1-3.8 6.5-9.4 6.2-16.2z"/><path fill="#FBBC05" d="M10.8 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A24 24 0 0 0 0 24c0 3.9.9 7.5 2.5 10.7l8.3-6z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7-5.4c-2 1.4-4.6 2.2-8.2 2.2-6.1 0-11.3-3.8-13.2-9.2l-8.3 6C6.9 42.6 14.8 48 24 48z"/></svg>
-                </div>
-                <div class="review-card__stars">
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <span class="review-card__tag">Hip Flexor Tear (Powerlifting)</span>
-                <p class="review-card__text">"While powerlifting, I sustained a tear in my hip flexor. After a brief assessment, Dr. Gomez identified my injury and after just three appointments had me back in the gym hitting my normal weights. She takes time to keep her practice up to date and works with you to see what's best for your recovery. Powerhouse PT has restored my faith in physical therapy. 11/10, she is awesome!"</p>
-                <span class="review-card__provider">Dr. Sandra Gomez</span>
-              </div>
-
-              <!-- Review 14 -->
+              <!-- Review 3 — Gina -->
               <div class="review-card">
                 <div class="review-card__top">
                   <div class="review-card__avatar">J</div>
@@ -1002,30 +804,12 @@
                 <span class="review-card__provider">Gina</span>
               </div>
 
-              <!-- Review 15 -->
+              <!-- Review 4 — Powerhouse PT Team -->
               <div class="review-card">
                 <div class="review-card__top">
                   <div class="review-card__avatar">M</div>
                   <div class="review-card__meta">
-                    <span class="review-card__name">Miguel Galindo</span>
-                    <span class="review-card__date">6 months ago</span>
-                  </div>
-                  <svg class="review-card__google-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.8 2.5 30.2 0 24 0 14.8 0 7 5.4 3 13.3l7.8 6C12.7 13.3 17.9 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7 5.4c4.1-3.8 6.5-9.4 6.2-16.2z"/><path fill="#FBBC05" d="M10.8 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A24 24 0 0 0 0 24c0 3.9.9 7.5 2.5 10.7l8.3-6z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7-5.4c-2 1.4-4.6 2.2-8.2 2.2-6.1 0-11.3-3.8-13.2-9.2l-8.3 6C6.9 42.6 14.8 48 24 48z"/></svg>
-                </div>
-                <div class="review-card__stars">
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <span class="review-card__tag">ACL Tear</span>
-                <p class="review-card__text">"In June of 2024 I tore my ACL. I went to another clinic for the first two months and thought I was doing well — until I went to Dr. Sandra Gomez. On my first appointment she noticed I wasn't fully extending my knee when I walked. As I kept going, I felt stronger and my recovery went faster. Now I am confident to play sports again and run like before — if not better. I am beyond satisfied with my recovery journey."</p>
-                <span class="review-card__provider">Dr. Sandra Gomez</span>
-              </div>
-
-              <!-- Review 16 -->
-              <div class="review-card">
-                <div class="review-card__top">
-                  <div class="review-card__avatar">A</div>
-                  <div class="review-card__meta">
-                    <span class="review-card__name">Alyssa Davila</span>
+                    <span class="review-card__name">Morgan Raen</span>
                     <span class="review-card__date">a year ago</span>
                   </div>
                   <svg class="review-card__google-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.8 2.5 30.2 0 24 0 14.8 0 7 5.4 3 13.3l7.8 6C12.7 13.3 17.9 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7 5.4c4.1-3.8 6.5-9.4 6.2-16.2z"/><path fill="#FBBC05" d="M10.8 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A24 24 0 0 0 0 24c0 3.9.9 7.5 2.5 10.7l8.3-6z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7-5.4c-2 1.4-4.6 2.2-8.2 2.2-6.1 0-11.3-3.8-13.2-9.2l-8.3 6C6.9 42.6 14.8 48 24 48z"/></svg>
@@ -1033,53 +817,53 @@
                 <div class="review-card__stars">
                   <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
-                <span class="review-card__tag">Knee Recovery (CrossFit)</span>
-                <p class="review-card__text">"I went to 2 different places before Powerhouse PT and no one really helped my knee. Sandra was at a CrossFit competition of mine and after a quick evaluation she instantly made my knee feel better. I've been a patient for about 3 months, just got discharged, and my knee has never felt better — my quads have never been so defined. Highly recommend Powerhouse PT! Great staff, great environment."</p>
-                <span class="review-card__provider">Dr. Sandra Gomez</span>
+                <span class="review-card__tag">Scoliosis</span>
+                <p class="review-card__text">"My daughter was consistently measuring up on her scoliosis Cobb angle for more than a year. Once she started Physical Therapy with Powerhouse, her scan came back considerably lower and she avoided being braced. We are so happy with the results and the custom therapy treatments developed for her. We strongly recommend Powerhouse Physical Therapy for any patient suffering from scoliosis."</p>
+                <span class="review-card__provider">Powerhouse PT Team</span>
               </div>
 
-              <!-- Review 17 -->
+              <!-- Review 5 — Dr. Leslie Garcia -->
               <div class="review-card">
                 <div class="review-card__top">
-                  <div class="review-card__avatar">M</div>
+                  <div class="review-card__avatar">O</div>
                   <div class="review-card__meta">
-                    <span class="review-card__name">Mayra Martinez</span>
-                    <span class="review-card__date">a year ago</span>
+                    <span class="review-card__name">O.G.</span>
+                    <span class="review-card__date">a month ago</span>
                   </div>
                   <svg class="review-card__google-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.8 2.5 30.2 0 24 0 14.8 0 7 5.4 3 13.3l7.8 6C12.7 13.3 17.9 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7 5.4c4.1-3.8 6.5-9.4 6.2-16.2z"/><path fill="#FBBC05" d="M10.8 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A24 24 0 0 0 0 24c0 3.9.9 7.5 2.5 10.7l8.3-6z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7-5.4c-2 1.4-4.6 2.2-8.2 2.2-6.1 0-11.3-3.8-13.2-9.2l-8.3 6C6.9 42.6 14.8 48 24 48z"/></svg>
                 </div>
                 <div class="review-card__stars">
                   <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
-                <span class="review-card__tag">Youth Athlete Recovery</span>
-                <p class="review-card__text">"Dr. Sandra Gomez developed a customized treatment plan that not only helped my daughter recover but also focused on preventing future injuries. She understood her goals as an athlete and the demands of her sport. The progress my daughter made was incredible — beyond the physical therapy, Dr. Gomez was a great motivator and role model. If you have an athlete in need of physical therapy, I highly recommend Dr. Sandra Gomez. Her knowledge, professionalism, and genuine care are unmatched."</p>
-                <span class="review-card__provider">Dr. Sandra Gomez</span>
+                <span class="review-card__tag">Golfer's Elbow</span>
+                <p class="review-card__text">"Dr. Leslie addressed my golfer's elbow with a lot of attention to detail. She allowed me to provide all the examples I could think of that exacerbated pain. The approach involved multiple plans of attack with future-proof strategies to avoid the injury coming back. I appreciate Dr. Leslie also providing digital documentation of what we discussed in our sessions, so I have a catalog of the processes and methods I needed to get back to 100%. Definitely recommend Powerhouse!"</p>
+                <span class="review-card__provider">Dr. Leslie Garcia</span>
               </div>
 
-              <!-- Review 18 -->
+              <!-- Review 6 — Dr. Sandra Gomez -->
               <div class="review-card">
                 <div class="review-card__top">
                   <div class="review-card__avatar">J</div>
                   <div class="review-card__meta">
-                    <span class="review-card__name">Jose Cardenas</span>
-                    <span class="review-card__date">2 years ago</span>
+                    <span class="review-card__name">Jordana Maciel</span>
+                    <span class="review-card__date">a years ago</span>
                   </div>
                   <svg class="review-card__google-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.8 2.5 30.2 0 24 0 14.8 0 7 5.4 3 13.3l7.8 6C12.7 13.3 17.9 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7 5.4c4.1-3.8 6.5-9.4 6.2-16.2z"/><path fill="#FBBC05" d="M10.8 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A24 24 0 0 0 0 24c0 3.9.9 7.5 2.5 10.7l8.3-6z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7-5.4c-2 1.4-4.6 2.2-8.2 2.2-6.1 0-11.3-3.8-13.2-9.2l-8.3 6C6.9 42.6 14.8 48 24 48z"/></svg>
                 </div>
                 <div class="review-card__stars">
                   <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
-                <span class="review-card__tag">Chronic Upper Back Pain (5 Years)</span>
-                <p class="review-card__text">"I dealt with upper back pain for over five years, tried massage therapists and chiropractors — all temporary fixes. Dr. Sandra identified the root of the problem. After two treatments of dry needling and therapy, I felt an immediate positive impact that I had not felt before. She also identified weak stabilizing muscles and developed a program to strengthen them. Five years of nagging pain and discomfort were gone after two sessions — I can now sleep comfortably and have eliminated constant muscle creams. Thanks to her, I am pain-free!"</p>
+                <span class="review-card__tag">Shoulder Injury</span>
+                <p class="review-card__text">"I had an amazing experience with Sandra at Powerhouse PT! She is incredibly knowledgeable and attentive, and thanks to her expertise, my shoulder has improved in ways I never thought possible. I can now move and perform tasks that I struggled with for years. Sandra’s personalized approach and dedication truly made a difference in my recovery. I’m beyond grateful for her help and highly recommend her to anyone looking for an exceptional physical therapist!</p>
                 <span class="review-card__provider">Dr. Sandra Gomez</span>
               </div>
 
-              <!-- Review 19 -->
+              <!-- Review 7 — Gina -->
               <div class="review-card">
                 <div class="review-card__top">
-                  <div class="review-card__avatar">G</div>
+                  <div class="review-card__avatar">A</div>
                   <div class="review-card__meta">
-                    <span class="review-card__name">Gina Gonzales</span>
+                    <span class="review-card__name">Andrea Rogerio</span>
                     <span class="review-card__date">3 months ago</span>
                   </div>
                   <svg class="review-card__google-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.8 2.5 30.2 0 24 0 14.8 0 7 5.4 3 13.3l7.8 6C12.7 13.3 17.9 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7 5.4c4.1-3.8 6.5-9.4 6.2-16.2z"/><path fill="#FBBC05" d="M10.8 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A24 24 0 0 0 0 24c0 3.9.9 7.5 2.5 10.7l8.3-6z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7-5.4c-2 1.4-4.6 2.2-8.2 2.2-6.1 0-11.3-3.8-13.2-9.2l-8.3 6C6.9 42.6 14.8 48 24 48z"/></svg>
@@ -1087,27 +871,27 @@
                 <div class="review-card__stars">
                   <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
-                <span class="review-card__tag">Severe Ankle Fracture</span>
-                <p class="review-card__text">"If you're recovering from a serious injury or want a physical therapist who truly goes above and beyond, I highly recommend Dr. Sandra Gomez. I'm incredibly grateful for the role she played in getting me back on my feet after suffering from a severe ankle fracture. Every session was intentional, challenging, and tailored specifically to where I was in my recovery. Best PT ever!!!"</p>
-                <span class="review-card__provider">Dr. Sandra Gomez</span>
+                <span class="review-card__tag">Athletic Performance &amp; Posture</span>
+                <p class="review-card__text">"Dr. Sandra and Gina did a great job in helping Eva get back to the hustle and bustle of athletics with much less back pain and greater awareness of proper body mechanics, posture, and improved strength."</p>
+                <span class="review-card__provider">Gina</span>
               </div>
 
-              <!-- Review 20 -->
+              <!-- Review 8 — Powerhouse PT Team -->
               <div class="review-card">
                 <div class="review-card__top">
-                  <div class="review-card__avatar">D</div>
+                  <div class="review-card__avatar">M</div>
                   <div class="review-card__meta">
-                    <span class="review-card__name">Danny Richardson</span>
-                    <span class="review-card__date">5 months ago</span>
+                    <span class="review-card__name">Mikey Casso</span>
+                    <span class="review-card__date">3 months ago</span>
                   </div>
                   <svg class="review-card__google-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.8 2.5 30.2 0 24 0 14.8 0 7 5.4 3 13.3l7.8 6C12.7 13.3 17.9 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7 5.4c4.1-3.8 6.5-9.4 6.2-16.2z"/><path fill="#FBBC05" d="M10.8 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A24 24 0 0 0 0 24c0 3.9.9 7.5 2.5 10.7l8.3-6z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7-5.4c-2 1.4-4.6 2.2-8.2 2.2-6.1 0-11.3-3.8-13.2-9.2l-8.3 6C6.9 42.6 14.8 48 24 48z"/></svg>
                 </div>
                 <div class="review-card__stars">
                   <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
-                <span class="review-card__tag">Personalized Care</span>
-                <p class="review-card__text">"I highly recommend Powerhouse. All three of the doctors are caring, knowledgeable, and excellent. I primarily worked with Dr. Leslie and she was fantastic — but I also worked with Dr. Sandra and the rest of the team. Any one of them are excellent at what they do. They focus on your issue and always make sure your form is correct in every exercise. You will not be disappointed."</p>
-                <span class="review-card__provider">Dr. Leslie Garcia</span>
+                <span class="review-card__tag">Running Form &amp; Injury Prevention</span>
+                <p class="review-card__text">"Before starting my appointments, I was very concerned with my form while running. I would get injured often and couldn't maintain consistent training. After a few weeks I noticed I got a lot stronger and my overall running improved tremendously — I even hit multiple personal records throughout my season. I highly recommend Powerhouse because every trainer is extremely attentive and driven into fixing any issues you may have."</p>
+                <span class="review-card__provider">Powerhouse PT Team</span>
               </div>
 
             </div><!-- end reviews-track -->
@@ -1527,13 +1311,16 @@
   <script>
   (function () {
     const track = document.getElementById('reviewsTrack');
+    const container = track ? track.parentElement : null;
     const dotsContainer = document.getElementById('reviewsDots');
     if (!track) return;
 
     const cards = Array.from(track.children);
     let perPage = getPerPage();
     let current = 0;
-    const total = Math.ceil(cards.length / perPage);
+    let total = Math.ceil(cards.length / perPage);
+
+    function isMobile() { return window.innerWidth <= 600; }
 
     function getPerPage() {
       if (window.innerWidth <= 600) return 1;
@@ -1551,8 +1338,14 @@
 
     function goTo(index) {
       current = ((index % total) + total) % total;
-      const offset = current * perPage * (getCardWidth() + getGap());
-      track.style.transform = `translateX(-${offset}px)`;
+      if (isMobile()) {
+        const cardWidth = getCardWidth();
+        const gap = getGap();
+        container.scrollTo({ left: current * (cardWidth + gap), behavior: 'smooth' });
+      } else {
+        const offset = current * perPage * (getCardWidth() + getGap());
+        track.style.transform = `translateX(-${offset}px)`;
+      }
       updateDots();
     }
 
@@ -1578,22 +1371,31 @@
     prevBtn.addEventListener('click', () => goTo(current - 1));
     nextBtn.addEventListener('click', () => goTo(current + 1));
 
-    // Touch/swipe
-    let startX = 0;
-    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-    track.addEventListener('touchend', e => {
-      const diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 50) diff > 0 ? goTo(current + 1) : goTo(current - 1);
-    });
+    // Sync dots to native scroll position on mobile
+    let rafPending = false;
+    container.addEventListener('scroll', () => {
+      if (!isMobile()) return;
+      if (rafPending) return;
+      rafPending = true;
+      requestAnimationFrame(() => {
+        const cardWidth = getCardWidth();
+        const gap = getGap();
+        current = Math.round(container.scrollLeft / (cardWidth + gap));
+        updateDots();
+        rafPending = false;
+      });
+    }, { passive: true });
 
     function init() {
       perPage = getPerPage();
-      const newTotal = Math.ceil(cards.length / perPage);
-      if (newTotal !== total || dotsContainer.children.length === 0) {
-        buildDots();
-      }
+      total = Math.ceil(cards.length / perPage);
+      buildDots();
       current = 0;
-      track.style.transform = 'translateX(0)';
+      if (!isMobile()) {
+        track.style.transform = 'translateX(0)';
+      } else {
+        container.scrollLeft = 0;
+      }
       updateDots();
     }
 
