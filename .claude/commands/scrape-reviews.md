@@ -39,4 +39,4 @@ Scrape the latest Google reviews for Powerhouse PT using Playwright MCP and save
 
 - Reviews mentioning providers no longer at the clinic should be flagged but not automatically added to the carousel.
 - If the review count on the page has grown since the last scrape, highlight the new reviews (those not already in the existing `all-reviews.json`).
-- The carousel in `index.html` shows 20 curated reviews inside `#reviewsTrack`. To update a card, edit the relevant `div.review-card` block directly.
+- The home page carousel shows the curated reviews listed in `src/data/reviews.json` (rendered by `src/components/ReviewCard.astro`). To add or update a card, edit that file; each entry has `name`, `date`, `tag`, `text` and `provider`.

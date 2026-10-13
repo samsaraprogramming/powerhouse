@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { services } from '../data/services';
+import '../styles/service-styles.css';
+
+export function getStaticPaths() {
+  return services.map((service) => ({ params: { slug: service.slug }, props: { service } }));
+}
+
+const { service } = Astro.props;
+---
+
+<BaseLayout
+  title={service.metaTitle}
+  description={service.metaDescription}
+  keywords={service.keywords}
+  mainClass="service-page"
+>
+  <!-- Hero -->
+  <div class="service-hero">
+    <img class="service-hero-image" src={service.heroImage} alt={service.heroAlt} />
+    <div class="service-hero-overlay">
+      <h1 class="service-hero-title" set:html={service.heroTitle} />
+      <p class="service-hero-subtitle" set:html={service.heroSubtitle} />
+      <a href="/sign-up.html" class="service-cta-btn">Schedule a Free Call</a>
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <div class="service-intro">
+    <a href={`/?scrollTo=${service.homeAnchor}`} class="service-back-link">
+      <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Services
+    </a>
+    <p class="service-intro-text" set:html={service.intro} />
+  </div>
+
+  <!-- Conditions -->
+  <div class="service-conditions">
+    <h2 class="service-section-heading" set:html={service.conditionsHeading} />
+    <hr class="section-divider" />
+    <ul class="conditions-list">
+      {service.conditions.map((condition) => <li set:html={condition} />)}
+    </ul>
+  </div>
+
+  <!-- Details -->
+  <div class="service-details">
+    <h2 class="service-section-heading" set:html={service.detailsHeading} />
+    <hr class="section-divider" />
+    <div class="service-details-grid">
+      {service.details.map((detail) => (
+        <div class="detail-card">
+          <div class="detail-card-icon"><i aria-hidden="true" class={detail.icon}></i></div>
+          <p class="detail-card-title" set:html={detail.title} />
+          <p class="detail-card-text" set:html={detail.text} />
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- What to Expect -->
+  <div class="service-process">
+    <h2 class="service-section-heading" set:html={service.processHeading} />
+    <hr class="section-divider" />
+    <div class="process-steps">
+      {service.steps.map((step) => (
+        <div class="process-step">
+          <span class="step-number">{step.number}</span>
+          <div>
+            <p class="step-content-title" set:html={step.title} />
+            <p class="step-content-text" set:html={step.text} />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- CTA Banner -->
+  <div class="service-cta-banner">
+    <h2 class="cta-banner-heading" set:html={service.ctaHeading} />
+    <p class="cta-banner-subtext" set:html={service.ctaSubtext} />
+    <a href="/sign-up.html" class="service-cta-btn">Schedule a Free Call</a>
+  </div>
+</BaseLayout>

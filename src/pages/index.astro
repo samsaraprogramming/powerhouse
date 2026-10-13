@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import InsuranceModal from '../components/home/InsuranceModal.astro';
+import Hero from '../components/home/Hero.astro';
+import Process from '../components/home/Process.astro';
+import Reviews from '../components/home/Reviews.astro';
+import About from '../components/home/About.astro';
+import Contact from '../components/home/Contact.astro';
+import '../styles/styles.css';
+
+const title = "Powerhouse PT - Sports Physical Therapy Clinic in Laredo, Texas";
+const description =
+  "Sports Physical Therapy practice in Laredo, Texas (TX) operated and owned by Sandra Gomez. Treatment services include pain-relief (pain relief), manual therapy, tissue specific exercise training, sports performance, injury prevention, dry needling";
+---
+
+<BaseLayout title={title} description={description} fonts="ital,wght@0,400;0,700;0,900;1,400;1,700;1,900" aos isHome>
+  <Fragment slot="head">
+    <script is:inline>
+      if (history.scrollRestoration) {
+        history.scrollRestoration = "manual";
+      }
+    </script>
+    <script is:inline>
+      function setCookie(name, value, days) {
+        const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
+        document.cookie = `${name}=${value}; expires=${expires}; path=/`;
+      }
+
+      function getCookie(name) {
+        return document.cookie.split('; ').find(row => row.startsWith(name + '='))?.split('=')[1];
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const popup = document.querySelector(".modal.insurance-popup");
+        if (!popup) return;
+
+        popup.addEventListener("hide.bs.modal", function () {
+          setCookie('popupSeen', 'true', 30);
+        });
+
+        if (!getCookie('popupSeen')) {
+          bootstrap.Modal.getOrCreateInstance(popup).show();
+        }
+      });
+    </script>
+  </Fragment>
+
+  <Fragment slot="before">
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", function () {
+        const params = new URLSearchParams(window.location.search);
+        const section = params.get("scrollTo");
+        if (section) {
+          const target = document.getElementById(section);
+          if (target) {
+            setTimeout(function () {
+              const navbar = document.querySelector(".navbar");
+              const navHeight = navbar ? navbar.offsetHeight : 70;
+              const top = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+              window.scrollTo({ top: top, behavior: "smooth" });
+            }, 150);
+          }
+        }
+      });
+    </script>
+    <InsuranceModal />
+  </Fragment>
+
+  <Hero slot="hero" />
+
+  <Process />
+  <Reviews />
+  <About />
+  <Contact />
+</BaseLayout>
