@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { team } from '../data/team';
+import '../styles/bio-styles.css';
+
+export function getStaticPaths() {
+  return team.map((member) => ({ params: { slug: member.slug }, props: { member } }));
+}
+
+const { member } = Astro.props;
+---
+
+<BaseLayout title={member.metaTitle} description={member.metaDescription} mainClass="bio-page">
+  <div class="bio-header">
+    <h1 class="bio-provider-name" set:html={member.name} />
+    <p class="bio-provider-title" set:html={member.title} />
+  </div>
+
+  <div class="bio-back-row">
+    <a href="/?scrollTo=about-us" class="bio-back-link">
+      <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Meet Our Team
+    </a>
+  </div>
+
+  <div class="bio-content">
+    <img class="bio-photo" src={member.photo} alt={member.photoAlt} />
+    <div class="bio-text">
+      {member.paragraphs.map((paragraph) => <p set:html={paragraph} />)}
+    </div>
+  </div>
+</BaseLayout>

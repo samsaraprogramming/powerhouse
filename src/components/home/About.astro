@@ -1,0 +1,10 @@
+---
+import TeamMember from './TeamMember.astro';
+import { team } from '../../data/team';
+---
+
+<section id="about-us">
+  <div class="container-fluid about-us-container">
+    {team.map((member) => <TeamMember member={member} />)}
+  </div>
+</section>

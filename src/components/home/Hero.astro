@@ -1,0 +1,73 @@
+      <div class="container-fluid heading-container">
+        <div class="wave-bg" aria-hidden="true" style="background: #050912; overflow: hidden;">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="cyan" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#00f2ff" />
+        <stop offset="100%" stop-color="#70f3ff" />
+      </linearGradient>
+      <linearGradient id="purple" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#bd93f9" />
+        <stop offset="100%" stop-color="#ff79c6" />
+      </linearGradient>
+      <style is:inline>
+        .line {
+          fill: none;
+          stroke-width: 1.5;
+          mix-blend-mode: screen;
+        }
+        /* GPU-accelerated: only translate, no path morphing or blur */
+        .l1 { animation: waveA 22s ease-in-out infinite; opacity: 0.6; }
+        .l2 { animation: waveB 25s ease-in-out infinite; opacity: 0.5; }
+        .l3 { animation: waveA 18s ease-in-out infinite; opacity: 0.55; }
+        .l4 { animation: waveB 21s ease-in-out infinite; opacity: 0.45; }
+        .l5 { animation: waveA 24s ease-in-out infinite; opacity: 0.35; }
+
+        @keyframes waveA {
+          0%, 100% { transform: translateY(0px); opacity: 0.4; }
+          50%       { transform: translateY(-38px); opacity: 0.75; }
+        }
+        @keyframes waveB {
+          0%, 100% { transform: translateY(0px); opacity: 0.35; }
+          50%       { transform: translateY(32px); opacity: 0.7; }
+        }
+      </style>
+    </defs>
+
+    <rect width="1440" height="900" fill="#050912" />
+
+    <g>
+      <path class="line l1" stroke="url(#cyan)"   d="M-300 60  C 400 220, 900 -80,  1500 110 S 2100 320, 2700 60"  />
+      <path class="line l2" stroke="url(#purple)" d="M-300 160 C 500 360, 1100 -40, 1700 160 S 2300 360, 2900 160" />
+      <path class="line l3" stroke="url(#cyan)"   d="M-300 420 C 500 120, 1100 880, 1700 420 S 2300 -60, 2900 420" />
+      <path class="line l4" stroke="url(#purple)" d="M-300 620 C 400 880, 1000 280, 1600 620 S 2200 940, 2800 620" />
+      <path class="line l5" stroke="url(#cyan)"   d="M-300 760 C 600 420, 1200 820, 1800 760 S 2400 700, 2900 760" />
+    </g>
+  </svg>
+</div>
+
+        <div class="row">
+          <div class="col-12 main-heading-container">
+            <span class="visually-hidden" aria-hidden="true">
+              Powerhouse PT - Sports Physical Therapy Clinic in Laredo, Texas
+            </span>
+            <img
+              class="heading-logo hero-logo-animate"
+              src="/images/powerhouse-logo.webp"
+              alt="powerhouse pt physical therapy original logo"
+            />
+            <div class="message-container">
+              <h1 class="heading-message">
+                Empowering you to overcome pain and limitations to get back to
+                doing what you love
+              </h1>
+            </div>
+            <a
+              class="schedule-button btn btn-lg btn-primary"
+              role="button"
+              href="/sign-up.html"
+              >Schedule A Free Call</a
+            >
+          </div>
+        </div>
+      </div>
