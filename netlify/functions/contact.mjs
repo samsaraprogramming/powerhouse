@@ -56,8 +56,19 @@ export default async (req) => {
   const insurance = field('insurance');
   const goal = field('goal');
 
-  if (!firstName || !/^[^\s@<>"',]+@[^\s@<>"',]+\.[^\s@<>"',]+$/.test(email)) {
-    return json({ status: 'error', message: 'Name and a valid email are required.' }, 400);
+  // Same rules as the form on sign-up.astro; this is the check that can't be bypassed.
+  const phoneDigits = phone.replace(/\D/g, '');
+  const validPhone = /^\+?[\d\s().-]+$/.test(phone) && phoneDigits.length >= 7 && phoneDigits.length <= 15;
+  const validEmail = email.length <= 254 && /^[^\s@<>"',]+@[^\s@.<>"',]+(\.[^\s@.<>"',]+)+$/.test(email);
+
+  if (!firstName || !lastName || !insurance || !goal) {
+    return json({ status: 'error', message: 'All fields are required.' }, 400);
+  }
+  if (!validPhone) {
+    return json({ status: 'error', message: 'Please enter a valid phone number.' }, 400);
+  }
+  if (!validEmail) {
+    return json({ status: 'error', message: 'Please enter a valid email address.' }, 400);
   }
 
   // Subjects are plain text; keep them on one line.

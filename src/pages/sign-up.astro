@@ -37,6 +37,7 @@ const description =
                 name="first_name"
                 required
               />
+              <div class="invalid-feedback" id="firstName-feedback"></div>
             </div>
             <div class="col-md-6">
               <label for="lastName" class="form-label">Last Name</label>
@@ -47,6 +48,7 @@ const description =
                 name="last_name"
                 required
               />
+              <div class="invalid-feedback" id="lastName-feedback"></div>
             </div>
             <div class="col-12">
               <label for="phone" class="form-label">Phone Number</label>
@@ -55,8 +57,12 @@ const description =
                 class="form-control"
                 id="phone"
                 name="phone"
+                autocomplete="tel"
+                inputmode="tel"
+                maxlength="25"
                 required
               />
+              <div class="invalid-feedback" id="phone-feedback"></div>
             </div>
             <div class="col-12">
               <label for="email" class="form-label">Email</label>
@@ -65,8 +71,11 @@ const description =
                 class="form-control"
                 id="email"
                 name="email"
+                autocomplete="email"
+                maxlength="254"
                 required
               />
+              <div class="invalid-feedback" id="email-feedback"></div>
             </div>
             <div class="col-12">
               <label for="insurance" class="form-label"
@@ -94,6 +103,7 @@ const description =
                 <option value="UnitedHealthcare">UnitedHealthcare</option>
                 <option value="Other">Other</option>
               </select>
+              <div class="invalid-feedback" id="insurance-feedback"></div>
             </div>
             <div class="col-12">
               <label for="goal" class="form-label">What's your goal?</label>
@@ -104,6 +114,7 @@ const description =
                 rows="3"
                 required
               ></textarea>
+              <div class="invalid-feedback" id="goal-feedback"></div>
             </div>
             <div class="col-12">
               <button
@@ -186,12 +197,67 @@ const description =
 
   <Fragment slot="scripts">
     <script is:inline>
+      // Each validator returns an error message, or "" when the value is fine.
+      const required = (label) => (value) => (value.trim() ? "" : `Please enter ${label}.`);
+
+      const validators = {
+        firstName: required("your first name"),
+        lastName: required("your last name"),
+        phone(value) {
+          const phone = value.trim();
+          if (!phone) return "Please enter your phone number.";
+          // Any country: optional leading +, then digits with spaces, dashes, dots or parentheses.
+          const digits = phone.replace(/\D/g, "");
+          if (!/^\+?[\d\s().-]+$/.test(phone) || digits.length < 7 || digits.length > 15) {
+            return "Please enter a valid phone number, including country code if outside the US.";
+          }
+          return "";
+        },
+        email(value) {
+          const email = value.trim();
+          if (!email) return "Please enter your email address.";
+          if (!/^[^\s@]+@[^\s@.]+(\.[^\s@.]+)+$/.test(email)) {
+            return "Please enter a valid email address, like name@example.com.";
+          }
+          return "";
+        },
+        insurance: (value) => (value ? "" : "Please select your insurance provider."),
+        goal: required("your goal"),
+      };
+
+      function validateField(id) {
+        const field = document.getElementById(id);
+        const message = validators[id](field.value);
+        field.classList.toggle("is-invalid", Boolean(message));
+        field.setAttribute("aria-invalid", message ? "true" : "false");
+        document.getElementById(id + "-feedback").textContent = message;
+        return !message;
+      }
+
+      Object.keys(validators).forEach((id) => {
+        const field = document.getElementById(id);
+        field.setAttribute("aria-describedby", id + "-feedback");
+        // Check when leaving a field, then re-check as the visitor corrects it
+        field.addEventListener("blur", () => validateField(id));
+        field.addEventListener("input", () => {
+          if (field.classList.contains("is-invalid")) validateField(id);
+        });
+      });
+
       document
         .getElementById("contact-form")
         .addEventListener("submit", function (e) {
           e.preventDefault();
 
           const form = this;
+
+          // Validate every field; stop and focus the first problem
+          const invalid = Object.keys(validators).filter((id) => !validateField(id));
+          if (invalid.length) {
+            document.getElementById(invalid[0]).focus();
+            return;
+          }
+
           const btn = document.getElementById("submit-btn");
           const btnText = document.getElementById("btn-text");
           const spinner = document.getElementById("btn-spinner");
