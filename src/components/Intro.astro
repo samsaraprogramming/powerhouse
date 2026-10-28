@@ -1,7 +1,223 @@
 ---
-// Scroll-driven intro shown above the home page hero. The neutral base theme has none;
-// each design branch replaces this component with its own animation.
+// Glacier intro: the logo's bolt "P" is a window onto a sprinting athlete. Scrolling zooms out
+// from deep inside the P until the full logo sits on the page, then the headline settles in.
+// Without JavaScript the final frame shows as a static banner; with reduced motion it is skipped.
+import { href, t, type Lang } from '../i18n/ui';
+
 interface Props {
-  lang: 'en' | 'es';
+  lang: Lang;
 }
+
+const { lang } = Astro.props;
+const L = (en: string, es: string) => (lang === 'es' ? es : en);
 ---
+
+<section class="gl-intro" data-gl-intro aria-label={L('Introduction', 'Introducción')}>
+  <div class="gl-intro__stage" data-gl-stage>
+    <div class="gl-intro__window" data-gl-window>
+      <img src="/images/sprint.webp" alt="" width="1600" height="1067" fetchpriority="high" />
+      <div class="gl-intro__shade" data-gl-shade></div>
+    </div>
+    <span class="logo-mask logo-lockup gl-intro__word" data-gl-word aria-hidden="true">
+      <span class="lm lm-text" style="background: #0b1218;"></span>
+    </span>
+    <p class="gl-intro__line" data-gl-line aria-hidden="true">{L('Pain drains everything.', 'El dolor lo apaga todo.')}</p>
+    <div class="gl-intro__final" data-gl-final>
+      <p class="gl-intro__title">{L('Put the power back in how you move.', 'Recupera la fuerza en cómo te mueves.')}</p>
+      <a class="btn btn--primary" href={href(lang, '/sign-up.html')}>{t(lang, 'cta.call')}</a>
+    </div>
+    <span class="gl-intro__hint" data-gl-hint aria-hidden="true">{L('Scroll', 'Desliza')}</span>
+  </div>
+</section>
+
+<style is:global>
+  .gl-intro {
+    position: relative;
+    height: 100svh;
+    min-height: 520px;
+    background: var(--bg);
+  }
+
+  .gl-intro__stage {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    min-height: 520px;
+    overflow: hidden;
+  }
+
+  .gl-intro__window {
+    position: absolute;
+    inset: 0;
+    -webkit-mask-image: url(/images/logo/lockup-p.webp);
+    mask-image: url(/images/logo/lockup-p.webp);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    /* Static final frame; the script takes over these when it runs. */
+    -webkit-mask-size: min(760px, 84vw) auto;
+    mask-size: min(760px, 84vw) auto;
+    -webkit-mask-position: 50% 38%;
+    mask-position: 50% 38%;
+  }
+
+  .gl-intro__window img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform-origin: 0 0;
+  }
+
+  .gl-intro__shade {
+    position: absolute;
+    inset: 0;
+    background: rgb(11 18 24 / 0);
+  }
+
+  .gl-intro__word {
+    position: absolute;
+    left: 50%;
+    top: 38%;
+    width: min(760px, 84vw);
+    transform: translate(-50%, -50%);
+  }
+
+  .gl-intro__line {
+    position: absolute;
+    left: clamp(20px, 4vw, 48px);
+    right: clamp(20px, 4vw, 48px);
+    bottom: 96px;
+    max-width: 820px;
+    margin: 0;
+    font: 800 clamp(2rem, 6vw, 4rem) / 1.02 var(--font-display);
+    letter-spacing: -0.03em;
+    color: #fff;
+    opacity: 0;
+  }
+
+  .gl-intro__final {
+    position: absolute;
+    left: clamp(20px, 4vw, 48px);
+    right: clamp(20px, 4vw, 48px);
+    bottom: clamp(40px, 8vh, 72px);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 20px 32px;
+  }
+
+  .gl-intro__title {
+    max-width: 760px;
+    margin: 0;
+    font: 800 clamp(2.1rem, 6vw, 4.5rem) / 1 var(--font-display);
+    letter-spacing: -0.035em;
+    color: var(--ink);
+  }
+
+  .gl-intro__hint {
+    position: absolute;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #fff;
+    opacity: 0;
+  }
+
+  .gl-intro.is-live .gl-intro__hint {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gl-intro {
+      display: none;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var intro = document.querySelector('[data-gl-intro]');
+    if (!intro || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+
+    var stage = intro.querySelector('[data-gl-stage]');
+    var win = intro.querySelector('[data-gl-window]');
+    var img = win.querySelector('img');
+    var shade = intro.querySelector('[data-gl-shade]');
+    var word = intro.querySelector('[data-gl-word]');
+    var line = intro.querySelector('[data-gl-line]');
+    var fin = intro.querySelector('[data-gl-final]');
+    var hint = intro.querySelector('[data-gl-hint]');
+
+    var clamp = function (v) { return Math.min(1, Math.max(0, v)); };
+    var ease = function (t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
+    var lerp = function (a, b, t) { return a + (b - a) * t; };
+
+    var H = 0, W = 0, raf = 0;
+
+    // Keep the stage height steady while mobile toolbars show and hide; re-measure on rotation.
+    function measure() {
+      if (window.innerWidth === W && H) return;
+      W = window.innerWidth;
+      H = Math.max(520, window.innerHeight);
+      stage.style.height = H + 'px';
+      intro.style.height = H * 3.5 + 'px';
+    }
+
+    function frame() {
+      raf = 0;
+      measure();
+      var p = clamp(-intro.getBoundingClientRect().top / (H * 2.5));
+      var seg = function (a, b) { return clamp((p - a) / (b - a)); };
+
+      // Start deep inside the P's solid bar, then zoom out to the full lockup.
+      var z = ease(seg(0.04, 0.72));
+      var narrow = W < 720;
+      var Lw = narrow ? W * 0.84 : Math.min(760, W * 0.6);
+      var Lh = (Lw * 779) / 1616;
+      var cx = W / 2;
+      var cy = H * (narrow ? 0.34 : 0.4);
+      var S = Math.pow(32, 1 - z);
+      var ax = lerp(0.089, 0.5, z), ay = lerp(0.085, 0.5, z);
+      var tx = lerp(W / 2, cx, z), ty = lerp(H / 2, cy, z);
+      var mw = Lw * S, mh = Lh * S;
+      var size = mw.toFixed(1) + 'px ' + mh.toFixed(1) + 'px';
+      var pos = (tx - ax * mw).toFixed(1) + 'px ' + (ty - ay * mh).toFixed(1) + 'px';
+      win.style.webkitMaskSize = win.style.maskSize = size;
+      win.style.webkitMaskPosition = win.style.maskPosition = pos;
+
+      // Pan the photo so the athlete's chest ends up inside the P (the P is the left 37% of
+      // the lockup), scaling just enough that the photo still covers the whole stage.
+      var px = W * 0.55, py = H * 0.33;
+      var pcx = cx - 0.32 * Lw, pcy = cy;
+      var k = Math.max(1.15, pcx / px, (W - pcx) / (W - px), pcy / py, (H - pcy) / (H - py));
+      var kz = lerp(1, k, z);
+      img.style.transform = 'translate(' + lerp(0, pcx - k * px, z).toFixed(1) + 'px,' + lerp(0, pcy - k * py, z).toFixed(1) + 'px) scale(' + kz.toFixed(3) + ')';
+
+      shade.style.background = 'rgba(11,18,24,' + (0.35 * (1 - seg(0.3, 0.6))).toFixed(2) + ')';
+      word.style.width = Lw.toFixed(1) + 'px';
+      word.style.left = cx + 'px';
+      word.style.top = cy + 'px';
+      word.style.opacity = seg(0.62, 0.76);
+      line.style.opacity = Math.min(seg(0, 0.02), 1 - seg(0.2, 0.28));
+      var f = ease(seg(0.8, 0.95));
+      fin.style.opacity = f;
+      fin.style.transform = 'translateY(' + ((1 - f) * 30).toFixed(1) + 'px)';
+      fin.style.pointerEvents = f > 0.5 ? 'auto' : 'none';
+      hint.style.opacity = 1 - seg(0, 0.05);
+    }
+
+    function schedule() {
+      if (!raf) raf = requestAnimationFrame(frame);
+    }
+
+    intro.classList.add('is-live');
+    W = 0;
+    frame();
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule, { passive: true });
+  })();
+</script>

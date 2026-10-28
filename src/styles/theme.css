@@ -1,39 +1,47 @@
-/* Design tokens for the current direction. Components only use these variables;
-   the design branches replace this file with their own palette and type. */
+/* Direction C · Glacier. Icy whites, the logo's own blues, and a near-black ink. */
 
 :root {
   /* Light surfaces */
-  --bg: #f6f7f8;
+  --bg: #f4fafc;
   --surface: #ffffff;
-  --surface-2: #eceff1;
+  --surface-2: #e5f3f8;
   --ink: #0b1218;
-  --ink-2: #4a5560;
-  --line: #d9dee2;
+  --ink-2: #3f5560;
+  --line: #cfe2ea;
 
-  /* Brand */
-  --accent: #1597b0;
-  --accent-ink: #ffffff; /* text on an --accent fill */
-  --accent-text: #0b6e80; /* accent used as text on --bg; keeps 4.5:1 contrast */
+  /* Brand: cyan fills carry dark text; deep cyan is the accent used as text */
+  --accent: #4ec9de;
+  --accent-ink: #0b1218;
+  --accent-text: #0b6e80;
 
   /* Inverted (dark) sections */
   --dark-bg: #0b1218;
-  --dark-surface: #142029;
+  --dark-surface: #13212b;
   --dark-ink: #f4fafc;
-  --dark-ink-2: #a9bac4;
-  --dark-line: #26353f;
+  --dark-ink-2: #a9bfca;
+  --dark-line: #233541;
   --dark-accent: #acdeff;
   --dark-accent-ink: #0b1218;
 
   /* Type */
-  --font-display: 'Inter', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
-  --display-weight: 700;
-  --display-tracking: -0.025em;
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --display-weight: 800;
+  --display-tracking: -0.035em;
   --display-style: normal;
 
   /* Shape */
-  --radius: 12px;
-  --radius-lg: 20px;
+  --radius: 14px;
+  --radius-lg: 22px;
   --radius-pill: 999px;
-  --shadow: 0 1px 2px rgb(11 18 24 / 6%), 0 8px 24px rgb(11 18 24 / 6%);
+  --shadow: 0 1px 2px rgb(11 18 24 / 5%), 0 12px 32px rgb(11 110 128 / 10%);
+}
+
+/* Glacier outlines secondary buttons in ink rather than the current text colour. */
+.btn--ghost {
+  border-color: var(--ink);
+}
+
+.section--alt {
+  background: linear-gradient(180deg, var(--surface-2), var(--bg));
 }
