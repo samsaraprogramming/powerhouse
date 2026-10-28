@@ -202,7 +202,7 @@ const L = (en: string, es: string) => (lang === 'es' ? es : en);
       word.style.left = cx + 'px';
       word.style.top = cy + 'px';
       word.style.opacity = seg(0.62, 0.76);
-      line.style.opacity = Math.min(seg(0, 0.02), 1 - seg(0.2, 0.28));
+      line.style.opacity = 1 - seg(0.2, 0.28);
       var f = ease(seg(0.8, 0.95));
       fin.style.opacity = f;
       fin.style.transform = 'translateY(' + ((1 - f) * 30).toFixed(1) + 'px)';
