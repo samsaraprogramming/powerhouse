@@ -1,6 +1,5 @@
-// The design direction. revamp/base ships a neutral theme; the design branches
-// (revamp/glacier, revamp/grove) replace this file, src/styles/theme.css and
-// src/components/Intro.astro, and nothing else needs to change.
+// Direction D · Grove: a dark, calm palette (night, ivory, sage, ember) with an editorial serif.
+// Only this file, src/styles/theme.css and src/components/Intro.astro differ from revamp/base.
 
 export interface LogoColors {
   /** The lightning-bolt "P". */
@@ -10,23 +9,24 @@ export interface LogoColors {
 }
 
 export const theme = {
-  id: 'base',
-  name: 'Base (neutral)',
+  id: 'grove',
+  name: 'D · Grove',
   /** Google Fonts stylesheet with every family and weight the theme uses. */
-  fontsHref: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap',
+  fontsHref:
+    'https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Manrope:wght@400;500;600;700&display=swap',
   /** Browser UI colour on mobile. */
-  themeColor: '#0B1218',
+  themeColor: '#0C0E0D',
   logo: {
     /**
      * 'original' shows the unmodified logo files from /images. 'tinted' recolours the same
      * artwork (never a redraw) with the colours below. Switch back to 'original' to revert.
      */
-    mode: 'original' as 'original' | 'tinted',
-    /** Logo on light backgrounds (header, light sections). */
-    onLight: { p: '#1597B0', text: '#0B1218' } satisfies LogoColors,
-    /** Logo on dark backgrounds (footer, dark sections). */
-    onDark: { p: '#ACDEFF', text: '#FFFFFF' } satisfies LogoColors,
+    mode: 'tinted' as 'original' | 'tinted',
+    /** Logo on the page background, which is dark in this theme: ivory wordmark, sage bolt. */
+    onLight: { p: '#5CB98A', text: '#F3F0E8' } satisfies LogoColors,
+    /** Logo in the footer and other dark panels. */
+    onDark: { p: '#5CB98A', text: '#F3F0E8' } satisfies LogoColors,
     /** Round badge used as the favicon and compact mark. */
-    badge: { disc: '#000000', p: '#ACDEFF', rings: '#9C9C9C' },
+    badge: { disc: '#0C0E0D', p: '#5CB98A', rings: '#E6814E' },
   },
 };

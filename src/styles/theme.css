@@ -1,39 +1,74 @@
-/* Design tokens for the current direction. Components only use these variables;
-   the design branches replace this file with their own palette and type. */
+/* Direction D · Grove. Night backgrounds and ivory type, sage for action, ember for warmth.
+   Inverted sections flip to ivory so the long pages keep a light/dark rhythm. */
 
 :root {
-  /* Light surfaces */
-  --bg: #f6f7f8;
-  --surface: #ffffff;
-  --surface-2: #eceff1;
-  --ink: #0b1218;
-  --ink-2: #4a5560;
-  --line: #d9dee2;
+  /* Page surfaces (dark) */
+  --bg: #0c0e0d;
+  --surface: #151917;
+  --surface-2: #111412;
+  --ink: #f3f0e8;
+  --ink-2: #c9c4b8;
+  --line: #2a2f2c;
 
-  /* Brand */
-  --accent: #1597b0;
-  --accent-ink: #ffffff; /* text on an --accent fill */
-  --accent-text: #0b6e80; /* accent used as text on --bg; keeps 4.5:1 contrast */
+  /* Brand: sage fills carry night text; ember is the warm highlight */
+  --accent: #5cb98a;
+  --accent-ink: #0c0e0d;
+  --accent-text: #7fcfa5;
+  --ember: #e6814e;
 
-  /* Inverted (dark) sections */
-  --dark-bg: #0b1218;
-  --dark-surface: #142029;
-  --dark-ink: #f4fafc;
-  --dark-ink-2: #a9bac4;
-  --dark-line: #26353f;
-  --dark-accent: #acdeff;
-  --dark-accent-ink: #0b1218;
+  /* Inverted sections (ivory) */
+  --dark-bg: #f3f0e8;
+  --dark-surface: #ffffff;
+  --dark-ink: #0c0e0d;
+  --dark-ink-2: #4d4a43;
+  --dark-line: #d9d3c6;
+  --dark-accent: #3b6b52;
+  --dark-accent-ink: #f3f0e8;
 
   /* Type */
-  --font-display: 'Inter', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
-  --display-weight: 700;
-  --display-tracking: -0.025em;
+  --font-display: 'Newsreader', Georgia, serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
+  --display-weight: 400;
+  --display-tracking: -0.02em;
   --display-style: normal;
 
   /* Shape */
-  --radius: 12px;
-  --radius-lg: 20px;
+  --radius: 14px;
+  --radius-lg: 18px;
   --radius-pill: 999px;
-  --shadow: 0 1px 2px rgb(11 18 24 / 6%), 0 8px 24px rgb(11 18 24 / 6%);
+  --shadow: 0 1px 2px rgb(0 0 0 / 30%), 0 16px 40px rgb(0 0 0 / 35%);
+
+  color-scheme: dark;
+}
+
+/* The footer stays night even though inverted sections are ivory. */
+.site-footer {
+  --bg: #0c0e0d;
+  --surface: #151917;
+  --surface-2: #151917;
+  --ink: #f3f0e8;
+  --ink-2: #a39e92;
+  --line: #2a2f2c;
+  --accent: #5cb98a;
+  --accent-ink: #0c0e0d;
+  --accent-text: #7fcfa5;
+  border-top: 1px solid var(--line);
+}
+
+.eyebrow,
+.condition-card__index {
+  color: var(--ember);
+}
+
+.section--dark .eyebrow,
+.section--dark .condition-card__index {
+  color: #a24e22;
+}
+
+.step::before {
+  font-style: italic;
+}
+
+.card__media img {
+  filter: saturate(0.85);
 }
