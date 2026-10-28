@@ -32,6 +32,37 @@ export const team = [
     }
   },
   {
+    "slug": "uriel",
+    "metaTitle": "Dr. Uriel Garza, PT, DPT — Powerhouse PT",
+    "metaDescription": "Meet Dr. Uriel Garza, PT, DPT — physical therapist at Powerhouse PT in Laredo, Texas. Experienced in orthopedic and post-operative rehabilitation, exercise, and strength training.",
+    "name": "Dr. Uriel Garza, PT, DPT",
+    "title": "Doctor of Physical Therapy",
+    "photo": "/images/dr-uriel.webp",
+    "photoAlt": "Dr. Uriel Garza, PT, DPT",
+    "paragraphs": [
+      "Dr. Uriel Garza is a Doctor of Physical Therapy with a passion for movement, health, and helping people become the best version of themselves. A United High School graduate, he earned his Bachelor's Degree in Biology from Texas A&amp;M International University and his Doctorate in Physical Therapy from the University of Texas Medical Branch.",
+      "For Uriel, the path to physical therapy started with something that has always been a big part of his life&mdash;sports and staying active. Growing up playing basketball and football sparked his interest in performance, movement, and eventually the anatomy and biomechanics behind how the body works.",
+      "Today, that same interest shapes the way he approaches physical therapy. Uriel believes great care goes beyond treating an injury or diagnosis. He takes the time to understand each patient, educate them about their body, and create an individualized approach that helps them feel stronger and more confident in their movement.",
+      "He has experience treating orthopedic and post-operative conditions, and enjoys working with a variety of patients, from those recovering from surgery or injury to active individuals and weekend warriors working toward getting back to the things they love.",
+      "Outside the clinic, Uriel practices what he preaches by staying active through weightlifting and running. He also enjoys traveling throughout Mexico, especially Sabinas Hidalgo, Nuevo Le&oacute;n, where he loves spending time at the ranch with family and friends. Uriel is passionate about serving the Laredo community and helping his patients move better, feel better, and get back to doing what they love."
+    ],
+    "home": {
+      "shortName": "Dr. Uriel Garza",
+      "photoAlt": "Picture of Dr. Uriel Garza, PT, DPT",
+      "role": "Doctor of Physical Therapy",
+      "expertise": "Expertise in Orthopedics, Post-Operative Rehabilitation & Strength Training",
+      "points": [
+        "Doctor of Physical Therapy — UTMB",
+        "Bachelor's Degree in Biology — TAMIU",
+        "Experience Treating Orthopedic & Post-Operative Conditions",
+        "Strong Background in Exercise, Strength Training & Movement"
+      ],
+      "teaser": "Dr. Uriel Garza is a Doctor of Physical Therapy with a passion for movement, health, and helping people become the best version of themselves. Growing up playing basketball and football sparked his interest in performance, movement, and the biomechanics behind how the body works...",
+      "accordionId": "aboutUrielInfo",
+      "collapseId": "collapseFive"
+    }
+  },
+  {
     "slug": "georgina",
     "metaTitle": "Georgina Morales, PTA — Powerhouse PT",
     "metaDescription": "Meet Georgina Morales, PTA — physical therapist assistant at Powerhouse PT in Laredo, Texas. Specialist in orthopedic and neurological conditions.",
