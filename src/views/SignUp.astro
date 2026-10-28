@@ -1,0 +1,205 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Visit from '../components/Visit.astro';
+import { href, t, type Lang } from '../i18n/ui';
+import { clinic, booking } from '../data/clinic';
+import { breadcrumbNode, pageNode, CLINIC_ID } from '../lib/schema';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const L = (en: string, es: string) => (lang === 'es' ? es : en);
+const path = href(lang, '/sign-up.html');
+const title = L('Schedule a Free Discovery Call | Powerhouse PT Laredo', 'Agenda una llamada gratuita | Powerhouse PT Laredo');
+const description = L(
+  `Tell us about your pain and goals and we'll call you ${booking.responseTime.en} to schedule. Physical therapy in Laredo, TX.`,
+  `Cuéntanos sobre tu dolor y tus metas y te llamaremos ${booking.responseTime.es} para agendar. Terapia física en Laredo, TX.`,
+);
+
+// The submitted values stay in English so the clinic's notification emails read the same.
+const insuranceOptions = [
+  ['None', L('None', 'Ninguno')],
+  ['Aetna', 'Aetna'],
+  ['Blue Cross Blue Shield', 'Blue Cross Blue Shield'],
+  ['Cigna', 'Cigna'],
+  ['Humana', 'Humana'],
+  ['Medicare', 'Medicare'],
+  ['Medicaid', 'Medicaid'],
+  ['Tricare', 'Tricare'],
+  ['UnitedHealthcare', 'UnitedHealthcare'],
+  ['Other', L('Other', 'Otro')],
+];
+
+const messages = {
+  firstName: L('Please enter your first name.', 'Escribe tu nombre.'),
+  lastName: L('Please enter your last name.', 'Escribe tu apellido.'),
+  phoneEmpty: L('Please enter your phone number.', 'Escribe tu número de teléfono.'),
+  phoneBad: L('Please enter a valid phone number, including country code if outside the US.', 'Escribe un teléfono válido, con código de país si no es de EE. UU.'),
+  emailEmpty: L('Please enter your email address.', 'Escribe tu correo electrónico.'),
+  emailBad: L('Please enter a valid email address, like name@example.com.', 'Escribe un correo válido, por ejemplo nombre@ejemplo.com.'),
+  insurance: L('Please select your insurance provider.', 'Selecciona tu seguro.'),
+  goal: L('Please enter your goal.', 'Cuéntanos tu meta.'),
+  send: L('Send', 'Enviar'),
+  sending: L('Sending…', 'Enviando…'),
+};
+
+const schema = [
+  pageNode({ type: 'ContactPage', path, name: title, description, lang, about: { '@id': CLINIC_ID } }),
+  breadcrumbNode([{ name: t(lang, 'breadcrumb.home'), path: href(lang, '/') }, { name: t(lang, 'cta.call'), path }]),
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <section class="page-hero">
+    <div class="wrap">
+      <Breadcrumbs lang={lang} items={[{ name: t(lang, 'cta.call'), path: '/sign-up.html' }]} />
+      <h1>{L('Schedule a free discovery call', 'Agenda una llamada gratuita')}</h1>
+      <p class="lead">
+        {L(
+          `Tell us a little about what's going on. We'll call you ${booking.responseTime.en} for a free ${booking.discoveryCallMinutes}-minute conversation, with no pressure and no commitment.`,
+          `Cuéntanos un poco qué está pasando. Te llamaremos ${booking.responseTime.es} para una conversación gratuita de ${booking.discoveryCallMinutes} minutos, sin presión y sin compromiso.`,
+        )}
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap two-col">
+      <form id="contact-form" class="form" novalidate>
+        <div>
+          <label for="firstName">{L('First name', 'Nombre')}</label>
+          <input id="firstName" name="first_name" type="text" autocomplete="given-name" required />
+          <div class="feedback" id="firstName-feedback"></div>
+        </div>
+        <div>
+          <label for="lastName">{L('Last name', 'Apellido')}</label>
+          <input id="lastName" name="last_name" type="text" autocomplete="family-name" required />
+          <div class="feedback" id="lastName-feedback"></div>
+        </div>
+        <div class="full">
+          <label for="phone">{L('Phone number', 'Teléfono')}</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="25" required />
+          <div class="feedback" id="phone-feedback"></div>
+        </div>
+        <div class="full">
+          <label for="email">{L('Email', 'Correo electrónico')}</label>
+          <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required />
+          <div class="feedback" id="email-feedback"></div>
+        </div>
+        <div class="full">
+          <label for="insurance">{L('Insurance provider', 'Seguro médico')}</label>
+          <select id="insurance" name="insurance" required>
+            <option value="" disabled selected>{L('Select your insurance provider', 'Selecciona tu seguro')}</option>
+            {insuranceOptions.map(([value, label]) => <option value={value}>{label}</option>)}
+          </select>
+          <div class="feedback" id="insurance-feedback"></div>
+        </div>
+        <div class="full">
+          <label for="goal">{L("What's your goal?", '¿Cuál es tu meta?')}</label>
+          <textarea id="goal" name="goal" rows="4" required></textarea>
+          <div class="feedback" id="goal-feedback"></div>
+        </div>
+        <div class="full">
+          <button class="btn btn--primary" type="submit" id="submit-btn" style="width: 100%;">{messages.send}</button>
+        </div>
+        <div class="full form-status form-status--ok" id="form-success" role="status" hidden>
+          {L("Message sent! We'll be in touch shortly.", '¡Mensaje enviado! Te contactaremos pronto.')}
+        </div>
+        <div class="full form-status form-status--error" id="form-error" role="alert" hidden>
+          {L('Something went wrong. Please try again or call us at', 'Algo salió mal. Intenta de nuevo o llámanos al')} <a href={`tel:${clinic.phoneE164}`}>{clinic.phone}</a>.
+        </div>
+      </form>
+
+      <div>
+        <h2 style="font-size: 1.6rem;">{L('Prefer to call?', '¿Prefieres llamar?')}</h2>
+        <Visit lang={lang} />
+      </div>
+    </div>
+  </section>
+
+  <script is:inline slot="scripts" define:vars={{ messages }}>
+    // Each validator returns an error message, or "" when the value is fine.
+    // Same rules as netlify/functions/contact.mjs, which re-checks on the server.
+    var required = function (message) {
+      return function (value) { return value.trim() ? '' : message; };
+    };
+
+    var validators = {
+      firstName: required(messages.firstName),
+      lastName: required(messages.lastName),
+      phone: function (value) {
+        var phone = value.trim();
+        if (!phone) return messages.phoneEmpty;
+        var digits = phone.replace(/\D/g, '');
+        if (!/^\+?[\d\s().-]+$/.test(phone) || digits.length < 7 || digits.length > 15) return messages.phoneBad;
+        return '';
+      },
+      email: function (value) {
+        var email = value.trim();
+        if (!email) return messages.emailEmpty;
+        if (!/^[^\s@]+@[^\s@.]+(\.[^\s@.]+)+$/.test(email)) return messages.emailBad;
+        return '';
+      },
+      insurance: function (value) { return value ? '' : messages.insurance; },
+      goal: required(messages.goal),
+    };
+
+    function validateField(id) {
+      var field = document.getElementById(id);
+      var message = validators[id](field.value);
+      field.classList.toggle('is-invalid', Boolean(message));
+      field.setAttribute('aria-invalid', message ? 'true' : 'false');
+      document.getElementById(id + '-feedback').textContent = message;
+      return !message;
+    }
+
+    Object.keys(validators).forEach(function (id) {
+      var field = document.getElementById(id);
+      field.setAttribute('aria-describedby', id + '-feedback');
+      field.addEventListener('blur', function () { validateField(id); });
+      field.addEventListener('input', function () {
+        if (field.classList.contains('is-invalid')) validateField(id);
+      });
+    });
+
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var form = this;
+      var invalid = Object.keys(validators).filter(function (id) { return !validateField(id); });
+      if (invalid.length) {
+        document.getElementById(invalid[0]).focus();
+        return;
+      }
+
+      var btn = document.getElementById('submit-btn');
+      var success = document.getElementById('form-success');
+      var error = document.getElementById('form-error');
+      btn.disabled = true;
+      btn.textContent = messages.sending;
+      success.hidden = true;
+      error.hidden = true;
+
+      fetch('/api/contact', { method: 'POST', body: new FormData(form) })
+        .then(function (response) {
+          if (!response.ok) throw new Error('Network response was not ok');
+          return response.json();
+        })
+        .then(function (data) {
+          if (data.status !== 'success') throw new Error(data.message || 'Unknown error');
+          success.hidden = false;
+          form.reset();
+        })
+        .catch(function (err) {
+          error.hidden = false;
+          console.error('Submission error:', err);
+        })
+        .finally(function () {
+          btn.disabled = false;
+          btn.textContent = messages.send;
+        });
+    });
+  </script>
+</BaseLayout>

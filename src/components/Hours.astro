@@ -1,0 +1,31 @@
+---
+import { hours } from '../data/clinic';
+import { dayNames, formatTime, t, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+// Collapse consecutive days with the same hours into one row ("Monday – Thursday").
+const rows: { label: string; value: string }[] = [];
+let i = 0;
+while (i < week.length) {
+  const slot = hours.find((h) => h.days.includes(week[i]));
+  let j = i;
+  while (j + 1 < week.length && hours.find((h) => h.days.includes(week[j + 1])) === slot) j++;
+  const label = i === j ? dayNames[lang][week[i]] : `${dayNames[lang][week[i]]} – ${dayNames[lang][week[j]]}`;
+  rows.push({ label, value: slot ? `${formatTime(lang, slot.opens)} – ${formatTime(lang, slot.closes)}` : t(lang, 'location.closed') });
+  i = j + 1;
+}
+---
+
+<dl class="hours">
+  {rows.map((r) => (
+    <Fragment>
+      <dt>{r.label}</dt>
+      <dd style="margin: 0;">{r.value}</dd>
+    </Fragment>
+  ))}
+</dl>

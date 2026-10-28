@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ReviewedBy from '../components/ReviewedBy.astro';
+import Sources from '../components/Sources.astro';
+import FaqList from '../components/FaqList.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { href, t, type Lang } from '../i18n/ui';
+import { conditionBySlug } from '../data/conditions';
+import { posts } from '../data/posts';
+import { booking } from '../data/clinic';
+import { getService, plain } from '../lib/content';
+import { breadcrumbNode, conditionNode, faqNode, pageNode, reviewerNode } from '../lib/schema';
+
+interface Props {
+  lang: Lang;
+  slug: string;
+}
+
+const { lang, slug } = Astro.props;
+const c = conditionBySlug(slug)!;
+const L = (en: string, es: string) => (lang === 'es' ? es : en);
+const path = href(lang, `/conditions/${slug}.html`);
+const name = c.name[lang];
+const title = L(`${name}: causes, treatment & when to get help | Powerhouse PT Laredo`, `${name}: causas, tratamiento y cuándo buscar ayuda | Powerhouse PT Laredo`);
+const description = `${c.summary[lang]} ${L('Physical therapy in Laredo, TX.', 'Terapia física en Laredo, TX.')}`;
+const faqs = c.faqs[lang];
+const related = c.services.map((s) => getService(s, lang));
+const articles = posts.filter((p) => p.conditions.includes(slug));
+
+const schema = [
+  pageNode({ type: 'MedicalWebPage', path, name: title, description, lang, reviewer: c.reviewer, lastReviewed: c.lastReviewed, about: conditionNode(c, lang), extra: { audience: { '@type': 'Patient' } } }),
+  reviewerNode(c.reviewer, lang),
+  faqNode(faqs),
+  breadcrumbNode([
+    { name: t(lang, 'breadcrumb.home'), path: href(lang, '/') },
+    { name: t(lang, 'nav.conditions'), path: href(lang, '/conditions.html') },
+    { name, path },
+  ]),
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema} image={c.image}>
+  <section class="page-hero page-hero--media">
+    <div class="wrap hero__grid">
+      <div>
+        <Breadcrumbs lang={lang} items={[{ name: t(lang, 'nav.conditions'), path: '/conditions.html' }, { name, path: `/conditions/${slug}.html` }]} />
+        <h1>{name}</h1>
+        <p class="lead">{c.summary[lang]}</p>
+        <ReviewedBy lang={lang} reviewer={c.reviewer} date={c.lastReviewed} />
+      </div>
+      <div class="hero__media"><img src={c.image} alt="" width="800" height="600" fetchpriority="high" /></div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap two-col">
+      <article class="prose">
+        <p class="lead" style="color: var(--ink);">{c.intro[lang]}</p>
+
+        <h2>{L(`What does ${name.toLowerCase()} feel like?`, `¿Cómo se siente?`)}</h2>
+        <ul class="list-check">{c.symptoms[lang].map((s) => <li>{s}</li>)}</ul>
+
+        <h2>{L('What usually causes it?', '¿Qué lo causa normalmente?')}</h2>
+        <ul class="list-check">{c.causes[lang].map((s) => <li>{s}</li>)}</ul>
+
+        <h2>{L('How can physical therapy help?', '¿Cómo puede ayudar la terapia física?')}</h2>
+        <ul class="list-check">{c.treatment[lang].map((s) => <li>{s}</li>)}</ul>
+
+        <h2>{L('When should I get it checked?', '¿Cuándo debo revisarlo?')}</h2>
+        <p>{c.whenToSeek[lang]}</p>
+
+        <div class="callout callout--warn">
+          <h3>{L('See a doctor right away if you notice', 'Ve al médico de inmediato si notas')}</h3>
+          <ul class="list-check list-flag" style="margin: 0;">{c.redFlags[lang].map((s) => <li>{s}</li>)}</ul>
+        </div>
+
+        <h2>{t(lang, 'conditions.faq')} {name.toLowerCase()}</h2>
+        <FaqList items={faqs} />
+
+        <Sources lang={lang} sources={c.sources} />
+      </article>
+
+      <aside style="display: grid; gap: 20px; align-content: start;">
+        <div class="callout">
+          <h2 style="font-size: 1.25rem;">{t(lang, 'conditions.related')}</h2>
+          <ul class="list-check" style="margin: 0;">
+            {related.map((s) => <li><a href={href(lang, `/service-${s.slug}.html`)} set:html={plain(s.heroTitle)} /></li>)}
+          </ul>
+        </div>
+        {articles.length > 0 && (
+          <div class="callout">
+            <h2 style="font-size: 1.25rem;">{t(lang, 'library.title')}</h2>
+            <ul class="list-check" style="margin: 0;">
+              {articles.map((p) => <li><a href={href(lang, `/library/${p.slug}.html`)}>{p.title[lang]}</a></li>)}
+            </ul>
+          </div>
+        )}
+        <div class="callout section--dark" style="border: 0;">
+          <h2 style="font-size: 1.25rem;">{L('Not sure where to start?', '¿No sabes por dónde empezar?')}</h2>
+          <p style="color: var(--ink-2);">{L(`A free ${booking.discoveryCallMinutes}-minute call is the easiest first step.`, `Una llamada gratuita de ${booking.discoveryCallMinutes} minutos es el primer paso más fácil.`)}</p>
+          <a class="btn btn--primary" href={href(lang, '/sign-up.html')}>{t(lang, 'cta.call')}</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <CtaBand lang={lang} />
+</BaseLayout>

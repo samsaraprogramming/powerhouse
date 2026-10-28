@@ -9,3 +9,14 @@
   from = "/index.html"
   to = "/"
   status = 301
+
+# build.format 'file' writes the Spanish home page to es.html; serve it at /es/.
+[[redirects]]
+  from = "/es/"
+  to = "/es.html"
+  status = 200
+
+[[redirects]]
+  from = "/es"
+  to = "/es/"
+  status = 301

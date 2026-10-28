@@ -1,138 +1,85 @@
 ---
-import Nav from '../components/Nav.astro';
+import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { theme } from '../theme/theme';
+import { langFromUrl, publicPath, swapLang, t, type Lang } from '../i18n/ui';
+import { getGoogleRating } from '../data/googleRating';
+import { clinicNode, websiteNode, abs } from '../lib/schema';
+import '../styles/theme.css';
+import '../styles/site.css';
 
 interface Props {
   title: string;
   description: string;
-  keywords?: string;
-  /** Lato axis list for the Google Fonts URL; each page type loads the weights it always has. */
-  fonts?: string;
-  /** Home and sign-up also load boxicons and AOS scroll animations. */
-  aos?: boolean;
-  isHome?: boolean;
-  mainClass?: string;
+  /** Page-specific JSON-LD nodes; the clinic and website nodes are always added. */
+  schema?: object[];
+  /** Set false for pages that exist in one language only. */
+  translated?: boolean;
+  image?: string;
+  ogType?: 'website' | 'article';
+  noindex?: boolean;
 }
 
-const {
-  title,
-  description,
-  keywords,
-  fonts = 'ital,wght@0,400;0,700;0,900;1,400',
-  aos = false,
-  isHome = false,
-  mainClass,
-} = Astro.props;
+const { title, description, schema = [], translated = true, image = '/images/orthopedic-sports-therapy.webp', ogType = 'website', noindex = false } = Astro.props;
 
-const canonical = new URL(Astro.url.pathname === '/index.html' ? '/' : Astro.url.pathname, Astro.site);
+const lang: Lang = langFromUrl(Astro.url);
+const path = publicPath(Astro.url.pathname);
+const canonical = abs(path);
+const enPath = swapLang(Astro.url, 'en');
+const esPath = swapLang(Astro.url, 'es');
+const altPath = translated ? (lang === 'en' ? esPath : enPath) : null;
 
-// Structured data for local search results, emitted on the home page.
-const clinic = {
-  '@context': 'https://schema.org',
-  '@type': 'PhysicalTherapy',
-  name: 'Powerhouse PT - Physical Therapy',
-  url: Astro.site,
-  image: new URL('/images/powerhouse-logo.webp', Astro.site),
-  telephone: '+1-956-307-6305',
-  faxNumber: '+1-956-857-3229',
-  email: 'info@powerhousesportspt.com',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '2446 San Isidro Pkwy',
-    addressLocality: 'Laredo',
-    addressRegion: 'TX',
-    postalCode: '78045',
-    addressCountry: 'US',
-  },
-  hasMap: 'https://maps.app.goo.gl/yDw3U9cw4icQMNew6',
-  sameAs: [
-    'https://www.instagram.com/powerhousept_',
-    'https://www.facebook.com/people/Powerhouse-PT-Physical-Therapy/100094690571519/',
-  ],
-};
+const rating = await getGoogleRating();
+const graph = { '@context': 'https://schema.org', '@graph': [clinicNode(rating), websiteNode(lang), ...schema] };
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang === 'es' ? 'es' : 'en'}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    {keywords && <meta name="keywords" content={keywords} />}
-
-    {aos && <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />}
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    {aos && <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />}
-
-    <!-- Font Awesome -->
-    <script is:inline src="https://kit.fontawesome.com/46031f3086.js" crossorigin="anonymous"></script>
-    <slot name="head" />
+    {noindex && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={canonical} />
+    {translated && (
+      <Fragment>
+        <link rel="alternate" hreflang="en" href={abs(enPath)} />
+        <link rel="alternate" hreflang="es" href={abs(esPath)} />
+        <link rel="alternate" hreflang="x-default" href={abs(enPath)} />
+      </Fragment>
+    )}
+    <meta name="theme-color" content={theme.themeColor} />
+    <link rel="icon" href="/images/p-logo-minty.webp" type="image/webp" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    {isHome && <script is:inline type="application/ld+json" set:html={JSON.stringify(clinic)} />}
+    <link rel="alternate" type="text/plain" title="LLM summary" href="/llms.txt" />
+
+    <meta property="og:site_name" content="Powerhouse PT" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={abs(image)} />
+    <meta property="og:locale" content={lang === 'es' ? 'es_US' : 'en_US'} />
+    {translated && <meta property="og:locale:alternate" content={lang === 'es' ? 'en_US' : 'es_US'} />}
+    <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href={`https://fonts.googleapis.com/css2?family=Lato:${fonts}&display=swap`} rel="stylesheet" />
+    <link href={theme.fontsHref} rel="stylesheet" />
+
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(graph)} />
+    <slot name="head" />
   </head>
 
-  <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    <script
-      is:inline
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"></script>
-    <script is:inline>
-      var prevScroll = 0;
-
-      window.addEventListener('scroll', function () {
-        var scroll = window.scrollY;
-        var navbar = document.querySelector('.navbar');
-        if (!navbar) return;
-
-        if (scroll < 50) {
-          navbar.classList.remove('navbar-hide');
-        } else if (scroll - prevScroll >= 20) {
-          navbar.classList.add('navbar-hide');
-          prevScroll = scroll;
-        } else if (prevScroll - scroll >= 20) {
-          navbar.classList.remove('navbar-hide');
-          prevScroll = scroll;
-        }
-      });
-    </script>
-    {aos && (
-      <Fragment>
-        <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-        <script is:inline>
-          AOS.init({
-            duration: 750,
-            once: true,
-            offset: 60,
-            easing: "ease-out-cubic",
-          });
-        </script>
-      </Fragment>
-    )}
-    <slot name="before" />
-
-    <section id="title">
-      <Nav isHome={isHome} />
-      <slot name="hero" />
-    </section>
-
-    <main id="main-content" class={mainClass}>
+  <body data-theme={theme.id}>
+    <a href="#main-content" class="skip-link">{t(lang, 'skip')}</a>
+    <slot name="before-header" />
+    <Header lang={lang} altPath={altPath} />
+    <main id="main-content">
       <slot />
     </main>
-
-    <Footer />
+    <Footer lang={lang} />
     <slot name="scripts" />
   </body>
 </html>

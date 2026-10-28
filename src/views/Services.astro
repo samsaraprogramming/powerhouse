@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { href, t, type Lang } from '../i18n/ui';
+import { getServices, plain } from '../lib/content';
+import { breadcrumbNode, pageNode, therapyNode } from '../lib/schema';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const L = (en: string, es: string) => (lang === 'es' ? es : en);
+const path = href(lang, '/services.html');
+const title = L('Physical Therapy Services in Laredo, TX | Powerhouse PT', 'Servicios de terapia física en Laredo, TX | Powerhouse PT');
+const description = L(
+  'Orthopedic physical therapy, sports performance, running analysis, dry needling and cupping in Laredo, Texas. One-on-one care with licensed physical therapists.',
+  'Terapia física ortopédica, rendimiento deportivo, análisis de carrera, punción seca y ventosas en Laredo, Texas. Atención uno a uno con fisioterapeutas con licencia.',
+);
+const services = getServices(lang);
+const crumbs = [{ name: t(lang, 'nav.care'), path: '/services.html' }];
+
+const schema = [
+  pageNode({ type: 'CollectionPage', path, name: title, description, lang }),
+  breadcrumbNode([{ name: t(lang, 'breadcrumb.home'), path: href(lang, '/') }, { name: t(lang, 'nav.care'), path }]),
+  ...services.map((s) => therapyNode(s, href(lang, `/service-${s.slug}.html`))),
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <section class="page-hero">
+    <div class="wrap">
+      <Breadcrumbs lang={lang} items={crumbs} />
+      <h1>{t(lang, 'home.servicesTitle')}</h1>
+      <p class="lead">{t(lang, 'home.servicesLead')}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap grid" style="--min: 320px;">
+      {services.map((s) => (
+        <a class="card" href={href(lang, `/service-${s.slug}.html`)}>
+          <div class="card__media"><img src={s.heroImage} alt="" loading="lazy" width="640" height="400" /></div>
+          <div class="card__body">
+            <h2 style="font-size: 1.5rem; margin: 0;" set:html={plain(s.heroTitle)} />
+            <p set:html={s.heroSubtitle} />
+            <span class="link-arrow">{t(lang, 'cta.learnMore')}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <CtaBand lang={lang} />
+</BaseLayout>

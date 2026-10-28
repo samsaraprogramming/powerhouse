@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { href, t, type Lang } from '../i18n/ui';
+import { getMember, plain } from '../lib/content';
+import { conditions } from '../data/conditions';
+import { posts } from '../data/posts';
+import { breadcrumbNode, pageNode, personNode } from '../lib/schema';
+
+interface Props {
+  lang: Lang;
+  slug: string;
+}
+
+const { lang, slug } = Astro.props;
+const m = getMember(slug, lang);
+const path = href(lang, `/${slug}-bio.html`);
+const reviewed = conditions.filter((c) => c.reviewer === slug);
+const written = posts.filter((p) => p.reviewer === slug);
+const name = plain(m.name);
+
+const schema = [
+  pageNode({ type: 'ProfilePage', path, name: m.metaTitle, description: m.metaDescription, lang, extra: { mainEntity: { '@id': personNode(m, lang)['@id'] } } }),
+  personNode(m, lang),
+  breadcrumbNode([
+    { name: t(lang, 'breadcrumb.home'), path: href(lang, '/') },
+    { name: t(lang, 'nav.about'), path: href(lang, '/about.html') },
+    { name, path },
+  ]),
+];
+---
+
+<BaseLayout title={m.metaTitle} description={m.metaDescription} schema={schema} image={m.photo}>
+  <section class="page-hero page-hero--media">
+    <div class="wrap hero__grid">
+      <div>
+        <Breadcrumbs lang={lang} items={[{ name: t(lang, 'nav.about'), path: '/about.html' }, { name, path: `/${slug}-bio.html` }]} />
+        <h1 set:html={m.name} />
+        <p class="lead" set:html={m.title} />
+        <ul class="list-check" style="margin-top: 24px;">
+          {m.home.points.map((p) => <li>{p}</li>)}
+        </ul>
+      </div>
+      <div class="hero__media" style="aspect-ratio: 4 / 5;"><img src={m.photo} alt={m.photoAlt} width="640" height="800" fetchpriority="high" /></div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap two-col">
+      <div class="prose">
+        {m.paragraphs.map((p) => <p set:html={p} />)}
+      </div>
+      {(reviewed.length > 0 || written.length > 0) && (
+        <aside class="callout" style="align-self: start;">
+          <h2 style="font-size: 1.25rem;">{lang === 'es' ? 'Contenido revisado' : 'Clinical content reviewed'}</h2>
+          <ul class="list-check" style="margin: 0;">
+            {reviewed.map((c) => <li><a href={href(lang, `/conditions/${c.slug}.html`)}>{c.name[lang]}</a></li>)}
+            {written.map((p) => <li><a href={href(lang, `/library/${p.slug}.html`)}>{p.title[lang]}</a></li>)}
+          </ul>
+        </aside>
+      )}
+    </div>
+  </section>
+
+  <CtaBand lang={lang} />
+</BaseLayout>

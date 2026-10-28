@@ -1,0 +1,10 @@
+---
+import View from '../../views/Bio.astro';
+import { team } from '../../data/team';
+
+export function getStaticPaths() {
+  return team.map((m) => ({ params: { slug: m.slug } }));
+}
+---
+
+<View lang="es" slug={Astro.params.slug!} />

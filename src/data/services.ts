@@ -1,4 +1,5 @@
 // Text fields are HTML (they may contain entities or <span>) and are rendered with set:html.
+// Spanish versions of the visitor-facing fields live in services.es.ts.
 
 export const services = [
   {
@@ -91,7 +92,7 @@ export const services = [
     "metaTitle": "Sports Performance & Injury Prevention in Laredo, TX | Powerhouse PT",
     "metaDescription": "Sports performance training and injury prevention in Laredo, Texas. We help athletes of all ages optimize movement, build strength, and stay injury-free all season long.",
     "keywords": "sports performance Laredo TX, injury prevention physical therapy, athlete training Laredo Texas, sports PT, movement optimization, strength training physical therapy",
-    "heroImage": "/images/orthopedic-sports-therapy.webp",
+    "heroImage": "/images/sprint.webp",
     "heroAlt": "Athlete training for sports performance",
     "heroTitle": "Performance & Sports Injury Prevention",
     "heroSubtitle": "Train smarter, move better, and stay in the game all season long",
@@ -176,7 +177,7 @@ export const services = [
     "metaTitle": "Running Analysis in Laredo, TX | Running & Movement Assessment | Powerhouse PT",
     "metaDescription": "Professional running analysis in Laredo, Texas. We assess how you walk and run to identify movement inefficiencies, reduce injury risk, and optimize your performance. Book a free call today.",
     "keywords": "running analysis Laredo TX, running gait analysis, walking analysis, biomechanics assessment Laredo Texas, movement analysis physical therapy, running injury prevention",
-    "heroImage": "/images/orthopedic-sports-therapy.webp",
+    "heroImage": "/images/running-analysis.webp",
     "heroAlt": "running analysis assessment in progress",
     "heroTitle": "Running Analysis",
     "heroSubtitle": "Discover what your walk or run is telling us — and fix what's holding you back",
@@ -261,7 +262,7 @@ export const services = [
     "metaTitle": "Dry Needling in Laredo, TX | Trigger Point Therapy | Powerhouse PT",
     "metaDescription": "Certified dry needling therapy in Laredo, Texas. We target trigger points and tight muscle bands to relieve chronic pain, accelerate recovery, and restore normal muscle function.",
     "keywords": "dry needling Laredo TX, trigger point dry needling, intramuscular stimulation, muscle pain relief Laredo Texas, sports recovery therapy, myofascial pain treatment",
-    "heroImage": "/images/orthopedic-sports-therapy.webp",
+    "heroImage": "/images/dry-needling.webp",
     "heroAlt": "Dry needling therapy treatment",
     "heroTitle": "Dry Needling",
     "heroSubtitle": "Release stubborn muscle tension, reduce chronic pain, and accelerate your recovery",
@@ -346,7 +347,7 @@ export const services = [
     "metaTitle": "Cupping Therapy in Laredo, TX | Muscle Recovery & Pain Relief | Powerhouse PT",
     "metaDescription": "Professional cupping therapy in Laredo, Texas. We use specialized cups to promote blood flow, reduce muscle tension, break up scar tissue, and accelerate recovery from injury or intense training.",
     "keywords": "cupping therapy Laredo TX, myofascial cupping, sports cupping therapy Laredo Texas, muscle recovery cupping, deep tissue therapy, pain relief Laredo",
-    "heroImage": "/images/orthopedic-sports-therapy.webp",
+    "heroImage": "/images/cupping.webp",
     "heroAlt": "Cupping therapy session at Powerhouse PT",
     "heroTitle": "Cupping Therapy",
     "heroSubtitle": "Lift tension from deep tissue, restore circulation, and speed up your body's natural healing",

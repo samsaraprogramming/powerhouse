@@ -1,0 +1,22 @@
+---
+import { href, t, type Lang } from '../i18n/ui';
+import { getMember, plain } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+  reviewer: string;
+  date: string;
+}
+
+const { lang, reviewer, date } = Astro.props;
+const member = getMember(reviewer, lang);
+const formatted = new Date(`${date}T12:00:00`).toLocaleDateString(lang === 'es' ? 'es-US' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<p class="byline">
+  <img src={member.photo} alt="" width="48" height="48" loading="lazy" />
+  <span>
+    {t(lang, 'reviewed.by')} <a href={href(lang, `/${member.slug}-bio.html`)} set:html={member.name} /><br />
+    {t(lang, 'reviewed.on')}: <time datetime={date}>{formatted}</time>
+  </span>
+</p>

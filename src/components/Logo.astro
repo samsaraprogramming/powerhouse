@@ -1,0 +1,40 @@
+---
+// The Powerhouse logo, always from the real artwork. In 'tinted' mode the artwork is split into
+// layers (bolt P, wordmark, badge parts) used as CSS masks so each theme can recolour it.
+import { theme } from '../theme/theme';
+
+interface Props {
+  variant?: 'lockup' | 'badge';
+  /** Background the logo sits on. */
+  on?: 'light' | 'dark';
+  width?: number;
+  class?: string;
+  label?: string;
+}
+
+const { variant = 'lockup', on = 'light', width = 150, class: className, label = 'Powerhouse Physical Therapy' } = Astro.props;
+const { mode, onLight, onDark, badge } = theme.logo;
+const colors = on === 'dark' ? onDark : onLight;
+// The original lockup has a white wordmark, so on light backgrounds the original-mode
+// fallback is the round badge, as on the previous site.
+const useBadge = variant === 'badge' || (mode === 'original' && on === 'light');
+---
+
+{mode === 'original' ? (
+  useBadge ? (
+    <img class:list={['logo-img', className]} src="/images/p-logo-minty.webp" alt={label} width={Math.round(width * 0.42)} height={Math.round(width * 0.42)} />
+  ) : (
+    <img class:list={['logo-img', className]} src="/images/powerhouse-logo.webp" alt={label} width={width} height={Math.round((width * 849) / 2041)} />
+  )
+) : variant === 'badge' ? (
+  <span class:list={['logo-mask logo-badge', className]} role="img" aria-label={label} style={`width:${width}px`}>
+    <span class="lm lm-disc" style={`background:${badge.disc}`}></span>
+    <span class="lm lm-rings" style={`background:${badge.rings}`}></span>
+    <span class="lm lm-bp" style={`background:${badge.p}`}></span>
+  </span>
+) : (
+  <span class:list={['logo-mask logo-lockup', className]} role="img" aria-label={label} style={`width:${width}px`}>
+    <span class="lm lm-text" style={`background:${colors.text}`}></span>
+    <span class="lm lm-p" style={`background:${colors.p}`}></span>
+  </span>
+)}

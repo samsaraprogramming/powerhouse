@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { href, t, type Lang } from '../i18n/ui';
+import { conditions } from '../data/conditions';
+import { breadcrumbNode, pageNode, abs } from '../lib/schema';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const L = (en: string, es: string) => (lang === 'es' ? es : en);
+const path = href(lang, '/conditions.html');
+const title = L('Conditions We Treat | Physical Therapy in Laredo, TX | Powerhouse PT', 'Condiciones que tratamos | Terapia física en Laredo, TX | Powerhouse PT');
+const description = L(
+  'Back pain, sciatica, neck pain, headaches, shoulder, hip, knee, foot and ankle pain, sports injuries and post-surgical rehab. Learn the causes, treatment and when to get help.',
+  'Dolor de espalda, ciática, cuello, dolores de cabeza, hombro, cadera, rodilla, pie y tobillo, lesiones deportivas y rehabilitación postquirúrgica. Causas, tratamiento y cuándo buscar ayuda.',
+);
+
+const schema = [
+  pageNode({
+    type: 'CollectionPage',
+    path,
+    name: title,
+    description,
+    lang,
+    extra: {
+      mainEntity: {
+        '@type': 'ItemList',
+        itemListElement: conditions.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name[lang], url: abs(href(lang, `/conditions/${c.slug}.html`)) })),
+      },
+    },
+  }),
+  breadcrumbNode([{ name: t(lang, 'breadcrumb.home'), path: href(lang, '/') }, { name: t(lang, 'nav.conditions'), path }]),
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <section class="page-hero">
+    <div class="wrap">
+      <Breadcrumbs lang={lang} items={[{ name: t(lang, 'nav.conditions'), path: '/conditions.html' }]} />
+      <h1>{t(lang, 'conditions.title')}</h1>
+      <p class="lead">{t(lang, 'home.conditionsLead')}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap grid" style="--min: 300px;">
+      {conditions.map((c, i) => (
+        <a class="card" href={href(lang, `/conditions/${c.slug}.html`)}>
+          <div class="card__media"><img src={c.image} alt="" loading="lazy" width="640" height="400" /></div>
+          <div class="card__body">
+            <span class="condition-card__index">{String(i + 1).padStart(2, '0')}</span>
+            <h2 style="font-size: 1.45rem; margin: 0;">{c.name[lang]}</h2>
+            <p>{c.summary[lang]}</p>
+            <span class="link-arrow">{t(lang, 'cta.readMore')}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <CtaBand lang={lang} />
+</BaseLayout>

@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FaqList from '../components/FaqList.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { href, t, type Lang } from '../i18n/ui';
+import { directAccess, insurance, selfPay, booking } from '../data/clinic';
+import { faqGroups } from '../data/faq';
+import { breadcrumbNode, faqNode, pageNode, CLINIC_ID } from '../lib/schema';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const L = (en: string, es: string) => (lang === 'es' ? es : en);
+const path = href(lang, '/access.html');
+const title = L('Insurance, Self-Pay Prices & Direct Access | Powerhouse PT Laredo', 'Seguros, precios sin seguro y acceso directo | Powerhouse PT Laredo');
+const description = L(
+  `Insurance we accept, self-pay prices, HSA/FSA, and how to see a physical therapist in Texas without a referral for up to ${directAccess.days} business days.`,
+  `Seguros que aceptamos, precios sin seguro, HSA/FSA, y cómo ver a un fisioterapeuta en Texas sin referencia hasta por ${directAccess.days} días hábiles.`,
+);
+
+const priceLabels: Record<string, [string, string]> = {
+  evaluation: [`Initial evaluation (${booking.evaluationMinutes} min)`, `Evaluación inicial (${booking.evaluationMinutes} min)`],
+  followUp: [`Follow-up visit (${booking.followUpMinutes} min)`, `Visita de seguimiento (${booking.followUpMinutes} min)`],
+  dryNeedling: ['Dry needling add-on', 'Punción seca (adicional)'],
+  runningAnalysis: ['Running analysis', 'Análisis de carrera'],
+  package: ['Package of 5 follow-up visits', 'Paquete de 5 visitas de seguimiento'],
+};
+const usd = (n: number) => `$${n}`;
+
+const faqs = faqGroups.find((g) => g.id === 'insurance-cost')!.items.map((i) => ({ q: i.q[lang], a: i.a[lang] }));
+
+const schema = [
+  pageNode({
+    path,
+    name: title,
+    description,
+    lang,
+    extra: {
+      mainEntity: {
+        '@type': 'OfferCatalog',
+        name: L('Self-pay prices', 'Precios sin seguro'),
+        itemListElement: selfPay.map((p) => ({
+          '@type': 'Offer',
+          name: priceLabels[p.key][lang === 'es' ? 1 : 0],
+          price: p.price,
+          priceCurrency: 'USD',
+          offeredBy: { '@id': CLINIC_ID },
+        })),
+      },
+    },
+  }),
+  faqNode(faqs),
+  breadcrumbNode([{ name: t(lang, 'breadcrumb.home'), path: href(lang, '/') }, { name: t(lang, 'nav.access'), path }]),
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <section class="page-hero">
+    <div class="wrap">
+      <Breadcrumbs lang={lang} items={[{ name: t(lang, 'nav.access'), path: '/access.html' }]} />
+      <h1>{t(lang, 'access.title')}</h1>
+      <p class="lead">{L('Everything you need to know before your first visit: referrals, insurance and prices.', 'Todo lo que necesitas saber antes de tu primera visita: referencias, seguros y precios.')}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight" id="direct-access">
+    <div class="wrap two-col">
+      <div>
+        <h2>{L('Do I need a referral?', '¿Necesito una referencia?')}</h2>
+        <p class="lead">
+          {L(
+            `No, not to get started. Texas law lets you see a physical therapist directly for up to ${directAccess.days} business days. If you need care beyond that, or your insurance plan requires a referral, we coordinate with your doctor for you.`,
+            `No, no para empezar. La ley de Texas te permite ver a un fisioterapeuta directamente hasta por ${directAccess.days} días hábiles. Si necesitas más tiempo o tu seguro pide una referencia, nosotros coordinamos con tu médico.`,
+          )}
+        </p>
+      </div>
+      <div class="callout">
+        <h3>{L('What to bring to your first visit', 'Qué traer a tu primera visita')}</h3>
+        <ul class="list-check" style="margin: 0;">
+          <li>{L('Photo ID and insurance card', 'Identificación con foto y tarjeta del seguro')}</li>
+          <li>{L('Any imaging reports or surgical protocols', 'Reportes de estudios de imagen o protocolos de cirugía')}</li>
+          <li>{L('A list of your current medications', 'Lista de tus medicamentos actuales')}</li>
+          <li>{L('Comfortable clothes you can move in', 'Ropa cómoda para moverte')}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="insurance">
+    <div class="wrap two-col">
+      <div>
+        <h2>{L('Insurance we accept', 'Seguros que aceptamos')}</h2>
+        <p class="lead">{L('Coverage varies by plan. We verify your benefits before your first visit so there are no surprises.', 'La cobertura depende de tu plan. Verificamos tus beneficios antes de tu primera visita para que no haya sorpresas.')}</p>
+        {insurance.hsaFsa && <p>{L('HSA and FSA cards are welcome.', 'Aceptamos tarjetas HSA y FSA.')}</p>}
+      </div>
+      <ul class="pill-list">
+        {insurance.accepted.map((i) => <li>{i.name}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="self-pay">
+    <div class="wrap two-col">
+      <div>
+        <h2>{L('Self-pay prices', 'Precios sin seguro')}</h2>
+        <p class="lead">{L('No insurance, or a high deductible? Self-pay is simple and often less than you expect.', '¿Sin seguro o con un deducible alto? Pagar por tu cuenta es sencillo y muchas veces cuesta menos de lo que crees.')}</p>
+      </div>
+      <table class="price-table">
+        <caption class="visually-hidden">{L('Self-pay prices', 'Precios sin seguro')}</caption>
+        <tbody>
+          {selfPay.map((p) => (
+            <tr>
+              <th scope="row" style="font-weight: 500;">{priceLabels[p.key][lang === 'es' ? 1 : 0]}</th>
+              <td>{usd(p.price)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap two-col">
+      <h2>{L('Questions about cost', 'Preguntas sobre costos')}</h2>
+      <FaqList items={faqs} />
+    </div>
+  </section>
+
+  <CtaBand lang={lang} />
+</BaseLayout>

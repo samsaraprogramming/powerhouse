@@ -1,0 +1,18 @@
+---
+import { getGoogleRating, REVIEWS_URL } from '../data/googleRating';
+import { t, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { rating, count } = await getGoogleRating();
+const stars = '★'.repeat(Math.round(rating)) + '☆'.repeat(5 - Math.round(rating));
+---
+
+<a class="rating" href={REVIEWS_URL} target="_blank" rel="noopener">
+  <span class="rating__stars" aria-hidden="true">{stars}</span>
+  <span>{rating.toFixed(1)}</span>
+  <span>· {count.toLocaleString(lang === 'es' ? 'es-US' : 'en-US')} {t(lang, 'rating.reviews')}</span>
+</a>

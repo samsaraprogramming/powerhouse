@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FaqList from '../components/FaqList.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { href, t, type Lang } from '../i18n/ui';
+import { faqGroups } from '../data/faq';
+import { breadcrumbNode, faqNode, pageNode } from '../lib/schema';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const L = (en: string, es: string) => (lang === 'es' ? es : en);
+const path = href(lang, '/faq.html');
+const title = L('Physical Therapy FAQ | Powerhouse PT Laredo', 'Preguntas frecuentes de terapia física | Powerhouse PT Laredo');
+const description = L(
+  'Answers about referrals, insurance, self-pay prices, visit length, what to wear, dry needling and more at Powerhouse PT in Laredo, TX.',
+  'Respuestas sobre referencias, seguros, precios sin seguro, duración de las visitas, qué ropa usar, punción seca y más en Powerhouse PT en Laredo, TX.',
+);
+const groups = faqGroups.map((g) => ({ id: g.id, title: g.title[lang], items: g.items.map((i) => ({ q: i.q[lang], a: i.a[lang] })) }));
+
+const schema = [
+  pageNode({ type: 'FAQPage', path, name: title, description, lang, extra: { mainEntity: faqNode(groups.flatMap((g) => g.items)).mainEntity } }),
+  breadcrumbNode([{ name: t(lang, 'breadcrumb.home'), path: href(lang, '/') }, { name: t(lang, 'nav.faq'), path }]),
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <section class="page-hero">
+    <div class="wrap">
+      <Breadcrumbs lang={lang} items={[{ name: t(lang, 'nav.faq'), path: '/faq.html' }]} />
+      <h1>{t(lang, 'faq.title')}</h1>
+      <p class="lead">{L("Can't find your answer? Call us and we'll help.", '¿No encuentras tu respuesta? Llámanos y te ayudamos.')}</p>
+    </div>
+  </section>
+
+  {groups.map((g, i) => (
+    <section class:list={['section section--tight', { 'section--alt': i % 2 === 1 }]} id={g.id}>
+      <div class="wrap two-col">
+        <h2>{g.title}</h2>
+        <FaqList items={g.items} />
+      </div>
+    </section>
+  ))}
+
+  <CtaBand lang={lang} />
+</BaseLayout>

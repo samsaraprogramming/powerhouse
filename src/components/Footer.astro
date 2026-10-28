@@ -1,19 +1,69 @@
-<footer id="footer">
-  <div class="container-fluid footer-section">
-    <div class="row g-0">
-      <div class="col-lg-4 footer-logo-container-mobile">
-        <img class="footer-logo" src="/images/powerhouse-logo.webp" alt="powerhouse pt physical therapy original logo" />
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import Hours from './Hours.astro';
+import { clinic } from '../data/clinic';
+import { href, t, type Lang } from '../i18n/ui';
+import { getServices, plain } from '../lib/content';
+import { conditions } from '../data/conditions';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <Logo on="dark" width={170} />
+        <div class="social">
+          <a href={clinic.social.instagram} aria-label="Instagram"><Icon name="instagram" size={18} /></a>
+          <a href={clinic.social.facebook} aria-label="Facebook"><Icon name="facebook" size={18} /></a>
+        </div>
       </div>
-      <div class="col-lg-4 footer-copyright">
-        <span>Copyright © Powerhouse PT - Physical Therapy. All rights reserved.<br /></span>
+      <div>
+        <h2>{t(lang, 'nav.care')}</h2>
+        <ul>
+          {getServices(lang).map((s) => <li><a href={href(lang, `/service-${s.slug}.html`)} set:html={plain(s.heroTitle)} /></li>)}
+        </ul>
       </div>
-      <div class="col-lg-4 footer-logo-container">
-        <img class="footer-logo" src="/images/powerhouse-logo.webp" alt="powerhouse pt physical therapy original logo" />
+      <div>
+        <h2>{t(lang, 'nav.conditions')}</h2>
+        <ul>
+          {conditions.map((c) => <li><a href={href(lang, `/conditions/${c.slug}.html`)}>{c.name[lang]}</a></li>)}
+        </ul>
       </div>
-      <div class="col-lg-4 footer-links">
-        <a class="nav-link footer-link" aria-label="Follow us on Instagram" href="https://www.instagram.com/powerhousept_"><i class="footer-icon fa-brands fa-instagram" aria-hidden="true"></i></a>
-        <a class="nav-link footer-link" aria-label="Follow us on Facebook" href="https://www.facebook.com/people/Powerhouse-PT-Physical-Therapy/100094690571519/"><i class="footer-icon fa-brands fa-facebook" aria-hidden="true"></i></a>
+      <div>
+        <h2>{t(lang, 'footer.explore')}</h2>
+        <ul>
+          <li><a href={href(lang, '/access.html')}>{t(lang, 'nav.access')}</a></li>
+          <li><a href={href(lang, '/about.html')}>{t(lang, 'nav.about')}</a></li>
+          <li><a href={href(lang, '/library.html')}>{t(lang, 'nav.library')}</a></li>
+          <li><a href={href(lang, '/faq.html')}>{t(lang, 'nav.faq')}</a></li>
+          <li><a href={href(lang, '/location.html')}>{t(lang, 'nav.location')}</a></li>
+          <li><a href={href(lang, '/sign-up.html')}>{t(lang, 'cta.call')}</a></li>
+        </ul>
       </div>
+      <div>
+        <h2>{t(lang, 'footer.visit')}</h2>
+        <address style="font-style: normal;">
+          {clinic.address.street}<br />
+          {clinic.address.note[lang]}<br />
+          {clinic.address.city}, {clinic.address.region} {clinic.address.postalCode}<br />
+          <a href={`tel:${clinic.phoneE164}`}>{clinic.phone}</a>
+        </address>
+        <div style="margin-top: 16px; font-size: 0.92rem;">
+          <Hours lang={lang} />
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p>{t(lang, 'footer.disclaimer')}</p>
+      <p>© {year} {clinic.name}. {t(lang, 'footer.rights')}</p>
     </div>
   </div>
 </footer>

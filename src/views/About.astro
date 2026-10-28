@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { href, t, type Lang } from '../i18n/ui';
+import { getTeam } from '../lib/content';
+import { breadcrumbNode, pageNode, personNode, CLINIC_ID } from '../lib/schema';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const L = (en: string, es: string) => (lang === 'es' ? es : en);
+const path = href(lang, '/about.html');
+const title = L('About Powerhouse PT | Physical Therapists in Laredo, TX', 'Sobre Powerhouse PT | Fisioterapeutas en Laredo, TX');
+const description = L(
+  'Meet the doctors of physical therapy and assistants at Powerhouse PT in Laredo, Texas, and learn how we approach care.',
+  'Conoce a los doctores en terapia física y asistentes de Powerhouse PT en Laredo, Texas, y cómo trabajamos.',
+);
+const team = getTeam(lang);
+
+const values = [
+  [L('Find the cause', 'Encontrar la causa'), L("We look past where it hurts to why it hurts, so treatment holds after you're discharged.", 'Miramos más allá de dónde duele para entender por qué duele, para que el tratamiento funcione a largo plazo.')],
+  [L('One-on-one, every visit', 'Uno a uno, en cada visita'), L('You work with a licensed provider for the whole session, not a rotating cast of aides.', 'Trabajas con un proveedor con licencia toda la sesión, no con personal que va cambiando.')],
+  [L('Strength that lasts', 'Fuerza que dura'), L('Hands-on care calms pain; progressive strength keeps it from coming back.', 'La terapia manual calma el dolor; la fuerza progresiva evita que regrese.')],
+];
+
+const schema = [
+  pageNode({ type: 'AboutPage', path, name: title, description, lang, about: { '@id': CLINIC_ID } }),
+  ...team.map((m) => personNode(m, lang)),
+  breadcrumbNode([{ name: t(lang, 'breadcrumb.home'), path: href(lang, '/') }, { name: t(lang, 'nav.about'), path }]),
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <section class="page-hero">
+    <div class="wrap">
+      <Breadcrumbs lang={lang} items={[{ name: t(lang, 'nav.about'), path: '/about.html' }]} />
+      <h1>{L('Physical therapy built around you.', 'Terapia física pensada para ti.')}</h1>
+      <p class="lead">
+        {L(
+          'Powerhouse PT was founded in Laredo by Dr. Sandra Gomez to bridge the gap between rehab and performance: helping people get out of pain and back to the activities they love, stronger than before.',
+          'La Dra. Sandra Gomez fundó Powerhouse PT en Laredo para unir la rehabilitación y el rendimiento: ayudar a las personas a salir del dolor y volver a lo que les gusta, más fuertes que antes.',
+        )}
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap grid" style="--min: 260px;">
+      {values.map(([h, p]) => (
+        <div class="step" style="counter-increment: none;">
+          <h2 style="font-size: 1.35rem;">{h}</h2>
+          <p>{p}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section--alt" id="team">
+    <div class="wrap">
+      <div class="section-head"><div><h2>{t(lang, 'team.title')}</h2></div></div>
+      <div class="grid" style="--min: 260px;">
+        {team.map((m) => (
+          <a class="card team-card" href={href(lang, `/${m.slug}-bio.html`)}>
+            <div class="card__media"><img src={m.photo} alt={m.home.photoAlt} loading="lazy" width="400" height="500" /></div>
+            <div class="card__body">
+              <h3 set:html={m.name} />
+              <span class="team-card__role">{m.home.expertise}</span>
+              <span class="link-arrow">{t(lang, 'cta.readBio')}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand lang={lang} />
+</BaseLayout>

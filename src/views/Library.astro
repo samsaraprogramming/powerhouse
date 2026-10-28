@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { href, t, type Lang } from '../i18n/ui';
+import { posts } from '../data/posts';
+import { breadcrumbNode, pageNode, abs } from '../lib/schema';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const L = (en: string, es: string) => (lang === 'es' ? es : en);
+const path = href(lang, '/library.html');
+const title = L('Library: Physical Therapy Guides | Powerhouse PT Laredo', 'Biblioteca: guías de terapia física | Powerhouse PT Laredo');
+const description = t(lang, 'library.lead');
+const sorted = [...posts].sort((a, b) => b.date.localeCompare(a.date));
+const date = (d: string) => new Date(`${d}T12:00:00`).toLocaleDateString(lang === 'es' ? 'es-US' : 'en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+
+const schema = [
+  pageNode({
+    type: 'CollectionPage',
+    path,
+    name: title,
+    description,
+    lang,
+    extra: {
+      mainEntity: {
+        '@type': 'ItemList',
+        itemListElement: sorted.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.title[lang], url: abs(href(lang, `/library/${p.slug}.html`)) })),
+      },
+    },
+  }),
+  breadcrumbNode([{ name: t(lang, 'breadcrumb.home'), path: href(lang, '/') }, { name: t(lang, 'nav.library'), path }]),
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <section class="page-hero">
+    <div class="wrap">
+      <Breadcrumbs lang={lang} items={[{ name: t(lang, 'nav.library'), path: '/library.html' }]} />
+      <h1>{t(lang, 'library.title')}</h1>
+      <p class="lead">{description}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap grid" style="--min: 320px;">
+      {sorted.map((p) => (
+        <a class="card" href={href(lang, `/library/${p.slug}.html`)}>
+          <div class="card__media"><img src={p.image} alt="" loading="lazy" width="640" height="400" /></div>
+          <div class="card__body">
+            <span class="tag"><time datetime={p.date}>{date(p.date)}</time> · {p.minutes} {t(lang, 'library.minutes')}</span>
+            <h2 style="font-size: 1.4rem; margin: 0;">{p.title[lang]}</h2>
+            <p>{p.description[lang]}</p>
+            <span class="link-arrow">{t(lang, 'cta.readMore')}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <CtaBand lang={lang} />
+</BaseLayout>

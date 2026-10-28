@@ -7,7 +7,15 @@ export const REVIEWS_URL =
 
 const FALLBACK = { rating: 5.0, count: 118 };
 
-export async function getGoogleRating(): Promise<{ rating: number; count: number }> {
+// Every page's JSON-LD uses the rating, so fetch it once per build and share the promise.
+let cached: Promise<{ rating: number; count: number }> | undefined;
+
+export function getGoogleRating(): Promise<{ rating: number; count: number }> {
+  cached ??= fetchGoogleRating();
+  return cached;
+}
+
+async function fetchGoogleRating(): Promise<{ rating: number; count: number }> {
   const apiKey = import.meta.env.GOOGLE_PLACES_API_KEY;
   const placeId = import.meta.env.GOOGLE_PLACE_ID;
   if (!apiKey || !placeId) {

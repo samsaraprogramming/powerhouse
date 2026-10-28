@@ -1,0 +1,17 @@
+---
+import { t, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  sources: { title: string; url: Record<Lang, string> }[];
+}
+
+const { lang, sources } = Astro.props;
+---
+
+<section class="sources" aria-labelledby="sources-title">
+  <h2 id="sources-title">{t(lang, 'sources')}</h2>
+  <ol>
+    {sources.map((s) => <li><a href={s.url[lang]} rel="noopener">{s.title}</a></li>)}
+  </ol>
+</section>

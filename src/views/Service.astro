@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { href, t, type Lang } from '../i18n/ui';
+import { getService, plain } from '../lib/content';
+import { conditions } from '../data/conditions';
+import { breadcrumbNode, pageNode, therapyNode } from '../lib/schema';
+
+interface Props {
+  lang: Lang;
+  slug: string;
+}
+
+const { lang, slug } = Astro.props;
+const s = getService(slug, lang);
+const path = href(lang, `/service-${slug}.html`);
+const name = plain(s.heroTitle);
+const related = conditions.filter((c) => c.services.includes(slug));
+
+const schema = [
+  pageNode({ type: 'MedicalWebPage', path, name: s.metaTitle, description: s.metaDescription, lang, about: therapyNode(s, path) }),
+  breadcrumbNode([
+    { name: t(lang, 'breadcrumb.home'), path: href(lang, '/') },
+    { name: t(lang, 'nav.care'), path: href(lang, '/services.html') },
+    { name, path },
+  ]),
+];
+---
+
+<BaseLayout title={s.metaTitle} description={s.metaDescription} schema={schema} image={s.heroImage}>
+  <section class="page-hero page-hero--media">
+    <div class="wrap hero__grid">
+      <div>
+        <Breadcrumbs lang={lang} items={[{ name: t(lang, 'nav.care'), path: '/services.html' }, { name, path: `/service-${slug}.html` }]} />
+        <h1 set:html={s.heroTitle} />
+        <p class="lead" set:html={s.heroSubtitle} />
+        <div class="btn-row" style="margin-top: 28px;">
+          <a class="btn btn--primary" href={href(lang, '/sign-up.html')}>{t(lang, 'cta.call')}</a>
+        </div>
+      </div>
+      <div class="hero__media"><img src={s.heroImage} alt={s.heroAlt} width="800" height="600" fetchpriority="high" /></div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap wrap--narrow">
+      <p class="lead" style="color: var(--ink);" set:html={s.intro} />
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap two-col">
+      <div>
+        <h2 set:html={s.conditionsHeading} />
+        {related.length > 0 && (
+          <Fragment>
+            <p style="color: var(--ink-2);">{lang === 'es' ? 'Guías relacionadas:' : 'Related guides:'}</p>
+            <ul class="list-check">
+              {related.map((c) => <li><a href={href(lang, `/conditions/${c.slug}.html`)}>{c.name[lang]}</a></li>)}
+            </ul>
+          </Fragment>
+        )}
+      </div>
+      <ul class="list-check" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));">
+        {s.conditions.map((c) => <li set:html={c} />)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><div><h2 set:html={s.detailsHeading} /></div></div>
+      <div class="grid" style="--min: 280px;">
+        {s.details.map((d) => (
+          <div class="card">
+            <div class="card__body">
+              <h3 set:html={d.title} />
+              <p set:html={d.text} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="wrap">
+      <div class="section-head"><div><h2 set:html={s.processHeading} /></div></div>
+      <ol class="grid steps" style="list-style: none; margin: 0; padding: 0;">
+        {s.steps.map((step) => (
+          <li class="step">
+            <h3 set:html={step.title} />
+            <p set:html={step.text} />
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <CtaBand lang={lang} title={s.ctaHeading} text={s.ctaSubtext} />
+</BaseLayout>

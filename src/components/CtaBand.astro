@@ -1,0 +1,31 @@
+---
+import { clinic } from '../data/clinic';
+import { href, t, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  text?: string;
+}
+
+const { lang } = Astro.props;
+const title = Astro.props.title ?? (lang === 'es' ? '¿Listo para moverte mejor?' : 'Ready to move better?');
+const text = Astro.props.text ?? (lang === 'es'
+  ? 'Empieza con una llamada gratuita. Te decimos con honestidad si podemos ayudarte.'
+  : "Start with a free discovery call. We'll tell you honestly whether we can help.");
+---
+
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band section--dark">
+      <div>
+        <h2 set:html={title} />
+        <p set:html={text} />
+      </div>
+      <div class="btn-row">
+        <a class="btn btn--primary" href={href(lang, '/sign-up.html')}>{t(lang, 'cta.call')}</a>
+        <a class="btn btn--ghost" href={`tel:${clinic.phoneE164}`}>{t(lang, 'cta.callUs')} · {clinic.phone}</a>
+      </div>
+    </div>
+  </div>
+</section>

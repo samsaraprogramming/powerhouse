@@ -1,0 +1,10 @@
+---
+import View from '../../views/Condition.astro';
+import { conditions } from '../../data/conditions';
+
+export function getStaticPaths() {
+  return conditions.map((c) => ({ params: { slug: c.slug } }));
+}
+---
+
+<View lang="en" slug={Astro.params.slug!} />

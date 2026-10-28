@@ -1,0 +1,25 @@
+---
+import reviews from '../data/reviews.json';
+import { REVIEWS_URL } from '../data/googleRating';
+import { t, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+// Reviews are quoted as written on Google, so they stay in their original language.
+const clean = (text: string) => text.replace(/^"|"$/g, '');
+---
+
+<div class="reviews" tabindex="0" role="region" aria-label={t(lang, 'home.reviewsTitle')}>
+  {reviews.map((r) => (
+    <figure class="review" style="margin: 0;">
+      <span class="review__stars" aria-label="5/5">★★★★★</span>
+      <span class="tag">{r.tag}</span>
+      <blockquote class="review__text" style="margin: 0;" lang="en">{clean(r.text)}</blockquote>
+      <figcaption class="review__meta"><strong>{r.name}</strong> · {r.provider}</figcaption>
+    </figure>
+  ))}
+</div>
+<p style="margin-top: 20px;"><a class="link-arrow" href={REVIEWS_URL} target="_blank" rel="noopener">{t(lang, 'rating.readAll')}</a></p>

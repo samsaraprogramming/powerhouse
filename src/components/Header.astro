@@ -1,0 +1,64 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { href, t, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  /** Path of the same page in the other language, or null when there is none. */
+  altPath: string | null;
+}
+
+const { lang, altPath } = Astro.props;
+const current = Astro.url.pathname;
+
+const links = [
+  { label: t(lang, 'nav.care'), path: '/services.html' },
+  { label: t(lang, 'nav.conditions'), path: '/conditions.html' },
+  { label: t(lang, 'nav.access'), path: '/access.html' },
+  { label: t(lang, 'nav.about'), path: '/about.html' },
+  { label: t(lang, 'nav.library'), path: '/library.html' },
+].map((l) => ({ ...l, href: href(lang, l.path) }));
+
+const otherLang: Lang = lang === 'en' ? 'es' : 'en';
+const langHref = altPath ?? href(otherLang, '/');
+---
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="site-header__bar">
+      <a class="site-header__brand" href={href(lang, '/')} aria-label={`Powerhouse PT — ${t(lang, 'nav.home')}`}>
+        <Logo width={128} label="Powerhouse PT" />
+      </a>
+      <nav class="nav-links" aria-label="Main">
+        {links.map((l) => <a href={l.href} aria-current={current === l.href || current.startsWith(l.href.replace('.html', '/')) ? 'page' : undefined}>{l.label}</a>)}
+      </nav>
+      <a class="lang-link" href={langHref} hreflang={otherLang} lang={otherLang} aria-label={t(lang, 'lang.label')}>{t(lang, 'lang.switch')}</a>
+      <a class="btn btn--primary btn--sm" href={href(lang, '/sign-up.html')}>{t(lang, 'nav.book')}</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-btn>
+        <span class="visually-hidden" data-menu-label>{t(lang, 'nav.menu')}</span>
+        <Icon name="menu" />
+      </button>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile" data-open="false">
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+      <a href={href(lang, '/location.html')}>{t(lang, 'nav.location')}</a>
+      <a href={href(lang, '/faq.html')}>{t(lang, 'nav.faq')}</a>
+      <a href={langHref} hreflang={otherLang} lang={otherLang}>{t(lang, 'lang.switch')}</a>
+    </nav>
+  </div>
+</header>
+
+<script is:inline define:vars={{ openLabel: t(lang, 'nav.menu'), closeLabel: t(lang, 'nav.close') }}>
+  (function () {
+    var btn = document.querySelector('[data-menu-btn]');
+    var menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function () {
+      var open = menu.getAttribute('data-open') !== 'true';
+      menu.setAttribute('data-open', String(open));
+      btn.setAttribute('aria-expanded', String(open));
+      btn.querySelector('[data-menu-label]').textContent = open ? closeLabel : openLabel;
+    });
+  })();
+</script>

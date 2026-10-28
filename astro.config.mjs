@@ -9,13 +9,19 @@ export default defineConfig({
   compressHTML: false,
   integrations: [
     sitemap({
+      // Pair each English page with its /es/ twin so the sitemap carries hreflang links.
+      i18n: { defaultLocale: 'en', locales: { en: 'en-US', es: 'es-US' } },
+      filter: (page) => !page.endsWith('/404') && !page.endsWith('/404.html'),
       // List the same .html URLs the pages declare as canonical.
       serialize(item) {
-        const url = new URL(item.url);
-        if (url.pathname !== '/' && !url.pathname.endsWith('.html')) {
-          url.pathname = `${url.pathname.replace(/\/$/, '')}.html`;
-        }
-        return { ...item, url: url.href };
+        const fix = (href) => {
+          const url = new URL(href);
+          const path = url.pathname.replace(/\/$/, '');
+          if (path === '' || path === '/es') url.pathname = path === '' ? '/' : '/es/';
+          else if (!path.endsWith('.html')) url.pathname = `${path}.html`;
+          return url.href;
+        };
+        return { ...item, url: fix(item.url), links: item.links?.map((link) => ({ ...link, url: fix(link.url) })) };
       },
     }),
   ],

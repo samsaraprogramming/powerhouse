@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Visit from '../components/Visit.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { href, t, type Lang } from '../i18n/ui';
+import { areasServed, fullAddress } from '../data/clinic';
+import { breadcrumbNode, pageNode, CLINIC_ID } from '../lib/schema';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const L = (en: string, es: string) => (lang === 'es' ? es : en);
+const path = href(lang, '/location.html');
+const title = L("Physical Therapy Clinic in Laredo, TX — Location & Hours | Powerhouse PT", 'Clínica de terapia física en Laredo, TX — Ubicación y horario | Powerhouse PT');
+const description = L(
+  `Powerhouse PT is at ${fullAddress}, inside Gold's Gym. Hours, parking, directions and the Laredo-area neighborhoods we serve.`,
+  `Powerhouse PT está en ${fullAddress}, dentro de Gold's Gym. Horario, estacionamiento, cómo llegar y las zonas de Laredo que atendemos.`,
+);
+
+const schema = [
+  pageNode({ type: 'ContactPage', path, name: title, description, lang, about: { '@id': CLINIC_ID } }),
+  breadcrumbNode([{ name: t(lang, 'breadcrumb.home'), path: href(lang, '/') }, { name: t(lang, 'nav.location'), path }]),
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <section class="page-hero">
+    <div class="wrap">
+      <Breadcrumbs lang={lang} items={[{ name: t(lang, 'nav.location'), path: '/location.html' }]} />
+      <h1>{t(lang, 'location.title')}</h1>
+      <p class="lead">{L("We're inside Gold's Gym on San Isidro Parkway in north Laredo.", "Estamos dentro de Gold's Gym en San Isidro Parkway, al norte de Laredo.")}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap"><Visit lang={lang} /></div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap two-col">
+      <div>
+        <h2>{t(lang, 'location.areas')}</h2>
+        <p class="lead">{L('Patients come to us from across Laredo and Webb County, and from nearby towns along the border.', 'Nuestros pacientes vienen de todo Laredo y el condado de Webb, y de pueblos cercanos en la frontera.')}</p>
+      </div>
+      <ul class="pill-list">{areasServed.map((a) => <li>{a}</li>)}</ul>
+    </div>
+  </section>
+
+  <CtaBand lang={lang} />
+</BaseLayout>

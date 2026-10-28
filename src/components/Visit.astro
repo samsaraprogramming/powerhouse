@@ -1,0 +1,50 @@
+---
+import Hours from './Hours.astro';
+import { clinic, parking } from '../data/clinic';
+import { t, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<div class="visit">
+  <div>
+    <dl>
+      <div>
+        <dt>{t(lang, 'contact.address')}</dt>
+        <dd>
+          <a href={clinic.mapUrl} rel="noopener">{clinic.address.street}</a><br />
+          {clinic.address.note[lang]}, {clinic.address.city}, {clinic.address.region} {clinic.address.postalCode}
+        </dd>
+      </div>
+      <div>
+        <dt>{t(lang, 'contact.phone')}</dt>
+        <dd><a href={`tel:${clinic.phoneE164}`}>{clinic.phone}</a> · {t(lang, 'contact.fax')} {clinic.fax}</dd>
+      </div>
+      <div>
+        <dt>{t(lang, 'contact.email')}</dt>
+        <dd><a href={`mailto:${clinic.email}`}>{clinic.email}</a></dd>
+      </div>
+      <div>
+        <dt>{t(lang, 'location.hours')}</dt>
+        <dd><Hours lang={lang} /></dd>
+      </div>
+      <div>
+        <dt>{t(lang, 'location.parking')}</dt>
+        <dd>{parking[lang]}</dd>
+      </div>
+    </dl>
+    <a class="btn btn--primary" href={clinic.mapUrl} rel="noopener">{t(lang, 'cta.directions')}</a>
+  </div>
+  <iframe
+    class="map"
+    title={lang === 'es' ? "Mapa de Powerhouse PT dentro de Gold's Gym, 2446 San Isidro Pkwy, Laredo TX" : "Map showing Powerhouse PT inside Gold's Gym, 2446 San Isidro Pkwy, Laredo TX"}
+    src={clinic.mapEmbed}
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    allowfullscreen
+  ></iframe>
+</div>

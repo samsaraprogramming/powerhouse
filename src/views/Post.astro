@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ReviewedBy from '../components/ReviewedBy.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { href, t, type Lang } from '../i18n/ui';
+import { postBySlug } from '../data/posts';
+import { conditionBySlug } from '../data/conditions';
+import { articleNode, breadcrumbNode, pageNode, reviewerNode } from '../lib/schema';
+
+interface Props {
+  lang: Lang;
+  slug: string;
+}
+
+const { lang, slug } = Astro.props;
+const p = postBySlug(slug)!;
+const L = (en: string, es: string) => (lang === 'es' ? es : en);
+const path = href(lang, `/library/${slug}.html`);
+const title = `${p.title[lang]} | Powerhouse PT`;
+const related = p.conditions.map((c) => conditionBySlug(c)!);
+
+const schema = [
+  pageNode({ type: 'MedicalWebPage', path, name: p.title[lang], description: p.description[lang], lang, reviewer: p.reviewer, lastReviewed: p.date }),
+  articleNode(p, lang, path),
+  reviewerNode(p.reviewer, lang),
+  breadcrumbNode([
+    { name: t(lang, 'breadcrumb.home'), path: href(lang, '/') },
+    { name: t(lang, 'nav.library'), path: href(lang, '/library.html') },
+    { name: p.title[lang], path },
+  ]),
+];
+---
+
+<BaseLayout title={title} description={p.description[lang]} schema={schema} image={p.image} ogType="article">
+  <article>
+    <section class="page-hero">
+      <div class="wrap wrap--narrow">
+        <Breadcrumbs lang={lang} items={[{ name: t(lang, 'nav.library'), path: '/library.html' }, { name: p.title[lang], path: `/library/${slug}.html` }]} />
+        <h1 style="font-size: clamp(2.1rem, 5vw, 3.6rem); max-width: none;">{p.title[lang]}</h1>
+        <p class="lead">{p.description[lang]}</p>
+        <ReviewedBy lang={lang} reviewer={p.reviewer} date={p.date} />
+      </div>
+    </section>
+
+    <section class="section section--tight" style="padding-top: 0;">
+      <div class="wrap wrap--narrow prose">
+        <div class="callout takeaways">
+          <h2 style="font-size: 1.15rem; margin-top: 0;">{L('Key points', 'Puntos clave')}</h2>
+          <ul class="list-check" style="margin: 0;">{p.takeaways[lang].map((k) => <li>{k}</li>)}</ul>
+        </div>
+        {p.sections[lang].map((s) => (
+          <Fragment>
+            <h2>{s.heading}</h2>
+            {s.paragraphs.map((para) => <p>{para}</p>)}
+          </Fragment>
+        ))}
+        <p style="margin-top: 2em;">
+          {L('Related:', 'Relacionado:')}{' '}
+          {related.map((c, i) => (
+            <Fragment>{i > 0 && ', '}<a href={href(lang, `/conditions/${c.slug}.html`)}>{c.name[lang]}</a></Fragment>
+          ))}
+        </p>
+      </div>
+    </section>
+  </article>
+
+  <CtaBand lang={lang} />
+</BaseLayout>

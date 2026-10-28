@@ -1,0 +1,20 @@
+---
+import { href, t, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  /** Trail after Home; the last item is the current page. Paths are English (unprefixed). */
+  items: { name: string; path: string }[];
+}
+
+const { lang, items } = Astro.props;
+const trail = [{ name: t(lang, 'breadcrumb.home'), path: '/' }, ...items];
+---
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol>
+    {trail.map((item, i) => (
+      <li>{i === trail.length - 1 ? <span aria-current="page">{item.name}</span> : <a href={href(lang, item.path)}>{item.name}</a>}</li>
+    ))}
+  </ol>
+</nav>

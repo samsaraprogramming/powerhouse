@@ -1,0 +1,208 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Intro from '../components/Intro.astro';
+import Rating from '../components/Rating.astro';
+import Reviews from '../components/Reviews.astro';
+import FaqList from '../components/FaqList.astro';
+import Visit from '../components/Visit.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { href, t, type Lang } from '../i18n/ui';
+import { getServices, getTeam, plain } from '../lib/content';
+import { conditions } from '../data/conditions';
+import { homeFaqs } from '../data/faq';
+import { directAccess, insurance } from '../data/clinic';
+import { faqNode, pageNode } from '../lib/schema';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const L = (en: string, es: string) => (lang === 'es' ? es : en);
+
+const title = L('Physical Therapy in Laredo, TX | Powerhouse PT', 'Terapia física en Laredo, TX | Powerhouse PT');
+const description = L(
+  'One-on-one physical therapy in Laredo, Texas for back, neck, shoulder, hip, knee and sports injuries. Dry needling, cupping and running analysis. Free discovery call.',
+  'Terapia física uno a uno en Laredo, Texas para espalda, cuello, hombro, cadera, rodilla y lesiones deportivas. Punción seca, ventosas y análisis de carrera. Llamada gratuita.',
+);
+
+const services = getServices(lang);
+const team = getTeam(lang);
+const faqs = homeFaqs.map((f) => ({ q: f.q[lang], a: f.a[lang] }));
+const steps = getServices(lang)[0].steps;
+
+const schema = [pageNode({ path: lang === 'es' ? '/es/' : '/', name: title, description, lang }), faqNode(faqs)];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <Intro slot="before-header" lang={lang} />
+
+  <section class="hero" id="top">
+    <div class="wrap hero__grid">
+      <div>
+        <span class="eyebrow">{L('Physical therapy · Laredo, TX', 'Terapia física · Laredo, TX')}</span>
+        <h1>{L('Get back to doing what you love.', 'Vuelve a hacer lo que te gusta.')}</h1>
+        <p class="lead">
+          {L(
+            'One-on-one care from doctors of physical therapy who find the cause of your pain, treat it hands-on, and build the strength to keep it from coming back.',
+            'Atención uno a uno con doctores en terapia física que encuentran la causa de tu dolor, la tratan con terapia manual y construyen la fuerza para que no regrese.',
+          )}
+        </p>
+        <Rating lang={lang} />
+        <div class="btn-row">
+          <a class="btn btn--primary" href={href(lang, '/sign-up.html')}>{t(lang, 'cta.call')}</a>
+          <a class="btn btn--ghost" href={href(lang, '/conditions.html')}>{t(lang, 'cta.allConditions')}</a>
+        </div>
+      </div>
+      <div class="hero__media">
+        <img src="/images/orthopedic-sports-therapy.webp" alt={L('Physical therapist treating a patient at Powerhouse PT', 'Fisioterapeuta tratando a un paciente en Powerhouse PT')} width="800" height="1000" fetchpriority="high" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">{t(lang, 'nav.care')}</span>
+          <h2 id="services-title">{t(lang, 'home.servicesTitle')}</h2>
+          <p>{t(lang, 'home.servicesLead')}</p>
+        </div>
+        <a class="link-arrow" href={href(lang, '/services.html')}>{t(lang, 'cta.allServices')}</a>
+      </div>
+      <div class="grid" style="--min: 300px;">
+        {services.map((s) => (
+          <a class="card" href={href(lang, `/service-${s.slug}.html`)}>
+            <div class="card__media"><img src={s.heroImage} alt="" loading="lazy" width="640" height="400" /></div>
+            <div class="card__body">
+              <h3 set:html={plain(s.heroTitle)} />
+              <p set:html={s.heroSubtitle} />
+              <span class="link-arrow">{t(lang, 'cta.learnMore')}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="conditions" aria-labelledby="conditions-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">{t(lang, 'nav.conditions')}</span>
+          <h2 id="conditions-title">{t(lang, 'home.conditionsTitle')}</h2>
+          <p>{t(lang, 'home.conditionsLead')}</p>
+        </div>
+        <a class="link-arrow" href={href(lang, '/conditions.html')}>{t(lang, 'cta.allConditions')}</a>
+      </div>
+      <div class="grid" style="--min: 240px;">
+        {conditions.map((c, i) => (
+          <a class="card condition-card" href={href(lang, `/conditions/${c.slug}.html`)}>
+            <span class="condition-card__index">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{c.name[lang]}</h3>
+            <p>{c.summary[lang]}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark" id="process" aria-labelledby="process-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">{L('Your first weeks', 'Tus primeras semanas')}</span>
+          <h2 id="process-title">{t(lang, 'home.processTitle')}</h2>
+        </div>
+      </div>
+      <ol class="grid steps" style="list-style: none; margin: 0; padding: 0;">
+        {steps.map((s) => (
+          <li class="step">
+            <h3 set:html={s.title} />
+            <p set:html={s.text} />
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="reviews" aria-labelledby="reviews-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Google</span>
+          <h2 id="reviews-title">{t(lang, 'home.reviewsTitle')}</h2>
+        </div>
+        <Rating lang={lang} />
+      </div>
+      <Reviews lang={lang} />
+    </div>
+  </section>
+
+  <section class="section section--alt" id="team" aria-labelledby="team-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">{t(lang, 'nav.about')}</span>
+          <h2 id="team-title">{t(lang, 'home.teamTitle')}</h2>
+        </div>
+        <a class="link-arrow" href={href(lang, '/about.html')}>{t(lang, 'team.title')}</a>
+      </div>
+      <div class="grid" style="--min: 200px;">
+        {team.map((m) => (
+          <a class="card team-card" href={href(lang, `/${m.slug}-bio.html`)}>
+            <div class="card__media"><img src={m.photo} alt={m.home.photoAlt} loading="lazy" width="400" height="500" /></div>
+            <div class="card__body">
+              <h3>{m.home.shortName}</h3>
+              <span class="team-card__role">{m.home.role}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="access" aria-labelledby="access-title">
+    <div class="wrap two-col">
+      <div>
+        <span class="eyebrow">{t(lang, 'nav.access')}</span>
+        <h2 id="access-title">{t(lang, 'home.accessTitle')}</h2>
+        <p class="lead">
+          {L(
+            `No referral needed to start: Texas lets you see a physical therapist directly for up to ${directAccess.days} business days. We verify your insurance before your first visit and offer clear self-pay prices.`,
+            `No necesitas referencia para empezar: en Texas puedes ver a un fisioterapeuta directamente hasta por ${directAccess.days} días hábiles. Verificamos tu seguro antes de tu primera visita y tenemos precios claros sin seguro.`,
+          )}
+        </p>
+        <a class="link-arrow" href={href(lang, '/access.html')}>{t(lang, 'nav.access')}</a>
+      </div>
+      <ul class="pill-list" aria-label={L('Insurance accepted', 'Seguros aceptados')}>
+        {insurance.accepted.map((i) => <li>{i.name}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="faq" aria-labelledby="faq-title">
+    <div class="wrap two-col">
+      <div>
+        <span class="eyebrow">{t(lang, 'nav.faq')}</span>
+        <h2 id="faq-title">{t(lang, 'home.faqTitle')}</h2>
+        <a class="link-arrow" href={href(lang, '/faq.html')}>{t(lang, 'faq.title')}</a>
+      </div>
+      <FaqList items={faqs} openFirst />
+    </div>
+  </section>
+
+  <section class="section" id="visit" aria-labelledby="visit-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">{t(lang, 'nav.location')}</span>
+          <h2 id="visit-title">{t(lang, 'home.visitTitle')}</h2>
+        </div>
+      </div>
+      <Visit lang={lang} />
+    </div>
+  </section>
+
+  <CtaBand lang={lang} />
+</BaseLayout>
