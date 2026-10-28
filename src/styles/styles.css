@@ -647,6 +647,12 @@ h2 {
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
+  text-decoration: none;
+}
+
+.reviews-rating-summary:hover .rating-text,
+.reviews-rating-summary:focus-visible .rating-text {
+  text-decoration: underline;
 }
 
 .reviews-rating-summary .stars-row {
@@ -654,7 +660,7 @@ h2 {
   gap: 3px;
 }
 
-.reviews-rating-summary .stars-row .fa-star {
+.reviews-rating-summary .stars-row i {
   color: #fabb05;
   font-size: 1rem;
 }
