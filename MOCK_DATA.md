@@ -10,7 +10,7 @@ Each item names the file and field to edit; pages, JSON-LD and `llms.txt` all re
 | --- | --- | --- |
 | Opening hours | Mon–Thu 7am–7pm, Fri 7am–5pm, Sat 8am–12pm, Sun closed | `hours` |
 | Parking & arrival notes | Free parking in the Gold's Gym lot; check in at the gym front desk | `parking` |
-| Areas served (communities within ~50 miles, not locations) | Laredo, North/South Laredo, Del Mar, San Isidro, Rio Bravo, El Cenizo, Mirando City, Encinal, Zapata | `areasServed` |
+| Areas served (communities within ~50 miles, not locations) | Laredo, North/South Laredo, Del Mar, San Isidro, Rio Bravo, El Cenizo, Mirando City, Encinal, Zapata, Hebbronville | `areasServed` |
 | Insurance list | Aetna, Cigna, UnitedHealthcare, Humana, TRICARE, workers' comp (BCBS and Medicare are real) | `insurance.accepted` (`mock: true` rows) |
 | HSA / FSA accepted | Yes | `insurance.hsaFsa` |
 | Self-pay prices | Evaluation $120, follow-up $95, dry needling add-on $60, running analysis $150, 5-visit package $450 | `selfPay` |
