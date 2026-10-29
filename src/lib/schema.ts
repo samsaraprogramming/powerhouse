@@ -44,7 +44,7 @@ export function clinicNode(rating: { rating: number; count: number }) {
       opens: h.opens,
       closes: h.closes,
     })),
-    areaServed: areasServed.map((name) => ({ '@type': 'City', name })),
+    areaServed: areasServed.map((name) => ({ '@type': 'Place', name })),
     availableLanguage: clinic.languages,
     medicalSpecialty: 'Physiotherapy',
     isAcceptingNewPatients: true,
