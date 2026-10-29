@@ -156,21 +156,23 @@ const L = (en: string, es: string) => (lang === 'es' ? es : en);
     var ease = function (t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
     var lerp = function (a, b, t) { return a + (b - a) * t; };
 
-    var H = 0, W = 0, raf = 0;
+    var H = 0, W = 0, RUN = 2.5, raf = 0;
 
     // Keep the stage height steady while mobile toolbars show and hide; re-measure on rotation.
     function measure() {
       if (window.innerWidth === W && H) return;
       W = window.innerWidth;
       H = Math.max(520, window.innerHeight);
+      // Screens of scrolling the animation takes; phones get a shorter run so each swipe moves it further.
+      RUN = W < 768 ? 1.6 : 2.5;
       stage.style.height = H + 'px';
-      intro.style.height = H * 3.5 + 'px';
+      intro.style.height = H * (RUN + 1) + 'px';
     }
 
     function frame() {
       raf = 0;
       measure();
-      var p = clamp(-intro.getBoundingClientRect().top / (H * 2.5));
+      var p = clamp(-intro.getBoundingClientRect().top / (H * RUN));
       var seg = function (a, b) { return clamp((p - a) / (b - a)); };
 
       // Start deep inside the P's solid bar, then zoom out to the full lockup.
