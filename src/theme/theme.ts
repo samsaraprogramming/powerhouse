@@ -22,11 +22,11 @@ export const theme = {
      * artwork (never a redraw) with the colours below. Switch back to 'original' to revert.
      */
     mode: 'tinted' as 'original' | 'tinted',
-    /** Logo on the page background, which is dark in this theme: ivory wordmark, sage bolt. */
-    onLight: { p: '#5CB98A', text: '#F3F0E8' } satisfies LogoColors,
+    /** Logo on the page background, which is dark in this theme: ivory wordmark, green bolt (the original logo green #5CB947, slightly deeper). */
+    onLight: { p: '#4CA239', text: '#F3F0E8' } satisfies LogoColors,
     /** Logo in the footer and other dark panels. */
-    onDark: { p: '#5CB98A', text: '#F3F0E8' } satisfies LogoColors,
+    onDark: { p: '#4CA239', text: '#F3F0E8' } satisfies LogoColors,
     /** Round badge used as the favicon and compact mark. */
-    badge: { disc: '#0C0E0D', p: '#5CB98A', rings: '#E6814E' },
+    badge: { disc: '#0C0E0D', p: '#4CA239', rings: '#E6814E' },
   },
 };

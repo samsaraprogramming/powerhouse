@@ -11,9 +11,9 @@
   --line: #2a2f2c;
 
   /* Brand: sage fills carry night text; ember is the warm highlight */
-  --accent: #5cb98a;
+  --accent: #4ca239;
   --accent-ink: #0c0e0d;
-  --accent-text: #7fcfa5;
+  --accent-text: #72c95e;
   --ember: #e6814e;
 
   /* Inverted sections (ivory) */
@@ -22,7 +22,7 @@
   --dark-ink: #0c0e0d;
   --dark-ink-2: #4d4a43;
   --dark-line: #d9d3c6;
-  --dark-accent: #3b6b52;
+  --dark-accent: #336827;
   --dark-accent-ink: #f3f0e8;
 
   /* Type */
@@ -49,9 +49,9 @@
   --ink: #f3f0e8;
   --ink-2: #a39e92;
   --line: #2a2f2c;
-  --accent: #5cb98a;
+  --accent: #4ca239;
   --accent-ink: #0c0e0d;
-  --accent-text: #7fcfa5;
+  --accent-text: #72c95e;
   border-top: 1px solid var(--line);
 }
 
