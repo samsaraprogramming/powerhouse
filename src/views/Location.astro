@@ -4,7 +4,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Visit from '../components/Visit.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { href, t, type Lang } from '../i18n/ui';
-import { areasServed, fullAddress } from '../data/clinic';
+import { fullAddress } from '../data/clinic';
 import { breadcrumbNode, pageNode, CLINIC_ID } from '../lib/schema';
 
 interface Props {
@@ -37,16 +37,6 @@ const schema = [
 
   <section class="section section--tight">
     <div class="wrap"><Visit lang={lang} /></div>
-  </section>
-
-  <section class="section section--alt">
-    <div class="wrap two-col">
-      <div>
-        <h2>{t(lang, 'location.areas')}</h2>
-        <p class="lead">{L('Patients come to us from across Laredo and Webb County, and from nearby towns along the border.', 'Nuestros pacientes vienen de todo Laredo y el condado de Webb, y de pueblos cercanos en la frontera.')}</p>
-      </div>
-      <ul class="pill-list">{areasServed.map((a) => <li>{a}</li>)}</ul>
-    </div>
   </section>
 
   <CtaBand lang={lang} />

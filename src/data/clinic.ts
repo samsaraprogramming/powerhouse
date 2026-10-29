@@ -43,18 +43,8 @@ export const parking = {
   es: "Estacionamiento gratuito en el lote de Gold's Gym. Entra por la puerta principal del gimnasio y avisa en recepción que vienes a terapia física.",
 };
 
-/** MOCK: neighbourhoods and nearby towns we see patients from. */
-export const areasServed = [
-  'Laredo',
-  'North Laredo',
-  'South Laredo',
-  'Del Mar',
-  'San Isidro',
-  'Rio Bravo',
-  'El Cenizo',
-  'Zapata',
-  'Hebbronville',
-];
+/** The city the clinic serves. One location for now; add cities here if the business expands. */
+export const areasServed = ['Laredo'];
 
 /**
  * Insurance. BlueCross BlueShield and Medicare are real (from the site's old pop-up);
