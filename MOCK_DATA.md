@@ -10,6 +10,7 @@ Each item names the file and field to edit; pages, JSON-LD and `llms.txt` all re
 | --- | --- | --- |
 | Opening hours | Mon–Thu 7am–7pm, Fri 7am–5pm, Sat 8am–12pm, Sun closed | `hours` |
 | Parking & arrival notes | Free parking in the Gold's Gym lot; check in at the gym front desk | `parking` |
+| Areas served (communities within ~50 miles, not locations) | Laredo, North/South Laredo, Del Mar, San Isidro, Rio Bravo, El Cenizo, Mirando City, Encinal, Zapata | `areasServed` |
 | Insurance list | Aetna, Cigna, UnitedHealthcare, Humana, TRICARE, workers' comp (BCBS and Medicare are real) | `insurance.accepted` (`mock: true` rows) |
 | HSA / FSA accepted | Yes | `insurance.hsaFsa` |
 | Self-pay prices | Evaluation $120, follow-up $95, dry needling add-on $60, running analysis $150, 5-visit package $450 | `selfPay` |
@@ -49,6 +50,7 @@ Source links on condition pages point to MedlinePlus topic pages; check each sti
 | Team speaks English and Spanish; visits available in either | `src/data/faq.ts`, `clinic.languages` |
 | "Most new patients are scheduled within a few days" | `src/data/faq.ts` |
 | "Many patients come once or twice a week for four to eight weeks" | `src/data/faq.ts` |
+| Patients come from nearby border towns | `src/views/Location.astro` |
 | Typical rehab timelines (knee replacement ~3 months, ACL 9+ months) | `src/data/conditions.ts` (post-surgical FAQ) |
 
 ## Images
