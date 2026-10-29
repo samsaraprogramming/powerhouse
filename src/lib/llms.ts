@@ -18,7 +18,7 @@ function facts() {
     `- Direct access: Texas patients can be seen without a referral for up to ${directAccess.days} business days`,
     `- Insurance: ${insurance.accepted.map((i) => i.name).join(', ')}${insurance.hsaFsa ? '; HSA/FSA accepted' : ''}`,
     `- Self-pay: initial evaluation $${selfPay.find((p) => p.key === 'evaluation')?.price}, follow-up $${selfPay.find((p) => p.key === 'followUp')?.price}`,
-    `- Areas served: ${areasServed.join(', ')}`,
+    `- Areas served: one clinic in Laredo (no other locations); patients come from ${areasServed.join(', ')}`,
     `- Booking: free discovery call via ${abs('/sign-up.html')}`,
   ].join('\n');
 }

@@ -44,7 +44,7 @@ export const parking = {
 };
 
 /**
- * Communities within about 50 miles that patients come from. These are not clinic locations:
+ * Communities within about 50 miles (Hebbronville is just past it) that patients come from. These are not clinic locations:
  * there is one clinic (inside Gold's Gym, Laredo). MOCK: confirm the list with the clinic.
  */
 export const areasServed = [
@@ -58,6 +58,7 @@ export const areasServed = [
   'Mirando City',
   'Encinal',
   'Zapata',
+  'Hebbronville',
 ];
 
 /**
