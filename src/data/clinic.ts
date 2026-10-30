@@ -88,8 +88,12 @@ export const selfPay = [
   { key: 'package', price: 450 }, // 5 follow-up visits
 ];
 
-/** MOCK: Texas allows PT without a referral for a limited window; confirm the clinic's policy. */
-export const directAccess = { allowed: true, days: 15 };
+/**
+ * Texas direct access: a PT may treat without a referral for up to 30 consecutive calendar days
+ * (Occupations Code §453.301, as amended by HB 4099, effective Sept. 1, 2025; previously 10 or 15
+ * business days). MOCK: confirm the clinic's therapists meet the law's conditions and follow this policy.
+ */
+export const directAccess = { allowed: true, days: 30 };
 
 /** MOCK: how booking works. The free call itself is real (sign-up form). */
 export const booking = {

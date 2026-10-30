@@ -169,8 +169,8 @@ const schema = [pageNode({ path: lang === 'es' ? '/es/' : '/', name: title, desc
         <h2 id="access-title">{t(lang, 'home.accessTitle')}</h2>
         <p class="lead">
           {L(
-            `No referral needed to start: Texas lets you see a physical therapist directly for up to ${directAccess.days} business days. We verify your insurance before your first visit and offer clear self-pay prices.`,
-            `No necesitas referencia para empezar: en Texas puedes ver a un fisioterapeuta directamente hasta por ${directAccess.days} días hábiles. Verificamos tu seguro antes de tu primera visita y tenemos precios claros sin seguro.`,
+            `No referral needed to start: Texas lets you see a physical therapist directly for up to ${directAccess.days} consecutive days. We verify your insurance before your first visit and offer clear self-pay prices.`,
+            `No necesitas referencia para empezar: en Texas puedes ver a un fisioterapeuta directamente hasta por ${directAccess.days} días consecutivos. Verificamos tu seguro antes de tu primera visita y tenemos precios claros sin seguro.`,
           )}
         </p>
         <a class="link-arrow" href={href(lang, '/access.html')}>{t(lang, 'nav.access')}</a>

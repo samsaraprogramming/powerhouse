@@ -14,7 +14,7 @@ Each item names the file and field to edit; pages, JSON-LD and `llms.txt` all re
 | Insurance list | Aetna, Cigna, UnitedHealthcare, Humana, TRICARE, workers' comp (BCBS and Medicare are real) | `insurance.accepted` (`mock: true` rows) |
 | HSA / FSA accepted | Yes | `insurance.hsaFsa` |
 | Self-pay prices | Evaluation $120, follow-up $95, dry needling add-on $60, running analysis $150, 5-visit package $450 | `selfPay` |
-| Direct access policy | No referral needed for up to 15 business days (Texas rule; confirm the clinic follows it and any payer limits) | `directAccess` |
+| Direct access policy | No referral needed for up to 30 consecutive days (Texas law since Sept. 1, 2025, HB 4099; confirm the clinic's therapists qualify and any payer limits) | `directAccess` |
 | Discovery call length | 15 minutes | `booking.discoveryCallMinutes` |
 | Evaluation / follow-up length | 60 / 45 minutes | `booking.evaluationMinutes`, `booking.followUpMinutes` |
 | Response time | "within one business day" | `booking.responseTime` |
