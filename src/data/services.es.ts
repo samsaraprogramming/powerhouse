@@ -222,4 +222,64 @@ export const servicesEs: Record<string, {
     ctaHeading: 'Vive una recuperación más profunda',
     ctaSubtext: 'Ya seas atleta buscando recuperarte más rápido o paciente con tensión crónica, la terapia con ventosas en Powerhouse PT en Laredo, TX puede hacer la diferencia. Agenda una llamada gratuita.',
   },
+  'blood-flow-restriction': {
+    metaTitle: "Entrenamiento con restricción del flujo sanguíneo (BFR) en Laredo, TX | Powerhouse PT",
+    metaDescription: "Entrenamiento con restricción del flujo sanguíneo (BFR) en Laredo, Texas. Gana fuerza con pesos ligeros después de una cirugía o lesión, con supervisión de doctores en terapia física.",
+    heroAlt: "Fisioterapeuta guiando a un paciente en ejercicios de fortalecimiento",
+    heroTitle: "Entrenamiento con restricción del flujo sanguíneo (BFR)",
+    heroSubtitle: "Gana fuerza real con pesos ligeros, aunque tu cuerpo todavía no tolere cargas pesadas",
+    intro: "El entrenamiento con restricción del flujo sanguíneo (BFR, por sus siglas en inglés) usa un brazalete, parecido al de la presión arterial, en la parte alta del brazo o del muslo. El brazalete reduce en parte la salida de sangre del músculo mientras haces ejercicio. Así, pesos ligeros, a menudo una fracción de lo que normalmente levantarías, generan ganancias de fuerza y músculo que normalmente solo se logran con cargas pesadas. En Powerhouse PT en Laredo, Texas, usamos BFR cuando todavía no es seguro o cómodo cargar peso pesado: después de una cirugía, durante la recuperación de una lesión o con dolor articular. Cada sesión la prepara y supervisa un doctor en terapia física, con la presión del brazalete ajustada para ti.",
+    conditionsHeading: "Quién se beneficia del <span>BFR</span>",
+    conditions: [
+      "Recuperación después de cirugía de LCA, menisco o reemplazo de rodilla",
+      "Pérdida muscular después de usar férula, bota o muletas",
+      "Dolor de rodilla que hace incómodo levantar peso pesado",
+      "Problemas del tendón de Aquiles o rotuliano",
+      "Rehabilitación de hombro después de cirugía o lesión",
+      "Lesiones de tobillo y pie con apoyo limitado",
+      "Atletas que quieren mantenerse fuertes mientras sanan",
+      "Adultos mayores que ganan fuerza con cargas ligeras",
+      "Debilidad de cadera y muslo después de una lesión"
+    ],
+    detailsHeading: "Cómo funciona el <span>BFR</span>",
+    details: [
+      {
+        "title": "Presión ajustada para ti",
+        "text": "Antes de entrenar, encontramos la presión adecuada del brazalete para tu brazo o pierna, para que la restricción sea efectiva pero nunca excesiva."
+      },
+      {
+        "title": "Cargas ligeras, resultados reales",
+        "text": "Los ejercicios usan pesos ligeros o solo tu peso corporal. El brazalete hace que el músculo trabaje como si la carga fuera mucho mayor, sin forzar el tejido que está sanando."
+      },
+      {
+        "title": "Revisión de seguridad primero",
+        "text": "Revisamos tu historial de salud antes de empezar. El BFR no es para todos, incluidas algunas personas con antecedentes de coágulos, presión arterial no controlada o ciertas condiciones del corazón o la circulación."
+      },
+      {
+        "title": "Parte de tu plan",
+        "text": "El BFR es una herramienta dentro de tu rehabilitación, no un reemplazo. Lo combinamos con terapia manual y ejercicio progresivo, y lo retiramos cuando estás listo para cargas más pesadas."
+      }
+    ],
+    processHeading: "Qué <span>esperar</span>",
+    steps: [
+      {
+        "title": "Llamada gratuita",
+        "text": "Hablamos de tu lesión o cirugía, tus metas y si el BFR te puede ayudar."
+      },
+      {
+        "title": "Evaluación y revisión",
+        "text": "Evaluamos tu fuerza y movimiento y revisamos tu historial de salud para confirmar que el BFR es seguro para ti."
+      },
+      {
+        "title": "Sesiones supervisadas de BFR",
+        "text": "Un bloque corto de ejercicio ligero con el brazalete, normalmente unas series con descansos breves. Sentirás un ardor muscular fuerte que se pasa rápido al quitar el brazalete."
+      },
+      {
+        "title": "Avanza hasta tu fuerza completa",
+        "text": "A medida que sanas, aumentamos la carga y reducimos el BFR hasta que vuelvas a entrenar normalmente."
+      }
+    ],
+    ctaHeading: "Gana fuerza mientras sanas",
+    ctaSubtext: "¿No sabes si el BFR encaja en tu recuperación? Agenda una llamada gratuita con nuestro equipo en Laredo y lo platicamos.",
+  },
 };

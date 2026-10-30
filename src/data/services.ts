@@ -426,5 +426,77 @@ export const services = [
     ],
     "ctaHeading": "Experience Deeper Recovery",
     "ctaSubtext": "Whether you're an athlete chasing faster recovery or a patient dealing with chronic tightness, cupping therapy at Powerhouse PT in Laredo, TX can be a game-changer. Schedule a free call to find out if it's right for you."
+  },
+  {
+    "slug": "blood-flow-restriction",
+    "metaTitle": "Blood Flow Restriction (BFR) Training in Laredo, TX | Powerhouse PT",
+    "metaDescription": "Blood flow restriction (BFR) training in Laredo, Texas. Build strength with light weights after surgery or injury, supervised by doctors of physical therapy.",
+    "keywords": "blood flow restriction training Laredo TX, BFR therapy Laredo, BFR physical therapy, occlusion training, post-surgical strength, ACL rehab Laredo",
+    "heroImage": "/images/orthopedic-sports-therapy.webp",
+    "heroAlt": "Physical therapist guiding a patient through strengthening exercise",
+    "heroTitle": "Blood Flow Restriction Training",
+    "heroSubtitle": "Build real strength with light weights, even when your body can't handle heavy loads yet",
+    "homeAnchor": "blood-flow-restriction",
+    "intro": "Blood flow restriction (BFR) training uses a cuff, similar to a blood pressure cuff, on your upper arm or thigh. The cuff partly slows blood flow out of the working muscle while you exercise. That lets light weights, often a fraction of what you would normally lift, produce strength and muscle gains usually seen only with heavy lifting. At Powerhouse PT in Laredo, Texas, we use BFR when heavy loading isn't safe or comfortable yet: after surgery, during injury recovery, or around joint pain. Every session is set up and supervised by a doctor of physical therapy, with the cuff pressure set for you.",
+    "conditionsHeading": "Who Benefits From <span>BFR</span>",
+    "conditions": [
+      "Recovery after ACL, meniscus, or knee replacement surgery",
+      "Muscle loss after time in a brace, boot, or on crutches",
+      "Knee pain that makes heavy lifting uncomfortable",
+      "Achilles and patellar tendon problems",
+      "Shoulder rehab after surgery or injury",
+      "Ankle and foot injuries with limited weight bearing",
+      "Athletes staying strong while an injury heals",
+      "Older adults building strength with light loads",
+      "Hip and thigh weakness after injury"
+    ],
+    "detailsHeading": "How BFR <span>Works</span>",
+    "details": [
+      {
+        "icon": "fa-solid fa-gauge",
+        "title": "Pressure Set for You",
+        "text": "Before you train, we find the right cuff pressure for your limb and body, so the restriction is meaningful but never excessive."
+      },
+      {
+        "icon": "fa-solid fa-feather",
+        "title": "Light Loads, Real Results",
+        "text": "Exercises use light weights or just your body weight. The cuff makes the muscle work as if the load were much heavier, without the strain on healing tissue."
+      },
+      {
+        "icon": "fa-solid fa-user-doctor",
+        "title": "Safety Screening First",
+        "text": "We review your health history before starting. BFR isn't right for everyone, including some people with a history of blood clots, uncontrolled blood pressure, or certain heart and circulation conditions."
+      },
+      {
+        "icon": "fa-solid fa-dumbbell",
+        "title": "Part of Your Plan",
+        "text": "BFR is one tool inside your rehab, not a replacement for it. We combine it with hands-on care and progressive exercise, and phase it out as you are ready for heavier work."
+      }
+    ],
+    "processHeading": "What to <span>Expect</span>",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Free Discovery Call",
+        "text": "We talk through your injury or surgery and your goals, and whether BFR could help."
+      },
+      {
+        "number": "02",
+        "title": "Evaluation & Screening",
+        "text": "We assess your strength and movement and check your health history to make sure BFR is safe for you."
+      },
+      {
+        "number": "03",
+        "title": "Supervised BFR Sessions",
+        "text": "A short block of light exercise with the cuff, usually a few sets with brief rests. Expect a strong muscle burn that eases quickly once the cuff is off."
+      },
+      {
+        "number": "04",
+        "title": "Progress to Full Strength",
+        "text": "As your body heals, we increase the load and reduce BFR until you are training normally again."
+      }
+    ],
+    "ctaHeading": "Get Stronger While You Heal",
+    "ctaSubtext": "Not sure whether BFR fits your recovery? Schedule a free call with our Laredo team and we will talk it through."
   }
 ];
