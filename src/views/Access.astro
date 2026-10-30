@@ -17,8 +17,8 @@ const L = (en: string, es: string) => (lang === 'es' ? es : en);
 const path = href(lang, '/access.html');
 const title = L('Insurance, Self-Pay Prices & Direct Access | Powerhouse PT Laredo', 'Seguros, precios sin seguro y acceso directo | Powerhouse PT Laredo');
 const description = L(
-  `Insurance we accept, self-pay prices, HSA/FSA, and how to see a physical therapist in Texas without a referral for up to ${directAccess.days} business days.`,
-  `Seguros que aceptamos, precios sin seguro, HSA/FSA, y cómo ver a un fisioterapeuta en Texas sin referencia hasta por ${directAccess.days} días hábiles.`,
+  `Insurance we accept, self-pay prices, HSA/FSA, and how to see a physical therapist in Texas without a referral for up to ${directAccess.days} consecutive days.`,
+  `Seguros que aceptamos, precios sin seguro, HSA/FSA, y cómo ver a un fisioterapeuta en Texas sin referencia hasta por ${directAccess.days} días consecutivos.`,
 );
 
 const priceLabels: Record<string, [string, string]> = {
@@ -72,8 +72,8 @@ const schema = [
         <h2>{L('Do I need a referral?', '¿Necesito una referencia?')}</h2>
         <p class="lead">
           {L(
-            `No, not to get started. Texas law lets you see a physical therapist directly for up to ${directAccess.days} business days. If you need care beyond that, or your insurance plan requires a referral, we coordinate with your doctor for you.`,
-            `No, no para empezar. La ley de Texas te permite ver a un fisioterapeuta directamente hasta por ${directAccess.days} días hábiles. Si necesitas más tiempo o tu seguro pide una referencia, nosotros coordinamos con tu médico.`,
+            `No, not to get started. Texas law lets you see a physical therapist directly for up to ${directAccess.days} consecutive days. If you need care beyond that, or your insurance plan requires a referral, we coordinate with your doctor for you.`,
+            `No, no para empezar. La ley de Texas te permite ver a un fisioterapeuta directamente hasta por ${directAccess.days} días consecutivos. Si necesitas más tiempo o tu seguro pide una referencia, nosotros coordinamos con tu médico.`,
           )}
         </p>
       </div>
