@@ -62,20 +62,19 @@ export const areasServed = [
 ];
 
 /**
- * Insurance. BlueCross BlueShield and Medicare are real (from the site's old pop-up);
- * the rest of the list is MOCK.
+ * Insurance, stated in general terms on purpose: no list of named plans until the clinic
+ * confirms one. Each entry shows as a pill on the home and Access pages.
  */
 export const insurance = {
   accepted: [
-    { name: 'BlueCross BlueShield of Texas', mock: false },
-    { name: 'Medicare', mock: false },
-    { name: 'Aetna', mock: true },
-    { name: 'Cigna', mock: true },
-    { name: 'UnitedHealthcare', mock: true },
-    { name: 'Humana', mock: true },
-    { name: 'TRICARE', mock: true },
-    { name: "Workers' compensation", mock: true },
+    { en: 'Most major insurance plans', es: 'La mayoría de los seguros principales' },
+    { en: "Workers' compensation", es: 'Compensación laboral (workers\' comp)' },
+    { en: 'Medicare', es: 'Medicare' },
   ],
+  summary: {
+    en: "We accept most major insurance plans, as well as workers' compensation and Medicare.",
+    es: 'Aceptamos la mayoría de los seguros principales, además de compensación laboral (workers\' comp) y Medicare.',
+  },
   hsaFsa: true, // MOCK
 };
 

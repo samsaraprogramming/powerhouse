@@ -176,7 +176,7 @@ const schema = [pageNode({ path: lang === 'es' ? '/es/' : '/', name: title, desc
         <a class="link-arrow" href={href(lang, '/access.html')}>{t(lang, 'nav.access')}</a>
       </div>
       <ul class="pill-list" aria-label={L('Insurance accepted', 'Seguros aceptados')}>
-        {insurance.accepted.map((i) => <li>{i.name}</li>)}
+        {insurance.accepted.map((i) => <li>{i[lang]}</li>)}
       </ul>
     </div>
   </section>
