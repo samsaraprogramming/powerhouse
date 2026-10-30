@@ -23,8 +23,8 @@ export const faqGroups: FaqGroup[] = [
         home: true,
         q: { en: 'Do I need a referral to see a physical therapist?', es: '¿Necesito una referencia para ver a un fisioterapeuta?' },
         a: {
-          en: `Not to get started. In Texas you can see a physical therapist without a referral for up to ${directAccess.days} business days. After that, or if your insurance requires one, we help you get a referral from your doctor.`,
-          es: `No para empezar. En Texas puedes ver a un fisioterapeuta sin referencia hasta por ${directAccess.days} días hábiles. Después de eso, o si tu seguro la pide, te ayudamos a conseguirla con tu médico.`,
+          en: `Not to get started. In Texas you can see a physical therapist without a referral for up to ${directAccess.days} consecutive days. After that, or if your insurance requires one, we help you get a referral from your doctor.`,
+          es: `No para empezar. En Texas puedes ver a un fisioterapeuta sin referencia hasta por ${directAccess.days} días consecutivos. Después de eso, o si tu seguro la pide, te ayudamos a conseguirla con tu médico.`,
         },
       },
       {
