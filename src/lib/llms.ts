@@ -1,6 +1,6 @@
 // Builds /llms.txt (a short, linked summary for AI assistants, per llmstxt.org) and
 // /llms-full.txt (the same facts plus the full condition and service guides).
-import { clinic, hours, insurance, selfPay, directAccess, areasServed, fullAddress } from '../data/clinic';
+import { clinic, hours, insurance, directAccess, areasServed, fullAddress } from '../data/clinic';
 import { conditions } from '../data/conditions';
 import { faqGroups } from '../data/faq';
 import { posts } from '../data/posts';
@@ -17,7 +17,7 @@ function facts() {
     `- Languages: ${clinic.languages.join(', ')}`,
     `- Direct access: Texas patients can be seen without a referral for up to ${directAccess.days} consecutive days`,
     `- Insurance: ${insurance.summary.en} Call to verify a specific plan.${insurance.hsaFsa ? ' HSA/FSA accepted.' : ''}`,
-    `- Self-pay: initial evaluation $${selfPay.find((p) => p.key === 'evaluation')?.price}, follow-up $${selfPay.find((p) => p.key === 'followUp')?.price}`,
+    `- Self-pay: available; call for details (prices are not published)`,
     `- Areas served: one clinic in Laredo (no other locations); patients come from ${areasServed.join(', ')}`,
     `- Booking: free discovery call via ${abs('/sign-up.html')}`,
   ].join('\n');
@@ -52,7 +52,7 @@ ${posts.map((p) => `- [${p.title.en}](${abs(`/library/${p.slug}.html`)}): ${p.de
 
 ## Patient information
 
-- [Access & cost](${abs('/access.html')}): referrals, insurance and self-pay prices
+- [Access & cost](${abs('/access.html')}): referrals, insurance and self-pay
 - [FAQ](${abs('/faq.html')}): common questions about visits and treatment
 - [Location & hours](${abs('/location.html')}): address, parking and areas served
 

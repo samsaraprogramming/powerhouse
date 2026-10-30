@@ -13,7 +13,6 @@ Each item names the file and field to edit; pages, JSON-LD and `llms.txt` all re
 | Areas served (communities within ~50 miles, not locations) | Laredo, North/South Laredo, Del Mar, San Isidro, Rio Bravo, El Cenizo, Mirando City, Encinal, Zapata, Hebbronville | `areasServed` |
 | Insurance wording | General statement only: "most major insurance plans, workers' compensation and Medicare" (no named plans until the clinic confirms a list) | `insurance.accepted`, `insurance.summary` |
 | HSA / FSA accepted | Yes | `insurance.hsaFsa` |
-| Self-pay prices | Evaluation $120, follow-up $95, dry needling add-on $60, running analysis $150, 5-visit package $450 | `selfPay` |
 | Direct access policy | No referral needed for up to 30 consecutive days (Texas law since Sept. 1, 2025, HB 4099; confirm the clinic's therapists qualify and any payer limits) | `directAccess` |
 | Discovery call length | 15 minutes | `booking.discoveryCallMinutes` |
 | Evaluation / follow-up length | 60 / 45 minutes | `booking.evaluationMinutes`, `booking.followUpMinutes` |
