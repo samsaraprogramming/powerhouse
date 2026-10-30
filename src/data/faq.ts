@@ -5,7 +5,6 @@ import { booking, directAccess, insurance, selfPay } from './clinic';
 // Answers that quote clinic facts read them from clinic.ts, so replacing the MOCK values there
 // updates these too.
 
-const price = (key: string) => `$${selfPay.find((p) => p.key === key)?.price}`;
 
 export interface FaqGroup {
   id: string;
@@ -64,10 +63,10 @@ export const faqGroups: FaqGroup[] = [
       },
       {
         home: true,
-        q: { en: 'What does it cost without insurance?', es: '¿Cuánto cuesta sin seguro?' },
+        q: { en: "What if I don't have insurance?", es: '¿Y si no tengo seguro?' },
         a: {
-          en: `The initial evaluation is ${price('evaluation')} and follow-up visits are ${price('followUp')}. A package of five follow-ups is ${price('package')}.${insurance.hsaFsa ? ' HSA and FSA cards are accepted.' : ''}`,
-          es: `La evaluación inicial cuesta ${price('evaluation')} y las visitas de seguimiento ${price('followUp')}. Un paquete de cinco seguimientos cuesta ${price('package')}.${insurance.hsaFsa ? ' Aceptamos tarjetas HSA y FSA.' : ''}`,
+          en: `${selfPay.en}${insurance.hsaFsa ? ' HSA and FSA cards are accepted.' : ''}`,
+          es: `${selfPay.es}${insurance.hsaFsa ? ' Aceptamos tarjetas HSA y FSA.' : ''}`,
         },
       },
       {

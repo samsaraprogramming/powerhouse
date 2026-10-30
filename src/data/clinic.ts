@@ -78,14 +78,11 @@ export const insurance = {
   hsaFsa: true, // MOCK
 };
 
-/** MOCK: self-pay prices in USD. */
-export const selfPay = [
-  { key: 'evaluation', price: 120 },
-  { key: 'followUp', price: 95 },
-  { key: 'dryNeedling', price: 60 },
-  { key: 'runningAnalysis', price: 150 },
-  { key: 'package', price: 450 }, // 5 follow-up visits
-];
+/** Self-pay is offered, but prices are deliberately not published; patients call for details. */
+export const selfPay = {
+  en: "Self-pay is available if you don't have insurance or prefer not to use it. Call us and we'll walk you through the options.",
+  es: 'También puedes pagar por tu cuenta si no tienes seguro o prefieres no usarlo. Llámanos y te explicamos las opciones.',
+};
 
 /**
  * Texas direct access: a PT may treat without a referral for up to 30 consecutive calendar days
