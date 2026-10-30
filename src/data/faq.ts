@@ -6,7 +6,6 @@ import { booking, directAccess, insurance, selfPay } from './clinic';
 // updates these too.
 
 const price = (key: string) => `$${selfPay.find((p) => p.key === key)?.price}`;
-const accepted = insurance.accepted.map((i) => i.name);
 
 export interface FaqGroup {
   id: string;
@@ -59,8 +58,8 @@ export const faqGroups: FaqGroup[] = [
         home: true,
         q: { en: 'Which insurance plans do you accept?', es: '¿Qué seguros aceptan?' },
         a: {
-          en: `We are in network with ${accepted.join(', ')}. Coverage varies by plan, so we verify your benefits before your first visit.`,
-          es: `Trabajamos con ${accepted.join(', ')}. La cobertura depende de tu plan, por eso verificamos tus beneficios antes de tu primera visita.`,
+          en: `${insurance.summary.en} Coverage varies by plan, so tell us your insurance when you book and we verify your benefits before your first visit.`,
+          es: `${insurance.summary.es} La cobertura depende de tu plan, así que dinos cuál tienes al agendar y verificamos tus beneficios antes de tu primera visita.`,
         },
       },
       {
