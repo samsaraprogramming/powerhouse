@@ -50,6 +50,7 @@ Source links on condition pages point to MedlinePlus topic pages; check each sti
 | "Most new patients are scheduled within a few days" | `src/data/faq.ts` |
 | "Many patients come once or twice a week for four to eight weeks" | `src/data/faq.ts` |
 | Patients come from nearby border towns | `src/views/Location.astro` |
+| Blood flow restriction (BFR) training is offered, with cuff pressure set per patient and a safety screen | `src/data/services.ts`, `src/data/services.es.ts` (`blood-flow-restriction`) |
 | Typical rehab timelines (knee replacement ~3 months, ACL 9+ months) | `src/data/conditions.ts` (post-surgical FAQ) |
 
 ## Images
@@ -61,6 +62,7 @@ Existing clinic photos are reused across pages. Needed before launch (stock or, 
 - One image per condition: back, neck, shoulder, hip, knee, foot & ankle, post-surgical (currently 3 photos shared across 8 pages)
 - Library article images (currently reuse service photos)
 - Team group photo (about page)
+- Blood flow restriction training photo (currently reuses the orthopedic photo)
 
 ## Existing issue noticed (not mock data)
 
