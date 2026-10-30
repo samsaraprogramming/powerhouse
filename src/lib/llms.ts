@@ -28,7 +28,7 @@ export function llmsTxt(): string {
   const team = getTeam('en');
   return `# ${clinic.name}
 
-> One-on-one outpatient physical therapy clinic in Laredo, Texas, inside Gold's Gym. Doctors of physical therapy treat back, neck, shoulder, hip, knee, foot and ankle pain, sports injuries and post-surgical rehab, and offer dry needling, cupping and running analysis. Care is available in English and Spanish.
+> One-on-one outpatient physical therapy clinic in Laredo, Texas, inside Gold's Gym. Doctors of physical therapy treat back, neck, shoulder, hip, knee, foot and ankle pain, sports injuries and post-surgical rehab, and offer dry needling, cupping, blood flow restriction (BFR) training and running analysis. Care is available in English and Spanish.
 
 ## Key facts
 

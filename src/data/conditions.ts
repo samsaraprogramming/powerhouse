@@ -227,7 +227,7 @@ export const conditions: Condition[] = [
     image: '/images/sprint.webp',
     reviewer: 'leslie',
     lastReviewed: '2026-10-15',
-    services: ['orthopedic-pt', 'sports-performance', 'running-analysis'],
+    services: ['orthopedic-pt', 'sports-performance', 'running-analysis', 'blood-flow-restriction'],
     name: { en: 'Knee pain', es: 'Dolor de rodilla' },
     alsoKnownAs: ['Patellofemoral pain', 'Meniscus injury', 'ACL injury', 'Knee osteoarthritis'],
     summary: {
@@ -323,7 +323,7 @@ export const conditions: Condition[] = [
     image: '/images/sprint.webp',
     reviewer: 'sandra',
     lastReviewed: '2026-10-15',
-    services: ['sports-performance', 'running-analysis', 'orthopedic-pt'],
+    services: ['sports-performance', 'running-analysis', 'orthopedic-pt', 'blood-flow-restriction'],
     name: { en: 'Sports injuries', es: 'Lesiones deportivas' },
     alsoKnownAs: ['Muscle strain', 'Tendinopathy', 'Overuse injury'],
     summary: {
@@ -371,7 +371,7 @@ export const conditions: Condition[] = [
     image: '/images/orthopedic-sports-therapy.webp',
     reviewer: 'leslie',
     lastReviewed: '2026-10-15',
-    services: ['orthopedic-pt', 'sports-performance'],
+    services: ['orthopedic-pt', 'sports-performance', 'blood-flow-restriction'],
     name: { en: 'Post-surgical rehab', es: 'Rehabilitación postquirúrgica' },
     alsoKnownAs: ['Postoperative rehabilitation', 'Joint replacement rehab', 'ACL reconstruction rehab'],
     summary: {
