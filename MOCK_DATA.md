@@ -67,8 +67,3 @@ Still needed before launch:
 - Building / Gold's Gym entrance and parking (location page, real photo)
 - Team group photo (about page, real photo)
 - Blood flow restriction training photo (currently reuses the original orthopedic photo)
-
-## Existing issue noticed (not mock data)
-
-`netlify/functions/contact.mjs` tells patients to call **(956) 724-9800** in the confirmation email,
-but the site lists **956-307-6305**. Confirm which number is right.
