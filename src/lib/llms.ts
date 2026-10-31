@@ -1,19 +1,34 @@
-// Builds /llms.txt (a short, linked summary for AI assistants, per llmstxt.org) and
-// /llms-full.txt (the same facts plus the full condition and service guides).
+// Builds /llms.txt (a short, linked summary for AI assistants, per llmstxt.org, with a short Spanish
+// section at the end) and /llms-full.txt and /es/llms-full.txt (the same facts plus the full condition
+// and service guides, one file per language). Everything is read from the same data as the pages.
 import { clinic, hours, insurance, directAccess, areasServed, fullAddress } from '../data/clinic';
 import { conditions } from '../data/conditions';
 import { faqGroups } from '../data/faq';
 import { posts } from '../data/posts';
+import { dayNames, href, type Lang } from '../i18n/ui';
 import { getServices, getTeam, plain } from './content';
 import { abs } from './schema';
 
-const hoursText = hours.map((h) => `${h.days.join(', ')}: ${h.opens}–${h.closes}`).join('; ');
+const hoursText = (lang: Lang) => hours.map((h) => `${h.days.map((d) => dayNames[lang][d]).join(', ')}: ${h.opens}–${h.closes}`).join('; ');
 
-function facts() {
+function facts(lang: Lang) {
+  if (lang === 'es') {
+    return [
+      `- Dirección: ${fullAddress} (${clinic.address.note.es})`,
+      `- Teléfono: ${clinic.phone} · Fax: ${clinic.fax} · Correo: ${clinic.email}`,
+      `- Horario: ${hoursText('es')}`,
+      `- Idiomas: inglés y español; las visitas pueden ser en español`,
+      `- Acceso directo: en Texas puedes atenderte sin referencia médica hasta por ${directAccess.days} días consecutivos`,
+      `- Seguros: ${insurance.summary.es} Llama para verificar tu plan.${insurance.hsaFsa ? ' Se aceptan HSA/FSA.' : ''}`,
+      `- Pago directo (sin seguro): disponible; llama para más detalles (los precios no se publican)`,
+      `- Zona: una sola clínica en Laredo (sin otras sucursales); los pacientes vienen de ${areasServed.join(', ')}`,
+      `- Citas: llamada gratuita de orientación en ${abs(href('es', '/sign-up.html'))}`,
+    ].join('\n');
+  }
   return [
     `- Address: ${fullAddress} (${clinic.address.note.en})`,
     `- Phone: ${clinic.phone} · Fax: ${clinic.fax} · Email: ${clinic.email}`,
-    `- Hours: ${hoursText}`,
+    `- Hours: ${hoursText('en')}`,
     `- Languages: ${clinic.languages.join(', ')}`,
     `- Direct access: Texas patients can be seen without a referral for up to ${directAccess.days} consecutive days`,
     `- Insurance: ${insurance.summary.en} Call to verify a specific plan.${insurance.hsaFsa ? ' HSA/FSA accepted.' : ''}`,
@@ -21,6 +36,33 @@ function facts() {
     `- Areas served: one clinic in Laredo (no other locations); patients come from ${areasServed.join(', ')}`,
     `- Booking: free discovery call via ${abs('/sign-up.html')}`,
   ].join('\n');
+}
+
+/** A short Spanish summary appended to /llms.txt, after the English, so tools that stop early still get the English in full. */
+function spanishSection(): string {
+  const services = getServices('es');
+  return `## En español
+
+Clínica de terapia física (fisioterapia) individual en Laredo, Texas, dentro de Gold's Gym. Atendemos dolor de espalda, cuello, hombro, cadera, rodilla, pie y tobillo, lesiones deportivas y rehabilitación después de cirugía. Atención en español.
+
+${facts('es')}
+
+### Servicios
+
+${services.map((s) => `- [${plain(s.heroTitle)}](${abs(href('es', `/service-${s.slug}.html`))})`).join('\n')}
+
+### Condiciones
+
+${conditions.map((c) => `- [${c.name.es}](${abs(href('es', `/conditions/${c.slug}.html`))})`).join('\n')}
+
+### Más información
+
+- [Sitio en español](${abs(href('es', '/'))})
+- [Seguros, pago directo y acceso directo](${abs(href('es', '/access.html'))})
+- [Preguntas frecuentes](${abs(href('es', '/faq.html'))})
+- [Ubicación y horario](${abs(href('es', '/location.html'))})
+- [Texto completo en español para asistentes de IA](${abs('/es/llms-full.txt')})
+`;
 }
 
 export function llmsTxt(): string {
@@ -32,7 +74,7 @@ export function llmsTxt(): string {
 
 ## Key facts
 
-${facts()}
+${facts('en')}
 
 ## Services
 
@@ -60,49 +102,56 @@ ${posts.map((p) => `- [${p.title.en}](${abs(`/library/${p.slug}.html`)}): ${p.de
 
 - [Full text for AI assistants](${abs('/llms-full.txt')})
 - [Spanish site (sitio en español)](${abs('/es/')})
-`;
+
+${spanishSection()}`;
 }
 
-export function llmsFullTxt(): string {
-  const services = getServices('en');
+const fullLabels = {
+  en: { title: 'full reference', conditions: 'Conditions', services: 'Services', faq: 'Frequently asked questions', symptoms: 'Common symptoms', causes: 'Common causes', treatment: 'How physical therapy helps', when: 'When to get it checked', redFlags: 'See a doctor right away if' },
+  es: { title: 'referencia completa', conditions: 'Condiciones', services: 'Servicios', faq: 'Preguntas frecuentes', symptoms: 'Síntomas comunes', causes: 'Causas comunes', treatment: 'Cómo ayuda la terapia física', when: 'Cuándo revisarlo', redFlags: 'Ve al médico de inmediato si' },
+};
+
+export function llmsFullTxt(lang: Lang = 'en'): string {
+  const services = getServices(lang);
+  const l = fullLabels[lang];
   const section = (title: string, items: string[]) => `### ${title}\n\n${items.map((i) => `- ${i}`).join('\n')}`;
-  return `# ${clinic.name} — full reference
+  return `# ${clinic.name} — ${l.title}
 
-${facts()}
+${facts(lang)}
 
-## Conditions
+## ${l.conditions}
 
 ${conditions
   .map(
-    (c) => `## ${c.name.en}
+    (c) => `## ${c.name[lang]}
 
-URL: ${abs(`/conditions/${c.slug}.html`)}
+URL: ${abs(href(lang, `/conditions/${c.slug}.html`))}
 
-${c.intro.en}
+${c.intro[lang]}
 
-${section('Common symptoms', c.symptoms.en)}
+${section(l.symptoms, c.symptoms[lang])}
 
-${section('Common causes', c.causes.en)}
+${section(l.causes, c.causes[lang])}
 
-${section('How physical therapy helps', c.treatment.en)}
+${section(l.treatment, c.treatment[lang])}
 
-### When to get it checked
+### ${l.when}
 
-${c.whenToSeek.en}
+${c.whenToSeek[lang]}
 
-${section('See a doctor right away if', c.redFlags.en)}
+${section(l.redFlags, c.redFlags[lang])}
 
-${c.faqs.en.map((f) => `**${f.q}** ${f.a}`).join('\n\n')}`,
+${c.faqs[lang].map((f) => `**${f.q}** ${f.a}`).join('\n\n')}`,
   )
   .join('\n\n')}
 
-## Services
+## ${l.services}
 
 ${services
   .map(
     (s) => `## ${plain(s.heroTitle)}
 
-URL: ${abs(`/service-${s.slug}.html`)}
+URL: ${abs(href(lang, `/service-${s.slug}.html`))}
 
 ${plain(s.intro)}
 
@@ -110,8 +159,8 @@ ${section(plain(s.conditionsHeading), s.conditions.map(plain))}`,
   )
   .join('\n\n')}
 
-## Frequently asked questions
+## ${l.faq}
 
-${faqGroups.flatMap((g) => g.items).map((f) => `**${f.q.en}** ${f.a.en}`).join('\n\n')}
+${faqGroups.flatMap((g) => g.items).map((f) => `**${f.q[lang]}** ${f.a[lang]}`).join('\n\n')}
 `;
 }
