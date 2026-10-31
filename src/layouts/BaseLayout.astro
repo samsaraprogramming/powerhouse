@@ -64,9 +64,7 @@ const graph = { '@context': 'https://schema.org', '@graph': [clinicNode(rating),
     {translated && <meta property="og:locale:alternate" content={lang === 'es' ? 'en_US' : 'es_US'} />}
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href={theme.fontsHref} rel="stylesheet" />
+    {theme.fontPreload.map((font) => <link rel="preload" href={font} as="font" type="font/woff2" crossorigin />)}
 
     <script is:inline type="application/ld+json" set:html={JSON.stringify(graph)} />
     <slot name="head" />

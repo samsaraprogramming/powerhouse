@@ -12,8 +12,11 @@ export interface LogoColors {
 export const theme = {
   id: 'base',
   name: 'Base (neutral)',
-  /** Google Fonts stylesheet with every family and weight the theme uses. */
-  fontsHref: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap',
+  /**
+   * Font files to preload. Fonts are self-hosted in public/fonts (latin subset, variable weight)
+   * and declared with @font-face in src/styles/theme.css.
+   */
+  fontPreload: ['/fonts/inter-normal.woff2'],
   /** Browser UI colour on mobile. */
   themeColor: '#0B1218',
   logo: {
