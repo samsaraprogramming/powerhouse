@@ -20,7 +20,7 @@ interface Props {
   noindex?: boolean;
 }
 
-const { title, description, schema = [], translated = true, image = '/images/orthopedic-sports-therapy.webp', ogType = 'website', noindex = false } = Astro.props;
+const { title, description, schema = [], translated = true, image = '/images/services/orthopedic-sports-therapy.webp', ogType = 'website', noindex = false } = Astro.props;
 
 const lang: Lang = langFromUrl(Astro.url);
 const path = publicPath(Astro.url.pathname);
@@ -50,7 +50,7 @@ const graph = { '@context': 'https://schema.org', '@graph': [clinicNode(rating),
       </Fragment>
     )}
     <meta name="theme-color" content={theme.themeColor} />
-    <link rel="icon" href="/images/p-logo-minty.webp" type="image/webp" />
+    <link rel="icon" href="/images/brand/p-logo-minty.webp" type="image/webp" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="alternate" type="text/plain" title="LLM summary" href="/llms.txt" />
 

@@ -20,3 +20,99 @@
   from = "/es"
   to = "/es/"
   status = 301
+
+# Images moved into folders in the revamp; keep the old URLs (search results, shared links) working.
+[[redirects]]
+  from = "/images/powerhouse-logo.webp"
+  to = "/images/brand/powerhouse-logo.webp"
+  status = 301
+
+[[redirects]]
+  from = "/images/p-logo-minty.webp"
+  to = "/images/brand/p-logo-minty.webp"
+  status = 301
+
+[[redirects]]
+  from = "/images/original-sticker-no-barbell-minty.webp"
+  to = "/images/brand/original-sticker-no-barbell-minty.webp"
+  status = 301
+
+[[redirects]]
+  from = "/images/dr-leslie.webp"
+  to = "/images/team/dr-leslie.webp"
+  status = 301
+
+[[redirects]]
+  from = "/images/dr-sandra.webp"
+  to = "/images/team/dr-sandra.webp"
+  status = 301
+
+[[redirects]]
+  from = "/images/dr-uriel.webp"
+  to = "/images/team/dr-uriel.webp"
+  status = 301
+
+[[redirects]]
+  from = "/images/alejandro-pta.webp"
+  to = "/images/team/alejandro-pta.webp"
+  status = 301
+
+[[redirects]]
+  from = "/images/georgina-pta.webp"
+  to = "/images/team/georgina-pta.webp"
+  status = 301
+
+[[redirects]]
+  from = "/images/cupping.webp"
+  to = "/images/services/cupping.webp"
+  status = 301
+
+[[redirects]]
+  from = "/images/dry-needling.webp"
+  to = "/images/services/dry-needling.webp"
+  status = 301
+
+[[redirects]]
+  from = "/images/running-analysis.webp"
+  to = "/images/services/running-analysis.webp"
+  status = 301
+
+[[redirects]]
+  from = "/images/sprint.webp"
+  to = "/images/services/sprint.webp"
+  status = 301
+
+[[redirects]]
+  from = "/images/orthopedic-sports-therapy.webp"
+  to = "/images/services/orthopedic-sports-therapy.webp"
+  status = 301
+
+[[redirects]]
+  from = "/images/blue-background.webp"
+  to = "/images/legacy/blue-background.webp"
+  status = 301
+
+[[redirects]]
+  from = "/images/blue-cross.png"
+  to = "/images/legacy/blue-cross.png"
+  status = 301
+
+[[redirects]]
+  from = "/images/medicare-logo.png"
+  to = "/images/legacy/medicare-logo.png"
+  status = 301
+
+[[redirects]]
+  from = "/images/muscle-icon2.png"
+  to = "/images/legacy/muscle-icon2.png"
+  status = 301
+
+[[redirects]]
+  from = "/images/root-cause2.png"
+  to = "/images/legacy/root-cause2.png"
+  status = 301
+
+[[redirects]]
+  from = "/images/target.png"
+  to = "/images/legacy/target.png"
+  status = 301

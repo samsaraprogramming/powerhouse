@@ -8,7 +8,7 @@ export const team = [
     "metaDescription": "Meet Dr. Leslie Garcia, PT, DPT — physical therapist at Powerhouse PT in Laredo, Texas. Specialist in orthopedic and neurological conditions.",
     "name": "Dr. Leslie Garcia, PT, DPT",
     "title": "Doctor of Physical Therapy",
-    "photo": "/images/dr-leslie.webp",
+    "photo": "/images/team/dr-leslie.webp",
     "photoAlt": "Dr. Leslie Garcia, PT, DPT",
     "paragraphs": [
       "A proud Laredo native, Dr. Leslie Garcia brings a lifelong passion for health, movement, and community care. She earned her Bachelor of Science in Biology from Texas A&amp;M International University, where she also worked as a fitness instructor and personal trainer, gaining valuable hands-on experience while completing her degree.",
@@ -37,7 +37,7 @@ export const team = [
     "metaDescription": "Meet Dr. Uriel Garza, PT, DPT — physical therapist at Powerhouse PT in Laredo, Texas. Experienced in orthopedic and post-operative rehabilitation, exercise, and strength training.",
     "name": "Dr. Uriel Garza, PT, DPT",
     "title": "Doctor of Physical Therapy",
-    "photo": "/images/dr-uriel.webp",
+    "photo": "/images/team/dr-uriel.webp",
     "photoAlt": "Dr. Uriel Garza, PT, DPT",
     "paragraphs": [
       "Dr. Uriel Garza is a Doctor of Physical Therapy with a passion for movement, health, and helping people become the best version of themselves. A United High School graduate, he earned his Bachelor's Degree in Biology from Texas A&amp;M International University and his Doctorate in Physical Therapy from the University of Texas Medical Branch.",
@@ -68,7 +68,7 @@ export const team = [
     "metaDescription": "Meet Georgina Morales, PTA — physical therapist assistant at Powerhouse PT in Laredo, Texas. Specialist in orthopedic and neurological conditions.",
     "name": "Georgina Morales, PTA",
     "title": "Physical Therapist Assistant",
-    "photo": "/images/georgina-pta.webp",
+    "photo": "/images/team/georgina-pta.webp",
     "photoAlt": "Georgina Morales, PTA",
     "paragraphs": [
       "Georgina brings a strong athletic background, advanced training, and a genuine passion for helping patients move and feel their best.",
@@ -97,7 +97,7 @@ export const team = [
     "metaDescription": "Meet Alejandro Morales, PTA — physical therapist assistant at Powerhouse PT in Laredo, Texas. Specialist in functional movement and orthopedic rehabilitation.",
     "name": "Alejandro Morales, PTA",
     "title": "Physical Therapist Assistant",
-    "photo": "/images/alejandro-pta.webp",
+    "photo": "/images/team/alejandro-pta.webp",
     "photoAlt": "Alejandro Morales, PTA",
     "paragraphs": [
       "Our newest licensed physical therapy provider joining POWERHOUSE PT. A movement-focused clinician with a passion for building strength, restoring function, and helping patients perform at a higher level.",
@@ -128,7 +128,7 @@ export const team = [
     "metaDescription": "Meet Dr. Sandra Gomez, PT, DPT — founder and owner of Powerhouse PT in Laredo, Texas. Expert in orthopedics, manual therapy, and strength training.",
     "name": "Dr. Sandra Gomez, PT, DPT",
     "title": "Doctor of Physical Therapy &mdash; Founder &amp; Owner",
-    "photo": "/images/dr-sandra.webp",
+    "photo": "/images/team/dr-sandra.webp",
     "photoAlt": "Dr. Sandra Gomez, PT, DPT",
     "paragraphs": [
       "Dr. Sandra Gomez is a Laredo native in which she played soccer, volleyball, and track throughout her high school years. She attended the University of Texas at Austin to earn her Bachelors of Science along with playing Club Soccer at UT. Dr. Sandra then went on to attend Texas State University to earn her Doctorate in Physical Therapy.",
