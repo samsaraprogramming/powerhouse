@@ -32,7 +32,7 @@ const medline = (en: string, es: string, title: string) => ({
 export const conditions: Condition[] = [
   {
     slug: 'back-pain-sciatica',
-    image: '/images/orthopedic-sports-therapy.webp',
+    image: '/images/conditions/back-pain.webp',
     reviewer: 'sandra',
     lastReviewed: '2026-10-15',
     services: ['orthopedic-pt', 'dry-needling', 'cupping'],
@@ -80,7 +80,7 @@ export const conditions: Condition[] = [
   },
   {
     slug: 'neck-pain-headaches',
-    image: '/images/orthopedic-sports-therapy.webp',
+    image: '/images/conditions/neck-pain.webp',
     reviewer: 'leslie',
     lastReviewed: '2026-10-15',
     services: ['orthopedic-pt', 'dry-needling', 'cupping'],
@@ -128,7 +128,7 @@ export const conditions: Condition[] = [
   },
   {
     slug: 'shoulder-pain',
-    image: '/images/orthopedic-sports-therapy.webp',
+    image: '/images/conditions/shoulder-pain.webp',
     reviewer: 'sandra',
     lastReviewed: '2026-10-15',
     services: ['orthopedic-pt', 'sports-performance', 'dry-needling'],
@@ -176,7 +176,7 @@ export const conditions: Condition[] = [
   },
   {
     slug: 'hip-pain',
-    image: '/images/sprint.webp',
+    image: '/images/conditions/hip-pain.webp',
     reviewer: 'sandra',
     lastReviewed: '2026-10-15',
     services: ['orthopedic-pt', 'running-analysis', 'sports-performance'],
@@ -224,7 +224,7 @@ export const conditions: Condition[] = [
   },
   {
     slug: 'knee-pain',
-    image: '/images/sprint.webp',
+    image: '/images/conditions/knee-pain.webp',
     reviewer: 'leslie',
     lastReviewed: '2026-10-15',
     services: ['orthopedic-pt', 'sports-performance', 'running-analysis', 'blood-flow-restriction'],
@@ -272,7 +272,7 @@ export const conditions: Condition[] = [
   },
   {
     slug: 'foot-ankle-pain',
-    image: '/images/running-analysis.webp',
+    image: '/images/conditions/foot-ankle-pain.webp',
     reviewer: 'leslie',
     lastReviewed: '2026-10-15',
     services: ['orthopedic-pt', 'running-analysis', 'dry-needling'],
@@ -320,7 +320,7 @@ export const conditions: Condition[] = [
   },
   {
     slug: 'sports-injuries',
-    image: '/images/sprint.webp',
+    image: '/images/conditions/sports-injuries.webp',
     reviewer: 'sandra',
     lastReviewed: '2026-10-15',
     services: ['sports-performance', 'running-analysis', 'orthopedic-pt', 'blood-flow-restriction'],
@@ -368,7 +368,7 @@ export const conditions: Condition[] = [
   },
   {
     slug: 'post-surgical-rehab',
-    image: '/images/orthopedic-sports-therapy.webp',
+    image: '/images/conditions/post-surgical-rehab.webp',
     reviewer: 'leslie',
     lastReviewed: '2026-10-15',
     services: ['orthopedic-pt', 'sports-performance', 'blood-flow-restriction'],

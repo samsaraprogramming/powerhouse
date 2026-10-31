@@ -22,7 +22,7 @@ export const posts: Post[] = [
     date: '2026-09-22',
     reviewer: 'leslie',
     minutes: 4,
-    image: '/images/running-analysis.webp',
+    image: '/images/conditions/foot-ankle-pain.webp',
     conditions: ['foot-ankle-pain'],
     title: {
       en: 'How long does an ankle sprain take to heal?',
@@ -56,7 +56,7 @@ export const posts: Post[] = [
     date: '2026-10-06',
     reviewer: 'leslie',
     minutes: 5,
-    image: '/images/sprint.webp',
+    image: '/images/library/knee-pain.webp',
     conditions: ['knee-pain', 'sports-injuries'],
     title: {
       en: 'Should you keep running with knee pain?',
@@ -92,7 +92,7 @@ export const posts: Post[] = [
     date: '2026-10-20',
     reviewer: 'sandra',
     minutes: 4,
-    image: '/images/orthopedic-sports-therapy.webp',
+    image: '/images/conditions/back-pain.webp',
     conditions: ['back-pain-sciatica', 'neck-pain-headaches'],
     title: {
       en: 'Why does my back hurt after sitting all day?',

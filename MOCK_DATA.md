@@ -55,14 +55,18 @@ Source links on condition pages point to MedlinePlus topic pages; check each sti
 
 ## Images
 
-Existing clinic photos are reused across pages. Needed before launch (stock or, better, real clinic photos):
+Images live in `public/images/` by use: `brand/`, `team/`, `services/`, `conditions/`, `library/`,
+and `legacy/` (files from the old site no page uses any more). New photos are licensed Adobe Stock,
+resized to 1600px and saved as WebP. All 8 condition pages, the orthopedic service and the library
+articles now have their own photos.
 
-- Clinic interior / treatment area (home hero, location page, Open Graph image)
-- Building / Gold's Gym entrance and parking (location page)
-- One image per condition: back, neck, shoulder, hip, knee, foot & ankle, post-surgical (currently 3 photos shared across 8 pages)
-- Library article images (currently reuse service photos)
-- Team group photo (about page)
-- Blood flow restriction training photo (currently reuses the orthopedic photo)
+Still needed before launch:
+
+- Home hero and Open Graph share image (still the original orthopedic photo; a real clinic photo is best)
+- Clinic interior / treatment area (location page)
+- Building / Gold's Gym entrance and parking (location page, real photo)
+- Team group photo (about page, real photo)
+- Blood flow restriction training photo (currently reuses the original orthopedic photo)
 
 ## Existing issue noticed (not mock data)
 

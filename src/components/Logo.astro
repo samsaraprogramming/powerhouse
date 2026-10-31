@@ -22,9 +22,9 @@ const useBadge = variant === 'badge' || (mode === 'original' && on === 'light');
 
 {mode === 'original' ? (
   useBadge ? (
-    <img class:list={['logo-img', className]} src="/images/p-logo-minty.webp" alt={label} width={Math.round(width * 0.42)} height={Math.round(width * 0.42)} />
+    <img class:list={['logo-img', className]} src="/images/brand/p-logo-minty.webp" alt={label} width={Math.round(width * 0.42)} height={Math.round(width * 0.42)} />
   ) : (
-    <img class:list={['logo-img', className]} src="/images/powerhouse-logo.webp" alt={label} width={width} height={Math.round((width * 849) / 2041)} />
+    <img class:list={['logo-img', className]} src="/images/brand/powerhouse-logo.webp" alt={label} width={width} height={Math.round((width * 849) / 2041)} />
   )
 ) : variant === 'badge' ? (
   <span class:list={['logo-mask logo-badge', className]} role="img" aria-label={label} style={`width:${width}px`}>

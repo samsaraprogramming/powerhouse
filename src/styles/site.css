@@ -139,11 +139,11 @@ p {
   mask-position: center;
 }
 
-.lm-p { -webkit-mask-image: url(/images/logo/lockup-p.webp); mask-image: url(/images/logo/lockup-p.webp); }
-.lm-text { -webkit-mask-image: url(/images/logo/lockup-text.webp); mask-image: url(/images/logo/lockup-text.webp); }
-.lm-disc { -webkit-mask-image: url(/images/logo/badge-disc.webp); mask-image: url(/images/logo/badge-disc.webp); }
-.lm-rings { -webkit-mask-image: url(/images/logo/badge-rings.webp); mask-image: url(/images/logo/badge-rings.webp); }
-.lm-bp { -webkit-mask-image: url(/images/logo/badge-p.webp); mask-image: url(/images/logo/badge-p.webp); }
+.lm-p { -webkit-mask-image: url(/images/brand/logo/lockup-p.webp); mask-image: url(/images/brand/logo/lockup-p.webp); }
+.lm-text { -webkit-mask-image: url(/images/brand/logo/lockup-text.webp); mask-image: url(/images/brand/logo/lockup-text.webp); }
+.lm-disc { -webkit-mask-image: url(/images/brand/logo/badge-disc.webp); mask-image: url(/images/brand/logo/badge-disc.webp); }
+.lm-rings { -webkit-mask-image: url(/images/brand/logo/badge-rings.webp); mask-image: url(/images/brand/logo/badge-rings.webp); }
+.lm-bp { -webkit-mask-image: url(/images/brand/logo/badge-p.webp); mask-image: url(/images/brand/logo/badge-p.webp); }
 
 /* ---------- Buttons ---------- */
 
