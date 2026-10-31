@@ -5,6 +5,7 @@ import CtaBand from '../components/CtaBand.astro';
 import { href, t, type Lang } from '../i18n/ui';
 import { getServices, plain } from '../lib/content';
 import { breadcrumbNode, pageNode, therapyNode } from '../lib/schema';
+import { responsive, sizes } from '../lib/images';
 
 interface Props {
   lang: Lang;
@@ -41,7 +42,7 @@ const schema = [
     <div class="wrap grid" style="--min: 320px;">
       {services.map((s) => (
         <a class="card" href={href(lang, `/service-${s.slug}.html`)}>
-          <div class="card__media"><img src={s.heroImage} alt="" loading="lazy" width="640" height="400" /></div>
+          <div class="card__media"><img {...responsive(s.heroImage)} sizes={sizes.card} alt="" loading="lazy" width="640" height="400" /></div>
           <div class="card__body">
             <h2 style="font-size: 1.5rem; margin: 0;" set:html={plain(s.heroTitle)} />
             <p set:html={s.heroSubtitle} />

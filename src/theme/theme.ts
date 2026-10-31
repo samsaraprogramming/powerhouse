@@ -11,9 +11,11 @@ export interface LogoColors {
 export const theme = {
   id: 'grove',
   name: 'D · Grove',
-  /** Google Fonts stylesheet with every family and weight the theme uses. */
-  fontsHref:
-    'https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Manrope:wght@400;500;600;700&display=swap',
+  /**
+   * Font files to preload. Fonts are self-hosted in public/fonts (latin subset, variable weight)
+   * and declared with @font-face in src/styles/theme.css. The italic loads only when used.
+   */
+  fontPreload: ['/fonts/newsreader-normal.woff2', '/fonts/manrope-normal.woff2'],
   /** Browser UI colour on mobile. */
   themeColor: '#0C0E0D',
   logo: {

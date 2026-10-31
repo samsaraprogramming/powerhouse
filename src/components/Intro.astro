@@ -3,6 +3,7 @@
 // sage waves as you scroll, then parts to reveal a dry needling session.
 // Without JavaScript the final frame shows as a static banner; with reduced motion it is skipped.
 import { href, t, type Lang } from '../i18n/ui';
+import { responsive } from '../lib/images';
 
 interface Props {
   lang: Lang;
@@ -15,7 +16,7 @@ const FIBERS = 18;
 
 <section class="gv-intro" data-gv-intro aria-label={L('Introduction', 'Introducción')}>
   <div class="gv-intro__stage" data-gv-stage>
-    <img class="gv-intro__photo" data-gv-photo src="/images/services/dry-needling.webp" alt="" width="1280" height="853" fetchpriority="high" />
+    <img class="gv-intro__photo" data-gv-photo {...responsive('/images/services/dry-needling.webp')} sizes="100vw" alt="" width="1280" height="853" fetchpriority="high" />
     <div class="gv-intro__shade" data-gv-shade></div>
     <svg class="gv-intro__fibers" viewBox="0 0 1440 820" preserveAspectRatio="none" aria-hidden="true">
       {Array.from({ length: FIBERS }, () => <path data-gv-fiber fill="none" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke" />)}

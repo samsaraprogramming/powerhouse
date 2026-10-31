@@ -6,6 +6,7 @@ import { href, t, type Lang } from '../i18n/ui';
 import { getService, plain } from '../lib/content';
 import { conditions } from '../data/conditions';
 import { breadcrumbNode, pageNode, therapyNode } from '../lib/schema';
+import { responsive, sizes } from '../lib/images';
 
 interface Props {
   lang: Lang;
@@ -39,7 +40,7 @@ const schema = [
           <a class="btn btn--primary" href={href(lang, '/sign-up.html')}>{t(lang, 'cta.call')}</a>
         </div>
       </div>
-      <div class="hero__media"><img src={s.heroImage} alt={s.heroAlt} width="800" height="600" fetchpriority="high" /></div>
+      <div class="hero__media"><img {...responsive(s.heroImage)} sizes={sizes.hero} alt={s.heroAlt} width="800" height="600" fetchpriority="high" /></div>
     </div>
   </section>
 
