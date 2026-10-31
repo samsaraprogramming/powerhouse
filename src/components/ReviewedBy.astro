@@ -1,6 +1,7 @@
 ---
 import { href, t, type Lang } from '../i18n/ui';
 import { getMember, plain } from '../lib/content';
+import { responsive, sizes } from '../lib/images';
 
 interface Props {
   lang: Lang;
@@ -14,7 +15,7 @@ const formatted = new Date(`${date}T12:00:00`).toLocaleDateString(lang === 'es' 
 ---
 
 <p class="byline">
-  <img src={member.photo} alt="" width="48" height="48" loading="lazy" />
+  <img {...responsive(member.photo)} sizes={sizes.avatar} alt="" width="48" height="48" loading="lazy" />
   <span>
     {t(lang, 'reviewed.by')} <a href={href(lang, `/${member.slug}-bio.html`)} set:html={member.name} /><br />
     {t(lang, 'reviewed.on')}: <time datetime={date}>{formatted}</time>

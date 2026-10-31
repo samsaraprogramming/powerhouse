@@ -5,6 +5,7 @@ import CtaBand from '../components/CtaBand.astro';
 import { href, t, type Lang } from '../i18n/ui';
 import { conditions } from '../data/conditions';
 import { breadcrumbNode, pageNode, abs } from '../lib/schema';
+import { responsive, sizes } from '../lib/images';
 
 interface Props {
   lang: Lang;
@@ -50,7 +51,7 @@ const schema = [
     <div class="wrap grid" style="--min: 300px;">
       {conditions.map((c, i) => (
         <a class="card" href={href(lang, `/conditions/${c.slug}.html`)}>
-          <div class="card__media"><img src={c.image} alt="" loading="lazy" width="640" height="400" /></div>
+          <div class="card__media"><img {...responsive(c.image)} sizes={sizes.card} alt="" loading="lazy" width="640" height="400" /></div>
           <div class="card__body">
             <span class="condition-card__index">{String(i + 1).padStart(2, '0')}</span>
             <h2 style="font-size: 1.45rem; margin: 0;">{c.name[lang]}</h2>

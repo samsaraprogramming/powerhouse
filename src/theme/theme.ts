@@ -11,8 +11,11 @@ export interface LogoColors {
 export const theme = {
   id: 'glacier',
   name: 'C · Glacier',
-  /** Google Fonts stylesheet with every family and weight the theme uses. */
-  fontsHref: 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap',
+  /**
+   * Font files to preload. Fonts are self-hosted in public/fonts (latin subset, variable weight)
+   * and declared with @font-face in src/styles/theme.css.
+   */
+  fontPreload: ['/fonts/plus-jakarta-sans-normal.woff2'],
   /** Browser UI colour on mobile. */
   themeColor: '#F4FAFC',
   logo: {

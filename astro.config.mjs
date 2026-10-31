@@ -4,7 +4,8 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://powerhousesportspt.com',
   // Emit leslie-bio.html, service-cupping.html, etc. so the old URLs keep working.
-  build: { format: 'file' },
+  // Inline the (small) stylesheet so phones don't wait on a second request before drawing the page.
+  build: { format: 'file', inlineStylesheets: 'always' },
   // The markup relies on whitespace between inline elements (icon links, contact lines).
   compressHTML: false,
   integrations: [
