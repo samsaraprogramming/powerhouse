@@ -116,3 +116,20 @@
   from = "/images/target.png"
   to = "/images/legacy/target.png"
   status = 301
+
+# Let browsers keep static files. Fonts and Astro's hashed bundles never change in place;
+# photos can be replaced under the same name, so they get a week.
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
