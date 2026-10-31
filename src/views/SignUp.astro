@@ -70,6 +70,7 @@ const schema = [
   <section class="section section--tight">
     <div class="wrap two-col">
       <form id="contact-form" class="form" novalidate>
+        <input type="hidden" name="lang" value={lang} />
         <div>
           <label for="firstName">{L('First name', 'Nombre')}</label>
           <input id="firstName" name="first_name" type="text" autocomplete="given-name" required />

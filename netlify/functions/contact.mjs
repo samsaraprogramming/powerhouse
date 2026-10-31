@@ -13,6 +13,123 @@ const escapeHtml = (value) =>
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
 
+// Patient confirmation. Table layout with inline styles so it renders the same in Gmail, Outlook and Apple Mail.
+// The logo is a PNG (email clients don't all show WebP) served from the site that received the form.
+const PHONE = '956-307-6305';
+const PHONE_TEL = '+1' + PHONE.replace(/\D/g, '');
+const ADDRESS = "2446 San Isidro Pkwy, Laredo, TX 78045 · inside Gold's Gym";
+
+const confirmCopy = {
+  en: {
+    subject: 'We received your request – Powerhouse PT',
+    preheader: "Thanks for reaching out. Here's what happens next.",
+    title: (name) => `Thanks, ${name}!`,
+    lead: "We received your request for a free discovery call. Here's what happens next:",
+    steps: [
+      ['We call you', 'A member of our team will call you within one business day.'],
+      ['Free 15-minute call', "Tell us what's going on and ask anything. No pressure, no commitment."],
+      ['Your first visit', "If physical therapy is a good fit, we'll book your evaluation and check your insurance benefits."],
+    ],
+    sooner: 'Need us sooner?',
+    call: 'Call',
+    privacy: "Please don't reply with medical records, medications or insurance numbers. We'll go over the details on the phone.",
+    sent: 'You received this email because you asked us to contact you on our website.',
+  },
+  es: {
+    subject: 'Recibimos tu solicitud – Powerhouse PT',
+    preheader: 'Gracias por escribirnos. Esto es lo que sigue.',
+    title: (name) => `¡Gracias, ${name}!`,
+    lead: 'Recibimos tu solicitud para una llamada gratuita. Esto es lo que sigue:',
+    steps: [
+      ['Te llamamos', 'Alguien de nuestro equipo te llamará en un día hábil.'],
+      ['Llamada gratuita de 15 minutos', 'Cuéntanos qué está pasando y pregunta lo que quieras. Sin presión y sin compromiso.'],
+      ['Tu primera visita', 'Si la terapia física es buena opción para ti, agendamos tu evaluación y revisamos los beneficios de tu seguro.'],
+    ],
+    sooner: '¿Necesitas hablar antes?',
+    call: 'Llama al',
+    privacy: 'Por favor no respondas con expedientes médicos, medicamentos ni números de seguro. Revisaremos los detalles por teléfono.',
+    sent: 'Recibiste este correo porque nos pediste que te contactáramos desde nuestro sitio web.',
+  },
+};
+
+function confirmEmail(lang, firstName, origin) {
+  const c = confirmCopy[lang];
+  const home = lang === 'es' ? `${origin}/es/` : `${origin}/`;
+  const serif = "Georgia,'Times New Roman',serif";
+  const sans = "-apple-system,'Segoe UI',Helvetica,Arial,sans-serif";
+  const steps = c.steps
+    .map(
+      ([heading, text], i) => `
+          <tr>
+            <td width="40" valign="top" style="padding:0 0 18px;">
+              <div style="width:28px;height:28px;border-radius:14px;background:#e9f4e5;color:#336827;font:700 14px/28px ${sans};text-align:center;">${i + 1}</div>
+            </td>
+            <td valign="top" style="padding:3px 0 18px;font:15px/1.5 ${sans};color:#4d4a43;">
+              <strong style="color:#0c0e0d;">${heading}</strong><br>${text}
+            </td>
+          </tr>`,
+    )
+    .join('');
+
+  const html = `<!doctype html>
+<html lang="${lang}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<title>${c.subject}</title>
+</head>
+<body style="margin:0;padding:0;background:#f3f0e8;">
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;">${c.preheader}</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f3f0e8;">
+  <tr>
+    <td align="center" style="padding:32px 16px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #d9d3c6;">
+        <tr>
+          <td align="center" style="background:#0c0e0d;padding:28px 24px;">
+            <a href="${home}"><img src="${origin}/images/brand/email-logo.png" width="190" height="92" alt="Powerhouse Physical Therapy" style="display:block;border:0;width:190px;height:auto;color:#f3f0e8;font:700 18px ${sans};"></a>
+          </td>
+        </tr>
+        <tr><td style="height:4px;line-height:4px;font-size:0;background:#4ca239;">&nbsp;</td></tr>
+        <tr>
+          <td style="padding:36px 36px 8px;">
+            <h1 style="margin:0 0 12px;font:400 30px/1.2 ${serif};color:#0c0e0d;">${c.title(escapeHtml(firstName))}</h1>
+            <p style="margin:0 0 24px;font:16px/1.6 ${sans};color:#4d4a43;">${c.lead}</p>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${steps}
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:8px 36px 32px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f3f0e8;border-radius:12px;">
+              <tr>
+                <td style="padding:20px 24px;font:15px/1.5 ${sans};color:#4d4a43;">
+                  <strong style="color:#0c0e0d;">${c.sooner}</strong><br>
+                  <a href="tel:${PHONE_TEL}" style="display:inline-block;margin-top:12px;padding:12px 22px;border-radius:999px;background:#4ca239;color:#0c0e0d;font:700 15px ${sans};text-decoration:none;">${c.call} ${PHONE}</a>
+                </td>
+              </tr>
+            </table>
+            <p style="margin:20px 0 0;font:13px/1.5 ${sans};color:#7a766d;">${c.privacy}</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#0c0e0d;padding:22px 36px;font:13px/1.6 ${sans};color:#a39e92;">
+            <strong style="color:#f3f0e8;">Powerhouse Sports Physical Therapy</strong><br>
+            ${ADDRESS}<br>
+            <a href="tel:${PHONE_TEL}" style="color:#72c95e;text-decoration:none;">${PHONE}</a> &nbsp;·&nbsp; <a href="${home}" style="color:#72c95e;text-decoration:none;">powerhousesportspt.com</a>
+          </td>
+        </tr>
+      </table>
+      <p style="margin:16px 0 0;font:12px/1.5 ${sans};color:#7a766d;max-width:560px;">${c.sent}</p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>`;
+
+  return { subject: c.subject, html };
+}
+
 async function sendEmail(apiKey, { to, subject, html, replyTo }) {
   const data = { from: FROM_EMAIL, to: [to], subject, html };
   if (replyTo) data.reply_to = replyTo;
@@ -94,20 +211,13 @@ export default async (req) => {
     return json({ status: 'error', message: `API Error ${status}` });
   }
 
-  const confirmBody = `
-<div style='font-family:sans-serif;max-width:600px;margin:auto;'>
-  <h2 style='color:#1a1a2e;'>Thanks, ${escapeHtml(firstName)}!</h2>
-  <p>We received your request and will be in touch shortly to get you scheduled.</p>
-  <p>If you need to reach us sooner, call us at <strong>(956) 724-9800</strong>.</p>
-  <hr style='border:none;border-top:1px solid #eee;margin:24px 0;'>
-  <p style='color:#888;font-size:13px;'>Powerhouse Sports Physical Therapy &mdash; Laredo, TX</p>
-</div>
-`;
+  const lang = field('lang') === 'es' ? 'es' : 'en';
+  const confirm = confirmEmail(lang, firstName, new URL(req.url).origin);
 
   await sendEmail(apiKey, {
     to: email,
-    subject: 'We received your request – Powerhouse PT',
-    html: confirmBody,
+    subject: confirm.subject,
+    html: confirm.html,
   });
 
   return json({ status: 'success' });
