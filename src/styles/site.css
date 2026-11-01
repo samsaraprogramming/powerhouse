@@ -291,6 +291,7 @@ p {
 .lang-note a {
   color: var(--accent-text);
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .menu-btn {
