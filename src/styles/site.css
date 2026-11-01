@@ -584,8 +584,14 @@ a.card:hover {
   margin: auto 0 0;
 }
 
-/* Cards without the number start at the top. */
-.condition-card h3:first-child {
+/* Cards without the number: no reserved height, and the text sits centred so the space above and below
+   stays even when a neighbour in the row has a longer description. */
+.condition-card--plain {
+  min-height: 0;
+  justify-content: center;
+}
+
+.condition-card--plain h3 {
   margin-top: 0;
 }
 
