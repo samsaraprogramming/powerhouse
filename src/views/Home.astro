@@ -110,7 +110,7 @@ const schema = [pageNode({ path: lang === 'es' ? '/es/' : '/', name: title, desc
       </div>
       <div class="grid" style="--min: 240px;">
         {conditions.map((c) => (
-          <a class="card condition-card" href={href(lang, `/conditions/${c.slug}.html`)}>
+          <a class="card condition-card condition-card--plain" href={href(lang, `/conditions/${c.slug}.html`)}>
             <h3>{c.name[lang]}</h3>
             <p>{c.summary[lang]}</p>
           </a>
