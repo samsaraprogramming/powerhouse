@@ -153,7 +153,7 @@ const schema = [pageNode({ path: lang === 'es' ? '/es/' : '/', name: title, desc
               <h3>{m.home.shortName}</h3>
               <span class="team-card__title">{m.home.role}</span>
               <p class="team-card__expertise">{m.home.expertise}</p>
-              <ul class="team-card__points">{m.home.points.map((p) => <li>{p}</li>)}</ul>
+              <ul class="list-credentials list-credentials--sm team-card__points">{m.home.points.map((p) => <li>{p}</li>)}</ul>
             </div>
           </a>
         ))}
