@@ -737,7 +737,8 @@ a.card:hover {
 .team-card .team-card__expertise {
   margin: 12px 0 0;
   font: italic var(--display-weight) 1.15rem/1.4 var(--font-display);
-  color: var(--ember, var(--ink));
+  /* the ember accent blended toward the ivory text, for a softer peach */
+  color: color-mix(in srgb, var(--ember, var(--ink)) 65%, var(--ink));
 }
 
 .team-card__points {
