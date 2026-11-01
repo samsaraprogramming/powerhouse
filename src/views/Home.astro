@@ -6,6 +6,7 @@ import Reviews from '../components/Reviews.astro';
 import FaqList from '../components/FaqList.astro';
 import Visit from '../components/Visit.astro';
 import CtaBand from '../components/CtaBand.astro';
+import Icon from '../components/Icon.astro';
 import { href, t, type Lang } from '../i18n/ui';
 import { getServices, getTeam, plain } from '../lib/content';
 import { conditions } from '../data/conditions';
@@ -50,6 +51,17 @@ const schema = [pageNode({ path: lang === 'es' ? '/es/' : '/', name: title, desc
           )}
         </p>
         <Rating lang={lang} />
+        {lang === 'en' ? (
+          <p class="lang-note">
+            <Icon name="globe" size={18} />
+            <span><strong lang="es">Se habla español.</strong> Our team speaks Spanish. <a href={href('es', '/')} hreflang="es" lang="es">Ver el sitio en español</a></span>
+          </p>
+        ) : (
+          <p class="lang-note">
+            <Icon name="globe" size={18} />
+            <span><strong>Atención en español.</strong> Todo nuestro equipo habla español, así que tus visitas pueden ser en tu idioma.</span>
+          </p>
+        )}
         <div class="btn-row">
           <a class="btn btn--primary" href={href(lang, '/sign-up.html')}>{t(lang, 'cta.call')}</a>
           <a class="btn btn--ghost" href={href(lang, '/conditions.html')}>{t(lang, 'cta.allConditions')}</a>
@@ -146,6 +158,7 @@ const schema = [pageNode({ path: lang === 'es' ? '/es/' : '/', name: title, desc
         <div>
           <span class="eyebrow">{t(lang, 'nav.about')}</span>
           <h2 id="team-title">{t(lang, 'home.teamTitle')}</h2>
+          <p class="lead">{L('Our whole team speaks English and Spanish, so your visits can be in whichever you prefer.', 'Todo nuestro equipo habla inglés y español, así que tus visitas pueden ser en el idioma que prefieras.')}</p>
         </div>
         <a class="link-arrow" href={href(lang, '/about.html')}>{t(lang, 'team.title')}</a>
       </div>
