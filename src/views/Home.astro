@@ -83,7 +83,7 @@ const schema = [pageNode({ path: lang === 'es' ? '/es/' : '/', name: title, desc
         </div>
         <a class="link-arrow" href={href(lang, '/services.html')}>{t(lang, 'cta.allServices')}</a>
       </div>
-      <div class="grid" style="--min: 300px;">
+      <div class="grid grid--even" style="--min: 300px;">
         {services.map((s) => (
           <a class="card" href={href(lang, `/service-${s.slug}.html`)}>
             <div class="card__media"><img {...responsive(s.heroImage)} sizes={sizes.card} alt="" loading="lazy" width="640" height="400" /></div>
@@ -127,7 +127,7 @@ const schema = [pageNode({ path: lang === 'es' ? '/es/' : '/', name: title, desc
           <h2 id="process-title">{t(lang, 'home.processTitle')}</h2>
         </div>
       </div>
-      <ol class="grid steps" style="list-style: none; margin: 0; padding: 0;">
+      <ol class="grid grid--even steps steps--plain" style="list-style: none; margin: 0; padding: 0;">
         {steps.map((s) => (
           <li class="step">
             <h3 set:html={s.title} />
@@ -161,7 +161,7 @@ const schema = [pageNode({ path: lang === 'es' ? '/es/' : '/', name: title, desc
         </div>
         <a class="link-arrow" href={href(lang, '/about.html')}>{t(lang, 'team.title')}</a>
       </div>
-      <div class="grid" style="--min: 300px;">
+      <div class="grid grid--even" style="--min: 300px;">
         {team.map((m) => (
           <a class="card team-card" href={href(lang, `/${m.slug}-bio.html`)}>
             <div class="card__media"><img {...responsive(m.photo)} sizes={sizes.team} alt={m.home.photoAlt} loading="lazy" width="400" height="500" /></div>

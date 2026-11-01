@@ -639,6 +639,11 @@ a.card:hover {
   margin-bottom: 8px;
 }
 
+/* Steps without the big number (home page). */
+.steps--plain .step::before {
+  content: none;
+}
+
 .step p {
   margin: 0;
   color: var(--ink-2);
@@ -732,13 +737,20 @@ a.card:hover {
   color: var(--ink-2);
 }
 
-.team-card__points li {
-  padding-left: 24px;
+.team-card .team-card__points li {
+  padding-left: 22px;
 }
 
-.team-card__points li::before {
-  width: 12px;
-  height: 7px;
+/* A small round dot instead of the checkmark used in body lists (scoped to win over .list-check, defined later). */
+.team-card .team-card__points li::before {
+  top: 0.6em;
+  left: 6px;
+  width: 6px;
+  height: 6px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: none;
 }
 
 /* ---------- FAQ ---------- */
