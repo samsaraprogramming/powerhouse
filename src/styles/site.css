@@ -741,11 +741,16 @@ a.card:hover {
   color: color-mix(in srgb, var(--ember, var(--ink)) 65%, var(--ink));
 }
 
-.team-card__points {
-  margin: 16px 0 0;
+/* ---------- Lists ---------- */
+
+/* Providers: credentials as quiet, tracked capitals (bio pages and the home team cards). */
+.list-credentials {
+  display: grid;
+  gap: 12px;
+  margin: 0;
   padding: 0;
   list-style: none;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 600;
   line-height: 1.45;
   letter-spacing: 0.1em;
@@ -753,8 +758,42 @@ a.card:hover {
   color: var(--ink-2);
 }
 
-.team-card__points li {
-  padding: 5px 0;
+.list-credentials--sm {
+  gap: 10px;
+  font-size: 0.7rem;
+}
+
+.team-card__points {
+  margin-top: 16px;
+}
+
+/* Services: what a service treats, as soft rounded chips. */
+.list-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: start;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list-chips li {
+  padding: 9px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+/* Lists of links (related guides, reviewed pages): each link carries its own arrow. */
+.list-links {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 1.5em;
+  padding: 0;
+  list-style: none;
 }
 
 /* ---------- FAQ ---------- */

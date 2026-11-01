@@ -58,13 +58,13 @@ const schema = [
         {related.length > 0 && (
           <Fragment>
             <p style="color: var(--ink-2);">{lang === 'es' ? 'Guías relacionadas:' : 'Related guides:'}</p>
-            <ul class="list-check">
-              {related.map((c) => <li><a href={href(lang, `/conditions/${c.slug}.html`)}>{c.name[lang]}</a></li>)}
+            <ul class="list-links">
+              {related.map((c) => <li><a class="link-arrow" href={href(lang, `/conditions/${c.slug}.html`)}>{c.name[lang]}</a></li>)}
             </ul>
           </Fragment>
         )}
       </div>
-      <ul class="list-check" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));">
+      <ul class="list-chips">
         {s.conditions.map((c) => <li set:html={c} />)}
       </ul>
     </div>
