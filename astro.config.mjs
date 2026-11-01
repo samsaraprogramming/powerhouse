@@ -12,7 +12,7 @@ export default defineConfig({
     sitemap({
       // Pair each English page with its /es/ twin so the sitemap carries hreflang links.
       i18n: { defaultLocale: 'en', locales: { en: 'en-US', es: 'es-US' } },
-      filter: (page) => !page.endsWith('/404') && !page.endsWith('/404.html') && !page.includes('style-lab'),
+      filter: (page) => !page.endsWith('/404') && !page.endsWith('/404.html'),
       // List the same .html URLs the pages declare as canonical.
       serialize(item) {
         const fix = (href) => {
