@@ -54,7 +54,7 @@ const year = new Date().getFullYear();
           {clinic.address.street}<br />
           {clinic.address.note[lang]}<br />
           {clinic.address.city}, {clinic.address.region} {clinic.address.postalCode}<br />
-          <a href={`tel:${clinic.phoneE164}`}>{clinic.phone}</a>
+          <a href={`tel:${clinic.phoneE164}`}>{clinic.phone}</a> · <a href={`sms:${clinic.phoneE164}`}>{t(lang, 'cta.text')}</a>
         </address>
         <div style="margin-top: 16px; font-size: 0.92rem;">
           <Hours lang={lang} />

@@ -72,8 +72,8 @@ export const faqGroups: FaqGroup[] = [
       {
         q: { en: 'Can I use my HSA or FSA card?', es: '¿Puedo usar mi tarjeta HSA o FSA?' },
         a: {
-          en: insurance.hsaFsa ? 'Yes. Physical therapy is a qualified medical expense, so you can pay with an HSA or FSA card.' : 'Please call us to check.',
-          es: insurance.hsaFsa ? 'Sí. La terapia física es un gasto médico calificado, así que puedes pagar con tarjeta HSA o FSA.' : 'Llámanos para confirmarlo.',
+          en: insurance.hsaFsa ? 'Yes. Physical therapy is a qualified medical expense, so you can pay with an HSA or FSA card.' : 'Please call or text us to check.',
+          es: insurance.hsaFsa ? 'Sí. La terapia física es un gasto médico calificado, así que puedes pagar con tarjeta HSA o FSA.' : 'Llámanos o escríbenos para confirmarlo.',
         },
       },
     ],
