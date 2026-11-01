@@ -5,6 +5,7 @@ import ReviewedBy from '../components/ReviewedBy.astro';
 import Sources from '../components/Sources.astro';
 import FaqList from '../components/FaqList.astro';
 import CtaBand from '../components/CtaBand.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
 import { href, t, type Lang } from '../i18n/ui';
 import { conditionBySlug } from '../data/conditions';
 import { posts } from '../data/posts';
@@ -84,17 +85,19 @@ const schema = [
 
       <aside style="display: grid; gap: 20px; align-content: start;">
         <div class="callout">
-          <h2 style="font-size: 1.25rem;">{t(lang, 'conditions.related')}</h2>
-          <ul class="list-check" style="margin: 0;">
-            {related.map((s) => <li><a href={href(lang, `/service-${s.slug}.html`)} set:html={plain(s.heroTitle)} /></li>)}
-          </ul>
+          <RelatedLinks
+            layout="stack"
+            label={t(lang, 'conditions.related')}
+            links={related.map((s) => ({ href: href(lang, `/service-${s.slug}.html`), html: plain(s.heroTitle) }))}
+          />
         </div>
         {articles.length > 0 && (
           <div class="callout">
-            <h2 style="font-size: 1.25rem;">{t(lang, 'library.title')}</h2>
-            <ul class="list-check" style="margin: 0;">
-              {articles.map((p) => <li><a href={href(lang, `/library/${p.slug}.html`)}>{p.title[lang]}</a></li>)}
-            </ul>
+            <RelatedLinks
+              layout="stack"
+              label={t(lang, 'library.title')}
+              links={articles.map((p) => ({ href: href(lang, `/library/${p.slug}.html`), html: p.title[lang] }))}
+            />
           </div>
         )}
         <div class="callout section--dark" style="border: 0;">

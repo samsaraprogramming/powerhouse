@@ -783,36 +783,38 @@ a.card:hover {
   color: var(--ink);
 }
 
-/* Lists of links (related guides, reviewed pages): each link carries its own arrow. */
-.list-links {
-  display: grid;
-  gap: 10px;
-  margin: 0 0 1.5em;
-  padding: 0;
-  list-style: none;
-}
-
-/* Links in even columns, so a wrapped list lines up instead of running ragged. */
-.list-links--row {
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr));
-  gap: 12px 28px;
-  margin: 0;
-  font-size: 0.95rem;
-}
-
-/* "Related guides" at the bottom of a service page's conditions section: label above, links below. */
-.related-guides {
+/* RelatedLinks component: a small label over arrow links. */
+.related-links {
   display: grid;
   gap: 14px;
-  margin-top: clamp(40px, 5vw, 56px);
 }
 
-.related-guides__label {
+.related-links__label {
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-2);
+}
+
+.related-links__list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.95rem;
+}
+
+/* Even columns, so a wrapped list lines up instead of running ragged. */
+.related-links--columns .related-links__list {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr));
+  gap: 12px 28px;
+}
+
+/* Spacing above a RelatedLinks block that closes a section or article. */
+.section-foot {
+  margin-top: clamp(40px, 5vw, 56px);
 }
 
 /* ---------- FAQ ---------- */
