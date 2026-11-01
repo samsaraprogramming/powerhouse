@@ -30,7 +30,7 @@ const confirmCopy = {
       ['Free 15-minute call', "Tell us what's going on and ask anything. No pressure, no commitment."],
       ['Your first visit', "If physical therapy is a good fit, we'll book your evaluation and check your insurance benefits."],
     ],
-    sooner: 'Need us sooner? Call or text us.',
+    sooner: 'Need us sooner? Call or text&nbsp;us.',
     call: 'Call',
     text: 'Text us',
     phoneNote: 'call or text',
@@ -47,7 +47,7 @@ const confirmCopy = {
       ['Llamada gratuita de 15 minutos', 'Cuéntanos qué está pasando y pregunta lo que quieras. Sin presión y sin compromiso.'],
       ['Tu primera visita', 'Si la terapia física es buena opción para ti, agendamos tu evaluación y revisamos los beneficios de tu seguro.'],
     ],
-    sooner: '¿Necesitas hablar antes? Llámanos o escríbenos.',
+    sooner: '¿Necesitas hablar antes? Llámanos o&nbsp;escríbenos.',
     call: 'Llama al',
     text: 'Envía un mensaje',
     phoneNote: 'llamadas o mensajes',
@@ -109,8 +109,8 @@ function confirmEmail(lang, firstName, origin) {
               <tr>
                 <td style="padding:20px 24px;font:15px/1.5 ${sans};color:#4d4a43;">
                   <strong style="color:#0c0e0d;">${c.sooner}</strong><br>
-                  <a href="tel:${PHONE_TEL}" style="display:inline-block;margin-top:12px;padding:12px 22px;border-radius:999px;background:#4ca239;color:#0c0e0d;font:700 15px ${sans};text-decoration:none;">${c.call} ${PHONE}</a>
-                  <a href="sms:${PHONE_TEL}" style="display:inline-block;margin:12px 0 0 8px;padding:11px 20px;border-radius:999px;border:1.5px solid #0c0e0d;color:#0c0e0d;font:700 15px ${sans};text-decoration:none;">${c.text}</a>
+                  <a href="tel:${PHONE_TEL}" style="display:inline-block;margin:12px 8px 0 0;padding:12px 22px;border-radius:999px;background:#4ca239;color:#0c0e0d;font:700 15px ${sans};text-decoration:none;">${c.call} ${PHONE}</a>
+                  <a href="sms:${PHONE_TEL}" style="display:inline-block;margin:12px 0 0 0;padding:11px 20px;border-radius:999px;border:1.5px solid #0c0e0d;color:#0c0e0d;font:700 15px ${sans};text-decoration:none;">${c.text}</a>
                 </td>
               </tr>
             </table>
@@ -140,7 +140,7 @@ function confirmEmail(lang, firstName, origin) {
     '',
     ...c.steps.map(([heading, body], i) => `${i + 1}. ${heading}: ${body}`),
     '',
-    `${c.sooner} ${PHONE}`,
+    `${c.sooner.replace(/&nbsp;/g, ' ')} ${PHONE}`,
     '',
     c.privacy,
     '',
