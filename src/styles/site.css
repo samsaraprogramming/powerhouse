@@ -729,7 +729,8 @@ a.card:hover {
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ink-2);
+  /* a soft sage, calmer than the bright button green */
+  color: #a3b89c;
 }
 
 /* The expertise line leads in a warm italic serif; the highlights below sit quietly in small tracked capitals.
