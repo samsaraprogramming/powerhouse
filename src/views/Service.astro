@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CtaBand from '../components/CtaBand.astro';
 import ProcessSteps from '../components/ProcessSteps.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
 import { href, t, type Lang } from '../i18n/ui';
 import { getService, plain } from '../lib/content';
 import { conditions } from '../data/conditions';
@@ -60,14 +61,12 @@ const schema = [
         {s.conditions.map((c) => <li set:html={c} />)}
       </ul>
     </div>
-    {related.length > 0 && (
-      <div class="wrap related-guides">
-        <span class="related-guides__label">{lang === 'es' ? 'Guías relacionadas' : 'Related guides'}</span>
-        <ul class="list-links list-links--row">
-          {related.map((c) => <li><a class="link-arrow" href={href(lang, `/conditions/${c.slug}.html`)}>{c.name[lang]}</a></li>)}
-        </ul>
-      </div>
-    )}
+    <div class="wrap section-foot">
+      <RelatedLinks
+        label={lang === 'es' ? 'Guías relacionadas' : 'Related guides'}
+        links={related.map((c) => ({ href: href(lang, `/conditions/${c.slug}.html`), html: c.name[lang] }))}
+      />
+    </div>
   </section>
 
   <section class="section">
