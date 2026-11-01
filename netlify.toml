@@ -11,15 +11,13 @@
   status = 301
 
 # build.format 'file' writes the Spanish home page to es.html; serve it at /es/.
+# Serve the Spanish home at /es/ (its canonical URL). Forced, because es.html exists and Netlify would
+# otherwise redirect /es/ to /es. Netlify matches with or without the trailing slash, so /es is covered too.
 [[redirects]]
   from = "/es/"
   to = "/es.html"
   status = 200
-
-[[redirects]]
-  from = "/es"
-  to = "/es/"
-  status = 301
+  force = true
 
 # Images moved into folders in the revamp; keep the old URLs (search results, shared links) working.
 [[redirects]]
