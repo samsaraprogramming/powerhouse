@@ -749,39 +749,9 @@ a.card:hover {
 }
 
 .team-card__points li {
-  padding: 4px 0;
+  padding: 9px 0;
+  border-top: 1px solid var(--line);
 }
-
-/* ---- TEMPORARY: round 2 trials, one per card. Shared: Uriel's soft sage role colour and
-   Georgina's large italic serif expertise line. Remove the losers after choosing. ---- */
-.team-card { --sage: #a3b89c; }
-[class*='team-card--try'] .team-card__title { color: var(--sage); }
-[class*='team-card--try'] .team-card__expertise { font: italic var(--display-weight) 1.15rem/1.4 var(--font-display); }
-
-/* 1 · Sage role caps, orange expertise, plain highlight lines. */
-.team-card--try1 .team-card__expertise { color: var(--ember, var(--ink)); }
-.team-card--try1 .team-card__points li { padding: 4px 0; }
-
-/* 2 · Sage role caps, ivory expertise, highlights in tiny tracked capitals. */
-.team-card--try2 .team-card__expertise { color: var(--ink); }
-.team-card--try2 .team-card__points { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
-.team-card--try2 .team-card__points li { padding: 5px 0; }
-
-/* 3 · Sage role caps, sage expertise (one calm colour), plain highlight lines. */
-.team-card--try3 .team-card__expertise { color: var(--sage); }
-.team-card--try3 .team-card__points li { padding: 4px 0; }
-
-/* 4 · Sage role in normal case, orange expertise, highlights in tiny tracked capitals. */
-.team-card--try4 .team-card__title { text-transform: none; letter-spacing: 0; font-size: 0.95rem; font-weight: 500; }
-.team-card--try4 .team-card__expertise { color: var(--ember, var(--ink)); }
-.team-card--try4 .team-card__points { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
-.team-card--try4 .team-card__points li { padding: 5px 0; }
-
-/* 5 · Sage role caps, bigger ivory expertise as the headline, highlights as one line split by sage dots. */
-.team-card--try5 .team-card__expertise { font-size: 1.3rem; line-height: 1.3; color: var(--ink); }
-.team-card--try5 .team-card__points { line-height: 1.75; }
-.team-card--try5 .team-card__points li { display: inline; padding: 0; }
-.team-card--try5 .team-card__points li + li::before { content: '\00b7'; margin: 0 8px; color: var(--sage); }
 
 /* ---------- FAQ ---------- */
 
