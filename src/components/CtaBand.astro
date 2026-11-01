@@ -25,6 +25,7 @@ const text = Astro.props.text ?? (lang === 'es'
       <div class="btn-row">
         <a class="btn btn--primary" href={href(lang, '/sign-up.html')}>{t(lang, 'cta.call')}</a>
         <a class="btn btn--ghost" href={`tel:${clinic.phoneE164}`}>{t(lang, 'cta.callUs')} · {clinic.phone}</a>
+        <a class="btn btn--ghost" href={`sms:${clinic.phoneE164}`}>{t(lang, 'cta.text')}</a>
       </div>
     </div>
   </div>

@@ -28,7 +28,7 @@ const schema = [
 ---
 
 <BaseLayout title={title} description={description} schema={schema}>
-  <PageHero lang={lang} crumbs={[{ name: t(lang, 'nav.faq'), path: '/faq.html' }]} title={t(lang, 'faq.title')} lead={L("Can't find your answer? Call us and we'll help.", '¿No encuentras tu respuesta? Llámanos y te ayudamos.')} />
+  <PageHero lang={lang} crumbs={[{ name: t(lang, 'nav.faq'), path: '/faq.html' }]} title={t(lang, 'faq.title')} lead={L("Can't find your answer? Call or text us and we'll help.", '¿No encuentras tu respuesta? Llámanos o escríbenos y te ayudamos.')} />
 
   {groups.map((g, i) => (
     <section class:list={['section section--tight', { 'section--alt': i % 2 === 1 }]} id={g.id}>

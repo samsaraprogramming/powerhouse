@@ -1,0 +1,30 @@
+---
+// Photo card that links somewhere: image, title, short text and a "Learn more →" style label.
+// Used for services, conditions and library articles. Anything above the title (a date tag) goes in the slot.
+import { responsive, sizes } from '../lib/images';
+
+interface Props {
+  href: string;
+  image: string;
+  /** Title HTML. */
+  title: string;
+  /** Short text HTML. */
+  text: string;
+  linkLabel: string;
+  /** h2 on index pages where the cards are the main content, h3 inside a home-page section. */
+  heading?: 'h2' | 'h3';
+}
+
+const { href, image, title, text, linkLabel, heading = 'h3' } = Astro.props;
+const Heading = heading;
+---
+
+<a class="card" href={href}>
+  <div class="card__media"><img {...responsive(image)} sizes={sizes.card} alt="" loading="lazy" width="640" height="400" /></div>
+  <div class="card__body">
+    <slot />
+    <Heading class="card__title" set:html={title} />
+    <p set:html={text} />
+    <span class="link-arrow">{linkLabel}</span>
+  </div>
+</a>
