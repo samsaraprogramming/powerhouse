@@ -108,7 +108,7 @@ const schema = [pageNode({ path: lang === 'es' ? '/es/' : '/', name: title, desc
         </div>
         <a class="link-arrow" href={href(lang, '/conditions.html')}>{t(lang, 'cta.allConditions')}</a>
       </div>
-      <div class="grid" style="--min: 240px;">
+      <div class="grid grid--even" style="--min: 240px;">
         {conditions.map((c) => (
           <a class="card condition-card condition-card--plain" href={href(lang, `/conditions/${c.slug}.html`)}>
             <h3>{c.name[lang]}</h3>
