@@ -77,7 +77,7 @@ export const team = [
       "Georgina values continuing education and plans to pursue her Doctor of Physical Therapy (DPT) degree in the near future, continuing her growth as a provider for the Laredo community."
     ],
     "home": {
-      "shortName": "Georgina Morales",
+      "shortName": "Georgina Morales, PTA",
       "photoAlt": "Picture of Georgina Morales, PTA",
       "role": "Physical Therapist Assistant",
       "expertise": "Expertise in Orthopedics, Neurological Conditions, Manual Therapy & Strength Training",
@@ -107,7 +107,7 @@ export const team = [
       "Alejandro is committed to continuous growth and plans to pursue his Doctor of Physical Therapy (DPT) degree, further elevating the level of care he provides."
     ],
     "home": {
-      "shortName": "Alejandro Morales",
+      "shortName": "Alejandro Morales, PTA",
       "photoAlt": "Picture of Alejandro Morales, PTA",
       "role": "Physical Therapist Assistant",
       "expertise": "Focus on Functional Movement, Orthopedic Rehabilitation & Performance",
