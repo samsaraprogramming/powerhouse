@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SectionHead from '../components/SectionHead.astro';
+import TeamCard from '../components/TeamCard.astro';
+import PageHero from '../components/PageHero.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { href, t, type Lang } from '../i18n/ui';
 import { getTeam } from '../lib/content';
 import { breadcrumbNode, pageNode, personNode, CLINIC_ID } from '../lib/schema';
-import { responsive, sizes } from '../lib/images';
 
 interface Props {
   lang: Lang;
@@ -35,18 +36,15 @@ const schema = [
 ---
 
 <BaseLayout title={title} description={description} schema={schema}>
-  <section class="page-hero">
-    <div class="wrap">
-      <Breadcrumbs lang={lang} items={[{ name: t(lang, 'nav.about'), path: '/about.html' }]} />
-      <h1>{L('Physical therapy built around you.', 'Terapia física pensada para ti.')}</h1>
-      <p class="lead">
-        {L(
-          'Powerhouse PT was founded in Laredo by Dr. Sandra Gomez to bridge the gap between rehab and performance: helping people get out of pain and back to the activities they love, stronger than before.',
-          'La Dra. Sandra Gomez fundó Powerhouse PT en Laredo para unir la rehabilitación y el rendimiento: ayudar a las personas a salir del dolor y volver a lo que les gusta, más fuertes que antes.',
-        )}
-      </p>
-    </div>
-  </section>
+  <PageHero
+    lang={lang}
+    crumbs={[{ name: t(lang, 'nav.about'), path: '/about.html' }]}
+    title={L('Physical therapy built around you.', 'Terapia física pensada para ti.')}
+    lead={L(
+      'Powerhouse PT was founded in Laredo by Dr. Sandra Gomez to bridge the gap between rehab and performance: helping people get out of pain and back to the activities they love, stronger than before.',
+      'La Dra. Sandra Gomez fundó Powerhouse PT en Laredo para unir la rehabilitación y el rendimiento: ayudar a las personas a salir del dolor y volver a lo que les gusta, más fuertes que antes.',
+    )}
+  />
 
   <section class="section section--tight">
     <div class="wrap grid" style="--min: 260px;">
@@ -61,18 +59,9 @@ const schema = [
 
   <section class="section section--alt" id="team">
     <div class="wrap">
-      <div class="section-head"><div><h2>{t(lang, 'team.title')}</h2></div></div>
-      <div class="grid" style="--min: 260px;">
-        {team.map((m) => (
-          <a class="card team-card" href={href(lang, `/${m.slug}-bio.html`)}>
-            <div class="card__media"><img {...responsive(m.photo)} sizes={sizes.team} alt={m.home.photoAlt} loading="lazy" width="400" height="500" /></div>
-            <div class="card__body">
-              <h3 set:html={m.name} />
-              <span class="team-card__role">{m.home.expertise}</span>
-              <span class="link-arrow">{t(lang, 'cta.readBio')}</span>
-            </div>
-          </a>
-        ))}
+      <SectionHead title={t(lang, 'team.title')} />
+      <div class="grid grid--even" style="--min: 300px;">
+        {team.map((m) => <TeamCard lang={lang} member={m} />)}
       </div>
     </div>
   </section>

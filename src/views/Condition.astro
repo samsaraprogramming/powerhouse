@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageHero from '../components/PageHero.astro';
 import ReviewedBy from '../components/ReviewedBy.astro';
 import Sources from '../components/Sources.astro';
 import FaqList from '../components/FaqList.astro';
@@ -12,7 +12,6 @@ import { posts } from '../data/posts';
 import { booking } from '../data/clinic';
 import { getService, plain } from '../lib/content';
 import { breadcrumbNode, conditionNode, faqNode, pageNode, reviewerNode } from '../lib/schema';
-import { responsive, sizes } from '../lib/images';
 
 interface Props {
   lang: Lang;
@@ -43,17 +42,15 @@ const schema = [
 ---
 
 <BaseLayout title={title} description={description} schema={schema} image={c.image}>
-  <section class="page-hero page-hero--media">
-    <div class="wrap hero__grid">
-      <div>
-        <Breadcrumbs lang={lang} items={[{ name: t(lang, 'nav.conditions'), path: '/conditions.html' }, { name, path: `/conditions/${slug}.html` }]} />
-        <h1>{name}</h1>
-        <p class="lead">{c.summary[lang]}</p>
-        <ReviewedBy lang={lang} reviewer={c.reviewer} date={c.lastReviewed} />
-      </div>
-      <div class="hero__media"><img {...responsive(c.image)} sizes={sizes.hero} alt="" width="800" height="600" fetchpriority="high" /></div>
-    </div>
-  </section>
+  <PageHero
+    lang={lang}
+    crumbs={[{ name: t(lang, 'nav.conditions'), path: '/conditions.html' }, { name, path: `/conditions/${slug}.html` }]}
+    title={name}
+    lead={c.summary[lang]}
+    image={{ src: c.image }}
+  >
+    <ReviewedBy lang={lang} reviewer={c.reviewer} date={c.lastReviewed} />
+  </PageHero>
 
   <section class="section section--tight">
     <div class="wrap two-col">

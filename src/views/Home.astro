@@ -1,5 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHead from '../components/SectionHead.astro';
+import PillList from '../components/PillList.astro';
+import TeamCard from '../components/TeamCard.astro';
+import MediaCard from '../components/MediaCard.astro';
 import Intro from '../components/Intro.astro';
 import Rating from '../components/Rating.astro';
 import Reviews from '../components/Reviews.astro';
@@ -76,24 +80,10 @@ const schema = [pageNode({ path: lang === 'es' ? '/es/' : '/', name: title, desc
 
   <section class="section section--alt" id="services" aria-labelledby="services-title">
     <div class="wrap">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow">{t(lang, 'nav.care')}</span>
-          <h2 id="services-title">{t(lang, 'home.servicesTitle')}</h2>
-          <p>{t(lang, 'home.servicesLead')}</p>
-        </div>
-        <a class="link-arrow" href={href(lang, '/services.html')}>{t(lang, 'cta.allServices')}</a>
-      </div>
+      <SectionHead id="services-title" eyebrow={t(lang, 'nav.care')} title={t(lang, 'home.servicesTitle')} lead={t(lang, 'home.servicesLead')} link={{ href: href(lang, '/services.html'), label: t(lang, 'cta.allServices') }} />
       <div class="grid grid--even" style="--min: 300px;">
         {services.map((s) => (
-          <a class="card" href={href(lang, `/service-${s.slug}.html`)}>
-            <div class="card__media"><img {...responsive(s.heroImage)} sizes={sizes.card} alt="" loading="lazy" width="640" height="400" /></div>
-            <div class="card__body">
-              <h3 set:html={plain(s.heroTitle)} />
-              <p set:html={s.heroSubtitle} />
-              <span class="link-arrow">{t(lang, 'cta.learnMore')}</span>
-            </div>
-          </a>
+          <MediaCard href={href(lang, `/service-${s.slug}.html`)} image={s.heroImage} title={plain(s.heroTitle)} text={s.heroSubtitle} linkLabel={t(lang, 'cta.learnMore')} />
         ))}
       </div>
     </div>
@@ -101,14 +91,7 @@ const schema = [pageNode({ path: lang === 'es' ? '/es/' : '/', name: title, desc
 
   <section class="section" id="conditions" aria-labelledby="conditions-title">
     <div class="wrap">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow">{t(lang, 'nav.conditions')}</span>
-          <h2 id="conditions-title">{t(lang, 'home.conditionsTitle')}</h2>
-          <p>{t(lang, 'home.conditionsLead')}</p>
-        </div>
-        <a class="link-arrow" href={href(lang, '/conditions.html')}>{t(lang, 'cta.allConditions')}</a>
-      </div>
+      <SectionHead id="conditions-title" eyebrow={t(lang, 'nav.conditions')} title={t(lang, 'home.conditionsTitle')} lead={t(lang, 'home.conditionsLead')} link={{ href: href(lang, '/conditions.html'), label: t(lang, 'cta.allConditions') }} />
       <div class="grid grid--even" style="--min: 240px;">
         {conditions.map((c) => (
           <a class="card condition-card condition-card--plain" href={href(lang, `/conditions/${c.slug}.html`)}>
@@ -124,38 +107,25 @@ const schema = [pageNode({ path: lang === 'es' ? '/es/' : '/', name: title, desc
 
   <section class="section" id="reviews" aria-labelledby="reviews-title">
     <div class="wrap">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow">Google</span>
-          <h2 id="reviews-title">{t(lang, 'home.reviewsTitle')}</h2>
-        </div>
-        <Rating lang={lang} />
-      </div>
+      <SectionHead id="reviews-title" eyebrow="Google" title={t(lang, 'home.reviewsTitle')}>
+        <Rating slot="aside" lang={lang} />
+      </SectionHead>
       <Reviews lang={lang} />
     </div>
   </section>
 
   <section class="section section--alt" id="team" aria-labelledby="team-title">
     <div class="wrap">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow">{t(lang, 'nav.about')}</span>
-          <h2 id="team-title">{t(lang, 'home.teamTitle')}</h2>
-          <p class="lead">{L('Our whole team speaks English and Spanish, so your visits can be in whichever you prefer.', 'Todo nuestro equipo habla inglés y español, así que tus visitas pueden ser en el idioma que prefieras.')}</p>
-        </div>
-        <a class="link-arrow" href={href(lang, '/about.html')}>{t(lang, 'team.title')}</a>
-      </div>
+      <SectionHead
+        id="team-title"
+        eyebrow={t(lang, 'nav.about')}
+        title={t(lang, 'home.teamTitle')}
+        lead={L('Our whole team speaks English and Spanish, so your visits can be in whichever you prefer.', 'Todo nuestro equipo habla inglés y español, así que tus visitas pueden ser en el idioma que prefieras.')}
+        link={{ href: href(lang, '/about.html'), label: t(lang, 'team.title') }}
+      />
       <div class="grid grid--even" style="--min: 300px;">
         {team.map((m) => (
-          <a class="card team-card" href={href(lang, `/${m.slug}-bio.html`)}>
-            <div class="card__media"><img {...responsive(m.photo)} sizes={sizes.team} alt={m.home.photoAlt} loading="lazy" width="400" height="500" /></div>
-            <div class="card__body">
-              <h3>{m.home.shortName}</h3>
-              <span class="team-card__title">{m.home.role}</span>
-              <p class="team-card__expertise">{m.home.expertise}</p>
-              <ul class="list-credentials list-credentials--sm team-card__points">{m.home.points.map((p) => <li>{p}</li>)}</ul>
-            </div>
-          </a>
+          <TeamCard lang={lang} member={m} />
         ))}
       </div>
     </div>
@@ -174,9 +144,7 @@ const schema = [pageNode({ path: lang === 'es' ? '/es/' : '/', name: title, desc
         </p>
         <a class="link-arrow" href={href(lang, '/access.html')}>{t(lang, 'nav.access')}</a>
       </div>
-      <ul class="pill-list" aria-label={L('Insurance accepted', 'Seguros aceptados')}>
-        {insurance.accepted.map((i) => <li>{i[lang]}</li>)}
-      </ul>
+      <PillList label={L('Insurance accepted', 'Seguros aceptados')} items={insurance.accepted.map((i) => i[lang])} />
     </div>
   </section>
 
@@ -193,12 +161,7 @@ const schema = [pageNode({ path: lang === 'es' ? '/es/' : '/', name: title, desc
 
   <section class="section" id="visit" aria-labelledby="visit-title">
     <div class="wrap">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow">{t(lang, 'nav.location')}</span>
-          <h2 id="visit-title">{t(lang, 'home.visitTitle')}</h2>
-        </div>
-      </div>
+      <SectionHead id="visit-title" eyebrow={t(lang, 'nav.location')} title={t(lang, 'home.visitTitle')} />
       <Visit lang={lang} />
     </div>
   </section>
