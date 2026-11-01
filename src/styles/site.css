@@ -584,6 +584,11 @@ a.card:hover {
   margin: auto 0 0;
 }
 
+/* Cards without the number start at the top. */
+.condition-card h3:first-child {
+  margin-top: 0;
+}
+
 .condition-card p {
   margin: 0;
   font-size: 0.95rem;
@@ -688,12 +693,41 @@ a.card:hover {
 /* ---------- Team ---------- */
 
 .team-card .card__media {
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
+}
+
+.team-card .card__media img {
+  object-position: center top;
 }
 
 .team-card__role {
   font-size: 0.92rem;
   color: var(--ink-2);
+}
+
+.team-card__expertise {
+  margin: 12px 0 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.team-card__points {
+  gap: 6px;
+  margin: 12px 0 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
+.team-card__points li {
+  padding-left: 24px;
+}
+
+.team-card__points li::before {
+  width: 12px;
+  height: 7px;
 }
 
 /* ---------- FAQ ---------- */
