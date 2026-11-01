@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CtaBand from '../components/CtaBand.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
 import { href, t, type Lang } from '../i18n/ui';
 import { getService, plain } from '../lib/content';
 import { conditions } from '../data/conditions';
@@ -85,19 +86,7 @@ const schema = [
     </div>
   </section>
 
-  <section class="section section--dark">
-    <div class="wrap">
-      <div class="section-head"><div><h2 set:html={s.processHeading} /></div></div>
-      <ol class="grid steps" style="list-style: none; margin: 0; padding: 0;">
-        {s.steps.map((step) => (
-          <li class="step">
-            <h3 set:html={step.title} />
-            <p set:html={step.text} />
-          </li>
-        ))}
-      </ol>
-    </div>
-  </section>
+  <ProcessSteps heading={s.processHeading} steps={s.steps} />
 
   <CtaBand lang={lang} title={s.ctaHeading} text={s.ctaSubtext} />
 </BaseLayout>

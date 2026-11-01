@@ -6,6 +6,7 @@ import Reviews from '../components/Reviews.astro';
 import FaqList from '../components/FaqList.astro';
 import Visit from '../components/Visit.astro';
 import CtaBand from '../components/CtaBand.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
 import Icon from '../components/Icon.astro';
 import { href, t, type Lang } from '../i18n/ui';
 import { getServices, getTeam, plain } from '../lib/content';
@@ -119,24 +120,7 @@ const schema = [pageNode({ path: lang === 'es' ? '/es/' : '/', name: title, desc
     </div>
   </section>
 
-  <section class="section section--dark" id="process" aria-labelledby="process-title">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow">{L('Your first weeks', 'Tus primeras semanas')}</span>
-          <h2 id="process-title">{t(lang, 'home.processTitle')}</h2>
-        </div>
-      </div>
-      <ol class="grid grid--even steps steps--plain" style="list-style: none; margin: 0; padding: 0;">
-        {steps.map((s) => (
-          <li class="step">
-            <h3 set:html={s.title} />
-            <p set:html={s.text} />
-          </li>
-        ))}
-      </ol>
-    </div>
-  </section>
+  <ProcessSteps id="process" eyebrow={L('Your first weeks', 'Tus primeras semanas')} heading={t(lang, 'home.processTitle')} steps={steps} />
 
   <section class="section" id="reviews" aria-labelledby="reviews-title">
     <div class="wrap">

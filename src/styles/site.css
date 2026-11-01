@@ -618,6 +618,9 @@ a.card:hover {
 .steps {
   counter-reset: step;
   --min: 220px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .step {
