@@ -109,9 +109,8 @@ const schema = [pageNode({ path: lang === 'es' ? '/es/' : '/', name: title, desc
         <a class="link-arrow" href={href(lang, '/conditions.html')}>{t(lang, 'cta.allConditions')}</a>
       </div>
       <div class="grid" style="--min: 240px;">
-        {conditions.map((c, i) => (
+        {conditions.map((c) => (
           <a class="card condition-card" href={href(lang, `/conditions/${c.slug}.html`)}>
-            <span class="condition-card__index">{String(i + 1).padStart(2, '0')}</span>
             <h3>{c.name[lang]}</h3>
             <p>{c.summary[lang]}</p>
           </a>
@@ -162,13 +161,15 @@ const schema = [pageNode({ path: lang === 'es' ? '/es/' : '/', name: title, desc
         </div>
         <a class="link-arrow" href={href(lang, '/about.html')}>{t(lang, 'team.title')}</a>
       </div>
-      <div class="grid" style="--min: 200px;">
+      <div class="grid" style="--min: 300px;">
         {team.map((m) => (
           <a class="card team-card" href={href(lang, `/${m.slug}-bio.html`)}>
             <div class="card__media"><img {...responsive(m.photo)} sizes={sizes.team} alt={m.home.photoAlt} loading="lazy" width="400" height="500" /></div>
             <div class="card__body">
               <h3>{m.home.shortName}</h3>
               <span class="team-card__role">{m.home.role}</span>
+              <p class="team-card__expertise">{m.home.expertise}</p>
+              <ul class="list-check team-card__points">{m.home.points.map((p) => <li>{p}</li>)}</ul>
             </div>
           </a>
         ))}
