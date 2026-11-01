@@ -752,34 +752,36 @@ a.card:hover {
   padding: 4px 0;
 }
 
-/* ---- TEMPORARY: five styling trials, one per card, to pick from. Remove the losers after choosing. ---- */
+/* ---- TEMPORARY: round 2 trials, one per card. Shared: Uriel's soft sage role colour and
+   Georgina's large italic serif expertise line. Remove the losers after choosing. ---- */
+.team-card { --sage: #a3b89c; }
+[class*='team-card--try'] .team-card__title { color: var(--sage); }
+[class*='team-card--try'] .team-card__expertise { font: italic var(--display-weight) 1.15rem/1.4 var(--font-display); }
 
-/* 1 · Warm: ember role label, italic serif expertise, airy plain lines. */
-.team-card--try1 .team-card__title { color: var(--ember, var(--accent-text)); }
-.team-card--try1 .team-card__points li { padding: 5px 0; }
+/* 1 · Sage role caps, orange expertise, plain highlight lines. */
+.team-card--try1 .team-card__expertise { color: var(--ember, var(--ink)); }
+.team-card--try1 .team-card__points li { padding: 4px 0; }
 
-/* 2 · Quiet: muted role, sans expertise, highlights run together as one line split by middots. */
-.team-card--try2 .team-card__title { color: var(--ink-2); letter-spacing: 0.18em; }
-.team-card--try2 .team-card__expertise { font: 600 0.95rem/1.45 var(--font-body); font-style: normal; }
-.team-card--try2 .team-card__points li { display: inline; padding: 0; }
-.team-card--try2 .team-card__points li + li::before { content: '\00b7'; margin: 0 8px; color: var(--ember, var(--ink-2)); }
-.team-card--try2 .team-card__points { line-height: 1.7; }
+/* 2 · Sage role caps, ivory expertise, highlights in tiny tracked capitals. */
+.team-card--try2 .team-card__expertise { color: var(--ink); }
+.team-card--try2 .team-card__points { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+.team-card--try2 .team-card__points li { padding: 5px 0; }
 
-/* 3 · Tags: soft sage role, highlights as small rounded chips. */
-.team-card--try3 .team-card__title { color: #a3b89c; }
-.team-card--try3 .team-card__points { display: flex; flex-wrap: wrap; gap: 8px; font-size: 0.8rem; }
-.team-card--try3 .team-card__points li { padding: 5px 11px; border-radius: var(--radius-pill); background: color-mix(in srgb, var(--ink) 7%, transparent); color: var(--ink); }
+/* 3 · Sage role caps, sage expertise (one calm colour), plain highlight lines. */
+.team-card--try3 .team-card__expertise { color: var(--sage); }
+.team-card--try3 .team-card__points li { padding: 4px 0; }
 
-/* 4 · Editorial: ivory role in normal case, expertise as the lead, highlights in tiny tracked capitals. */
-.team-card--try4 .team-card__title { text-transform: none; letter-spacing: 0; font-size: 0.92rem; font-weight: 500; color: var(--ink-2); }
-.team-card--try4 .team-card__expertise { font-size: 1.15rem; color: var(--ember, var(--ink)); }
+/* 4 · Sage role in normal case, orange expertise, highlights in tiny tracked capitals. */
+.team-card--try4 .team-card__title { text-transform: none; letter-spacing: 0; font-size: 0.95rem; font-weight: 500; }
+.team-card--try4 .team-card__expertise { color: var(--ember, var(--ink)); }
 .team-card--try4 .team-card__points { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
 .team-card--try4 .team-card__points li { padding: 5px 0; }
 
-/* 5 · Accent rule: ember role, highlights indented beside a thin warm rule. */
-.team-card--try5 .team-card__title { color: var(--ember, var(--accent-text)); }
-.team-card--try5 .team-card__points { padding-left: 14px; border-left: 2px solid color-mix(in srgb, var(--ember, var(--accent)) 55%, transparent); }
-.team-card--try5 .team-card__points li { padding: 3px 0; }
+/* 5 · Sage role caps, bigger ivory expertise as the headline, highlights as one line split by sage dots. */
+.team-card--try5 .team-card__expertise { font-size: 1.3rem; line-height: 1.3; color: var(--ink); }
+.team-card--try5 .team-card__points { line-height: 1.75; }
+.team-card--try5 .team-card__points li { display: inline; padding: 0; }
+.team-card--try5 .team-card__points li + li::before { content: '\00b7'; margin: 0 8px; color: var(--sage); }
 
 /* ---------- FAQ ---------- */
 
