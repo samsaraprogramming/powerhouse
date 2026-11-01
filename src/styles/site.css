@@ -725,32 +725,33 @@ a.card:hover {
 }
 
 .team-card__title {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent-text);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--ink-2);
 }
 
-/* The expertise line reads as a short pull quote; the highlights below are quieter lines split by hairlines. */
-.team-card__expertise {
-  margin: 14px 0 0;
-  font: italic var(--display-weight) 1.08rem/1.4 var(--font-display);
-  color: var(--ink);
+/* The expertise line leads in a warm italic serif; the highlights below sit quietly in small tracked capitals.
+   Scoped under .team-card so the colour wins over .card__body p. */
+.team-card .team-card__expertise {
+  margin: 12px 0 0;
+  font: italic var(--display-weight) 1.15rem/1.4 var(--font-display);
+  color: var(--ember, var(--ink));
 }
 
 .team-card__points {
   margin: 16px 0 0;
   padding: 0;
   list-style: none;
-  font-size: 0.86rem;
+  font-size: 0.7rem;
+  font-weight: 600;
   line-height: 1.45;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--ink-2);
 }
 
 .team-card__points li {
-  padding: 9px 0;
-  border-top: 1px solid var(--line);
+  padding: 5px 0;
 }
 
 /* ---------- FAQ ---------- */
