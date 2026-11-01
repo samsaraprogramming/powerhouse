@@ -584,6 +584,11 @@ a.card:hover {
   margin: auto 0 0;
 }
 
+/* Every row as tall as the tallest card, so all cards in the grid are the same size. */
+.grid--even {
+  grid-auto-rows: 1fr;
+}
+
 /* Cards without the number: no reserved height, and the text sits centred so the space above and below
    stays even when a neighbour in the row has a longer description. */
 .condition-card--plain {
