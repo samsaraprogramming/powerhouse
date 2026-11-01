@@ -17,7 +17,7 @@ const escapeHtml = (value) =>
 // The logo is a PNG (email clients don't all show WebP) served from the site that received the form.
 const PHONE = '956-307-6305';
 const PHONE_TEL = '+1' + PHONE.replace(/\D/g, ''); // takes calls and texts
-const ADDRESS = "2446 San Isidro Pkwy, Laredo, TX 78045 · inside Gold's Gym";
+const ADDRESS = { en: "2446 San Isidro Pkwy, Laredo, TX 78045 · inside Gold's Gym", es: "2446 San Isidro Pkwy, Laredo, TX 78045 · dentro de Gold's Gym" };
 
 const confirmCopy = {
   en: {
@@ -120,7 +120,7 @@ function confirmEmail(lang, firstName, origin) {
         <tr>
           <td style="background:#0c0e0d;padding:22px 36px;font:13px/1.6 ${sans};color:#a39e92;">
             <strong style="color:#f3f0e8;">Powerhouse Sports Physical Therapy</strong><br>
-            ${ADDRESS}<br>
+            ${ADDRESS[lang]}<br>
             <a href="tel:${PHONE_TEL}" style="color:#72c95e;text-decoration:none;">${PHONE}</a> (${c.phoneNote}) &nbsp;·&nbsp; <a href="${home}" style="color:#72c95e;text-decoration:none;">powerhousesportspt.com</a>
           </td>
         </tr>
@@ -132,14 +132,32 @@ function confirmEmail(lang, firstName, origin) {
 </body>
 </html>`;
 
-  return { subject: c.subject, html };
+  // Plain-text twin of the HTML: mail providers trust messages that carry both.
+  const text = [
+    c.title(firstName),
+    '',
+    c.lead,
+    '',
+    ...c.steps.map(([heading, body], i) => `${i + 1}. ${heading}: ${body}`),
+    '',
+    `${c.sooner} ${PHONE}`,
+    '',
+    c.privacy,
+    '',
+    'Powerhouse Sports Physical Therapy',
+    ADDRESS[lang],
+    `${PHONE} (${c.phoneNote}) · ${home}`,
+  ].join('\n');
+
+  return { subject: c.subject, html, text };
 }
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // Resend allows about 2 requests a second; a 429 or a 5xx is retried once after a short pause.
-async function sendEmail(apiKey, { to, subject, html, replyTo }) {
+async function sendEmail(apiKey, { to, subject, html, text, replyTo }) {
   const data = { from: FROM_EMAIL, to: [to], subject, html };
+  if (text) data.text = text;
   if (replyTo) data.reply_to = replyTo;
 
   for (let attempt = 1; ; attempt++) {
@@ -210,11 +228,13 @@ export default async (req) => {
 <p><strong>Insurance:</strong> ${escapeHtml(insurance)}</p>
 <p><strong>Goal:</strong><br>${escapeHtml(goal)}</p>
 `;
+  const notifyText = `New lead from the website\n\nName: ${firstName} ${lastName}\nPhone: ${phone}\nEmail: ${email}\nInsurance: ${insurance}\nGoal:\n${goal}\n`;
 
   const status = await sendEmail(apiKey, {
     to: TO_EMAIL,
     subject: `New Contact: ${subjectName}`,
     html: notifyBody,
+    text: notifyText,
     replyTo: email,
   });
 
@@ -231,6 +251,9 @@ export default async (req) => {
     to: email,
     subject: confirm.subject,
     html: confirm.html,
+    text: confirm.text,
+    // Replies go to the clinic inbox, not the sending address.
+    replyTo: TO_EMAIL.toLowerCase(),
   });
   if (confirmStatus !== 200 && confirmStatus !== 201) {
     console.error(`Confirmation email to the visitor failed with ${confirmStatus}; the clinic notification was sent.`);
