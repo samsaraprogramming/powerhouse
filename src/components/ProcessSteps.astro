@@ -1,0 +1,34 @@
+---
+// "What happens next" steps, shared by the home page and every service page.
+// Steps are plain (no numbers) and every step in the row is the same height.
+interface Props {
+  /** Heading HTML (service headings carry a <span> accent). */
+  heading: string;
+  steps: { title: string; text: string }[];
+  eyebrow?: string;
+  /** Section id, for in-page links such as /#process. */
+  id?: string;
+}
+
+const { heading, steps, eyebrow, id } = Astro.props;
+const headingId = id ? `${id}-title` : undefined;
+---
+
+<section class="section section--dark" id={id} aria-labelledby={headingId}>
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+        <h2 id={headingId} set:html={heading} />
+      </div>
+    </div>
+    <ol class="grid grid--even steps steps--plain">
+      {steps.map((step) => (
+        <li class="step">
+          <h3 set:html={step.title} />
+          <p set:html={step.text} />
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
