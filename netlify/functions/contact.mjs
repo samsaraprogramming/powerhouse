@@ -135,21 +135,27 @@ function confirmEmail(lang, firstName, origin) {
   return { subject: c.subject, html };
 }
 
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+// Resend allows about 2 requests a second; a 429 or a 5xx is retried once after a short pause.
 async function sendEmail(apiKey, { to, subject, html, replyTo }) {
   const data = { from: FROM_EMAIL, to: [to], subject, html };
   if (replyTo) data.reply_to = replyTo;
 
-  const response = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify(data),
-  });
+  for (let attempt = 1; ; attempt++) {
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
 
-  if (!response.ok) {
-    console.error(`Resend ${response.status}: ${await response.text()}`);
+    if (response.ok) return response.status;
+
+    const retryable = response.status === 429 || response.status >= 500;
+    console.error(`Resend ${response.status} (attempt ${attempt}, "${subject}"): ${await response.text()}`);
+    if (!retryable || attempt === 2) return response.status;
+    await sleep(1200);
   }
-
-  return response.status;
 }
 
 export default async (req) => {
@@ -219,11 +225,16 @@ export default async (req) => {
   const lang = field('lang') === 'es' ? 'es' : 'en';
   const confirm = confirmEmail(lang, firstName, new URL(req.url).origin);
 
-  await sendEmail(apiKey, {
+  // The lead already reached the clinic, so the visitor still sees success; a failed confirmation is logged
+  // (Netlify > Logs > Functions > contact) so it can be followed up.
+  const confirmStatus = await sendEmail(apiKey, {
     to: email,
     subject: confirm.subject,
     html: confirm.html,
   });
+  if (confirmStatus !== 200 && confirmStatus !== 201) {
+    console.error(`Confirmation email to the visitor failed with ${confirmStatus}; the clinic notification was sent.`);
+  }
 
   return json({ status: 'success' });
 };
