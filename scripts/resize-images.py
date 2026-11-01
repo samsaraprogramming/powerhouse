@@ -17,6 +17,8 @@ WIDTHS = {'services': [480, 800], 'conditions': [480, 800], 'library': [480, 800
 manifest = {}
 for folder, widths in WIDTHS.items():
     for path in sorted((IMAGES / folder).glob('*.webp')):
+        if ' ' in path.name:
+            continue  # an iCloud duplicate such as "photo 2.webp"
         if path.stem.rsplit('-', 1)[-1].isdigit():
             continue  # a generated size
         with Image.open(path) as im:
