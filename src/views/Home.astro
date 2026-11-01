@@ -146,8 +146,8 @@ const schema = [pageNode({ path: lang === 'es' ? '/es/' : '/', name: title, desc
         <a class="link-arrow" href={href(lang, '/about.html')}>{t(lang, 'team.title')}</a>
       </div>
       <div class="grid grid--even" style="--min: 300px;">
-        {team.map((m) => (
-          <a class="card team-card" href={href(lang, `/${m.slug}-bio.html`)}>
+        {team.map((m, i) => (
+          <a class={`card team-card team-card--try${i + 1}`} href={href(lang, `/${m.slug}-bio.html`)}>
             <div class="card__media"><img {...responsive(m.photo)} sizes={sizes.team} alt={m.home.photoAlt} loading="lazy" width="400" height="500" /></div>
             <div class="card__body">
               <h3>{m.home.shortName}</h3>
