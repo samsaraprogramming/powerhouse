@@ -767,24 +767,20 @@ a.card:hover {
   margin-top: 16px;
 }
 
-/* Services: what a service treats, as soft rounded chips. */
-.list-chips {
-  display: flex;
-  flex-wrap: wrap;
+/* Services: what a service treats, set in the display serif with no markers, in two columns. */
+.list-serif {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   align-content: start;
-  gap: 10px;
+  gap: 16px 32px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.list-chips li {
-  padding: 9px 16px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-pill);
-  background: var(--surface);
-  font-size: 0.95rem;
-  line-height: 1.3;
+.list-serif li {
+  font: var(--display-weight) 1.2rem/1.3 var(--font-display);
+  color: var(--ink);
 }
 
 /* Lists of links (related guides, reviewed pages): each link carries its own arrow. */
