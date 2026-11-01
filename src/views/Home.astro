@@ -151,9 +151,9 @@ const schema = [pageNode({ path: lang === 'es' ? '/es/' : '/', name: title, desc
             <div class="card__media"><img {...responsive(m.photo)} sizes={sizes.team} alt={m.home.photoAlt} loading="lazy" width="400" height="500" /></div>
             <div class="card__body">
               <h3>{m.home.shortName}</h3>
-              <span class="team-card__role">{m.home.role}</span>
+              <span class="team-card__title">{m.home.role}</span>
               <p class="team-card__expertise">{m.home.expertise}</p>
-              <ul class="list-check team-card__points">{m.home.points.map((p) => <li>{p}</li>)}</ul>
+              <ul class="team-card__points">{m.home.points.map((p) => <li>{p}</li>)}</ul>
             </div>
           </a>
         ))}
