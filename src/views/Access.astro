@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PillList from '../components/PillList.astro';
+import PageHero from '../components/PageHero.astro';
 import FaqList from '../components/FaqList.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { href, t, type Lang } from '../i18n/ui';
 import { directAccess, insurance, selfPay } from '../data/clinic';
 import { faqGroups } from '../data/faq';
-import { breadcrumbNode, faqNode, pageNode, CLINIC_ID } from '../lib/schema';
+import { breadcrumbNode, faqNode, pageNode } from '../lib/schema';
 
 interface Props {
   lang: Lang;
@@ -32,13 +33,7 @@ const schema = [
 ---
 
 <BaseLayout title={title} description={description} schema={schema}>
-  <section class="page-hero">
-    <div class="wrap">
-      <Breadcrumbs lang={lang} items={[{ name: t(lang, 'nav.access'), path: '/access.html' }]} />
-      <h1>{t(lang, 'access.title')}</h1>
-      <p class="lead">{L('Everything you need to know before your first visit: referrals, insurance and paying.', 'Todo lo que necesitas saber antes de tu primera visita: referencias, seguros y formas de pago.')}</p>
-    </div>
-  </section>
+  <PageHero lang={lang} crumbs={[{ name: t(lang, 'nav.access'), path: '/access.html' }]} title={t(lang, 'access.title')} lead={L('Everything you need to know before your first visit: referrals, insurance and paying.', 'Todo lo que necesitas saber antes de tu primera visita: referencias, seguros y formas de pago.')} />
 
   <section class="section section--tight" id="direct-access">
     <div class="wrap two-col">
@@ -69,9 +64,7 @@ const schema = [
         <h2>{L('Insurance we accept', 'Seguros que aceptamos')}</h2>
         <p class="lead">{insurance.summary[lang]} {L('Coverage varies by plan, so we verify your benefits before your first visit. Not sure about yours? Call us and we will check.', 'La cobertura depende de tu plan, así que verificamos tus beneficios antes de tu primera visita. ¿No sabes si el tuyo aplica? Llámanos y lo revisamos.')}</p>
       </div>
-      <ul class="pill-list">
-        {insurance.accepted.map((i) => <li>{i[lang]}</li>)}
-      </ul>
+      <PillList items={insurance.accepted.map((i) => i[lang])} />
     </div>
   </section>
 

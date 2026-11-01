@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PillList from '../components/PillList.astro';
+import PageHero from '../components/PageHero.astro';
 import Visit from '../components/Visit.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { href, t, type Lang } from '../i18n/ui';
@@ -27,13 +28,7 @@ const schema = [
 ---
 
 <BaseLayout title={title} description={description} schema={schema}>
-  <section class="page-hero">
-    <div class="wrap">
-      <Breadcrumbs lang={lang} items={[{ name: t(lang, 'nav.location'), path: '/location.html' }]} />
-      <h1>{t(lang, 'location.title')}</h1>
-      <p class="lead">{L("We're inside Gold's Gym on San Isidro Parkway in north Laredo.", "Estamos dentro de Gold's Gym en San Isidro Parkway, al norte de Laredo.")}</p>
-    </div>
-  </section>
+  <PageHero lang={lang} crumbs={[{ name: t(lang, 'nav.location'), path: '/location.html' }]} title={t(lang, 'location.title')} lead={L("We're inside Gold's Gym on San Isidro Parkway in north Laredo.", "Estamos dentro de Gold's Gym en San Isidro Parkway, al norte de Laredo.")} />
 
   <section class="section section--tight">
     <div class="wrap"><Visit lang={lang} /></div>
@@ -45,7 +40,7 @@ const schema = [
         <h2>{t(lang, 'location.areas')}</h2>
         <p class="lead">{L("We have one clinic, inside Gold's Gym in north Laredo. Patients drive in from across Laredo and from nearby communities, including these.", "Tenemos una sola clínica, dentro de Gold's Gym al norte de Laredo. Nuestros pacientes vienen de todo Laredo y de comunidades cercanas, como estas.")}</p>
       </div>
-      <ul class="pill-list">{areasServed.map((a) => <li>{a}</li>)}</ul>
+      <PillList items={areasServed} />
     </div>
   </section>
 

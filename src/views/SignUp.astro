@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageHero from '../components/PageHero.astro';
 import Visit from '../components/Visit.astro';
 import { href, t, type Lang } from '../i18n/ui';
 import { clinic, booking } from '../data/clinic';
@@ -54,18 +54,15 @@ const schema = [
 ---
 
 <BaseLayout title={title} description={description} schema={schema}>
-  <section class="page-hero">
-    <div class="wrap">
-      <Breadcrumbs lang={lang} items={[{ name: t(lang, 'cta.call'), path: '/sign-up.html' }]} />
-      <h1>{L('Schedule a free discovery call', 'Agenda una llamada gratuita')}</h1>
-      <p class="lead">
-        {L(
-          `Tell us a little about what's going on. We'll call you ${booking.responseTime.en} for a free ${booking.discoveryCallMinutes}-minute conversation, with no pressure and no commitment.`,
-          `Cuéntanos un poco qué está pasando. Te llamaremos ${booking.responseTime.es} para una conversación gratuita de ${booking.discoveryCallMinutes} minutos, sin presión y sin compromiso.`,
-        )}
-      </p>
-    </div>
-  </section>
+  <PageHero
+    lang={lang}
+    crumbs={[{ name: t(lang, 'cta.call'), path: '/sign-up.html' }]}
+    title={L('Schedule a free discovery call', 'Agenda una llamada gratuita')}
+    lead={L(
+      `Tell us a little about what's going on. We'll call you ${booking.responseTime.en} for a free ${booking.discoveryCallMinutes}-minute conversation, with no pressure and no commitment.`,
+      `Cuéntanos un poco qué está pasando. Te llamaremos ${booking.responseTime.es} para una conversación gratuita de ${booking.discoveryCallMinutes} minutos, sin presión y sin compromiso.`,
+    )}
+  />
 
   <section class="section section--tight">
     <div class="wrap two-col">
