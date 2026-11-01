@@ -39,7 +39,7 @@ const schema = [
         <Breadcrumbs lang={lang} items={[{ name: t(lang, 'nav.about'), path: '/about.html' }, { name, path: `/${slug}-bio.html` }]} />
         <h1 set:html={m.name} />
         <p class="lead" set:html={m.title} />
-        <ul class="list-check" style="margin-top: 24px;">
+        <ul class="list-credentials" style="margin-top: 28px;">
           {m.home.points.map((p) => <li>{p}</li>)}
         </ul>
       </div>
@@ -55,9 +55,9 @@ const schema = [
       {(reviewed.length > 0 || written.length > 0) && (
         <aside class="callout" style="align-self: start;">
           <h2 style="font-size: 1.25rem;">{lang === 'es' ? 'Contenido revisado' : 'Clinical content reviewed'}</h2>
-          <ul class="list-check" style="margin: 0;">
-            {reviewed.map((c) => <li><a href={href(lang, `/conditions/${c.slug}.html`)}>{c.name[lang]}</a></li>)}
-            {written.map((p) => <li><a href={href(lang, `/library/${p.slug}.html`)}>{p.title[lang]}</a></li>)}
+          <ul class="list-links" style="margin: 0;">
+            {reviewed.map((c) => <li><a class="link-arrow" href={href(lang, `/conditions/${c.slug}.html`)}>{c.name[lang]}</a></li>)}
+            {written.map((p) => <li><a class="link-arrow" href={href(lang, `/library/${p.slug}.html`)}>{p.title[lang]}</a></li>)}
           </ul>
         </aside>
       )}
