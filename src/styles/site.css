@@ -792,19 +792,18 @@ a.card:hover {
   list-style: none;
 }
 
+/* Links in even columns, so a wrapped list lines up instead of running ragged. */
 .list-links--row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 28px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr));
+  gap: 12px 28px;
   margin: 0;
+  font-size: 0.95rem;
 }
 
-/* "Related guides" row at the bottom of a service page's conditions section. */
+/* "Related guides" at the bottom of a service page's conditions section: label above, links below. */
 .related-guides {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 12px 28px;
+  display: grid;
+  gap: 14px;
   margin-top: clamp(40px, 5vw, 56px);
 }
 
