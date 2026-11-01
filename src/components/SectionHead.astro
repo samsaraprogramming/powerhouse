@@ -1,0 +1,24 @@
+---
+// Section heading row: optional small label, the heading, an optional intro, and an optional
+// link (or other content via the "aside" slot) on the right.
+interface Props {
+  title: string;
+  eyebrow?: string;
+  lead?: string;
+  /** id for the heading, so the section can point aria-labelledby at it. */
+  id?: string;
+  link?: { href: string; label: string };
+}
+
+const { title, eyebrow, lead, id, link } = Astro.props;
+---
+
+<div class="section-head">
+  <div>
+    {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+    <h2 id={id} set:html={title} />
+    {lead && <p class="lead" set:html={lead} />}
+  </div>
+  {link && <a class="link-arrow" href={link.href}>{link.label}</a>}
+  <slot name="aside" />
+</div>

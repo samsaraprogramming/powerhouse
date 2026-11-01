@@ -1,0 +1,11 @@
+---
+// A row of rounded pills (insurance accepted, areas served).
+interface Props {
+  items: string[];
+  label?: string;
+}
+
+const { items, label } = Astro.props;
+---
+
+<ul class="pill-list" aria-label={label}>{items.map((item) => <li>{item}</li>)}</ul>

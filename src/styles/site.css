@@ -501,6 +501,16 @@ p {
   aspect-ratio: 4 / 3;
 }
 
+.page-hero--media .hero__media--portrait {
+  aspect-ratio: 4 / 5;
+}
+
+/* Reading pages (library articles): a smaller title in a narrow column. */
+.page-hero--article h1 {
+  max-width: none;
+  font-size: clamp(2.1rem, 5vw, 3.6rem);
+}
+
 .breadcrumbs ol {
   display: flex;
   flex-wrap: wrap;
@@ -562,6 +572,12 @@ a.card:hover {
 
 .card__body h3 {
   margin: 0;
+}
+
+/* Card titles on index pages (h2) sit a step larger than the h3 cards inside home sections. */
+.card__body h2.card__title {
+  margin: 0;
+  font-size: clamp(1.3rem, 2.2vw, 1.5rem);
 }
 
 .card__body p {

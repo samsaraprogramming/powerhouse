@@ -1,11 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
+import MediaCard from '../components/MediaCard.astro';
+import PageHero from '../components/PageHero.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { href, t, type Lang } from '../i18n/ui';
 import { posts } from '../data/posts';
 import { breadcrumbNode, pageNode, abs } from '../lib/schema';
-import { responsive, sizes } from '../lib/images';
 
 interface Props {
   lang: Lang;
@@ -38,26 +38,14 @@ const schema = [
 ---
 
 <BaseLayout title={title} description={description} schema={schema}>
-  <section class="page-hero">
-    <div class="wrap">
-      <Breadcrumbs lang={lang} items={[{ name: t(lang, 'nav.library'), path: '/library.html' }]} />
-      <h1>{t(lang, 'library.title')}</h1>
-      <p class="lead">{description}</p>
-    </div>
-  </section>
+  <PageHero lang={lang} crumbs={[{ name: t(lang, 'nav.library'), path: '/library.html' }]} title={t(lang, 'library.title')} lead={description} />
 
   <section class="section section--tight">
     <div class="wrap grid" style="--min: 320px;">
       {sorted.map((p) => (
-        <a class="card" href={href(lang, `/library/${p.slug}.html`)}>
-          <div class="card__media"><img {...responsive(p.image)} sizes={sizes.card} alt="" loading="lazy" width="640" height="400" /></div>
-          <div class="card__body">
-            <span class="tag"><time datetime={p.date}>{date(p.date)}</time> · {p.minutes} {t(lang, 'library.minutes')}</span>
-            <h2 style="font-size: 1.4rem; margin: 0;">{p.title[lang]}</h2>
-            <p>{p.description[lang]}</p>
-            <span class="link-arrow">{t(lang, 'cta.readMore')}</span>
-          </div>
-        </a>
+        <MediaCard heading="h2" href={href(lang, `/library/${p.slug}.html`)} image={p.image} title={p.title[lang]} text={p.description[lang]} linkLabel={t(lang, 'cta.readMore')}>
+          <span class="tag"><time datetime={p.date}>{date(p.date)}</time> · {p.minutes} {t(lang, 'library.minutes')}</span>
+        </MediaCard>
       ))}
     </div>
   </section>

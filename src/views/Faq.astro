@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageHero from '../components/PageHero.astro';
 import FaqList from '../components/FaqList.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { href, t, type Lang } from '../i18n/ui';
@@ -28,13 +28,7 @@ const schema = [
 ---
 
 <BaseLayout title={title} description={description} schema={schema}>
-  <section class="page-hero">
-    <div class="wrap">
-      <Breadcrumbs lang={lang} items={[{ name: t(lang, 'nav.faq'), path: '/faq.html' }]} />
-      <h1>{t(lang, 'faq.title')}</h1>
-      <p class="lead">{L("Can't find your answer? Call us and we'll help.", '¿No encuentras tu respuesta? Llámanos y te ayudamos.')}</p>
-    </div>
-  </section>
+  <PageHero lang={lang} crumbs={[{ name: t(lang, 'nav.faq'), path: '/faq.html' }]} title={t(lang, 'faq.title')} lead={L("Can't find your answer? Call us and we'll help.", '¿No encuentras tu respuesta? Llámanos y te ayudamos.')} />
 
   {groups.map((g, i) => (
     <section class:list={['section section--tight', { 'section--alt': i % 2 === 1 }]} id={g.id}>

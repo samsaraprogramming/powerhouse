@@ -1,0 +1,46 @@
+---
+// Top-of-page header: breadcrumbs, title, intro and, optionally, a photo beside them.
+// Extra content (a button, a "reviewed by" line, credentials) goes in the default slot under the intro.
+import Breadcrumbs from './Breadcrumbs.astro';
+import type { Lang } from '../i18n/ui';
+import { responsive, sizes } from '../lib/images';
+
+interface Props {
+  lang: Lang;
+  crumbs: { name: string; path: string }[];
+  /** Title HTML (some titles carry a <span> accent). */
+  title: string;
+  /** Intro HTML. */
+  lead?: string;
+  image?: { src: string; alt?: string; width?: number; height?: number; portrait?: boolean };
+  /** Narrow column for reading pages (library articles). */
+  narrow?: boolean;
+}
+
+const { lang, crumbs, title, lead, image, narrow = false } = Astro.props;
+---
+
+{image ? (
+  <section class="page-hero page-hero--media">
+    <div class="wrap hero__grid">
+      <div>
+        <Breadcrumbs lang={lang} items={crumbs} />
+        <h1 set:html={title} />
+        {lead && <p class="lead" set:html={lead} />}
+        <slot />
+      </div>
+      <div class:list={['hero__media', { 'hero__media--portrait': image.portrait }]}>
+        <img {...responsive(image.src)} sizes={sizes.hero} alt={image.alt ?? ''} width={image.width ?? 800} height={image.height ?? 600} fetchpriority="high" />
+      </div>
+    </div>
+  </section>
+) : (
+  <section class:list={['page-hero', { 'page-hero--article': narrow }]}>
+    <div class:list={['wrap', { 'wrap--narrow': narrow }]}>
+      <Breadcrumbs lang={lang} items={crumbs} />
+      <h1 set:html={title} />
+      {lead && <p class="lead" set:html={lead} />}
+      <slot />
+    </div>
+  </section>
+)}
