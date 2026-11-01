@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import ReviewedBy from '../components/ReviewedBy.astro';
 import CtaBand from '../components/CtaBand.astro';
@@ -55,12 +56,12 @@ const schema = [
             {s.paragraphs.map((para) => <p>{para}</p>)}
           </Fragment>
         ))}
-        <p style="margin-top: 2em;">
-          {L('Related:', 'Relacionado:')}{' '}
-          {related.map((c, i) => (
-            <Fragment>{i > 0 && ', '}<a href={href(lang, `/conditions/${c.slug}.html`)}>{c.name[lang]}</a></Fragment>
-          ))}
-        </p>
+        <div class="section-foot">
+          <RelatedLinks
+            label={L('Related guides', 'Guías relacionadas')}
+            links={related.map((c) => ({ href: href(lang, `/conditions/${c.slug}.html`), html: c.name[lang] }))}
+          />
+        </div>
       </div>
     </section>
   </article>

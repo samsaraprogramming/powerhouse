@@ -1,0 +1,22 @@
+---
+// A small label with a list of arrow links ("Related guides", "Related services", ...).
+// Shared by service, condition, bio and library pages so the pattern looks the same everywhere.
+interface Props {
+  label: string;
+  /** Link text may contain simple HTML (service titles carry a <span>). */
+  links: { href: string; html: string }[];
+  /** 'columns' lines links up in even columns; 'stack' keeps one per line (sidebars). */
+  layout?: 'columns' | 'stack';
+}
+
+const { label, links, layout = 'columns' } = Astro.props;
+---
+
+{links.length > 0 && (
+  <div class={`related-links related-links--${layout}`}>
+    <span class="related-links__label">{label}</span>
+    <ul class="related-links__list">
+      {links.map((link) => <li><a class="link-arrow" href={link.href} set:html={link.html} /></li>)}
+    </ul>
+  </div>
+)}
