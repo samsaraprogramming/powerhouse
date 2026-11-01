@@ -62,7 +62,7 @@ const schema = [
     <div class="wrap two-col">
       <div>
         <h2>{L('Insurance we accept', 'Seguros que aceptamos')}</h2>
-        <p class="lead">{insurance.summary[lang]} {L('Coverage varies by plan, so we verify your benefits before your first visit. Not sure about yours? Call us and we will check.', 'La cobertura depende de tu plan, así que verificamos tus beneficios antes de tu primera visita. ¿No sabes si el tuyo aplica? Llámanos y lo revisamos.')}</p>
+        <p class="lead">{insurance.summary[lang]} {L('Coverage varies by plan, so we verify your benefits before your first visit. Not sure about yours? Call or text us and we will check.', 'La cobertura depende de tu plan, así que verificamos tus beneficios antes de tu primera visita. ¿No sabes si el tuyo aplica? Llámanos o escríbenos y lo revisamos.')}</p>
       </div>
       <PillList items={insurance.accepted.map((i) => i[lang])} />
     </div>

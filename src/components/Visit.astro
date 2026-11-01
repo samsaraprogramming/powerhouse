@@ -22,7 +22,7 @@ const { lang } = Astro.props;
       </div>
       <div>
         <dt>{t(lang, 'contact.phone')}</dt>
-        <dd><a href={`tel:${clinic.phoneE164}`}>{clinic.phone}</a> · {t(lang, 'contact.fax')} {clinic.fax}</dd>
+        <dd><a href={`tel:${clinic.phoneE164}`}>{clinic.phone}</a> ({lang === 'es' ? 'llamadas o mensajes' : 'call or text'}) · <a href={`sms:${clinic.phoneE164}`}>{t(lang, 'cta.text')}</a> · {t(lang, 'contact.fax')} {clinic.fax}</dd>
       </div>
       <div>
         <dt>{t(lang, 'contact.email')}</dt>

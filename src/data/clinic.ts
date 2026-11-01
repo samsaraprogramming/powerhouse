@@ -80,8 +80,8 @@ export const insurance = {
 
 /** Self-pay is offered, but prices are deliberately not published; patients call for details. */
 export const selfPay = {
-  en: "Self-pay is available if you don't have insurance or prefer not to use it. Call us and we'll walk you through the options.",
-  es: 'También puedes pagar por tu cuenta si no tienes seguro o prefieres no usarlo. Llámanos y te explicamos las opciones.',
+  en: "Self-pay is available if you don't have insurance or prefer not to use it. Call or text us and we'll walk you through the options.",
+  es: 'También puedes pagar por tu cuenta si no tienes seguro o prefieres no usarlo. Llámanos o escríbenos y te explicamos las opciones.',
 };
 
 /**

@@ -15,7 +15,7 @@ function facts(lang: Lang) {
   if (lang === 'es') {
     return [
       `- Dirección: ${fullAddress} (${clinic.address.note.es})`,
-      `- Teléfono: ${clinic.phone} · Fax: ${clinic.fax} · Correo: ${clinic.email}`,
+      `- Teléfono (llamadas o mensajes de texto): ${clinic.phone} · Fax: ${clinic.fax} · Correo: ${clinic.email}`,
       `- Horario: ${hoursText('es')}`,
       `- Idiomas: inglés y español; las visitas pueden ser en español`,
       `- Acceso directo: en Texas puedes atenderte sin referencia médica hasta por ${directAccess.days} días consecutivos`,
@@ -27,7 +27,7 @@ function facts(lang: Lang) {
   }
   return [
     `- Address: ${fullAddress} (${clinic.address.note.en})`,
-    `- Phone: ${clinic.phone} · Fax: ${clinic.fax} · Email: ${clinic.email}`,
+    `- Phone (call or text): ${clinic.phone} · Fax: ${clinic.fax} · Email: ${clinic.email}`,
     `- Hours: ${hoursText('en')}`,
     `- Languages: ${clinic.languages.join(', ')}`,
     `- Direct access: Texas patients can be seen without a referral for up to ${directAccess.days} consecutive days`,

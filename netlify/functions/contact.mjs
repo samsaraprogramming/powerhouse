@@ -16,7 +16,7 @@ const escapeHtml = (value) =>
 // Patient confirmation. Table layout with inline styles so it renders the same in Gmail, Outlook and Apple Mail.
 // The logo is a PNG (email clients don't all show WebP) served from the site that received the form.
 const PHONE = '956-307-6305';
-const PHONE_TEL = '+1' + PHONE.replace(/\D/g, '');
+const PHONE_TEL = '+1' + PHONE.replace(/\D/g, ''); // takes calls and texts
 const ADDRESS = "2446 San Isidro Pkwy, Laredo, TX 78045 · inside Gold's Gym";
 
 const confirmCopy = {
@@ -30,8 +30,10 @@ const confirmCopy = {
       ['Free 15-minute call', "Tell us what's going on and ask anything. No pressure, no commitment."],
       ['Your first visit', "If physical therapy is a good fit, we'll book your evaluation and check your insurance benefits."],
     ],
-    sooner: 'Need us sooner?',
+    sooner: 'Need us sooner? Call or text us.',
     call: 'Call',
+    text: 'Text us',
+    phoneNote: 'call or text',
     privacy: "Please don't reply with medical records, medications or insurance numbers. We'll go over the details on the phone.",
     sent: 'You received this email because you asked us to contact you on our website.',
   },
@@ -45,8 +47,10 @@ const confirmCopy = {
       ['Llamada gratuita de 15 minutos', 'Cuéntanos qué está pasando y pregunta lo que quieras. Sin presión y sin compromiso.'],
       ['Tu primera visita', 'Si la terapia física es buena opción para ti, agendamos tu evaluación y revisamos los beneficios de tu seguro.'],
     ],
-    sooner: '¿Necesitas hablar antes?',
+    sooner: '¿Necesitas hablar antes? Llámanos o escríbenos.',
     call: 'Llama al',
+    text: 'Envía un mensaje',
+    phoneNote: 'llamadas o mensajes',
     privacy: 'Por favor no respondas con expedientes médicos, medicamentos ni números de seguro. Revisaremos los detalles por teléfono.',
     sent: 'Recibiste este correo porque nos pediste que te contactáramos desde nuestro sitio web.',
   },
@@ -106,6 +110,7 @@ function confirmEmail(lang, firstName, origin) {
                 <td style="padding:20px 24px;font:15px/1.5 ${sans};color:#4d4a43;">
                   <strong style="color:#0c0e0d;">${c.sooner}</strong><br>
                   <a href="tel:${PHONE_TEL}" style="display:inline-block;margin-top:12px;padding:12px 22px;border-radius:999px;background:#4ca239;color:#0c0e0d;font:700 15px ${sans};text-decoration:none;">${c.call} ${PHONE}</a>
+                  <a href="sms:${PHONE_TEL}" style="display:inline-block;margin:12px 0 0 8px;padding:11px 20px;border-radius:999px;border:1.5px solid #0c0e0d;color:#0c0e0d;font:700 15px ${sans};text-decoration:none;">${c.text}</a>
                 </td>
               </tr>
             </table>
@@ -116,7 +121,7 @@ function confirmEmail(lang, firstName, origin) {
           <td style="background:#0c0e0d;padding:22px 36px;font:13px/1.6 ${sans};color:#a39e92;">
             <strong style="color:#f3f0e8;">Powerhouse Sports Physical Therapy</strong><br>
             ${ADDRESS}<br>
-            <a href="tel:${PHONE_TEL}" style="color:#72c95e;text-decoration:none;">${PHONE}</a> &nbsp;·&nbsp; <a href="${home}" style="color:#72c95e;text-decoration:none;">powerhousesportspt.com</a>
+            <a href="tel:${PHONE_TEL}" style="color:#72c95e;text-decoration:none;">${PHONE}</a> (${c.phoneNote}) &nbsp;·&nbsp; <a href="${home}" style="color:#72c95e;text-decoration:none;">powerhousesportspt.com</a>
           </td>
         </tr>
       </table>
