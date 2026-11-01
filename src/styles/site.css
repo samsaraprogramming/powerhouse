@@ -787,6 +787,32 @@ a.card:hover {
   line-height: 1.3;
 }
 
+/* ---- TEMPORARY: service list trials (one per service page). Remove the losers after choosing. ---- */
+.svc-try { margin: 0; padding: 0; list-style: none; }
+
+/* A · Two quiet columns, a short peach dash before each item. */
+.svc-try--columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 14px 28px; }
+.svc-try--columns li { position: relative; padding-left: 22px; }
+.svc-try--columns li::before { content: ''; position: absolute; left: 0; top: 0.75em; width: 12px; height: 1.5px; background: color-mix(in srgb, var(--ember, var(--ink)) 65%, var(--ink)); }
+
+/* B · Editorial: each item in the display serif, no markers, generous spacing. */
+.svc-try--serif { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px 32px; }
+.svc-try--serif li { font: var(--display-weight) 1.2rem/1.3 var(--font-display); color: var(--ink); }
+
+/* C · Small tiles in a grid. */
+.svc-try--tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px; }
+.svc-try--tiles li { padding: 14px 16px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); font-size: 0.95rem; line-height: 1.35; }
+
+/* D · Two columns with a small soft-peach dot. */
+.svc-try--dots { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 12px 28px; }
+.svc-try--dots li { position: relative; padding-left: 20px; }
+.svc-try--dots li::before { content: ''; position: absolute; left: 2px; top: 0.6em; width: 7px; height: 7px; border-radius: 50%; background: color-mix(in srgb, var(--ember, var(--ink)) 65%, var(--ink)); }
+
+/* E · One flowing paragraph in the serif, items split by peach middots. */
+.svc-try--flow { font: var(--display-weight) 1.35rem/1.6 var(--font-display); color: var(--ink); }
+.svc-try--flow li { display: inline; }
+.svc-try--flow li + li::before { content: '\00b7'; margin: 0 0.45em; color: color-mix(in srgb, var(--ember, var(--ink)) 65%, var(--ink)); }
+
 /* Lists of links (related guides, reviewed pages): each link carries its own arrow. */
 .list-links {
   display: grid;

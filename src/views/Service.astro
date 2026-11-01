@@ -28,6 +28,15 @@ const schema = [
     { name, path },
   ]),
 ];
+// TEMPORARY: a different "Conditions We Treat" style per service, to compare. Remove after choosing.
+const tryClass: Record<string, string> = {
+  'orthopedic-pt': 'list-chips',
+  'sports-performance': 'svc-try svc-try--columns',
+  'running-analysis': 'svc-try svc-try--serif',
+  'dry-needling': 'svc-try svc-try--tiles',
+  'cupping': 'svc-try svc-try--dots',
+  'blood-flow-restriction': 'svc-try svc-try--flow',
+};
 ---
 
 <BaseLayout title={s.metaTitle} description={s.metaDescription} schema={schema} image={s.heroImage}>
@@ -64,7 +73,7 @@ const schema = [
           </Fragment>
         )}
       </div>
-      <ul class="list-chips">
+      <ul class={tryClass[slug] ?? 'list-chips'}>
         {s.conditions.map((c) => <li set:html={c} />)}
       </ul>
     </div>
