@@ -33,7 +33,11 @@ const langHref = altPath ?? href(otherLang, '/');
       <nav class="nav-links" aria-label="Main">
         {links.map((l) => <a href={l.href} aria-current={current === l.href || current.startsWith(l.href.replace('.html', '/')) ? 'page' : undefined}>{l.label}</a>)}
       </nav>
-      <a class="lang-link" href={langHref} hreflang={otherLang} lang={otherLang} aria-label={t(lang, 'lang.label')}>{t(lang, 'lang.switch')}</a>
+      <a class="lang-link" href={langHref} hreflang={otherLang} lang={otherLang} aria-label={t(lang, 'lang.label')}>
+        <Icon name="globe" size={16} />
+        <span class="lang-link__full">{t(lang, 'lang.switch')}</span>
+        <span class="lang-link__short" aria-hidden="true">{otherLang.toUpperCase()}</span>
+      </a>
       <a class="btn btn--primary btn--sm" href={href(lang, '/sign-up.html')}>{t(lang, 'nav.book')}</a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-btn>
         <span class="visually-hidden" data-menu-label>{t(lang, 'nav.menu')}</span>

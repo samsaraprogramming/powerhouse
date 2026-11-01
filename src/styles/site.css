@@ -242,9 +242,56 @@ p {
 }
 
 .lang-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
   font-size: 0.9rem;
   font-weight: 600;
+  color: var(--ink);
+}
+
+.lang-link:hover {
+  border-color: var(--accent-text);
+  color: var(--accent-text);
+}
+
+.lang-link__short {
+  display: none;
+}
+
+/* "Se habla español" note in the home hero. */
+.lang-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 520px;
+  margin: 0 0 24px;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-size: 0.95rem;
+  line-height: 1.5;
   color: var(--ink-2);
+}
+
+.lang-note svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--accent-text);
+}
+
+.lang-note strong {
+  color: var(--ink);
+}
+
+.lang-note a {
+  color: var(--accent-text);
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .menu-btn {
@@ -265,9 +312,26 @@ p {
 }
 
 @media (max-width: 960px) {
-  .nav-links,
-  .site-header__bar > .lang-link {
+  .nav-links {
     display: none;
+  }
+
+  /* Phones keep the language switch in the bar, shortened to ES / EN. */
+  .site-header__bar {
+    gap: 12px;
+  }
+
+  .lang-link {
+    padding: 8px 12px;
+    min-height: 44px;
+  }
+
+  .lang-link__full {
+    display: none;
+  }
+
+  .lang-link__short {
+    display: inline;
   }
 
   .menu-btn {
