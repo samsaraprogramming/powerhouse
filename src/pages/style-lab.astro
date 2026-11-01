@@ -4,7 +4,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getService } from '../lib/content';
 
 const s = getService('orthopedic-pt', 'en');
+// Each option: [letter, label, list class]. The first six are the earlier round (also on the service pages).
 const options = [
+  ['Chips', 'Rounded tags (current)', 'list-chips'],
+  ['A', 'Two columns with a peach dash', 'svc-try svc-try--columns'],
+  ['B', 'Serif text, no markers', 'svc-try svc-try--serif'],
+  ['C', 'Small tiles', 'svc-try svc-try--tiles'],
+  ['D', 'Two columns with a soft peach dot', 'svc-try svc-try--dots'],
+  ['E', 'One flowing line split by peach dots', 'svc-try svc-try--flow'],
   ['F', 'Serif text with a soft peach dot'],
   ['G', 'Small tracked capitals with a peach dash'],
   ['H', 'Serif with a thin peach bar on the left of each item'],
@@ -19,14 +26,14 @@ const options = [
 ---
 
 <BaseLayout title="Style lab | Powerhouse PT" description="Temporary style comparison." translated={false} noindex>
-  {options.map(([letter, label]) => (
+  {options.map(([letter, label, cls]) => (
     <section class="section section--alt section--tight" style="border-bottom: 1px solid var(--line);">
       <div class="wrap two-col">
         <div>
-          <span class="eyebrow">Option {letter}</span>
+          <span class="eyebrow">{letter === 'Chips' ? 'Current' : `Option ${letter}`}</span>
           <h2 style="margin: 0;">{label}</h2>
         </div>
-        <ul class={`lab lab--${letter.toLowerCase()}`}>
+        <ul class={cls ?? `lab lab--${letter.toLowerCase()}`}>
           {s.conditions.map((c) => <li set:html={c} />)}
         </ul>
       </div>
