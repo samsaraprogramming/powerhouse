@@ -3,11 +3,14 @@ import imageSizes from '../data/image-sizes.json';
 // Smaller copies made by scripts/resize-images.py, so phones don't download desktop-sized photos.
 const manifest = imageSizes as Record<string, [string, number][]>;
 
-/** src and srcset attributes for a photo; falls back to the plain src when it has no copies. */
+/**
+ * src and srcset attributes for a photo; falls back to the plain src when it has no copies.
+ * The URLs carry a ?v= content hash (the last entry is the full-size photo), so replaced photos skip the browser cache.
+ */
 export function responsive(src: string) {
   const list = manifest[src];
   if (!list) return { src };
-  return { src, srcset: list.map(([path, width]) => `${path} ${width}w`).join(', ') };
+  return { src: list[list.length - 1][0], srcset: list.map(([path, width]) => `${path} ${width}w`).join(', ') };
 }
 
 /** `sizes` values for the layouts photos appear in. */
