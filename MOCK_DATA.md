@@ -6,19 +6,16 @@ Each item names the file and field to edit; pages, JSON-LD and `llms.txt` all re
 
 ## Clinic facts — `src/data/clinic.ts`
 
+Confirmed by the clinic in November 2026: hours (Mon–Thu 7am–7pm, Fri 8am–12pm, Sat & Sun closed), parking notes,
+areas served, insurance wording, HSA/FSA accepted, 15-minute discovery call, response within one business day,
+founding year 2023. Visit lengths are intentionally not published.
+
+Still to confirm:
+
 | What | Mock value | Field |
 | --- | --- | --- |
-| Opening hours | Mon–Thu 7am–7pm, Fri 7am–5pm, Sat 8am–12pm, Sun closed | `hours` |
-| Parking & arrival notes | Free parking in the Gold's Gym lot; check in at the gym front desk | `parking` |
-| Areas served (communities within ~50 miles, not locations) | Laredo, North/South Laredo, Del Mar, San Isidro, Rio Bravo, El Cenizo, Mirando City, Encinal, Zapata, Hebbronville | `areasServed` |
-| Insurance wording | General statement only: "most major insurance plans, workers' compensation and Medicare" (no named plans until the clinic confirms a list) | `insurance.accepted`, `insurance.summary` |
-| HSA / FSA accepted | Yes | `insurance.hsaFsa` |
 | Direct access policy | No referral needed for up to 30 consecutive days (Texas law since Sept. 1, 2025, HB 4099; confirm the clinic's therapists qualify and any payer limits) | `directAccess` |
-| Discovery call length | 15 minutes | `booking.discoveryCallMinutes` |
-| Evaluation / follow-up length | 60 / 45 minutes | `booking.evaluationMinutes`, `booking.followUpMinutes` |
-| Response time | "within one business day" | `booking.responseTime` |
 | Map coordinates | 27.5627, -99.4422 (approximate) | `clinic.geo` |
-| Founding year | 2023 | `clinic.foundingYear` |
 
 ## Team — `src/data/team.es.ts`
 
