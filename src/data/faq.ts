@@ -83,13 +83,6 @@ export const faqGroups: FaqGroup[] = [
     title: { en: 'Your visits', es: 'Tus visitas' },
     items: [
       {
-        q: { en: 'How long is each visit?', es: '¿Cuánto dura cada visita?' },
-        a: {
-          en: `Your first evaluation takes about ${booking.evaluationMinutes} minutes. Follow-up visits are about ${booking.followUpMinutes} minutes, one-on-one with your therapist.`,
-          es: `Tu primera evaluación dura unos ${booking.evaluationMinutes} minutos. Las visitas de seguimiento duran unos ${booking.followUpMinutes} minutos, uno a uno con tu terapeuta.`,
-        },
-      },
-      {
         q: { en: 'What should I wear?', es: '¿Qué ropa debo usar?' },
         a: {
           en: 'Comfortable clothes you can move in. Shorts help for hip, knee and ankle problems; a tank top or loose shirt helps for the neck and shoulder. Bring running shoes for a running analysis.',
