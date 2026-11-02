@@ -26,18 +26,17 @@ export const clinic = {
     facebook: 'https://www.facebook.com/people/Powerhouse-PT-Physical-Therapy/100094690571519/',
   },
   owner: 'sandra',
-  foundingYear: 2023, // MOCK
+  foundingYear: 2023,
   languages: ['English', 'Spanish'],
 };
 
-/** MOCK: opening hours. Days use schema.org names; times are 24h. */
+/** Opening hours (confirmed by the clinic, Nov 2026). Days use schema.org names; times are 24h. Days not listed are closed. */
 export const hours = [
   { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'], opens: '07:00', closes: '19:00' },
-  { days: ['Friday'], opens: '07:00', closes: '17:00' },
-  { days: ['Saturday'], opens: '08:00', closes: '12:00' },
+  { days: ['Friday'], opens: '08:00', closes: '12:00' },
 ];
 
-/** MOCK: parking and access notes. */
+/** Parking and arrival notes (confirmed by the clinic). */
 export const parking = {
   en: "Free parking in the Gold's Gym lot. Enter through the main gym doors and let the front desk know you're here for physical therapy.",
   es: "Estacionamiento gratuito en el lote de Gold's Gym. Entra por la puerta principal del gimnasio y avisa en recepción que vienes a terapia física.",
@@ -45,7 +44,7 @@ export const parking = {
 
 /**
  * Communities within about 50 miles (Hebbronville is just past it) that patients come from. These are not clinic locations:
- * there is one clinic (inside Gold's Gym, Laredo). MOCK: confirm the list with the clinic.
+ * there is one clinic (inside Gold's Gym, Laredo). Confirmed by the clinic.
  */
 export const areasServed = [
   'Laredo',
@@ -75,7 +74,7 @@ export const insurance = {
     en: "We accept most major insurance plans, as well as workers' compensation and Medicare.",
     es: 'Aceptamos la mayoría de los seguros principales, además de compensación laboral (workers\' comp) y Medicare.',
   },
-  hsaFsa: true, // MOCK
+  hsaFsa: true,
 };
 
 /** Self-pay is offered, but prices are deliberately not published; patients call for details. */
@@ -91,12 +90,12 @@ export const selfPay = {
  */
 export const directAccess = { allowed: true, days: 30 };
 
-/** MOCK: how booking works. The free call itself is real (sign-up form). */
+/**
+ * How booking works (confirmed by the clinic). Visit lengths are deliberately not published.
+ */
 export const booking = {
-  discoveryCallMinutes: 15, // MOCK
-  evaluationMinutes: 60, // MOCK
-  followUpMinutes: 45, // MOCK
-  responseTime: { en: 'within one business day', es: 'en un día hábil' }, // MOCK
+  discoveryCallMinutes: 15,
+  responseTime: { en: 'within one business day', es: 'en un día hábil' },
 };
 
 export const fullAddress = `${clinic.address.street}, ${clinic.address.city}, ${clinic.address.region} ${clinic.address.postalCode}`;
