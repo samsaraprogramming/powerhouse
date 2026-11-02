@@ -405,14 +405,19 @@ export const conditions: Condition[] = [
     faqs: {
       en: [
         { q: 'Do I need a referral from my surgeon?', a: 'For post-surgical care we usually work from your surgeon\'s referral and protocol. Bring any paperwork you were given to your first visit.' },
-        { q: 'How long will rehab take?', a: "It depends on the surgery, your surgeon's protocol and your goals. After your evaluation we give you an expected timeline and update it as you progress." },
+        { q: 'How long will rehab take?', a: "It depends on the surgery, your surgeon's protocol and your goals. As a general guide from the American Academy of Orthopaedic Surgeons (not a promise for any one person): after a total knee replacement, most people return to most daily activities within 3 to 6 weeks, and after an ACL reconstruction, most are cleared for full sports within 6 to 12 months. After your evaluation we give you your own expected timeline and update it as you progress." },
       ],
       es: [
         { q: '¿Necesito una referencia de mi cirujano?', a: 'Para la atención postquirúrgica normalmente trabajamos con la referencia y el protocolo de tu cirujano. Trae a tu primera visita los documentos que te hayan dado.' },
-        { q: '¿Cuánto dura la rehabilitación?', a: 'Depende de la cirugía, del protocolo de tu cirujano y de tus metas. Después de tu evaluación te damos un tiempo estimado y lo ajustamos conforme avanzas.' },
+        { q: '¿Cuánto dura la rehabilitación?', a: 'Depende de la cirugía, del protocolo de tu cirujano y de tus metas. Como guía general de la Academia Americana de Cirujanos Ortopédicos (no es una promesa para cada persona): después de un reemplazo total de rodilla, la mayoría vuelve a casi todas sus actividades diarias en 3 a 6 semanas, y después de una reconstrucción de LCA, la mayoría recibe autorización para el deporte completo en 6 a 12 meses. Después de tu evaluación te damos tu propio tiempo estimado y lo ajustamos conforme avanzas.' },
       ],
     },
-    sources: [medline('rehabilitation', 'rehabilitation', 'MedlinePlus: Rehabilitation')],
+    sources: [
+      medline('rehabilitation', 'rehabilitation', 'MedlinePlus: Rehabilitation'),
+      // AAOS patient pages (English only); quoted for the recovery ranges in the FAQ above.
+      { title: 'AAOS OrthoInfo: Total knee replacement', url: { en: 'https://www.orthoinfo.org/treatment/total-knee-replacement/', es: 'https://www.orthoinfo.org/treatment/total-knee-replacement/' } },
+      { title: 'AAOS OrthoInfo: ACL injury, does it require surgery?', url: { en: 'https://www.orthoinfo.org/treatment/acl-injury-does-it-require-surgery/', es: 'https://www.orthoinfo.org/treatment/acl-injury-does-it-require-surgery/' } },
+    ],
   },
 ];
 
