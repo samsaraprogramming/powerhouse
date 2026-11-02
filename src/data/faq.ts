@@ -92,8 +92,8 @@ export const faqGroups: FaqGroup[] = [
       {
         q: { en: 'How many visits will I need?', es: '¿Cuántas visitas voy a necesitar?' },
         a: {
-          en: 'It depends on your condition and goals. After your evaluation we give you an expected timeline and update it as you progress. Many patients come once or twice a week for four to eight weeks.',
-          es: 'Depende de tu condición y tus metas. Después de tu evaluación te damos un tiempo estimado y lo ajustamos conforme avanzas. Muchos pacientes vienen una o dos veces por semana durante cuatro a ocho semanas.',
+          en: 'It depends on your condition and goals. After your evaluation we give you an expected timeline and update it as you progress.',
+          es: 'Depende de tu condición y tus metas. Después de tu evaluación te damos un tiempo estimado y lo ajustamos conforme avanzas.',
         },
       },
     ],

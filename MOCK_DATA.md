@@ -8,13 +8,13 @@ Each item names the file and field to edit; pages, JSON-LD and `llms.txt` all re
 
 Confirmed by the clinic in November 2026: hours (Mon–Thu 7am–7pm, Fri 8am–12pm, Sat & Sun closed), parking notes,
 areas served, insurance wording, HSA/FSA accepted, 15-minute discovery call, response within one business day,
-founding year 2023. Visit lengths are intentionally not published.
+founding year 2023, and the 30-day direct access policy (therapists qualify). Visit lengths, visit frequency
+and typical recovery timelines are intentionally not published.
 
 Still to confirm:
 
 | What | Mock value | Field |
 | --- | --- | --- |
-| Direct access policy | No referral needed for up to 30 consecutive days (Texas law since Sept. 1, 2025, HB 4099; confirm the clinic's therapists qualify and any payer limits) | `directAccess` |
 | Map coordinates | 27.5627, -99.4422 (approximate) | `clinic.geo` |
 
 ## Team — `src/data/team.es.ts`
@@ -38,17 +38,11 @@ Before launch each reviewer must read and approve their pages, and the dates mus
 
 Source links on condition pages point to MedlinePlus topic pages; check each still resolves.
 
-## Copy claims to confirm
+## Copy claims
 
-| Claim | Where |
-| --- | --- |
-| "One-on-one with a licensed provider for the whole session" | `src/views/About.astro` (values), `src/i18n/ui.ts` (`home.servicesLead`) |
-| Team speaks English and Spanish; visits available in either | `src/data/faq.ts`, `clinic.languages` |
-| "Most new patients are scheduled within a few days" | `src/data/faq.ts` |
-| "Many patients come once or twice a week for four to eight weeks" | `src/data/faq.ts` |
-| Patients come from nearby border towns | `src/views/Location.astro` |
-| Blood flow restriction (BFR) training is offered, with cuff pressure set per patient and a safety screen | `src/data/services.ts`, `src/data/services.es.ts` (`blood-flow-restriction`) |
-| Typical rehab timelines (knee replacement ~3 months, ACL 9+ months) | `src/data/conditions.ts` (post-surgical FAQ) |
+Confirmed by the clinic in November 2026: one-on-one with a licensed provider for the whole session, most new
+patients scheduled within a few days, BFR cuff pressure set per patient after a safety screen, team speaks
+English and Spanish. Removed at the clinic's request: how often patients come, typical rehab timelines.
 
 ## Images
 
