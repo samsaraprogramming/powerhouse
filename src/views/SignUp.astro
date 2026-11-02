@@ -68,6 +68,12 @@ const schema = [
     <div class="wrap two-col">
       <form id="contact-form" class="form" novalidate>
         <input type="hidden" name="lang" value={lang} />
+        <input type="hidden" name="elapsed" id="elapsed" value="" />
+        {/* Honeypot: off-screen and skipped by keyboard and screen readers. People leave it empty; bots fill it in. */}
+        <div aria-hidden="true" style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;">
+          <label for="website">Website</label>
+          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
         <div>
           <label for="firstName">{L('First name', 'Nombre')}</label>
           <input id="firstName" name="first_name" type="text" autocomplete="given-name" required />
@@ -164,6 +170,9 @@ const schema = [
       });
     });
 
+    // How long the form was open before sending; the server drops anything sent faster than a person could type.
+    var openedAt = Date.now();
+
     document.getElementById('contact-form').addEventListener('submit', function (e) {
       e.preventDefault();
       var form = this;
@@ -176,6 +185,7 @@ const schema = [
       var btn = document.getElementById('submit-btn');
       var success = document.getElementById('form-success');
       var error = document.getElementById('form-error');
+      document.getElementById('elapsed').value = String(Date.now() - openedAt);
       btn.disabled = true;
       btn.textContent = messages.sending;
       success.hidden = true;
@@ -190,6 +200,7 @@ const schema = [
           if (data.status !== 'success') throw new Error(data.message || 'Unknown error');
           success.hidden = false;
           form.reset();
+          openedAt = Date.now();
         })
         .catch(function (err) {
           error.hidden = false;
