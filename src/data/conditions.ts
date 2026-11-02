@@ -405,11 +405,11 @@ export const conditions: Condition[] = [
     faqs: {
       en: [
         { q: 'Do I need a referral from my surgeon?', a: 'For post-surgical care we usually work from your surgeon\'s referral and protocol. Bring any paperwork you were given to your first visit.' },
-        { q: 'How long will rehab take?', a: 'It depends on the surgery. A knee replacement often takes about three months; an ACL reconstruction can take nine months or more before full sport.' },
+        { q: 'How long will rehab take?', a: "It depends on the surgery, your surgeon's protocol and your goals. After your evaluation we give you an expected timeline and update it as you progress." },
       ],
       es: [
         { q: '¿Necesito una referencia de mi cirujano?', a: 'Para la atención postquirúrgica normalmente trabajamos con la referencia y el protocolo de tu cirujano. Trae a tu primera visita los documentos que te hayan dado.' },
-        { q: '¿Cuánto dura la rehabilitación?', a: 'Depende de la cirugía. Un reemplazo de rodilla suele tomar unos tres meses; una reconstrucción de LCA puede tomar nueve meses o más antes de volver al deporte completo.' },
+        { q: '¿Cuánto dura la rehabilitación?', a: 'Depende de la cirugía, del protocolo de tu cirujano y de tus metas. Después de tu evaluación te damos un tiempo estimado y lo ajustamos conforme avanzas.' },
       ],
     },
     sources: [medline('rehabilitation', 'rehabilitation', 'MedlinePlus: Rehabilitation')],
