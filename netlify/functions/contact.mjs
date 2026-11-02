@@ -195,6 +195,16 @@ export default async (req) => {
   }
 
   const field = (name) => String(form.get(name) ?? '').trim();
+
+  // Bot checks. A filled honeypot, or a form sent within a few seconds of opening (or without the page's
+  // script running), is dropped quietly: the sender sees "success" so it has no reason to try again, and no
+  // email goes out, so the form can't be used to mail strangers.
+  const MIN_FILL_MS = 3000;
+  const elapsed = Number(field('elapsed'));
+  if (field('website') || !Number.isFinite(elapsed) || elapsed < MIN_FILL_MS) {
+    console.warn(`Dropped a likely bot submission (honeypot: ${field('website') ? 'filled' : 'empty'}, elapsed: ${field('elapsed') || 'missing'} ms).`);
+    return json({ status: 'success' });
+  }
   const firstName = field('first_name');
   const lastName = field('last_name');
   const phone = field('phone');
