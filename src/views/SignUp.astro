@@ -39,6 +39,8 @@ const messages = {
   lastName: L('Please enter your last name.', 'Escribe tu apellido.'),
   nameBad: L('Please use letters only.', 'Usa solo letras.'),
   goalLink: L('Please remove links or web addresses.', 'Quita los enlaces o direcciones web.'),
+  suggestBefore: L('Did you mean', '¿Quisiste decir'),
+  suggestAfter: '?',
   phoneEmpty: L('Please enter your phone number.', 'Escribe tu número de teléfono.'),
   phoneBad: L('Please enter a valid phone number, including country code if outside the US.', 'Escribe un teléfono válido, con código de país si no es de EE. UU.'),
   emailEmpty: L('Please enter your email address.', 'Escribe tu correo electrónico.'),
@@ -95,6 +97,7 @@ const schema = [
           <label for="email">{L('Email', 'Correo electrónico')}</label>
           <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required />
           <div class="feedback" id="email-feedback"></div>
+          <div class="form-suggest" id="email-suggest" aria-live="polite"></div>
         </div>
         <div class="full">
           <label for="insurance">{L('Insurance provider', 'Seguro médico')}</label>
@@ -169,6 +172,70 @@ const schema = [
       },
     };
 
+    // Typo hint for the email domain ("gmial.com" -> "Did you mean ...@gmail.com?"). The domain is compared
+    // with common providers by edit distance, counting a swap of two neighbouring letters as one edit; one
+    // edit is allowed for short domains and two for longer ones. It only suggests; nothing changes unless tapped.
+    var DOMAINS = [
+      'gmail.com', 'googlemail.com', 'yahoo.com', 'ymail.com', 'yahoo.com.mx', 'hotmail.com', 'hotmail.es',
+      'outlook.com', 'outlook.es', 'live.com', 'live.com.mx', 'msn.com', 'icloud.com', 'me.com', 'mac.com',
+      'aol.com', 'att.net', 'sbcglobal.net', 'bellsouth.net', 'comcast.net', 'verizon.net', 'charter.net',
+      'cox.net', 'proton.me', 'protonmail.com', 'gmx.com', 'mail.com', 'prodigy.net.mx',
+    ];
+
+    function editDistance(a, b) {
+      var d = [];
+      for (var i = 0; i <= a.length; i++) { d[i] = [i]; }
+      for (var j = 0; j <= b.length; j++) { d[0][j] = j; }
+      for (i = 1; i <= a.length; i++) {
+        for (j = 1; j <= b.length; j++) {
+          var cost = a[i - 1] === b[j - 1] ? 0 : 1;
+          d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + cost);
+          if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) {
+            d[i][j] = Math.min(d[i][j], d[i - 2][j - 2] + 1);
+          }
+        }
+      }
+      return d[a.length][b.length];
+    }
+
+    function suggestEmail(value) {
+      var email = value.trim();
+      var at = email.lastIndexOf('@');
+      if (at < 1) return '';
+      var domain = email.slice(at + 1).toLowerCase();
+      if (!domain || DOMAINS.indexOf(domain) !== -1) return '';
+      var best = '';
+      var bestDistance = Infinity;
+      DOMAINS.forEach(function (candidate) {
+        var distance = editDistance(domain, candidate);
+        if (distance < bestDistance) { best = candidate; bestDistance = distance; }
+      });
+      var allowed = domain.length <= 8 ? 1 : 2;
+      return bestDistance <= allowed ? email.slice(0, at + 1) + best : '';
+    }
+
+    var emailField = document.getElementById('email');
+    var emailSuggest = document.getElementById('email-suggest');
+
+    function showEmailSuggestion() {
+      var suggestion = suggestEmail(emailField.value);
+      emailSuggest.textContent = '';
+      if (!suggestion) return;
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = suggestion;
+      button.addEventListener('click', function () {
+        emailField.value = suggestion;
+        emailSuggest.textContent = '';
+        validateField('email');
+        emailField.focus();
+      });
+      emailSuggest.append(messages.suggestBefore + ' ', button, messages.suggestAfter);
+    }
+
+    emailField.addEventListener('blur', showEmailSuggestion);
+    emailField.addEventListener('input', function () { emailSuggest.textContent = ''; });
+
     function validateField(id) {
       var field = document.getElementById(id);
       var message = validators[id](field.value);
@@ -217,6 +284,7 @@ const schema = [
           if (data.status !== 'success') throw new Error(data.message || 'Unknown error');
           success.hidden = false;
           form.reset();
+          emailSuggest.textContent = '';
           openedAt = Date.now();
         })
         .catch(function (err) {
