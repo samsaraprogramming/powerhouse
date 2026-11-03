@@ -5,7 +5,7 @@ Placeholder content the clinic still has to confirm is tracked separately in [MO
 
 ## Now
 
-- [ ] Test the sign-up form on the live site (English and Spanish) with your own email: the clinic gets the lead,
+- [x] Test the sign-up form on the live site (English and Spanish) with your own email: the clinic gets the lead,
       you get the confirmation, and Resend → Emails shows each one delivered once.
 - [x] Move the project out of iCloud-synced `~/Documents` (now at `~/Developer/powerhouse`).
 - [x] Turn off GitHub Pages.
@@ -26,7 +26,7 @@ failed confirmations are logged.
 
 ## Form spam protection
 
-Done in code: a hidden honeypot field and a 3-second minimum fill time (bots get a quiet "success", no email is
+Done in code: a "Did you mean …?" hint for misspelled email providers; a hidden honeypot field and a 3-second minimum fill time (bots get a quiet "success", no email is
 sent); names are letters only; the goal rejects links and HTML and is capped at 1,000 characters; insurance must
 be a dropdown value. Dropped bot submissions are logged in Netlify → Logs → Functions → contact.
 
