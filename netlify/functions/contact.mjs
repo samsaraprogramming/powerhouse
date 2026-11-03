@@ -28,7 +28,8 @@ const escapeHtml = (value) =>
     .replace(/'/g, '&#39;');
 
 // Patient confirmation. Written to look like a personal note, not a newsletter: no banner or images, no buttons,
-// no hidden preview text, two links. Gmail files branded, image-heavy mail under Promotions; plain mail from a
+// no hidden preview text, one link (the clinic phone). Mentioning the patient's own number and inviting a reply
+// make it read as a transactional note rather than marketing. Gmail files branded, image-heavy mail under Promotions; plain mail from a
 // person lands in Primary far more often.
 const PHONE = '956-307-6305';
 const PHONE_TEL = '+1' + PHONE.replace(/\D/g, ''); // takes calls and texts
@@ -36,47 +37,58 @@ const ADDRESS = { en: "2446 San Isidro Pkwy, Laredo, TX 78045 · inside Gold's G
 
 const confirmCopy = {
   en: {
-    subject: 'We received your request – Powerhouse PT',
+    subject: 'Your discovery call request',
     greeting: (name) => `Hi ${name},`,
-    lead: "Thanks for reaching out. We received your request for a free discovery call. Here's what happens next:",
-    steps: [
-      ['We call you', 'A member of our team will call you within one business day.'],
-      ['Free 15-minute call', "Tell us what's going on and ask anything. No pressure, no commitment."],
+    lead: "Thanks for reaching out. We got your request for a discovery call. Here's what happens next:",
+    steps: (phone) => [
+      ['We call you', `A member of our team will call you at ${phone} within one business day.`],
+      ['A 15-minute call', "Tell us what's going on and ask anything. There's no cost and no commitment."],
       ['Your first visit', "If physical therapy is a good fit, we'll book your evaluation and check your insurance benefits."],
     ],
     sooner: (phone) => `If you need us sooner, call or text us at ${phone}.`,
-    privacy: "Please don't reply with medical records, medications or insurance numbers. We'll go over the details on the phone.",
+    reply: 'Have a question before then? Just reply to this email.',
+    privacy: "Please don't include medical records, medications or insurance numbers. We'll go over the details on the phone.",
     signoff: 'Talk soon,',
     team: 'The Powerhouse PT team',
     phoneNote: 'call or text',
   },
   es: {
-    subject: 'Recibimos tu solicitud – Powerhouse PT',
+    subject: 'Tu solicitud de llamada',
     greeting: (name) => `Hola, ${name}:`,
-    lead: 'Gracias por escribirnos. Recibimos tu solicitud para una llamada gratuita. Esto es lo que sigue:',
-    steps: [
-      ['Te llamamos', 'Alguien de nuestro equipo te llamará en un día hábil.'],
-      ['Llamada gratuita de 15 minutos', 'Cuéntanos qué está pasando y pregunta lo que quieras. Sin presión y sin compromiso.'],
+    lead: 'Gracias por escribirnos. Recibimos tu solicitud de llamada. Esto es lo que sigue:',
+    steps: (phone) => [
+      ['Te llamamos', `Alguien de nuestro equipo te llamará al ${phone} en un día hábil.`],
+      ['Una llamada de 15 minutos', 'Cuéntanos qué está pasando y pregunta lo que quieras. Sin costo y sin compromiso.'],
       ['Tu primera visita', 'Si la terapia física es buena opción para ti, agendamos tu evaluación y revisamos los beneficios de tu seguro.'],
     ],
     sooner: (phone) => `Si necesitas hablar antes, llámanos o envíanos un mensaje al ${phone}.`,
-    privacy: 'Por favor no respondas con expedientes médicos, medicamentos ni números de seguro. Revisaremos los detalles por teléfono.',
+    reply: '¿Tienes alguna pregunta antes? Solo responde a este correo.',
+    privacy: 'Por favor no incluyas expedientes médicos, medicamentos ni números de seguro. Revisaremos los detalles por teléfono.',
     signoff: 'Hasta pronto,',
     team: 'El equipo de Powerhouse PT',
     phoneNote: 'llamadas o mensajes',
   },
 };
 
-function confirmEmail(lang, firstName, origin) {
+// US numbers read back as 956-307-6305 however they were typed; anything else is shown as entered.
+function formatPhone(phone) {
+  const digits = phone.replace(/\D/g, '');
+  const dashed = (d) => `${d.slice(0, 3)}-${d.slice(3, 6)}-${d.slice(6)}`;
+  if (digits.length === 11 && digits[0] === '1') return dashed(digits.slice(1));
+  if (digits.length === 10 && !phone.trim().startsWith('+')) return dashed(digits);
+  return phone;
+}
+
+function confirmEmail(lang, firstName, rawPhone) {
   const c = confirmCopy[lang];
-  const home = lang === 'es' ? `${origin}/es/` : `${origin}/`;
+  const patientPhone = formatPhone(rawPhone);
   // A few typographic touches (brand green on the step numbers, phone and sign-off, a small tracked clinic name)
   // are fine for Primary; banners, images, buttons and coloured blocks are what push mail into Promotions.
   const green = '#336827';
   const p = 'margin:0 0 16px;';
   const small = 'margin:0;font-size:14px;line-height:1.6;color:#6b6b6b;';
   const phoneLink = `<a href="tel:${PHONE_TEL}" style="color:${green};font-weight:600;text-decoration:none;">${PHONE}</a>`;
-  const steps = c.steps
+  const steps = c.steps(`<strong>${escapeHtml(patientPhone)}</strong>`)
     .map(
       ([heading, body], i) =>
         `<p style="margin:0 0 14px;"><strong style="color:${green};">${i + 1}.</strong>&nbsp; <strong>${heading}.</strong> ${body}</p>`,
@@ -96,10 +108,11 @@ function confirmEmail(lang, firstName, origin) {
 <p style="margin:0 0 20px;">${c.lead}</p>
 ${steps}
 <p style="margin:20px 0 16px;">${c.sooner(phoneLink)}</p>
+<p style="margin:0 0 16px;">${c.reply}</p>
 <p style="margin:0 0 24px;font-size:14px;line-height:1.6;color:#6b6b6b;">${c.privacy}</p>
 <p style="margin:0 0 20px;">${c.signoff}<br><strong>${c.team}</strong></p>
 <p style="margin:0 0 4px;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:${green};">Powerhouse Sports Physical Therapy</p>
-<p style="${small}">${ADDRESS[lang]}<br>${PHONE} (${c.phoneNote}) · <a href="${home}" style="color:${green};text-decoration:none;">powerhousesportspt.com</a></p>
+<p style="${small}">${ADDRESS[lang]}<br>${PHONE} (${c.phoneNote}) · powerhousesportspt.com</p>
 </div>
 </body>
 </html>`;
@@ -110,9 +123,11 @@ ${steps}
     '',
     c.lead,
     '',
-    ...c.steps.map(([heading, body], i) => `${i + 1}. ${heading}. ${body}`),
+    ...c.steps(patientPhone).map(([heading, body], i) => `${i + 1}. ${heading}. ${body}`),
     '',
     c.sooner(PHONE),
+    '',
+    c.reply,
     '',
     c.privacy,
     '',
@@ -121,7 +136,7 @@ ${steps}
     '',
     'Powerhouse Sports Physical Therapy',
     ADDRESS[lang],
-    `${PHONE} (${c.phoneNote}) · ${home}`,
+    `${PHONE} (${c.phoneNote}) · powerhousesportspt.com`,
   ].join('\n');
 
   return { subject: c.subject, html, text };
@@ -258,7 +273,7 @@ export default async (req) => {
   }
 
   const lang = field('lang') === 'es' ? 'es' : 'en';
-  const confirm = confirmEmail(lang, firstName, new URL(req.url).origin);
+  const confirm = confirmEmail(lang, firstName, phone);
 
   // The lead already reached the clinic, so the visitor still sees success; a failed confirmation is logged
   // (Netlify > Logs > Functions > contact) so it can be followed up.
