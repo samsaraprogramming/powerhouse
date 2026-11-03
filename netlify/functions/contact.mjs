@@ -27,8 +27,9 @@ const escapeHtml = (value) =>
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
 
-// Patient confirmation. Table layout with inline styles so it renders the same in Gmail, Outlook and Apple Mail.
-// The logo is a PNG (email clients don't all show WebP) served from the site that received the form.
+// Patient confirmation. Written to look like a personal note, not a newsletter: no banner or images, no buttons,
+// no hidden preview text, two links. Gmail files branded, image-heavy mail under Promotions; plain mail from a
+// person lands in Primary far more often.
 const PHONE = '956-307-6305';
 const PHONE_TEL = '+1' + PHONE.replace(/\D/g, ''); // takes calls and texts
 const ADDRESS = { en: "2446 San Isidro Pkwy, Laredo, TX 78045 · inside Gold's Gym", es: "2446 San Isidro Pkwy, Laredo, TX 78045 · dentro de Gold's Gym" };
@@ -36,127 +37,80 @@ const ADDRESS = { en: "2446 San Isidro Pkwy, Laredo, TX 78045 · inside Gold's G
 const confirmCopy = {
   en: {
     subject: 'We received your request – Powerhouse PT',
-    preheader: "Thanks for reaching out. Here's what happens next.",
-    title: (name) => `Thanks, ${name}!`,
-    lead: "We received your request for a free discovery call. Here's what happens next:",
+    greeting: (name) => `Hi ${name},`,
+    lead: "Thanks for reaching out. We received your request for a free discovery call. Here's what happens next:",
     steps: [
       ['We call you', 'A member of our team will call you within one business day.'],
       ['Free 15-minute call', "Tell us what's going on and ask anything. No pressure, no commitment."],
       ['Your first visit', "If physical therapy is a good fit, we'll book your evaluation and check your insurance benefits."],
     ],
-    sooner: 'Need us sooner? Call or text&nbsp;us.',
-    call: 'Call',
-    text: 'Text us',
-    phoneNote: 'call or text',
+    sooner: (phone) => `If you need us sooner, call or text us at ${phone}.`,
     privacy: "Please don't reply with medical records, medications or insurance numbers. We'll go over the details on the phone.",
-    sent: 'You received this email because you asked us to contact you on our website.',
+    signoff: 'Talk soon,',
+    team: 'The Powerhouse PT team',
+    phoneNote: 'call or text',
   },
   es: {
     subject: 'Recibimos tu solicitud – Powerhouse PT',
-    preheader: 'Gracias por escribirnos. Esto es lo que sigue.',
-    title: (name) => `¡Gracias, ${name}!`,
-    lead: 'Recibimos tu solicitud para una llamada gratuita. Esto es lo que sigue:',
+    greeting: (name) => `Hola, ${name}:`,
+    lead: 'Gracias por escribirnos. Recibimos tu solicitud para una llamada gratuita. Esto es lo que sigue:',
     steps: [
       ['Te llamamos', 'Alguien de nuestro equipo te llamará en un día hábil.'],
       ['Llamada gratuita de 15 minutos', 'Cuéntanos qué está pasando y pregunta lo que quieras. Sin presión y sin compromiso.'],
       ['Tu primera visita', 'Si la terapia física es buena opción para ti, agendamos tu evaluación y revisamos los beneficios de tu seguro.'],
     ],
-    sooner: '¿Necesitas hablar antes? Llámanos o&nbsp;escríbenos.',
-    call: 'Llama al',
-    text: 'Envía un mensaje',
-    phoneNote: 'llamadas o mensajes',
+    sooner: (phone) => `Si necesitas hablar antes, llámanos o envíanos un mensaje al ${phone}.`,
     privacy: 'Por favor no respondas con expedientes médicos, medicamentos ni números de seguro. Revisaremos los detalles por teléfono.',
-    sent: 'Recibiste este correo porque nos pediste que te contactáramos desde nuestro sitio web.',
+    signoff: 'Hasta pronto,',
+    team: 'El equipo de Powerhouse PT',
+    phoneNote: 'llamadas o mensajes',
   },
 };
 
 function confirmEmail(lang, firstName, origin) {
   const c = confirmCopy[lang];
   const home = lang === 'es' ? `${origin}/es/` : `${origin}/`;
-  const serif = "Georgia,'Times New Roman',serif";
-  const sans = "-apple-system,'Segoe UI',Helvetica,Arial,sans-serif";
+  const p = 'margin:0 0 16px;';
+  const small = 'margin:0 0 16px;font-size:14px;color:#666666;';
+  const phoneLink = `<a href="tel:${PHONE_TEL}" style="color:#336827;">${PHONE}</a>`;
   const steps = c.steps
-    .map(
-      ([heading, text], i) => `
-          <tr>
-            <td width="40" valign="top" style="padding:0 0 18px;">
-              <div style="width:28px;height:28px;border-radius:14px;background:#e9f4e5;color:#336827;font:700 14px/28px ${sans};text-align:center;">${i + 1}</div>
-            </td>
-            <td valign="top" style="padding:3px 0 18px;font:15px/1.5 ${sans};color:#4d4a43;">
-              <strong style="color:#0c0e0d;">${heading}</strong><br>${text}
-            </td>
-          </tr>`,
-    )
-    .join('');
+    .map(([heading, body], i) => `<p style="${p}"><strong>${i + 1}. ${heading}.</strong> ${body}</p>`)
+    .join('\n');
 
   const html = `<!doctype html>
 <html lang="${lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light only">
 <title>${c.subject}</title>
 </head>
-<body style="margin:0;padding:0;background:#f3f0e8;">
-<div style="display:none;max-height:0;overflow:hidden;opacity:0;">${c.preheader}</div>
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f3f0e8;">
-  <tr>
-    <td align="center" style="padding:32px 16px;">
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #d9d3c6;">
-        <tr>
-          <td align="center" style="background:#0c0e0d;padding:28px 24px;">
-            <a href="${home}"><img src="${origin}/images/brand/email-logo.png" width="190" height="92" alt="Powerhouse Physical Therapy" style="display:block;border:0;width:190px;height:auto;color:#f3f0e8;font:700 18px ${sans};"></a>
-          </td>
-        </tr>
-        <tr><td style="height:4px;line-height:4px;font-size:0;background:#4ca239;">&nbsp;</td></tr>
-        <tr>
-          <td style="padding:36px 36px 8px;">
-            <h1 style="margin:0 0 12px;font:400 30px/1.2 ${serif};color:#0c0e0d;">${c.title(escapeHtml(firstName))}</h1>
-            <p style="margin:0 0 24px;font:16px/1.6 ${sans};color:#4d4a43;">${c.lead}</p>
-            <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${steps}
-            </table>
-          </td>
-        </tr>
-        <tr>
-          <td style="padding:8px 36px 32px;">
-            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f3f0e8;border-radius:12px;">
-              <tr>
-                <td style="padding:20px 24px;font:15px/1.5 ${sans};color:#4d4a43;">
-                  <strong style="color:#0c0e0d;">${c.sooner}</strong><br>
-                  <a href="tel:${PHONE_TEL}" style="display:inline-block;margin:12px 8px 0 0;padding:12px 22px;border-radius:999px;background:#4ca239;color:#0c0e0d;font:700 15px ${sans};text-decoration:none;">${c.call} ${PHONE}</a>
-                  <a href="sms:${PHONE_TEL}" style="display:inline-block;margin:12px 0 0 0;padding:11px 20px;border-radius:999px;border:1.5px solid #0c0e0d;color:#0c0e0d;font:700 15px ${sans};text-decoration:none;">${c.text}</a>
-                </td>
-              </tr>
-            </table>
-            <p style="margin:20px 0 0;font:13px/1.5 ${sans};color:#7a766d;">${c.privacy}</p>
-          </td>
-        </tr>
-        <tr>
-          <td style="background:#0c0e0d;padding:22px 36px;font:13px/1.6 ${sans};color:#a39e92;">
-            <strong style="color:#f3f0e8;">Powerhouse Sports Physical Therapy</strong><br>
-            ${ADDRESS[lang]}<br>
-            <a href="tel:${PHONE_TEL}" style="color:#72c95e;text-decoration:none;">${PHONE}</a> (${c.phoneNote}) &nbsp;·&nbsp; <a href="${home}" style="color:#72c95e;text-decoration:none;">powerhousesportspt.com</a>
-          </td>
-        </tr>
-      </table>
-      <p style="margin:16px 0 0;font:12px/1.5 ${sans};color:#7a766d;max-width:560px;">${c.sent}</p>
-    </td>
-  </tr>
-</table>
+<body style="margin:0;padding:0;">
+<div style="max-width:560px;padding:16px;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:#222222;">
+<p style="${p}">${c.greeting(escapeHtml(firstName))}</p>
+<p style="${p}">${c.lead}</p>
+${steps}
+<p style="${p}">${c.sooner(phoneLink)}</p>
+<p style="${small}">${c.privacy}</p>
+<p style="${p}">${c.signoff}<br>${c.team}</p>
+<p style="${small}">Powerhouse Sports Physical Therapy<br>${ADDRESS[lang]}<br>${PHONE} (${c.phoneNote}) · <a href="${home}" style="color:#336827;">powerhousesportspt.com</a></p>
+</div>
 </body>
 </html>`;
 
   // Plain-text twin of the HTML: mail providers trust messages that carry both.
   const text = [
-    c.title(firstName),
+    c.greeting(firstName),
     '',
     c.lead,
     '',
-    ...c.steps.map(([heading, body], i) => `${i + 1}. ${heading}: ${body}`),
+    ...c.steps.map(([heading, body], i) => `${i + 1}. ${heading}. ${body}`),
     '',
-    `${c.sooner.replace(/&nbsp;/g, ' ')} ${PHONE}`,
+    c.sooner(PHONE),
     '',
     c.privacy,
+    '',
+    c.signoff,
+    c.team,
     '',
     'Powerhouse Sports Physical Therapy',
     ADDRESS[lang],
