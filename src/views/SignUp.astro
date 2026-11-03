@@ -37,6 +37,8 @@ const insuranceOptions = [
 const messages = {
   firstName: L('Please enter your first name.', 'Escribe tu nombre.'),
   lastName: L('Please enter your last name.', 'Escribe tu apellido.'),
+  nameBad: L('Please use letters only.', 'Usa solo letras.'),
+  goalLink: L('Please remove links or web addresses.', 'Quita los enlaces o direcciones web.'),
   phoneEmpty: L('Please enter your phone number.', 'Escribe tu número de teléfono.'),
   phoneBad: L('Please enter a valid phone number, including country code if outside the US.', 'Escribe un teléfono válido, con código de país si no es de EE. UU.'),
   emailEmpty: L('Please enter your email address.', 'Escribe tu correo electrónico.'),
@@ -76,12 +78,12 @@ const schema = [
         </div>
         <div>
           <label for="firstName">{L('First name', 'Nombre')}</label>
-          <input id="firstName" name="first_name" type="text" autocomplete="given-name" required />
+          <input id="firstName" name="first_name" type="text" autocomplete="given-name" maxlength="50" required />
           <div class="feedback" id="firstName-feedback"></div>
         </div>
         <div>
           <label for="lastName">{L('Last name', 'Apellido')}</label>
-          <input id="lastName" name="last_name" type="text" autocomplete="family-name" required />
+          <input id="lastName" name="last_name" type="text" autocomplete="family-name" maxlength="50" required />
           <div class="feedback" id="lastName-feedback"></div>
         </div>
         <div class="full">
@@ -104,7 +106,7 @@ const schema = [
         </div>
         <div class="full">
           <label for="goal">{L("What's your goal?", '¿Cuál es tu meta?')}</label>
-          <textarea id="goal" name="goal" rows="4" required></textarea>
+          <textarea id="goal" name="goal" rows="4" maxlength="1000" required></textarea>
           <div class="feedback" id="goal-feedback"></div>
         </div>
         <div class="full">
@@ -132,9 +134,20 @@ const schema = [
       return function (value) { return value.trim() ? '' : message; };
     };
 
+    // Same patterns as NAME_RE and LINK_RE in the function.
+    var NAME_RE = /^[\p{L}\p{M}' .-]+$/u;
+    var LINK_RE = /(\b[a-z][a-z0-9+.-]*:\/\/|\bwww\.|<\s*[a-z!\/]|\[\s*\/?\s*(url|link)\b|\b[a-z0-9-]+\.(com|net|org|info|biz|io|co|me|ly|us|ru|cn|xyz|top|site|online|click|link|app|shop|store|live|win|vip|bet|loan)\b)/i;
+    var name = function (message) {
+      return function (value) {
+        var v = value.trim();
+        if (!v) return message;
+        return NAME_RE.test(v) ? '' : messages.nameBad;
+      };
+    };
+
     var validators = {
-      firstName: required(messages.firstName),
-      lastName: required(messages.lastName),
+      firstName: name(messages.firstName),
+      lastName: name(messages.lastName),
       phone: function (value) {
         var phone = value.trim();
         if (!phone) return messages.phoneEmpty;
@@ -149,7 +162,11 @@ const schema = [
         return '';
       },
       insurance: function (value) { return value ? '' : messages.insurance; },
-      goal: required(messages.goal),
+      goal: function (value) {
+        var v = value.trim();
+        if (!v) return messages.goal;
+        return LINK_RE.test(v) ? messages.goalLink : '';
+      },
     };
 
     function validateField(id) {
