@@ -20,6 +20,7 @@ failed confirmations are logged.
       add `contact@powerhousesportspt.com`, so lead notifications never land in spam. (Needs the owner or a clinic admin account.)
 - [ ] In Gmail, mark any form email found in Spam as "Not spam" and add `contact@powerhousesportspt.com` to contacts.
 - [ ] Check the score at mail-tester.com: submit the form with the address it gives you; aim for 9/10 or better.
+- [ ] Resend → Domains → powerhousesportspt.com: confirm open tracking and click tracking are off (both look like marketing to Gmail).
 - [ ] Optional: add the domain to Google Postmaster Tools (postmaster.google.com) to watch Gmail's rating.
 - [ ] After a few healthy weeks, tighten DMARC in Netlify DNS: change `_dmarc` from `p=none` to `p=quarantine`.
 - [ ] If a confirmation goes missing, check Resend → Emails (delivered or not) and Netlify → Logs → Functions → contact.
@@ -40,8 +41,8 @@ be a dropdown value. Dropped bot submissions are logged in Netlify → Logs → 
       from old-site addresses (send any to be redirected).
 - [x] Live Google rating: Places API (New) key and Place ID in Netlify (`GOOGLE_PLACES_API_KEY`, `GOOGLE_PLACE_ID`).
 - [x] Netlify build hook saved as `BUILD_HOOK_URL`, so the review count refreshes daily.
-- [ ] Google Business Profile: hours (Mon–Thu 7–7, Fri 8–12, weekends closed), website link, appointment link
-      (`/sign-up.html`), phone 956-307-6305 (calls and texts), add BFR, add "Se habla español", photos.
+- [x] Google Business Profile: hours, phone, website, services, Spanish under service options, attributes, new description.
+- [ ] Google Business Profile photos: logo, cover photo, team, clinic interior, Gold's Gym entrance (add as they arrive).
 - [ ] Copy the map pin coordinates from Google Maps into `src/data/clinic.ts` (`geo`).
 - [ ] Squarespace: turn on domain auto-renew; leave the nameservers pointing to Netlify.
 - [ ] HIPAA business associate agreements: accept Google's for Workspace (Admin console → Account → Account settings →
