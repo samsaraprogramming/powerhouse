@@ -70,11 +70,17 @@ const confirmCopy = {
 function confirmEmail(lang, firstName, origin) {
   const c = confirmCopy[lang];
   const home = lang === 'es' ? `${origin}/es/` : `${origin}/`;
+  // A few typographic touches (brand green on the step numbers, phone and sign-off, a small tracked clinic name)
+  // are fine for Primary; banners, images, buttons and coloured blocks are what push mail into Promotions.
+  const green = '#336827';
   const p = 'margin:0 0 16px;';
-  const small = 'margin:0 0 16px;font-size:14px;color:#666666;';
-  const phoneLink = `<a href="tel:${PHONE_TEL}" style="color:#336827;">${PHONE}</a>`;
+  const small = 'margin:0;font-size:14px;line-height:1.6;color:#6b6b6b;';
+  const phoneLink = `<a href="tel:${PHONE_TEL}" style="color:${green};font-weight:600;text-decoration:none;">${PHONE}</a>`;
   const steps = c.steps
-    .map(([heading, body], i) => `<p style="${p}"><strong>${i + 1}. ${heading}.</strong> ${body}</p>`)
+    .map(
+      ([heading, body], i) =>
+        `<p style="margin:0 0 14px;"><strong style="color:${green};">${i + 1}.</strong>&nbsp; <strong>${heading}.</strong> ${body}</p>`,
+    )
     .join('\n');
 
   const html = `<!doctype html>
@@ -85,14 +91,15 @@ function confirmEmail(lang, firstName, origin) {
 <title>${c.subject}</title>
 </head>
 <body style="margin:0;padding:0;">
-<div style="max-width:560px;padding:16px;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:#222222;">
+<div style="max-width:540px;padding:24px 20px;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.65;color:#1f2420;">
 <p style="${p}">${c.greeting(escapeHtml(firstName))}</p>
-<p style="${p}">${c.lead}</p>
+<p style="margin:0 0 20px;">${c.lead}</p>
 ${steps}
-<p style="${p}">${c.sooner(phoneLink)}</p>
-<p style="${small}">${c.privacy}</p>
-<p style="${p}">${c.signoff}<br>${c.team}</p>
-<p style="${small}">Powerhouse Sports Physical Therapy<br>${ADDRESS[lang]}<br>${PHONE} (${c.phoneNote}) · <a href="${home}" style="color:#336827;">powerhousesportspt.com</a></p>
+<p style="margin:20px 0 16px;">${c.sooner(phoneLink)}</p>
+<p style="margin:0 0 24px;font-size:14px;line-height:1.6;color:#6b6b6b;">${c.privacy}</p>
+<p style="margin:0 0 20px;">${c.signoff}<br><strong>${c.team}</strong></p>
+<p style="margin:0 0 4px;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:${green};">Powerhouse Sports Physical Therapy</p>
+<p style="${small}">${ADDRESS[lang]}<br>${PHONE} (${c.phoneNote}) · <a href="${home}" style="color:${green};text-decoration:none;">powerhousesportspt.com</a></p>
 </div>
 </body>
 </html>`;
