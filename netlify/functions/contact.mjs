@@ -5,6 +5,20 @@ const FROM_EMAIL = 'Powerhouse PT <contact@powerhousesportspt.com>';
 const json = (body, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json' } });
 
+// Input rules, mirrored in src/views/SignUp.astro so visitors see the message before sending.
+// Names: letters (accents included), spaces, apostrophes, hyphens and periods; nothing a link could hide in.
+const NAME_RE = /^[\p{L}\p{M}' .-]+$/u;
+const NAME_MAX = 50;
+const GOAL_MAX = 1000;
+// Links and markup: web addresses, bare domains on common endings, and HTML or forum tags.
+const LINK_RE =
+  /(\b[a-z][a-z0-9+.-]*:\/\/|\bwww\.|<\s*[a-z!\/]|\[\s*\/?\s*(url|link)\b|\b[a-z0-9-]+\.(com|net|org|info|biz|io|co|me|ly|us|ru|cn|xyz|top|site|online|click|link|app|shop|store|live|win|vip|bet|loan)\b)/i;
+// The submitted values from the insurance dropdown (always in English).
+const INSURANCE = [
+  'None', 'Aetna', 'Blue Cross Blue Shield', 'Cigna', 'Humana', 'Medicare', 'Medicaid', 'Tricare',
+  'UnitedHealthcare', "Workers' compensation", 'Other',
+];
+
 const escapeHtml = (value) =>
   value
     .replace(/&/g, '&amp;')
@@ -154,24 +168,36 @@ function confirmEmail(lang, firstName, origin) {
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-// Resend allows about 2 requests a second; a 429 or a 5xx is retried once after a short pause.
-async function sendEmail(apiKey, { to, subject, html, text, replyTo }) {
+// Resend allows about 2 requests a second; a 429, a 5xx or a dropped connection is retried once after a short pause.
+// Both attempts carry the same idempotency key, so if the first one actually went through, Resend doesn't send
+// it again (keys are remembered for 24 hours). Returns the HTTP status, or 0 if Resend couldn't be reached.
+async function sendEmail(apiKey, { to, subject, html, text, replyTo, idempotencyKey }) {
   const data = { from: FROM_EMAIL, to: [to], subject, html };
   if (text) data.text = text;
   if (replyTo) data.reply_to = replyTo;
 
   for (let attempt = 1; ; attempt++) {
-    const response = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    });
+    let status;
+    try {
+      const response = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          'Content-Type': 'application/json',
+          'Idempotency-Key': idempotencyKey,
+        },
+        body: JSON.stringify(data),
+      });
+      if (response.ok) return response.status;
+      status = response.status;
+      console.error(`Resend ${status} (attempt ${attempt}, "${subject}"): ${await response.text()}`);
+    } catch (error) {
+      status = 0;
+      console.error(`Resend unreachable (attempt ${attempt}, "${subject}"): ${error}`);
+    }
 
-    if (response.ok) return response.status;
-
-    const retryable = response.status === 429 || response.status >= 500;
-    console.error(`Resend ${response.status} (attempt ${attempt}, "${subject}"): ${await response.text()}`);
-    if (!retryable || attempt === 2) return response.status;
+    const retryable = status === 0 || status === 429 || status >= 500;
+    if (!retryable || attempt === 2) return status;
     await sleep(1200);
   }
 }
@@ -220,12 +246,29 @@ export default async (req) => {
   if (!firstName || !lastName || !insurance || !goal) {
     return json({ status: 'error', message: 'All fields are required.' }, 400);
   }
+  // The first name also goes into the confirmation sent to the visitor's address, so names are kept to plain
+  // letters: the form can't be used to put a link in front of someone else.
+  if ([firstName, lastName].some((name) => name.length > NAME_MAX || !NAME_RE.test(name))) {
+    return json({ status: 'error', message: 'Please enter names using letters only.' }, 400);
+  }
+  if (goal.length > GOAL_MAX) {
+    return json({ status: 'error', message: `Please keep your goal under ${GOAL_MAX} characters.` }, 400);
+  }
+  if (LINK_RE.test(goal)) {
+    return json({ status: 'error', message: 'Please remove links or web addresses from your goal.' }, 400);
+  }
+  if (!INSURANCE.includes(insurance)) {
+    return json({ status: 'error', message: 'Please select your insurance provider from the list.' }, 400);
+  }
   if (!validPhone) {
     return json({ status: 'error', message: 'Please enter a valid phone number.' }, 400);
   }
   if (!validEmail) {
     return json({ status: 'error', message: 'Please enter a valid email address.' }, 400);
   }
+
+  // One ID per submission; each email gets its own key so a retry can't deliver it twice.
+  const submissionId = crypto.randomUUID();
 
   // Subjects are plain text; keep them on one line.
   const subjectName = `${firstName} ${lastName}`.replace(/[\r\n]+/g, ' ').trim();
@@ -246,6 +289,7 @@ export default async (req) => {
     html: notifyBody,
     text: notifyText,
     replyTo: email,
+    idempotencyKey: `${submissionId}-notify`,
   });
 
   if (status !== 200 && status !== 201) {
@@ -264,6 +308,7 @@ export default async (req) => {
     text: confirm.text,
     // Replies go to the clinic inbox, not the sending address.
     replyTo: TO_EMAIL.toLowerCase(),
+    idempotencyKey: `${submissionId}-confirm`,
   });
   if (confirmStatus !== 200 && confirmStatus !== 201) {
     console.error(`Confirmation email to the visitor failed with ${confirmStatus}; the clinic notification was sent.`);
