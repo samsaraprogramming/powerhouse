@@ -5,7 +5,7 @@
 export const REVIEWS_URL =
   'https://www.google.com/search?hl=en-US&gl=us&q=Powerhouse+PT-+Physical+Therapy,+2446+San+Isidro+Pkwy,+Laredo,+TX+78045&ludocid=1487800702119469561#lrd=0x866121cdb1abf8e9:0x14a5badb1a6861f9,1,,,,';
 
-const FALLBACK = { rating: 5.0, count: 118 };
+const FALLBACK = { rating: 5.0, count: 152 };
 
 // Every page's JSON-LD uses the rating, so fetch it once per build and share the promise.
 let cached: Promise<{ rating: number; count: number }> | undefined;

@@ -6,3 +6,4 @@ dist
 .astro
 .netlify
 .env
+.DS_Store
