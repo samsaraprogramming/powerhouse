@@ -49,7 +49,7 @@ const schema = [
       <div class="wrap wrap--narrow prose">
         <div class="callout takeaways">
           <h2 style="font-size: 1.15rem; margin-top: 0;">{L('Key points', 'Puntos clave')}</h2>
-          <ul class="list-check" style="margin: 0;">{p.takeaways[lang].map((k) => <li>{k}</li>)}</ul>
+          <ul class="keypoints">{p.takeaways[lang].map((k) => <li>{k}</li>)}</ul>
         </div>
         {p.sections[lang].map((s) => (
           <Fragment>

@@ -57,14 +57,19 @@ const schema = [
       <article class="prose">
         <p class="lead" style="color: var(--ink);">{c.intro[lang]}</p>
 
-        <h2>{L(`What does ${name.toLowerCase()} feel like?`, `¿Cómo se siente?`)}</h2>
-        <ul class="list-check">{c.symptoms[lang].map((s) => <li>{s}</li>)}</ul>
-
-        <h2>{L('What usually causes it?', '¿Qué lo causa normalmente?')}</h2>
-        <ul class="list-check">{c.causes[lang].map((s) => <li>{s}</li>)}</ul>
+        <div class="cond-pair">
+          <div>
+            <h2>{L(`What does ${name.toLowerCase()} feel like?`, `¿Cómo se siente?`)}</h2>
+            <ul class="cond-list">{c.symptoms[lang].map((s) => <li>{s}</li>)}</ul>
+          </div>
+          <div>
+            <h2>{L('What usually causes it?', '¿Qué lo causa normalmente?')}</h2>
+            <ul class="cond-list cond-list--causes">{c.causes[lang].map((s) => <li>{s}</li>)}</ul>
+          </div>
+        </div>
 
         <h2>{L('How can physical therapy help?', '¿Cómo puede ayudar la terapia física?')}</h2>
-        <ul class="list-check">{c.treatment[lang].map((s) => <li>{s}</li>)}</ul>
+        <ul class="cond-list cond-list--help">{c.treatment[lang].map((s) => <li>{s}</li>)}</ul>
 
         <h2>{L('When should I get it checked?', '¿Cuándo debo revisarlo?')}</h2>
         <p>{c.whenToSeek[lang]}</p>
