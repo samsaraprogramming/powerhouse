@@ -276,7 +276,11 @@ const schema = [
       var btn = document.getElementById('submit-btn');
       var success = document.getElementById('form-success');
       var error = document.getElementById('form-error');
-      document.getElementById('elapsed').value = String(Date.now() - openedAt);
+      var elapsed = Date.now() - openedAt;
+      document.getElementById('elapsed').value = String(elapsed);
+      // The server quietly answers "success" to bots without sending anything, so only count
+      // a booking in Plausible when the same checks pass here (honeypot empty, 3+ seconds to fill).
+      var looksHuman = !document.getElementById('website').value && elapsed >= 3000;
       btn.disabled = true;
       btn.textContent = messages.sending;
       success.hidden = true;
@@ -290,7 +294,7 @@ const schema = [
         .then(function (data) {
           if (data.status !== 'success') throw new Error(data.message || 'Unknown error');
           success.hidden = false;
-          if (window.plausible) window.plausible('Booking form sent');
+          if (looksHuman && window.plausible) window.plausible('Booking form sent');
           form.reset();
           emailSuggest.textContent = '';
           openedAt = Date.now();
