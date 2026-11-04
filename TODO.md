@@ -16,8 +16,10 @@ Already done in code: SPF, DKIM and DMARC records; plain-text versions of both e
 confirmation go to info@; a busy or unreachable Resend is retried once with an idempotency key (no duplicates);
 failed confirmations are logged.
 
-- [ ] Google Admin console → Apps → Google Workspace → Gmail → Spam, Phishing and Malware → Email allowlist:
-      add `contact@powerhousesportspt.com`, so lead notifications never land in spam. (Needs the owner or a clinic admin account.)
+- [ ] Google Admin console → Apps → Google Workspace → Gmail → Spam, Phishing and Malware → Spam → Configure:
+      "Bypass spam filters… approved senders lists", with an address list holding `contact@powerhousesportspt.com` and
+      "Require sender authentication" checked. (The "Email allowlist" setting there takes IP addresses, not this.)
+      Needs the owner or another super admin.
 - [ ] In Gmail, mark any form email found in Spam as "Not spam" and add `contact@powerhousesportspt.com` to contacts.
 - [x] Check the score at mail-tester.com: submit the form with the address it gives you; aim for 9/10 or better. (10/10, November 2026)
 - [x] Resend → Domains → powerhousesportspt.com: confirm open tracking and click tracking are off (both look like marketing to Gmail).
