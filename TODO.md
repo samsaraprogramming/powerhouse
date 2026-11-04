@@ -45,8 +45,8 @@ be a dropdown value. Dropped bot submissions are logged in Netlify → Logs → 
 - [ ] Google Business Profile photos: logo, cover photo, team, clinic interior, Gold's Gym entrance (add as they arrive).
 - [x] Copy the map pin coordinates from Google Maps into `src/data/clinic.ts` (`geo`).
 - [x] Squarespace: turn on domain auto-renew; leave the nameservers pointing to Netlify.
-- [ ] HIPAA business associate agreements: accept Google's for Workspace (Admin console → Account → Account settings →
-      Legal and compliance) and ask Resend about theirs.
+- [ ] HIPAA business associate agreement: accept Google's for Workspace (Admin console → Account → Account settings →
+      Legal and compliance). Resend was asked: it does not sign BAAs (see "Later" below).
 - [ ] Cancel HostGator around November 8, 2026, after downloading a backup of the old files. Nothing uses it any more.
 
 ## From the clinic
@@ -57,6 +57,14 @@ be a dropdown value. Dropped bot submissions are logged in Netlify → Logs → 
       Leslie: neck, knee, foot & ankle, post-surgical, ankle sprain article, running article.
 - [ ] Spanish read-through by a native speaker.
 - [ ] Photos: home banner / social share image, clinic interior, gym entrance and parking, team photo, BFR session.
+
+## Later
+
+- [ ] HIPAA and form email: Resend doesn't sign a BAA, but the lead notification carries what the patient wrote about
+      their condition. Options, best first: send both form emails through Google Workspace (covered by Google's BAA once
+      accepted); or switch to a provider that signs BAAs (for example Amazon SES or Paubox); or keep Resend and leave the
+      goal out of the email, so the clinic reads it somewhere covered. Check the choice with whoever handles the
+      clinic's HIPAA compliance.
 
 ## Optional improvements
 
