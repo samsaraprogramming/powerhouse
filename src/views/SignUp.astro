@@ -110,6 +110,12 @@ const schema = [
         <div class="full">
           <label for="goal">{L("What's your goal?", '¿Cuál es tu meta?')}</label>
           <textarea id="goal" name="goal" rows="4" maxlength="1000" required></textarea>
+          <p class="form-hint" id="goal-hint">
+            {L(
+              "A short summary is enough. Please don't include medications, test results or insurance numbers; we'll go over the details on the phone.",
+              'Con un breve resumen basta. Por favor no incluyas medicamentos, resultados de estudios ni números de seguro; revisaremos los detalles por teléfono.',
+            )}
+          </p>
           <div class="feedback" id="goal-feedback"></div>
         </div>
         <div class="full">
@@ -247,7 +253,8 @@ const schema = [
 
     Object.keys(validators).forEach(function (id) {
       var field = document.getElementById(id);
-      field.setAttribute('aria-describedby', id + '-feedback');
+      var hint = document.getElementById(id + '-hint');
+      field.setAttribute('aria-describedby', (hint ? hint.id + ' ' : '') + id + '-feedback');
       field.addEventListener('blur', function () { validateField(id); });
       field.addEventListener('input', function () {
         if (field.classList.contains('is-invalid')) validateField(id);
