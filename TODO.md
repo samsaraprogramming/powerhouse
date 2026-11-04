@@ -43,7 +43,7 @@ be a dropdown value. Dropped bot submissions are logged in Netlify → Logs → 
 - [x] Netlify build hook saved as `BUILD_HOOK_URL`, so the review count refreshes daily.
 - [x] Google Business Profile: hours, phone, website, services, Spanish under service options, attributes, new description.
 - [ ] Google Business Profile photos: logo, cover photo, team, clinic interior, Gold's Gym entrance (add as they arrive).
-- [ ] Copy the map pin coordinates from Google Maps into `src/data/clinic.ts` (`geo`).
+- [x] Copy the map pin coordinates from Google Maps into `src/data/clinic.ts` (`geo`).
 - [ ] Squarespace: turn on domain auto-renew; leave the nameservers pointing to Netlify.
 - [ ] HIPAA business associate agreements: accept Google's for Workspace (Admin console → Account → Account settings →
       Legal and compliance) and ask Resend about theirs.
@@ -51,7 +51,7 @@ be a dropdown value. Dropped bot submissions are logged in Netlify → Logs → 
 
 ## From the clinic
 
-- [ ] Map coordinates (the last placeholder in [MOCK_DATA.md](MOCK_DATA.md)).
+- [x] Map coordinates (the last placeholder in [MOCK_DATA.md](MOCK_DATA.md)).
 - [ ] Clinical review: each doctor skims the pages under her name and updates the review dates.
       Sandra: back, shoulder, hip, sports injuries, desk-job article.
       Leslie: neck, knee, foot & ankle, post-surgical, ankle sprain article, running article.
