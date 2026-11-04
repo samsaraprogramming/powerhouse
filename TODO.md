@@ -72,7 +72,7 @@ be a dropdown value. Dropped bot submissions are logged in Netlify → Logs → 
 ## Optional improvements
 
 - [ ] Visitor analytics with Plausible, counting form sign-ups and phone/text taps (needs an account).
-- [ ] Form privacy hint under the goal box ("don't include medications, test results or insurance numbers").
+- [x] Form privacy hint under the goal box ("don't include medications, test results or insurance numbers").
 - [ ] Branded social share image until a real photo arrives.
 - [ ] Restyle the remaining checkmark lists: condition pages, library takeaways, access page.
 - [ ] Match the sitemap's language codes (`en-US`/`es-US`) to the pages' (`en`/`es`).

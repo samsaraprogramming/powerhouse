@@ -1135,6 +1135,13 @@ a.card:hover {
   color: #c92a2a;
 }
 
+.form-hint {
+  margin: 6px 0 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
 .form-suggest {
   font-size: 0.9rem;
   color: var(--ink-2);
