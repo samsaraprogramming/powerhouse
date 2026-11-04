@@ -71,7 +71,7 @@ be a dropdown value. Dropped bot submissions are logged in Netlify → Logs → 
 
 ## Optional improvements
 
-- [ ] Visitor analytics with Plausible, counting form sign-ups and phone/text taps (needs an account).
+- [x] Visitor analytics with Plausible, counting form sign-ups and phone/text taps.
 - [x] Form privacy hint under the goal box ("don't include medications, test results or insurance numbers").
 - [ ] Branded social share image until a real photo arrives.
 - [x] Restyle the remaining checkmark lists: condition pages and library takeaways (access page stays a checklist).

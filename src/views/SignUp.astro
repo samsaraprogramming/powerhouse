@@ -290,6 +290,7 @@ const schema = [
         .then(function (data) {
           if (data.status !== 'success') throw new Error(data.message || 'Unknown error');
           success.hidden = false;
+          if (window.plausible) window.plausible('Booking form sent');
           form.reset();
           emailSuggest.textContent = '';
           openedAt = Date.now();
