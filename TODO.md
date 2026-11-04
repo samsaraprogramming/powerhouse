@@ -75,6 +75,6 @@ be a dropdown value. Dropped bot submissions are logged in Netlify → Logs → 
 - [x] Form privacy hint under the goal box ("don't include medications, test results or insurance numbers").
 - [ ] Branded social share image until a real photo arrives.
 - [ ] Restyle the remaining checkmark lists: condition pages, library takeaways, access page.
-- [ ] Match the sitemap's language codes (`en-US`/`es-US`) to the pages' (`en`/`es`).
+- [x] Match the sitemap's language codes (`en-US`/`es-US`) to the pages' (`en`/`es`).
 - [ ] Decide whether Spanish page addresses should use Spanish words (`/es/condiciones/...`); redirects needed if changed after launch.
 - [ ] Delete the unused images in `public/images/legacy/`.

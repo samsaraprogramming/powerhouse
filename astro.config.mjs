@@ -10,8 +10,9 @@ export default defineConfig({
   compressHTML: false,
   integrations: [
     sitemap({
-      // Pair each English page with its /es/ twin so the sitemap carries hreflang links.
-      i18n: { defaultLocale: 'en', locales: { en: 'en-US', es: 'es-US' } },
+      // Pair each English page with its /es/ twin so the sitemap carries hreflang links. Plain en/es, matching the
+      // pages' own lang and hreflang tags (and reaching Spanish speakers on both sides of the border).
+      i18n: { defaultLocale: 'en', locales: { en: 'en', es: 'es' } },
       filter: (page) => !page.endsWith('/404') && !page.endsWith('/404.html'),
       // List the same .html URLs the pages declare as canonical.
       serialize(item) {
