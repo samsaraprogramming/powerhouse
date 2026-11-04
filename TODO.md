@@ -19,7 +19,7 @@ failed confirmations are logged.
 - [ ] Google Admin console → Apps → Google Workspace → Gmail → Spam, Phishing and Malware → Email allowlist:
       add `contact@powerhousesportspt.com`, so lead notifications never land in spam. (Needs the owner or a clinic admin account.)
 - [ ] In Gmail, mark any form email found in Spam as "Not spam" and add `contact@powerhousesportspt.com` to contacts.
-- [ ] Check the score at mail-tester.com: submit the form with the address it gives you; aim for 9/10 or better.
+- [x] Check the score at mail-tester.com: submit the form with the address it gives you; aim for 9/10 or better. (10/10, November 2026)
 - [x] Resend → Domains → powerhousesportspt.com: confirm open tracking and click tracking are off (both look like marketing to Gmail).
 - [ ] Optional: add the domain to Google Postmaster Tools (postmaster.google.com) to watch Gmail's rating.
 - [ ] After a few healthy weeks, tighten DMARC in Netlify DNS: change `_dmarc` from `p=none` to `p=quarantine`.
@@ -44,7 +44,7 @@ be a dropdown value. Dropped bot submissions are logged in Netlify → Logs → 
 - [x] Google Business Profile: hours, phone, website, services, Spanish under service options, attributes, new description.
 - [ ] Google Business Profile photos: logo, cover photo, team, clinic interior, Gold's Gym entrance (add as they arrive).
 - [x] Copy the map pin coordinates from Google Maps into `src/data/clinic.ts` (`geo`).
-- [ ] Squarespace: turn on domain auto-renew; leave the nameservers pointing to Netlify.
+- [x] Squarespace: turn on domain auto-renew; leave the nameservers pointing to Netlify.
 - [ ] HIPAA business associate agreements: accept Google's for Workspace (Admin console → Account → Account settings →
       Legal and compliance) and ask Resend about theirs.
 - [ ] Cancel HostGator around November 8, 2026, after downloading a backup of the old files. Nothing uses it any more.
