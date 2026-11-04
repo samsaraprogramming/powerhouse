@@ -20,7 +20,7 @@ failed confirmations are logged.
       add `contact@powerhousesportspt.com`, so lead notifications never land in spam. (Needs the owner or a clinic admin account.)
 - [ ] In Gmail, mark any form email found in Spam as "Not spam" and add `contact@powerhousesportspt.com` to contacts.
 - [ ] Check the score at mail-tester.com: submit the form with the address it gives you; aim for 9/10 or better.
-- [ ] Resend → Domains → powerhousesportspt.com: confirm open tracking and click tracking are off (both look like marketing to Gmail).
+- [x] Resend → Domains → powerhousesportspt.com: confirm open tracking and click tracking are off (both look like marketing to Gmail).
 - [ ] Optional: add the domain to Google Postmaster Tools (postmaster.google.com) to watch Gmail's rating.
 - [ ] After a few healthy weeks, tighten DMARC in Netlify DNS: change `_dmarc` from `p=none` to `p=quarantine`.
 - [ ] If a confirmation goes missing, check Resend → Emails (delivered or not) and Netlify → Logs → Functions → contact.
