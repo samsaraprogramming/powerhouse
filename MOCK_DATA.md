@@ -43,8 +43,8 @@ credited to AAOS and linked in the page's sources, not as a clinic promise.
 
 ## Images
 
-Images live in `public/images/` by use: `brand/`, `team/`, `services/`, `conditions/`, `library/`,
-and `legacy/` (files from the old site no page uses any more). New photos are licensed Adobe Stock,
+Images live in `public/images/` by use: `brand/`, `team/`, `services/`, `conditions/` and
+`library/`. New photos are licensed Adobe Stock,
 resized to 1600px and saved as WebP. All 8 condition pages, the orthopedic service and the library
 articles now have their own photos.
 
