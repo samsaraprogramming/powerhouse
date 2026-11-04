@@ -85,36 +85,6 @@
   to = "/images/services/orthopedic-sports-therapy.webp"
   status = 301
 
-[[redirects]]
-  from = "/images/blue-background.webp"
-  to = "/images/legacy/blue-background.webp"
-  status = 301
-
-[[redirects]]
-  from = "/images/blue-cross.png"
-  to = "/images/legacy/blue-cross.png"
-  status = 301
-
-[[redirects]]
-  from = "/images/medicare-logo.png"
-  to = "/images/legacy/medicare-logo.png"
-  status = 301
-
-[[redirects]]
-  from = "/images/muscle-icon2.png"
-  to = "/images/legacy/muscle-icon2.png"
-  status = 301
-
-[[redirects]]
-  from = "/images/root-cause2.png"
-  to = "/images/legacy/root-cause2.png"
-  status = 301
-
-[[redirects]]
-  from = "/images/target.png"
-  to = "/images/legacy/target.png"
-  status = 301
-
 # Let browsers keep static files. Fonts and Astro's hashed bundles never change in place;
 # photos can be replaced under the same name, so they get a week.
 [[headers]]
