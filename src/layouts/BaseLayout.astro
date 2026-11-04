@@ -67,6 +67,18 @@ const graph = { '@context': 'https://schema.org', '@graph': [clinicNode(rating),
     {theme.fontPreload.map((font) => <link rel="preload" href={font} as="font" type="font/woff2" crossorigin />)}
 
     <script is:inline type="application/ld+json" set:html={JSON.stringify(graph)} />
+
+    {/* Plausible: cookie-free visitor counts. It ignores localhost. Events carry no personal data:
+        "Phone tap" and "Text tap" here, "Booking form sent" in SignUp.astro. */}
+    <script is:inline async src="https://plausible.io/js/pa-gzwcHSRz6xvYansZLpyTI.js"></script>
+    <script is:inline>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init();
+      document.addEventListener('click', function (e) {
+        var link = e.target.closest && e.target.closest('a[href^="tel:"], a[href^="sms:"]');
+        if (link) plausible(link.href.indexOf('sms:') === 0 ? 'Text tap' : 'Phone tap');
+      });
+    </script>
     <slot name="head" />
   </head>
 
