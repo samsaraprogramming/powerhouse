@@ -42,7 +42,7 @@ be a dropdown value. Dropped bot submissions are logged in Netlify → Logs → 
 - [ ] Search Console, about a week after setup: Sitemaps shows Success; Indexing → Pages has no "Not found (404)"
       from old-site addresses (send any to be redirected).
 - [x] Live Google rating: Places API (New) key and Place ID in Netlify (`GOOGLE_PLACES_API_KEY`, `GOOGLE_PLACE_ID`).
-- [x] Netlify build hook saved as `BUILD_HOOK_URL`, so the review count refreshes daily.
+- [x] Netlify build hook saved as `BUILD_HOOK_URL`, so the review count refreshes weekly (daily used too many Netlify credits).
 - [x] Google Business Profile: hours, phone, website, services, Spanish under service options, attributes, new description.
 - [ ] Google Business Profile photos: logo, cover photo, team, clinic interior, Gold's Gym entrance (add as they arrive).
 - [x] Copy the map pin coordinates from Google Maps into `src/data/clinic.ts` (`geo`).
