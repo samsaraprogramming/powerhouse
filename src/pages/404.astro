@@ -10,4 +10,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="lead" lang="es">Esta página no existe. Visita el <a href="/es/">inicio</a> o <a href="/es/sign-up.html">contáctanos</a>.</p>
     </div>
   </section>
+  <script is:inline>
+    if (window.plausible) window.plausible('404', { props: { path: location.pathname } });
+  </script>
 </BaseLayout>
