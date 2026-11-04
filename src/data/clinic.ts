@@ -17,7 +17,7 @@ export const clinic = {
     postalCode: '78045',
     country: 'US',
   },
-  geo: { lat: 27.5627, lng: -99.4422 }, // MOCK: approximate, confirm from the Google listing
+  geo: { lat: 27.60487, lng: -99.475718 }, // Google Maps pin for the listing, November 2026
   mapUrl: 'https://maps.app.goo.gl/yDw3U9cw4icQMNew6',
   mapEmbed:
     'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d226282.67799933587!2d-99.61554858359375!3d27.603856700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866121cdb1abf8e9%3A0x14a5badb1a6861f9!2sPowerhouse%20PT-%20Physical%20Therapy!5e0!3m2!1sen!2sus!4v1781297069318!5m2!1sen!2sus',
