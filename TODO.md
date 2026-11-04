@@ -16,7 +16,7 @@ Already done in code: SPF, DKIM and DMARC records; plain-text versions of both e
 confirmation go to info@; a busy or unreachable Resend is retried once with an idempotency key (no duplicates);
 failed confirmations are logged.
 
-- [ ] Google Admin console → Apps → Google Workspace → Gmail → Spam, Phishing and Malware → Spam → Configure:
+- [x] Google Admin console → Apps → Google Workspace → Gmail → Spam, Phishing and Malware → Spam → Configure:
       "Bypass spam filters… approved senders lists", with an address list holding `contact@powerhousesportspt.com` and
       "Require sender authentication" checked. (The "Email allowlist" setting there takes IP addresses, not this.)
       Needs the owner or another super admin.
