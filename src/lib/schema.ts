@@ -57,7 +57,7 @@ export function clinicNode(rating: { rating: number; count: number }) {
       reviewCount: rating.count,
       bestRating: 5,
     },
-    sameAs: [clinic.social.instagram, clinic.social.facebook],
+    sameAs: [clinic.googleMaps, clinic.social.instagram, clinic.social.facebook],
   };
 }
 
