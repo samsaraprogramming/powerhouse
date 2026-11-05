@@ -21,6 +21,8 @@ export const clinic = {
   mapUrl: 'https://maps.app.goo.gl/yDw3U9cw4icQMNew6',
   mapEmbed:
     'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d226282.67799933587!2d-99.61554858359375!3d27.603856700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866121cdb1abf8e9%3A0x14a5badb1a6861f9!2sPowerhouse%20PT-%20Physical%20Therapy!5e0!3m2!1sen!2sus!4v1781297069318!5m2!1sen!2sus',
+  // Google Maps listing by its permanent ID (CID), so search engines and AI tools tie the site to the listing.
+  googleMaps: 'https://maps.google.com/?cid=1487800702119469561',
   social: {
     instagram: 'https://www.instagram.com/powerhousept_',
     facebook: 'https://www.facebook.com/people/Powerhouse-PT-Physical-Therapy/100094690571519/',
