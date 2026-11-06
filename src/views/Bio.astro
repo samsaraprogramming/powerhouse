@@ -50,8 +50,9 @@ const schema = [
   <section class="section section--tight">
     <div class="wrap two-col">
       <div class="prose">
-        {m.paragraphs.map((p) => <p set:html={p} />)}
+        <p set:html={m.paragraphs[0]} />
         {bioQuotes[slug] && <PatientQuote lang={lang} variant="hang" quote={bioQuotes[slug]} />}
+        {m.paragraphs.slice(1).map((p) => <p set:html={p} />)}
       </div>
       {(reviewed.length > 0 || written.length > 0) && (
         <aside class="callout" style="align-self: start;">
