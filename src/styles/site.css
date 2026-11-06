@@ -987,6 +987,109 @@ a.card:hover {
   color: var(--accent-text);
 }
 
+/* Patient quotes set into the page text (PatientQuote.astro). No card or stars, so they read
+   differently from the home page's review reel. */
+.pq {
+  margin: 2.2em 0;
+}
+
+.pq blockquote {
+  margin: 0;
+}
+
+.pq p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: var(--display-weight);
+}
+
+.pq__who {
+  margin-top: 14px;
+  font-size: 0.85rem;
+  color: var(--ink-2);
+}
+
+.pq__who strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.pq__who a {
+  color: inherit;
+}
+
+/* Hang: a large ember quote mark sits in the margin beside the quote. */
+.pq--hang {
+  position: relative;
+  padding-left: 44px;
+}
+
+.pq--hang::before {
+  content: '\201C';
+  position: absolute;
+  left: -4px;
+  top: -0.18em;
+  font: italic 4.2rem/1 var(--font-display);
+  color: var(--ember, var(--accent-text));
+}
+
+.pq--hang p {
+  font-size: 1.32rem;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+/* Turn: "Came in" then "Now", the patient's own before and after. */
+.pq--turn blockquote {
+  display: grid;
+  gap: 14px;
+}
+
+.pq__step {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  gap: 16px;
+  align-items: baseline;
+}
+
+.pq__label {
+  font: 700 0.72rem/1 var(--font-body);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.pq__step p {
+  font-size: 1.18rem;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
+.pq__step--now .pq__label {
+  color: var(--accent-text);
+}
+
+.pq__step--now p {
+  font-size: 1.3rem;
+  color: var(--ink);
+}
+
+.pq--turn .pq__who {
+  padding-left: 92px;
+}
+
+@media (max-width: 520px) {
+  .pq__step {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .pq--turn .pq__who {
+    padding-left: 0;
+  }
+}
+
 /* Article key points: small sage rings with a soft fill. */
 .keypoints {
   display: grid;
