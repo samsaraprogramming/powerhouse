@@ -3,7 +3,7 @@
  * Every fragment is copied word for word from the review (only trimmed, marked with …), so they stay in
  * English on the Spanish pages. Names are first name + last initial.
  *
- * Condition pages use the "Came in / Now" layout (`came` + `now`); service pages and bios use the
+ * Condition pages use the "Then / Now" layout (`came` + `now`); service pages and bios use the
  * hanging quote (`text`). Before adding one, check it word for word against the review on Google.
  */
 import type { Lang } from '../i18n/ui';
