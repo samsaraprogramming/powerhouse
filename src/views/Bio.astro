@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 import CtaBand from '../components/CtaBand.astro';
+import PatientQuote from '../components/PatientQuote.astro';
+import { bioQuotes } from '../data/quotes';
 import { href, t, type Lang } from '../i18n/ui';
 import { getMember, plain } from '../lib/content';
 import { conditions } from '../data/conditions';
@@ -49,6 +51,7 @@ const schema = [
     <div class="wrap two-col">
       <div class="prose">
         {m.paragraphs.map((p) => <p set:html={p} />)}
+        {bioQuotes[slug] && <PatientQuote lang={lang} variant="hang" quote={bioQuotes[slug]} />}
       </div>
       {(reviewed.length > 0 || written.length > 0) && (
         <aside class="callout" style="align-self: start;">

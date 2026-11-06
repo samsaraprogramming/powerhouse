@@ -5,6 +5,8 @@ import PageHero from '../components/PageHero.astro';
 import CtaBand from '../components/CtaBand.astro';
 import ProcessSteps from '../components/ProcessSteps.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
+import PatientQuote from '../components/PatientQuote.astro';
+import { serviceQuotes } from '../data/quotes';
 import { href, t, type Lang } from '../i18n/ui';
 import { getService, plain } from '../lib/content';
 import { conditions } from '../data/conditions';
@@ -47,6 +49,7 @@ const schema = [
   <section class="section section--tight">
     <div class="wrap wrap--narrow">
       <p class="lead" style="color: var(--ink);" set:html={s.intro} />
+      {serviceQuotes[slug] && <PatientQuote lang={lang} variant="hang" quote={serviceQuotes[slug]} />}
     </div>
   </section>
 
