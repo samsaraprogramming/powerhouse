@@ -1,0 +1,36 @@
+---
+// One patient's words from a Google review, set into the page text (not a card, so it doesn't repeat
+// the home page's review reel). "turn" shows where they started and where they are now (condition
+// pages); "hang" is a single quote with a large mark in the margin (service pages and bios).
+import { REVIEWS_URL } from '../data/googleRating';
+import type { HangQuote, TurnQuote } from '../data/quotes';
+import type { Lang } from '../i18n/ui';
+
+type Props = { lang: Lang } & ({ variant: 'turn'; quote: TurnQuote } | { variant: 'hang'; quote: HangQuote });
+
+const { lang, variant, quote } = Astro.props;
+const es = lang === 'es';
+---
+
+<figure class:list={['pq', `pq--${variant}`]}>
+  {variant === 'turn' ? (
+    <blockquote lang="en">
+      <div class="pq__step">
+        <span class="pq__label" lang={lang}>{es ? 'Al llegar' : 'Came in'}</span>
+        <p>“{(quote as TurnQuote).came}”</p>
+      </div>
+      <div class="pq__step pq__step--now">
+        <span class="pq__label" lang={lang}>{es ? 'Ahora' : 'Now'}</span>
+        <p>“{(quote as TurnQuote).now}”</p>
+      </div>
+    </blockquote>
+  ) : (
+    <blockquote lang="en">
+      <p>{(quote as HangQuote).text}</p>
+    </blockquote>
+  )}
+  <figcaption class="pq__who">
+    <strong>{quote.name}</strong> · {quote.context[lang]} ·{' '}
+    <a href={REVIEWS_URL} target="_blank" rel="noopener">{es ? 'Reseña de Google' : 'Google review'}</a>
+  </figcaption>
+</figure>

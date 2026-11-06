@@ -6,6 +6,8 @@ import Sources from '../components/Sources.astro';
 import FaqList from '../components/FaqList.astro';
 import CtaBand from '../components/CtaBand.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
+import PatientQuote from '../components/PatientQuote.astro';
+import { conditionQuotes } from '../data/quotes';
 import { href, t, type Lang } from '../i18n/ui';
 import { conditionBySlug } from '../data/conditions';
 import { posts } from '../data/posts';
@@ -70,6 +72,7 @@ const schema = [
 
         <h2>{L('How can physical therapy help?', '¿Cómo puede ayudar la terapia física?')}</h2>
         <ul class="cond-list cond-list--help">{c.treatment[lang].map((s) => <li>{s}</li>)}</ul>
+        {conditionQuotes[slug] && <PatientQuote lang={lang} variant="turn" quote={conditionQuotes[slug]} />}
 
         <h2>{L('When should I get it checked?', '¿Cuándo debo revisarlo?')}</h2>
         <p>{c.whenToSeek[lang]}</p>
