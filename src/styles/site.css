@@ -1229,6 +1229,11 @@ a.card:hover {
   margin: 0;
 }
 
+/* Times stay on one line ("8 am – 12 pm"); in a narrow column the day names wrap instead. */
+.hours dd {
+  white-space: nowrap;
+}
+
 .map {
   width: 100%;
   aspect-ratio: 4 / 3;
