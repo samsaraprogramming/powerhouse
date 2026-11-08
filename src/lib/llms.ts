@@ -18,7 +18,7 @@ function facts(lang: Lang) {
       `- Teléfono (llamadas o mensajes de texto): ${clinic.phone} · Fax: ${clinic.fax} · Correo: ${clinic.email}`,
       `- Horario: ${hoursText('es')}`,
       `- Idiomas: inglés y español; las visitas pueden ser en español`,
-      `- Acceso directo: en Texas puedes atenderte sin referencia médica hasta por ${directAccess.days} días consecutivos`,
+      `- Acceso directo: en Texas puedes atenderte sin referencia médica hasta por ${directAccess.days} días naturales consecutivos (HB 4099, vigente desde el 1 de septiembre de 2025): ${abs(href('es', '/direct-access.html'))}`,
       `- Seguros: ${insurance.summary.es} Llama para verificar tu plan.${insurance.hsaFsa ? ' Se aceptan HSA/FSA.' : ''}`,
       `- Pago directo (sin seguro): disponible; llama para más detalles (los precios no se publican)`,
       `- Zona: una sola clínica en Laredo (sin otras sucursales); los pacientes vienen de ${areasServed.join(', ')}`,
@@ -30,7 +30,7 @@ function facts(lang: Lang) {
     `- Phone (call or text): ${clinic.phone} · Fax: ${clinic.fax} · Email: ${clinic.email}`,
     `- Hours: ${hoursText('en')}`,
     `- Languages: ${clinic.languages.join(', ')}`,
-    `- Direct access: Texas patients can be seen without a referral for up to ${directAccess.days} consecutive days`,
+    `- Direct access: Texas patients can be seen without a referral for up to ${directAccess.days} consecutive calendar days (HB 4099, effective Sept. 1, 2025): ${abs('/direct-access.html')}`,
     `- Insurance: ${insurance.summary.en} Call to verify a specific plan.${insurance.hsaFsa ? ' HSA/FSA accepted.' : ''}`,
     `- Self-pay: available; call for details (prices are not published)`,
     `- Areas served: one clinic in Laredo (no other locations); patients come from ${areasServed.join(', ')}`,
@@ -59,6 +59,7 @@ ${conditions.map((c) => `- [${c.name.es}](${abs(href('es', `/conditions/${c.slug
 
 - [Sitio en español](${abs(href('es', '/'))})
 - [Seguros, pago directo y acceso directo](${abs(href('es', '/access.html'))})
+- [Terapia física sin referencia en Texas](${abs(href('es', '/direct-access.html'))})
 - [Preguntas frecuentes](${abs(href('es', '/faq.html'))})
 - [Ubicación y horario](${abs(href('es', '/location.html'))})
 - [Texto completo en español para asistentes de IA](${abs('/es/llms-full.txt')})
@@ -95,6 +96,7 @@ ${posts.map((p) => `- [${p.title.en}](${abs(`/library/${p.slug}.html`)}): ${p.de
 ## Patient information
 
 - [Access & cost](${abs('/access.html')}): referrals, insurance and self-pay
+- [Physical therapy without a referral in Texas](${abs('/direct-access.html')}): the ${directAccess.days}-day direct access law (HB 4099), who qualifies, what happens after, and how insurance fits in
 - [FAQ](${abs('/faq.html')}): common questions about visits and treatment
 - [Location & hours](${abs('/location.html')}): address, parking and areas served
 

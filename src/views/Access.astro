@@ -18,8 +18,8 @@ const L = (en: string, es: string) => (lang === 'es' ? es : en);
 const path = href(lang, '/access.html');
 const title = L('Insurance, Self-Pay & Direct Access | Powerhouse PT Laredo', 'Seguros, pago sin seguro y acceso directo | Powerhouse PT Laredo');
 const description = L(
-  `Insurance we accept, self-pay, HSA/FSA, and how to see a physical therapist in Texas without a referral for up to ${directAccess.days} consecutive days.`,
-  `Seguros que aceptamos, pago sin seguro, HSA/FSA, y cómo ver a un fisioterapeuta en Texas sin referencia hasta por ${directAccess.days} días consecutivos.`,
+  `Insurance we accept, self-pay, HSA/FSA, and how to see a physical therapist in Texas without a referral for up to ${directAccess.days} consecutive calendar days.`,
+  `Seguros que aceptamos, pago sin seguro, HSA/FSA, y cómo ver a un fisioterapeuta en Texas sin referencia hasta por ${directAccess.days} días naturales consecutivos.`,
 );
 
 
@@ -41,10 +41,11 @@ const schema = [
         <h2>{L('Do I need a referral?', '¿Necesito una referencia?')}</h2>
         <p class="lead">
           {L(
-            `No, not to get started. Texas law lets you see a physical therapist directly for up to ${directAccess.days} consecutive days. If you need care beyond that, or your insurance plan requires a referral, we coordinate with your doctor for you.`,
-            `No, no para empezar. La ley de Texas te permite ver a un fisioterapeuta directamente hasta por ${directAccess.days} días consecutivos. Si necesitas más tiempo o tu seguro pide una referencia, nosotros coordinamos con tu médico.`,
+            `No, not to get started. Texas law lets you see a physical therapist directly for up to ${directAccess.days} consecutive calendar days. If you need care beyond that, or your insurance plan requires a referral, we coordinate with your doctor for you.`,
+            `No, no para empezar. La ley de Texas te permite ver a un fisioterapeuta directamente hasta por ${directAccess.days} días naturales consecutivos. Si necesitas más tiempo o tu seguro pide una referencia, nosotros coordinamos con tu médico.`,
           )}
         </p>
+        <p><a href={href(lang, '/direct-access.html')}>{L('How direct access works in Texas, and what changed in 2025', 'Cómo funciona el acceso directo en Texas y qué cambió en 2025')}</a></p>
       </div>
       <div class="callout">
         <h3>{L('What to bring to your first visit', 'Qué traer a tu primera visita')}</h3>
