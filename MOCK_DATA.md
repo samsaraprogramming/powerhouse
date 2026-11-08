@@ -37,6 +37,11 @@ Source links on condition pages point to MedlinePlus topic pages; check each sti
 **Added November 2026, also unreviewed:** four more questions per condition page (`faqs`, now six each, English
 and Spanish). The reviewer for each page should read these with the rest of the page.
 
+**New condition pages, November 2026 (unreviewed):** ACL tear & rehab and Hamstring & groin strains (Dr. Sandra
+Gomez); Elbow pain and Running injuries (Dr. Leslie Garcia). Each needs its reviewer's approval and its own photo:
+they currently borrow `library/knee-pain.webp`, `services/manual-therapy.webp`, `services/running-analysis.webp`
+and `services/sprint.webp`.
+
 ## Direct access page — `src/views/DirectAccess.astro`
 
 The legal facts (30 consecutive calendar days, HB 4099 signed June 20, 2025, effective Sept. 1, 2025, the previous

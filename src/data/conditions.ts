@@ -12,6 +12,8 @@ export interface Condition {
   lastReviewed: string;
   services: string[];
   name: L10n;
+  /** How the condition reads mid-sentence in headings ("What does … feel like?"). Defaults to the name in lower case. */
+  inline?: L10n;
   /** Alternate names for the MedicalCondition schema. */
   alsoKnownAs: string[];
   summary: L10n;
@@ -200,6 +202,68 @@ export const conditions: Condition[] = [
     sources: [medline('shoulderinjuriesanddisorders', 'shoulderinjuriesanddisorders', 'MedlinePlus: Shoulder injuries and disorders')],
   },
   {
+    slug: "elbow-pain",
+    image: "/images/services/manual-therapy.webp",
+    reviewer: "leslie",
+    lastReviewed: "2026-10-15",
+    services: ["orthopedic-pt", "dry-needling", "sports-performance"],
+    name: {
+      en: "Elbow pain",
+      es: "Dolor de codo",
+    },
+    alsoKnownAs: ["Tennis elbow (lateral epicondylalgia)", "Golfer's elbow (medial epicondylalgia)", "Thrower's elbow"],
+    summary: {
+      en: "Pain gripping, lifting or throwing, on the outside or inside of the elbow.",
+      es: "Dolor al agarrar, cargar o lanzar, en la parte externa o interna del codo.",
+    },
+    intro: {
+      en: "Most elbow pain comes from the tendons that attach the forearm muscles to the elbow. Tennis elbow affects the outside and golfer's elbow the inside. Despite the names, most people who get them play neither sport: lifting, manual work and long hours of gripping are just as common causes. Throwers have their own pattern, with stress on the inside of the elbow. Tendons respond to the right kind of load, so strengthening is the core of treatment.",
+      es: "La mayoría del dolor de codo viene de los tendones que unen los músculos del antebrazo al codo. El codo de tenista afecta la parte externa y el codo de golfista la interna. A pesar de los nombres, la mayoría de quienes los tienen no practica ninguno de esos deportes: levantar pesas, el trabajo manual y agarrar cosas por horas son causas igual de comunes. Quienes lanzan tienen su propio patrón, con estrés en la parte interna del codo. Los tendones responden a la carga correcta, así que el fortalecimiento es la base del tratamiento.",
+    },
+    symptoms: {
+      en: ["Pain on the outside of the elbow when gripping or lifting", "Pain on the inside of the elbow when gripping or throwing", "A weak grip, like trouble holding a coffee cup or a bar", "Tenderness over the bony point of the elbow", "Pain that spreads down the forearm"],
+      es: ["Dolor en la parte externa del codo al agarrar o cargar", "Dolor en la parte interna del codo al agarrar o lanzar", "Agarre débil, como dificultad para sostener una taza o una barra", "Sensibilidad al tocar la parte huesuda del codo", "Dolor que se extiende por el antebrazo"],
+    },
+    causes: {
+      en: ["Repetitive gripping, lifting or tool use", "A sudden increase in racket sports, climbing or pulling exercises", "High throw or pitch counts without enough rest", "Weak shoulder and forearm muscles that leave the elbow doing extra work"],
+      es: ["Agarrar, cargar o usar herramientas de forma repetitiva", "Un aumento brusco en deportes de raqueta, escalada o ejercicios de jalón", "Muchos lanzamientos sin descanso suficiente", "Debilidad en hombro y antebrazo que hace que el codo trabaje de más"],
+    },
+    treatment: {
+      en: ["Finding which grips and movements provoke the tendon", "Progressive forearm and tendon strengthening", "Shoulder and upper back strength to share the load", "Dry needling and soft-tissue work for pain relief", "Changes to grip, equipment or training volume, and a gradual return to throwing for pitchers"],
+      es: ["Identificar qué agarres y movimientos irritan el tendón", "Fortalecimiento progresivo del antebrazo y el tendón", "Fuerza de hombro y espalda alta para repartir la carga", "Punción seca y terapia de tejidos blandos para aliviar el dolor", "Ajustes al agarre, el equipo o el volumen de entrenamiento, y un regreso gradual a lanzar para pitchers"],
+    },
+    whenToSeek: {
+      en: "Get it checked if elbow pain has lasted more than a few weeks, keeps coming back, or is affecting your grip, your training or your work. For young throwers, any elbow pain is worth an evaluation.",
+      es: "Revísalo si el dolor de codo dura más de unas semanas, regresa seguido o afecta tu agarre, tu entrenamiento o tu trabajo. En lanzadores jóvenes, cualquier dolor de codo merece una evaluación.",
+    },
+    redFlags: {
+      en: ["Numbness or tingling in the ring and little fingers that is getting worse", "A visible deformity, or you cannot move the elbow after a fall", "A hot, red, swollen elbow with fever", "A pop with sudden weakness bending the elbow"],
+      es: ["Entumecimiento u hormigueo en los dedos anular y meñique que va empeorando", "Una deformidad visible, o no puedes mover el codo después de una caída", "Un codo caliente, rojo e inflamado con fiebre", "Un chasquido con debilidad repentina al doblar el codo"],
+    },
+    faqs: {
+      en: [
+        { q: "Why does my elbow hurt if I don't play tennis?", a: "Most people with tennis elbow do not play tennis. Gripping and lifting at work, at the gym or around the house load the same tendon." },
+        { q: "How long does tennis elbow take to get better?", a: "It is often slow. Many cases settle over several months, and a structured strengthening program generally helps. We give you your own timeline after your evaluation." },
+        { q: "Do I need a brace or strap?", a: "A forearm strap can ease pain during activity for some people. It is a short-term help, not a fix: strengthening is what changes the tendon." },
+        { q: "Should I get a cortisone shot?", a: "Talk it through with your doctor. For tennis elbow, research suggests shots can ease pain in the short term but may lead to more recurrences later than exercise does." },
+        { q: "Can I keep lifting?", a: "Usually, with changes. We adjust grips, swap painful pulling exercises and keep training the rest of your body while the tendon builds tolerance." },
+        { q: "Do you work with young pitchers?", a: "Yes. We look at the whole throwing chain, from the legs and hips to the shoulder, and build a gradual return to throwing. Pitch counts and rest days matter as much as the exercises." },
+      ],
+      es: [
+        { q: "¿Por qué me duele el codo si no juego tenis?", a: "La mayoría de las personas con codo de tenista no juega tenis. Agarrar y cargar en el trabajo, el gimnasio o la casa le pone carga al mismo tendón." },
+        { q: "¿Cuánto tarda en mejorar el codo de tenista?", a: "Suele ser lento. Muchos casos se calman en varios meses, y un programa estructurado de fortalecimiento generalmente ayuda. Después de tu evaluación te damos un tiempo estimado." },
+        { q: "¿Necesito una banda o codera?", a: "Una banda en el antebrazo puede aliviar el dolor durante la actividad en algunas personas. Es una ayuda a corto plazo, no una solución: el fortalecimiento es lo que cambia el tendón." },
+        { q: "¿Debo ponerme una inyección de cortisona?", a: "Platícalo con tu médico. En el codo de tenista, los estudios sugieren que la inyección puede aliviar el dolor a corto plazo, pero puede llevar a más recaídas después que el ejercicio." },
+        { q: "¿Puedo seguir levantando pesas?", a: "Por lo general sí, con ajustes. Cambiamos agarres, sustituimos los ejercicios de jalón que duelen y seguimos entrenando el resto del cuerpo mientras el tendón gana tolerancia." },
+        { q: "¿Trabajan con pitchers jóvenes?", a: "Sí. Revisamos toda la cadena del lanzamiento, desde piernas y cadera hasta el hombro, y armamos un regreso gradual a lanzar. El conteo de lanzamientos y los días de descanso importan tanto como los ejercicios." },
+      ],
+    },
+    sources: [
+      { title: "MedlinePlus: Elbow injuries and disorders", url: { en: "https://medlineplus.gov/elbowinjuriesanddisorders.html", es: "https://medlineplus.gov/spanish/elbowinjuriesanddisorders.html" } },
+      { title: "MedlinePlus: Tennis elbow", url: { en: "https://medlineplus.gov/ency/article/000449.htm", es: "https://medlineplus.gov/spanish/ency/article/000449.htm" } },
+    ],
+  },
+  {
     slug: 'hip-pain',
     image: '/images/conditions/hip-pain.webp',
     reviewer: 'sandra',
@@ -312,6 +376,69 @@ export const conditions: Condition[] = [
     sources: [medline('kneeinjuriesanddisorders', 'kneeinjuriesanddisorders', 'MedlinePlus: Knee injuries and disorders')],
   },
   {
+    slug: "acl-injury",
+    image: "/images/library/knee-pain.webp",
+    reviewer: "sandra",
+    lastReviewed: "2026-10-15",
+    services: ["orthopedic-pt", "sports-performance", "blood-flow-restriction"],
+    name: {
+      en: "ACL tear & rehab",
+      es: "Lesión y rehabilitación de LCA",
+    },
+    inline: { en: "an ACL tear", es: "una lesión de LCA" },
+    alsoKnownAs: ["Anterior cruciate ligament tear", "ACL injury", "ACL reconstruction rehabilitation"],
+    summary: {
+      en: "A pop, swelling and a knee that gives way. Care from the first days through return to sport.",
+      es: "Un chasquido, inflamación y una rodilla que se vence. Atención desde los primeros días hasta el regreso al deporte.",
+    },
+    intro: {
+      en: "The ACL keeps the shin bone from sliding forward and twisting under the thigh bone. It usually tears during a sudden stop, a cut or an awkward landing, often with no contact at all. With or without surgery, rehab decides how well the knee works afterward: getting it fully straight, rebuilding the thigh muscles, and testing you before you cut and jump again.",
+      es: "El LCA evita que la tibia se deslice hacia adelante y gire debajo del fémur. Normalmente se rompe al frenar de golpe, cambiar de dirección o caer mal de un salto, muchas veces sin ningún contacto. Con o sin cirugía, la rehabilitación decide qué tan bien funciona la rodilla después: lograr que se estire por completo, recuperar los músculos del muslo y hacerte pruebas antes de volver a cambiar de dirección y saltar.",
+    },
+    symptoms: {
+      en: ["A pop at the moment of injury", "Swelling within the first few hours", "The knee giving way when you turn or pivot", "Trouble fully straightening or bending the knee", "Not trusting the knee on stairs or uneven ground"],
+      es: ["Un chasquido en el momento de la lesión", "Inflamación en las primeras horas", "La rodilla se vence al girar o pivotear", "Dificultad para estirar o doblar la rodilla por completo", "No confiar en la rodilla en escaleras o terreno disparejo"],
+    },
+    causes: {
+      en: ["Planting the foot and cutting or pivoting", "Landing from a jump with the knee caving inward", "Stopping suddenly while running", "A direct hit to the knee, as in football or soccer"],
+      es: ["Apoyar el pie y cambiar de dirección o pivotear", "Caer de un salto con la rodilla hacia adentro", "Frenar de golpe mientras corres", "Un golpe directo en la rodilla, como en el fútbol americano o el soccer"],
+    },
+    treatment: {
+      en: ["Prehab before surgery to calm swelling and restore motion", "Getting the knee fully straight early, then rebuilding the bend", "Progressive thigh, hamstring and hip strengthening, including blood flow restriction training while heavy lifting is not yet safe", "Staged progressions for running, jumping and cutting", "Strength and hop testing against the other leg before you return to sport"],
+      es: ["Prehabilitación antes de la cirugía para bajar la inflamación y recuperar movimiento", "Lograr que la rodilla se estire por completo desde el principio y luego recuperar la flexión", "Fortalecimiento progresivo de muslo, isquiotibiales y cadera, incluido el entrenamiento con restricción del flujo sanguíneo mientras todavía no es seguro cargar pesado", "Progresiones por etapas para correr, saltar y cambiar de dirección", "Pruebas de fuerza y saltos comparando con la otra pierna antes de regresar al deporte"],
+    },
+    whenToSeek: {
+      en: "As soon as you can after the injury, ideally before you see the surgeon. Early care keeps swelling down and the knee moving, and surgeons generally prefer to operate on a knee that is calm and straightens fully.",
+      es: "Lo antes posible después de la lesión, idealmente antes de ver al cirujano. La atención temprana mantiene la inflamación baja y la rodilla en movimiento, y los cirujanos generalmente prefieren operar una rodilla tranquila que se estira por completo.",
+    },
+    redFlags: {
+      en: ["The knee is locked and will not straighten", "Severe pain, or the knee looks out of place", "Numbness, coldness or a color change in the foot", "Calf pain, redness and swelling after surgery (possible blood clot)"],
+      es: ["La rodilla está bloqueada y no se estira", "Dolor intenso, o la rodilla se ve fuera de lugar", "Entumecimiento, frío o cambio de color en el pie", "Dolor, enrojecimiento e inflamación en la pantorrilla después de la cirugía (posible coágulo)"],
+    },
+    faqs: {
+      en: [
+        { q: "Do I always need surgery for a torn ACL?", a: "Not always. People who do not play cutting or pivoting sports sometimes do well with rehab alone. Most athletes who want to get back to soccer, football or basketball choose reconstruction. That decision is between you and your surgeon, and we can prepare you for either path." },
+        { q: "How long until I can play again?", a: "As a general guide from the American Academy of Orthopaedic Surgeons (not a promise for any one person), most people are cleared for full sports 6 to 12 months after reconstruction. Time alone is not enough, though: we use strength and hop tests so the decision rests on how your knee performs." },
+        { q: "Should I do therapy before surgery?", a: "Yes, if you can. Going into surgery with less swelling, a knee that straightens fully and stronger thigh muscles tends to make the first weeks after surgery easier." },
+        { q: "Why does getting the knee straight matter so much?", a: "A knee that does not fully straighten changes how you walk and overloads the joint. It is much easier to regain early than months later, so it is a priority from the first visit." },
+        { q: "Can I tear it again?", a: "Yes. The risk of a second ACL tear, in either knee, is real, especially for younger athletes who return early. Finishing rehab and passing return-to-sport testing lowers that risk." },
+        { q: "Do you follow my surgeon's protocol?", a: "Yes. We follow your surgeon's protocol and timelines and send progress updates. Bring any paperwork from your surgeon to your first visit." },
+      ],
+      es: [
+        { q: "¿Siempre necesito cirugía si me rompo el LCA?", a: "No siempre. Las personas que no practican deportes con cambios de dirección o giros a veces evolucionan bien solo con rehabilitación. La mayoría de los atletas que quieren volver al soccer, fútbol americano o básquetbol eligen la reconstrucción. Esa decisión es entre tú y tu cirujano, y podemos prepararte para cualquiera de los dos caminos." },
+        { q: "¿Cuánto tiempo falta para volver a jugar?", a: "Como guía general de la Academia Americana de Cirujanos Ortopédicos (no es una promesa para cada persona), la mayoría recibe autorización para el deporte completo de 6 a 12 meses después de la reconstrucción. Pero el tiempo no basta: usamos pruebas de fuerza y saltos para que la decisión dependa de cómo funciona tu rodilla." },
+        { q: "¿Debo hacer terapia antes de la cirugía?", a: "Sí, si puedes. Llegar a la cirugía con menos inflamación, una rodilla que se estira por completo y músculos del muslo más fuertes suele facilitar las primeras semanas después de la operación." },
+        { q: "¿Por qué importa tanto que la rodilla se estire?", a: "Una rodilla que no se estira por completo cambia tu forma de caminar y sobrecarga la articulación. Es mucho más fácil recuperarlo al principio que meses después, así que es una prioridad desde la primera visita." },
+        { q: "¿Me lo puedo volver a romper?", a: "Sí. El riesgo de una segunda ruptura de LCA, en cualquiera de las dos rodillas, es real, sobre todo en atletas jóvenes que regresan antes de tiempo. Terminar la rehabilitación y pasar las pruebas de regreso al deporte reduce ese riesgo." },
+        { q: "¿Siguen el protocolo de mi cirujano?", a: "Sí. Seguimos el protocolo y los tiempos de tu cirujano y le enviamos reportes de tu avance. Trae a tu primera visita los documentos que te haya dado." },
+      ],
+    },
+    sources: [
+      { title: "MedlinePlus: Anterior cruciate ligament (ACL) injury", url: { en: "https://medlineplus.gov/ency/article/001074.htm", es: "https://medlineplus.gov/spanish/ency/article/001074.htm" } },
+      { title: "AAOS OrthoInfo: Anterior cruciate ligament (ACL) injuries", url: { en: "https://orthoinfo.aaos.org/en/diseases--conditions/anterior-cruciate-ligament-acl-injuries/", es: "https://orthoinfo.aaos.org/en/diseases--conditions/anterior-cruciate-ligament-acl-injuries/" } },
+    ],
+  },
+  {
     slug: 'foot-ankle-pain',
     image: '/images/conditions/foot-ankle-pain.webp',
     reviewer: 'leslie',
@@ -374,6 +501,7 @@ export const conditions: Condition[] = [
     lastReviewed: '2026-10-15',
     services: ['sports-performance', 'running-analysis', 'orthopedic-pt', 'blood-flow-restriction'],
     name: { en: 'Sports injuries', es: 'Lesiones deportivas' },
+    inline: { en: "a sports injury", es: "las lesiones deportivas" },
     alsoKnownAs: ['Muscle strain', 'Tendinopathy', 'Overuse injury'],
     summary: {
       en: 'Strains, sprains and overuse injuries, with a clear path back to play.',
@@ -424,12 +552,139 @@ export const conditions: Condition[] = [
     sources: [medline('sportsinjuries', 'sportsinjuries', 'MedlinePlus: Sports injuries')],
   },
   {
+    slug: "running-injuries",
+    image: "/images/services/running-analysis.webp",
+    reviewer: "leslie",
+    lastReviewed: "2026-10-15",
+    services: ["running-analysis", "sports-performance", "dry-needling"],
+    name: {
+      en: "Running injuries",
+      es: "Lesiones al correr",
+    },
+    inline: { en: "a running injury", es: "las lesiones al correr" },
+    alsoKnownAs: ["Shin splints (medial tibial stress syndrome)", "Runner's knee (patellofemoral pain)", "Iliotibial band syndrome", "Bone stress injury"],
+    summary: {
+      en: "Shin splints, runner's knee, IT band pain and other aches that build with mileage.",
+      es: "Dolor en la espinilla, rodilla de corredor, dolor de la banda iliotibial y otras molestias que aumentan con el kilometraje.",
+    },
+    intro: {
+      en: "Most running injuries are not caused by one bad step. They build when training increases faster than your bones, tendons and muscles can adapt. We find the change that tipped things over, usually mileage, pace, hills or a new shoe, and build the strength to handle it, so you get back on the road without losing your season.",
+      es: "La mayoría de las lesiones al correr no vienen de un mal paso. Se van formando cuando el entrenamiento aumenta más rápido de lo que tus huesos, tendones y músculos pueden adaptarse. Buscamos el cambio que inclinó la balanza, normalmente kilometraje, ritmo, subidas o un tenis nuevo, y construimos la fuerza para soportarlo, para que vuelvas a correr sin perder tu temporada.",
+    },
+    symptoms: {
+      en: ["Aching along the inner edge of the shin", "Pain around or behind the kneecap on runs or downhills", "Sharp pain on the outside of the knee partway into a run", "Heel, arch or Achilles pain, worst in the morning", "One spot on a bone that hurts to press"],
+      es: ["Dolor a lo largo del borde interno de la espinilla", "Dolor alrededor o detrás de la rótula al correr o en bajadas", "Dolor punzante en la parte externa de la rodilla a mitad de la carrera", "Dolor en el talón, el arco o el tendón de Aquiles, peor en la mañana", "Un punto en un hueso que duele al presionarlo"],
+    },
+    causes: {
+      en: ["Increasing mileage or speed work too quickly", "Adding hills, a new surface or a race block", "Calves, hips or thighs that are not yet strong enough for the distance", "Not eating or sleeping enough to recover from training"],
+      es: ["Aumentar el kilometraje o el trabajo de velocidad demasiado rápido", "Agregar subidas, una superficie nueva o un bloque de carreras", "Pantorrillas, cadera o muslos que todavía no tienen la fuerza para la distancia", "No comer o dormir lo suficiente para recuperarte del entrenamiento"],
+    },
+    treatment: {
+      en: ["A running analysis to see how you move at speed", "Strength work for calves, hips and thighs", "A modified training plan so you keep running where possible", "Cadence or form changes when they help your problem", "A graded return to your usual mileage and races"],
+      es: ["Un análisis de carrera para ver cómo te mueves a velocidad", "Fortalecimiento de pantorrillas, cadera y muslos", "Un plan de entrenamiento modificado para que sigas corriendo cuando sea posible", "Cambios de cadencia o técnica cuando ayudan con tu problema", "Un regreso gradual a tu kilometraje y tus carreras de siempre"],
+    },
+    whenToSeek: {
+      en: "Book an evaluation if pain changes how you run, lasts more than a couple of weeks, or comes back every time you build mileage.",
+      es: "Agenda una evaluación si el dolor cambia tu forma de correr, dura más de un par de semanas o regresa cada vez que aumentas el kilometraje.",
+    },
+    redFlags: {
+      en: ["Pain in one spot on a bone, or pain even at rest (possible stress fracture)", "Pain that makes you limp when walking", "Calf swelling and pain with no injury (possible blood clot)", "Chest pain, fainting or unusual shortness of breath while running (call 911)"],
+      es: ["Dolor en un punto de un hueso, o dolor incluso en reposo (posible fractura por estrés)", "Dolor que te hace cojear al caminar", "Inflamación y dolor en la pantorrilla sin lesión (posible coágulo)", "Dolor de pecho, desmayo o falta de aire inusual al correr (llama al 911)"],
+    },
+    faqs: {
+      en: [
+        { q: "Do I have to stop running?", a: "Often not completely. We usually reduce how far, how fast or how often you run and add strength work, rather than stopping altogether." },
+        { q: "Is it my shoes?", a: "Sometimes, but rarely the whole story. A sudden switch to a very different shoe can cause problems. The right shoe is usually the one that feels comfortable, and training changes matter more." },
+        { q: "Is it shin splints or a stress fracture?", a: "Shin splints cause an ache spread along the inner shin. Pain in one small spot that hurts to press, or pain even at rest, could be a stress fracture and should be checked by a doctor." },
+        { q: "Should I change my running form?", a: "Only if it helps your problem. Small changes, such as a slightly quicker step rate, can reduce the load on the knee. We do not chase a perfect form for its own sake." },
+        { q: "How do I avoid getting hurt again?", a: "Build mileage gradually, keep strength training through the season and leave room to recover. Most repeat injuries come from going back to full training too quickly." },
+        { q: "Do you work with high school and club runners?", a: "Yes: cross-country, track and recreational runners of all ages, including people training for local races." },
+      ],
+      es: [
+        { q: "¿Tengo que dejar de correr?", a: "Muchas veces no por completo. Normalmente reducimos la distancia, la velocidad o la frecuencia y agregamos fuerza, en lugar de parar del todo." },
+        { q: "¿Son mis tenis?", a: "A veces, pero rara vez es toda la historia. Cambiar de golpe a un tenis muy diferente puede causar problemas. El tenis correcto suele ser el que se siente cómodo, y los cambios en el entrenamiento importan más." },
+        { q: "¿Es dolor de espinilla o una fractura por estrés?", a: "El dolor de espinilla se siente repartido a lo largo del borde interno. Si duele un punto pequeño al presionarlo, o duele incluso en reposo, podría ser una fractura por estrés y debe revisarlo un médico." },
+        { q: "¿Debo cambiar mi técnica de carrera?", a: "Solo si ayuda con tu problema. Cambios pequeños, como dar pasos un poco más rápidos, pueden reducir la carga sobre la rodilla. No buscamos una técnica perfecta solo por buscarla." },
+        { q: "¿Cómo evito lastimarme otra vez?", a: "Aumenta el kilometraje poco a poco, mantén el entrenamiento de fuerza durante la temporada y deja espacio para recuperarte. La mayoría de las lesiones que se repiten vienen de volver al entrenamiento completo demasiado rápido." },
+        { q: "¿Trabajan con corredores de preparatoria y de clubes?", a: "Sí: cross-country, atletismo y corredores recreativos de todas las edades, incluidas personas que entrenan para carreras locales." },
+      ],
+    },
+    sources: [
+      { title: "MedlinePlus: Sports injuries", url: { en: "https://medlineplus.gov/sportsinjuries.html", es: "https://medlineplus.gov/spanish/sportsinjuries.html" } },
+      { title: "MedlinePlus: Leg injuries and disorders", url: { en: "https://medlineplus.gov/leginjuriesanddisorders.html", es: "https://medlineplus.gov/spanish/leginjuriesanddisorders.html" } },
+    ],
+  },
+  {
+    slug: "hamstring-groin-strains",
+    image: "/images/services/sprint.webp",
+    reviewer: "sandra",
+    lastReviewed: "2026-10-15",
+    services: ["sports-performance", "dry-needling", "orthopedic-pt"],
+    name: {
+      en: "Hamstring & groin strains",
+      es: "Desgarres de isquiotibiales e ingle",
+    },
+    inline: { en: "a hamstring or groin strain", es: "los desgarres de isquiotibiales e ingle" },
+    alsoKnownAs: ["Hamstring strain", "Pulled hamstring", "Adductor strain", "Groin pull"],
+    summary: {
+      en: "A sudden grab at the back of the thigh or in the groin while sprinting, kicking or changing direction.",
+      es: "Un tirón repentino atrás del muslo o en la ingle al correr rápido, patear o cambiar de dirección.",
+    },
+    intro: {
+      en: "Hamstring and groin strains are among the most common injuries in soccer, football, track and other sprinting sports. They also come back often, usually because the muscle was never rebuilt to handle top speed. Rehab is about restoring strength at long muscle lengths and high speeds, then testing it before you play.",
+      es: "Los desgarres de isquiotibiales y de ingle están entre las lesiones más comunes en el soccer, el fútbol americano, el atletismo y otros deportes de velocidad. También regresan con frecuencia, normalmente porque el músculo nunca se reconstruyó para aguantar la velocidad máxima. La rehabilitación se enfoca en recuperar la fuerza con el músculo estirado y a alta velocidad, y en probarla antes de que vuelvas a jugar.",
+    },
+    symptoms: {
+      en: ["A sudden pull or sharp pain at the back of the thigh or in the groin", "Pain when sprinting, kicking or changing direction", "Bruising a day or two after the injury", "Pain stretching, or squeezing your legs together", "Feeling like you cannot reach full speed"],
+      es: ["Un tirón repentino o dolor punzante atrás del muslo o en la ingle", "Dolor al correr rápido, patear o cambiar de dirección", "Moretón uno o dos días después de la lesión", "Dolor al estirar o al apretar las piernas una contra la otra", "Sentir que no llegas a tu velocidad máxima"],
+    },
+    causes: {
+      en: ["Sprinting, especially late in a game when tired", "Kicking and quick changes of direction", "A previous strain that was not fully rehabbed", "Sudden jumps in speed work or games played"],
+      es: ["Correr a toda velocidad, sobre todo al final de un partido con cansancio", "Patear y cambiar de dirección rápido", "Un desgarre anterior que no se rehabilitó por completo", "Aumentos bruscos en el trabajo de velocidad o en los partidos jugados"],
+    },
+    treatment: {
+      en: ["Grading the strain to set a realistic timeline", "Early, pain-guided strengthening rather than complete rest", "Hamstring and adductor strength work, such as Nordic and Copenhagen exercises", "A staged return to sprinting and kicking", "Speed and strength testing before full play, plus a prevention routine to keep in your training"],
+      es: ["Clasificar el desgarre para fijar un tiempo realista", "Fortalecimiento temprano guiado por el dolor, en lugar de reposo completo", "Fortalecimiento de isquiotibiales y aductores, como los ejercicios nórdicos y Copenhagen", "Un regreso por etapas a correr rápido y patear", "Pruebas de velocidad y fuerza antes de jugar completo, y una rutina de prevención para mantener en tu entrenamiento"],
+    },
+    whenToSeek: {
+      en: "As soon as possible after the injury. Starting early helps you return sooner and lowers the chance of the strain coming back.",
+      es: "Lo antes posible después de la lesión. Empezar pronto te ayuda a regresar antes y reduce la probabilidad de que el desgarre regrese.",
+    },
+    redFlags: {
+      en: ["A pop with heavy bruising and a gap you can feel near the buttock (possible tendon tear that may need a surgeon)", "You cannot walk or put weight on the leg", "Groin pain with fever, or a lump that appears when you cough or strain (possible hernia)", "Calf swelling and pain after the injury (possible blood clot)"],
+      es: ["Un chasquido con un moretón grande y un hueco que se siente cerca del glúteo (posible ruptura del tendón que puede necesitar cirujano)", "No puedes caminar ni apoyar la pierna", "Dolor de ingle con fiebre, o un bulto que aparece al toser o hacer fuerza (posible hernia)", "Inflamación y dolor en la pantorrilla después de la lesión (posible coágulo)"],
+    },
+    faqs: {
+      en: [
+        { q: "How long does a pulled hamstring take to heal?", a: "It depends on the grade and where the strain is. Mild strains can take a few weeks, while injuries that involve the tendon take longer. After your evaluation we give you your own timeline." },
+        { q: "Should I stretch it?", a: "Not hard, early on. Gentle movement is fine, but aggressive stretching in the first days can irritate it. Strengthening, guided by pain, does more." },
+        { q: "Why do hamstring strains keep coming back?", a: "Usually because the muscle never got its strength back at long lengths and high speed. Testing before you return and keeping strength work in your routine lowers the risk." },
+        { q: "Is groin pain always a strain?", a: "No. Groin pain can also come from the hip joint, the lower abdominal wall or a hernia. We check for these and refer you to a doctor when needed." },
+        { q: "Can I keep training?", a: "Usually, yes. Upper body work, the other leg and pain-free conditioning keep you fit while the injured muscle recovers." },
+        { q: "Can these strains be prevented?", a: "Largely, yes. Programs built around hamstring and adductor strength, like the Nordic and Copenhagen exercises, have been shown to lower these injuries in soccer and other team sports." },
+      ],
+      es: [
+        { q: "¿Cuánto tarda en sanar un desgarre de isquiotibiales?", a: "Depende del grado y de dónde está el desgarre. Los leves pueden tardar unas semanas, y las lesiones que afectan el tendón tardan más. Después de tu evaluación te damos un tiempo estimado." },
+        { q: "¿Debo estirarlo?", a: "No con fuerza al principio. El movimiento suave está bien, pero estirar de forma agresiva en los primeros días puede irritarlo. El fortalecimiento guiado por el dolor ayuda más." },
+        { q: "¿Por qué regresan los desgarres de isquiotibiales?", a: "Normalmente porque el músculo nunca recuperó su fuerza estirado y a alta velocidad. Hacer pruebas antes de regresar y mantener el trabajo de fuerza en tu rutina reduce el riesgo." },
+        { q: "¿El dolor de ingle siempre es un desgarre?", a: "No. El dolor de ingle también puede venir de la articulación de la cadera, la pared abdominal baja o una hernia. Revisamos estas causas y te referimos con un médico cuando hace falta." },
+        { q: "¿Puedo seguir entrenando?", a: "Por lo general sí. El tren superior, la otra pierna y el acondicionamiento sin dolor te mantienen en forma mientras se recupera el músculo lesionado." },
+        { q: "¿Se pueden prevenir estos desgarres?", a: "En buena medida, sí. Los programas basados en la fuerza de isquiotibiales y aductores, como los ejercicios nórdicos y Copenhagen, han demostrado reducir estas lesiones en el soccer y otros deportes de equipo." },
+      ],
+    },
+    sources: [
+      { title: "MedlinePlus: Sprains and strains", url: { en: "https://medlineplus.gov/sprainsandstrains.html", es: "https://medlineplus.gov/spanish/sprainsandstrains.html" } },
+      { title: "MedlinePlus: Sports injuries", url: { en: "https://medlineplus.gov/sportsinjuries.html", es: "https://medlineplus.gov/spanish/sportsinjuries.html" } },
+    ],
+  },
+  {
     slug: 'post-surgical-rehab',
     image: '/images/conditions/post-surgical-rehab.webp',
     reviewer: 'leslie',
     lastReviewed: '2026-10-15',
     services: ['orthopedic-pt', 'sports-performance', 'blood-flow-restriction'],
     name: { en: 'Post-surgical rehab', es: 'Rehabilitación postquirúrgica' },
+    inline: { en: "recovery after surgery", es: "la rehabilitación después de cirugía" },
     alsoKnownAs: ['Postoperative rehabilitation', 'Joint replacement rehab', 'ACL reconstruction rehab'],
     summary: {
       en: 'Rehab after joint replacements, ACL repairs, shoulder surgery and more.',

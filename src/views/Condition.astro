@@ -25,6 +25,7 @@ const c = conditionBySlug(slug)!;
 const L = (en: string, es: string) => (lang === 'es' ? es : en);
 const path = href(lang, `/conditions/${slug}.html`);
 const name = c.name[lang];
+const inline = c.inline?.[lang] ?? name.toLowerCase();
 const title = L(`${name}: causes, treatment & when to get help | Powerhouse PT Laredo`, `${name}: causas, tratamiento y cuándo buscar ayuda | Powerhouse PT Laredo`);
 const description = `${c.summary[lang]} ${L('Physical therapy in Laredo, TX.', 'Terapia física en Laredo, TX.')}`;
 const faqs = c.faqs[lang];
@@ -62,7 +63,7 @@ const schema = [
 
         <div class="cond-pair">
           <div>
-            <h2>{L(`What does ${name.toLowerCase()} feel like?`, `¿Cómo se siente?`)}</h2>
+            <h2>{L(`What does ${inline} feel like?`, `¿Cómo se siente?`)}</h2>
             <ul class="cond-list">{c.symptoms[lang].map((s) => <li>{s}</li>)}</ul>
           </div>
           <div>
@@ -82,7 +83,7 @@ const schema = [
           <ul class="list-check list-flag" style="margin: 0;">{c.redFlags[lang].map((s) => <li>{s}</li>)}</ul>
         </div>
 
-        <h2>{t(lang, 'conditions.faq')} {name.toLowerCase()}</h2>
+        <h2>{t(lang, 'conditions.faq')} {inline}</h2>
         <FaqList items={faqs} />
 
         <Sources lang={lang} sources={c.sources} />
