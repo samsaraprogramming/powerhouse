@@ -38,9 +38,9 @@ Source links on condition pages point to MedlinePlus topic pages; check each sti
 and Spanish). The reviewer for each page should read these with the rest of the page.
 
 **New condition pages, November 2026 (unreviewed):** ACL tear & rehab and Hamstring & groin strains (Dr. Sandra
-Gomez); Elbow pain and Running injuries (Dr. Leslie Garcia). Each needs its reviewer's approval and its own photo:
-they currently borrow `library/knee-pain.webp`, `services/manual-therapy.webp`, `services/running-analysis.webp`
-and `services/sprint.webp`.
+Gomez); Elbow pain and Running injuries (Dr. Leslie Garcia). Each needs its reviewer's approval. ACL, Running and
+Hamstring still borrow `library/knee-pain.webp`, `services/running-analysis.webp` and `services/sprint.webp`.
+Elbow pain uses an AI-generated photo (`conditions/elbow-pain.webp`); swap in a real clinic photo when one exists.
 
 ## Direct access page — `src/views/DirectAccess.astro`
 
