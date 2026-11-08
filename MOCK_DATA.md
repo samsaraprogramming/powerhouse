@@ -21,9 +21,10 @@ Nothing left to confirm in this file.
 
 ## Clinical review — `src/data/conditions.ts`, `src/data/posts.ts`
 
-The condition pages and library articles show "Clinically reviewed by Dr. Sandra Gomez / Dr. Leslie Garcia"
-and emit `reviewedBy` / `lastReviewed` in JSON-LD. **No clinician has reviewed this copy yet.**
-Before launch each reviewer must read and approve their pages, and the dates must be updated.
+**No clinician has reviewed this copy yet**, so since November 8, 2026 the "Clinically reviewed by" byline, the
+`reviewedBy` / `lastReviewed` JSON-LD, the article `author` (now the clinic) and the "Clinical content reviewed" list on
+the bio pages are all hidden. When a reviewer approves a page, set `reviewed: true` on it and put the real date in
+`lastReviewed` (conditions) or `date` (articles); the byline and schema come back for that page only.
 
 | Page | Reviewer | Field |
 | --- | --- | --- |

@@ -22,9 +22,9 @@ const title = `${p.title[lang]} | Powerhouse PT`;
 const related = p.conditions.map((c) => conditionBySlug(c)!);
 
 const schema = [
-  pageNode({ type: 'MedicalWebPage', path, name: p.title[lang], description: p.description[lang], lang, reviewer: p.reviewer, lastReviewed: p.date }),
+  pageNode({ type: 'MedicalWebPage', path, name: p.title[lang], description: p.description[lang], lang, ...(p.reviewed ? { reviewer: p.reviewer, lastReviewed: p.date } : {}) }),
   articleNode(p, lang, path),
-  reviewerNode(p.reviewer, lang),
+  ...(p.reviewed ? [reviewerNode(p.reviewer, lang)] : []),
   breadcrumbNode([
     { name: t(lang, 'breadcrumb.home'), path: href(lang, '/') },
     { name: t(lang, 'nav.library'), path: href(lang, '/library.html') },
@@ -42,7 +42,7 @@ const schema = [
       title={p.title[lang]}
       lead={p.description[lang]}
     >
-      <ReviewedBy lang={lang} reviewer={p.reviewer} date={p.date} />
+      {p.reviewed && <ReviewedBy lang={lang} reviewer={p.reviewer} date={p.date} />}
     </PageHero>
 
     <section class="section section--tight" style="padding-top: 0;">

@@ -6,7 +6,10 @@ import type { L10n } from '../i18n/ui';
 export interface Post {
   slug: string;
   date: string;
+  /** Who will review the article. The byline, reviewedBy and author schema only appear once `reviewed` is true. */
   reviewer: 'sandra' | 'leslie';
+  /** Set to true (with the real date) after the reviewer has read and approved the article. */
+  reviewed?: boolean;
   minutes: number;
   image: string;
   conditions: string[];
