@@ -34,6 +34,16 @@ Before launch each reviewer must read and approve their pages, and the dates mus
 
 Source links on condition pages point to MedlinePlus topic pages; check each still resolves.
 
+**Added November 2026, also unreviewed:** four more questions per condition page (`faqs`, now six each, English
+and Spanish). The reviewer for each page should read these with the rest of the page.
+
+## Direct access page — `src/views/DirectAccess.astro`
+
+The legal facts (30 consecutive calendar days, HB 4099 signed June 20, 2025, effective Sept. 1, 2025, the previous
+10/15 business-day limits, and the eligibility conditions) come from the enrolled bill and the House bill analysis.
+Before launch the clinic should confirm: that it requests referrals from the patient's doctor after day 30, the
+Medicare plan-of-care sign-off wording, and the workers' compensation answer.
+
 ## Copy claims
 
 Confirmed by the clinic in November 2026: one-on-one with a licensed provider for the whole session, most new
