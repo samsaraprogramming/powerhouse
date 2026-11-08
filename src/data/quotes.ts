@@ -24,6 +24,12 @@ export interface HangQuote {
 }
 
 export const conditionQuotes: Record<string, TurnQuote> = {
+  'hip-pain': {
+    name: 'Diana S.',
+    context: { en: 'Hip recovery, with Gina', es: 'Recuperación de cadera, con Gina' },
+    came: '…she played a big part in helping me recover from my hip.',
+    now: 'They truly gave me my life back, and I feel much stronger now than I did before.',
+  },
   'knee-pain': {
     name: 'Miguel G.',
     context: { en: 'ACL recovery with Dr. Sandra Gomez', es: 'Recuperación de LCA con la Dra. Sandra Gomez' },
@@ -41,12 +47,6 @@ export const conditionQuotes: Record<string, TurnQuote> = {
     context: { en: 'Shoulder, with Dr. Sandra Gomez', es: 'Hombro, con la Dra. Sandra Gomez' },
     came: 'I’ve been having shoulder pain and discomfort for quite some time and it started to affect my workouts including my sleep',
     now: '…she was able to help me get my shoulder back to feeling comfortable.',
-  },
-  'hip-pain': {
-    name: 'Dominic H.',
-    context: { en: 'Hip flexor tear, with Dr. Sandra Gomez', es: 'Desgarro del flexor de cadera, con la Dra. Sandra Gomez' },
-    came: 'While powerlifting, I sustained a tear in my hip flexor.',
-    now: '…she had me back in the gym, hitting my normal weights, in no time.',
   },
   'foot-ankle-pain': {
     name: 'Evelyn Q.',
@@ -79,10 +79,10 @@ export const conditionQuotes: Record<string, TurnQuote> = {
     now: '…my overall running improved tremendously and was even hit multiple personal records throughout my season.',
   },
   'hamstring-groin-strains': {
-    name: 'Sharlyn P.',
-    context: { en: 'Her daughter, a young athlete, with Dr. Sandra Gomez', es: 'Su hija, una joven atleta, con la Dra. Sandra Gomez' },
-    came: '…my 11 year old who has had 2 knee surgeries and had pulled a hamstring at the time.',
-    now: 'Dr. Gomez has not only done such a great job overall with my daughter being pain free, but has also made her understand the importance of taking care of her body while being a full time athlete.',
+    name: 'Dominic H.',
+    context: { en: 'Hip flexor tear from powerlifting, with Dr. Sandra Gomez', es: 'Desgarro del flexor de cadera al hacer powerlifting, con la Dra. Sandra Gomez' },
+    came: 'While powerlifting, I sustained a tear in my hip flexor.',
+    now: '…she had me back in the gym, hitting my normal weights, in no time.',
   },
   'post-surgical-rehab': {
     name: 'Emilio G.',
