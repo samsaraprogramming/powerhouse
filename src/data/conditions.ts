@@ -203,7 +203,7 @@ export const conditions: Condition[] = [
   },
   {
     slug: "elbow-pain",
-    image: "/images/services/manual-therapy.webp",
+    image: "/images/conditions/elbow-pain.webp",
     reviewer: "leslie",
     lastReviewed: "2026-10-15",
     services: ["orthopedic-pt", "dry-needling", "sports-performance"],
