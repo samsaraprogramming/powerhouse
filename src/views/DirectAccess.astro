@@ -1,0 +1,244 @@
+---
+// Texas direct access explained: what the law allows, what changed with HB 4099 (2025), who qualifies,
+// what happens after the limit, and how insurance fits in. Legal facts are from the enrolled bill and
+// Occupations Code §453.301; the day count reads from clinic.ts.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqList from '../components/FaqList.astro';
+import Sources from '../components/Sources.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { href, t, type Lang } from '../i18n/ui';
+import { booking, directAccess } from '../data/clinic';
+import { breadcrumbNode, faqNode, pageNode } from '../lib/schema';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const L = (en: string, es: string) => (lang === 'es' ? es : en);
+const days = directAccess.days;
+const path = href(lang, '/direct-access.html');
+const name = L('Physical therapy without a referral in Texas', 'Terapia física sin referencia en Texas');
+const title = L(`Physical Therapy Without a Referral in Texas (${days}-Day Direct Access) | Powerhouse PT Laredo`, `Terapia física sin referencia en Texas (acceso directo de ${days} días) | Powerhouse PT Laredo`);
+const description = L(
+  `Texas lets you see a physical therapist without a referral for up to ${days} consecutive calendar days (HB 4099, effective Sept. 1, 2025). Who qualifies, what happens after, and how insurance works.`,
+  `En Texas puedes ver a un fisioterapeuta sin referencia hasta por ${days} días naturales consecutivos (HB 4099, vigente desde el 1 de septiembre de 2025). Quién califica, qué pasa después y cómo funciona el seguro.`,
+);
+
+const faqs = [
+  {
+    q: L('Do I need a referral if I just had surgery?', '¿Necesito una referencia si acabo de tener una cirugía?'),
+    a: L(
+      "After surgery we work from your surgeon's referral and protocol, so bring any paperwork you were given. Direct access is mainly for new pain and injuries.",
+      'Después de una cirugía trabajamos con la referencia y el protocolo de tu cirujano, así que trae los documentos que te hayan dado. El acceso directo es sobre todo para dolores y lesiones nuevas.',
+    ),
+  },
+  {
+    q: L('Can I come without a referral if I have Medicare?', '¿Puedo ir sin referencia si tengo Medicare?'),
+    a: L(
+      'Yes, you can start without one. For Medicare to pay, a doctor or another qualified provider has to sign off on your plan of care. We send it to them for you.',
+      'Sí, puedes empezar sin referencia. Para que Medicare pague, un médico u otro proveedor autorizado tiene que firmar tu plan de tratamiento. Nosotros se lo enviamos.',
+    ),
+  },
+  {
+    q: L("What about workers' compensation?", '¿Y si es por compensación laboral (workers\' comp)?'),
+    a: L(
+      "Workers' compensation claims have their own approval process. Tell us about the claim when you book and we will check what is needed before your first visit.",
+      'Los casos de compensación laboral tienen su propio proceso de aprobación. Avísanos del caso al agendar y revisamos qué se necesita antes de tu primera visita.',
+    ),
+  },
+  {
+    q: L('Do I need an X-ray or MRI first?', '¿Necesito una radiografía o resonancia antes?'),
+    a: L(
+      'No. The law does not require imaging, and most muscle and joint problems do not need it to start treatment. If your exam suggests you need a scan, we tell you and coordinate with your doctor.',
+      'No. La ley no pide estudios de imagen, y la mayoría de los problemas de músculos y articulaciones no los necesitan para empezar. Si tu evaluación indica que necesitas uno, te lo decimos y coordinamos con tu médico.',
+    ),
+  },
+  {
+    q: L('Is the first visit different without a referral?', '¿La primera visita es diferente sin referencia?'),
+    a: L(
+      'Your evaluation is just as thorough. We ask more about your health history and screen for signs of a problem that needs a doctor, the same check a referring doctor would normally do.',
+      'Tu evaluación es igual de completa. Te preguntamos más sobre tu historial de salud y revisamos señales de algún problema que necesite un médico, la misma revisión que normalmente haría el médico que refiere.',
+    ),
+  },
+];
+
+const sources = [
+  {
+    title: 'Texas Legislature Online: HB 4099 (89th Legislature), bill history and text',
+    url: { en: 'https://capitol.texas.gov/BillLookup/History.aspx?LegSess=89R&Bill=HB4099', es: 'https://capitol.texas.gov/BillLookup/History.aspx?LegSess=89R&Bill=HB4099' },
+  },
+  {
+    title: 'Texas Occupations Code, Chapter 453 (Physical Therapists), §453.301',
+    url: { en: 'https://statutes.capitol.texas.gov/Docs/OC/htm/OC.453.htm', es: 'https://statutes.capitol.texas.gov/Docs/OC/htm/OC.453.htm' },
+  },
+  {
+    title: 'Texas Board of Physical Therapy Examiners',
+    url: { en: 'https://ptot.texas.gov/', es: 'https://ptot.texas.gov/' },
+  },
+];
+
+const schema = [
+  pageNode({ path, name: title, description, lang, extra: { dateModified: '2026-11-08' } }),
+  faqNode(faqs),
+  breadcrumbNode([
+    { name: t(lang, 'breadcrumb.home'), path: href(lang, '/') },
+    { name: t(lang, 'nav.access'), path: href(lang, '/access.html') },
+    { name, path },
+  ]),
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <PageHero
+    lang={lang}
+    crumbs={[{ name: t(lang, 'nav.access'), path: '/access.html' }, { name, path: '/direct-access.html' }]}
+    title={name}
+    lead={L(
+      `You can book with a physical therapist directly, for up to ${days} days. Here is how the Texas law works, what changed in 2025, and when insurance still asks for a referral.`,
+      `Puedes agendar directamente con un fisioterapeuta, hasta por ${days} días. Aquí te explicamos cómo funciona la ley de Texas, qué cambió en 2025 y cuándo el seguro todavía pide una referencia.`,
+    )}
+  />
+
+  <section class="section section--tight">
+    <div class="wrap two-col">
+      <h2>{L('Do I need a referral to see a physical therapist in Texas?', '¿Necesito una referencia para ver a un fisioterapeuta en Texas?')}</h2>
+      <div>
+        <p class="lead">
+          {L(
+            `No. Since September 1, 2025, Texas law lets a qualified physical therapist evaluate and treat you without a referral for up to ${days} consecutive calendar days. To keep treating you after that, the therapist needs a referral from a doctor or another qualified provider.`,
+            `No. Desde el 1 de septiembre de 2025, la ley de Texas permite que un fisioterapeuta calificado te evalúe y te trate sin referencia hasta por ${days} días naturales consecutivos. Para seguir tratándote después, el fisioterapeuta necesita una referencia de un médico u otro proveedor autorizado.`,
+          )}
+        </p>
+        <p>
+          {L(
+            'In practice, that means you can call us about back pain, a sports injury or a sore shoulder and start treatment, without first waiting for a doctor’s appointment.',
+            'En la práctica, puedes llamarnos por dolor de espalda, una lesión deportiva o un hombro adolorido y empezar tu tratamiento sin esperar primero una cita con el médico.',
+          )}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap two-col">
+      <h2>{L('What changed in 2025?', '¿Qué cambió en 2025?')}</h2>
+      <div>
+        <p class="lead">
+          {L(
+            `House Bill 4099 extended the time limit from 10 consecutive business days (about two weeks) to ${days} consecutive calendar days. It was signed on June 20, 2025 and took effect on September 1, 2025.`,
+            `La ley HB 4099 amplió el límite de 10 días hábiles consecutivos (unas dos semanas) a ${days} días naturales consecutivos. Se firmó el 20 de junio de 2025 y entró en vigor el 1 de septiembre de 2025.`,
+          )}
+        </p>
+        <p>
+          {L(
+            'The old rule gave some therapists with extra specialty training 15 business days. That separate tier is gone: every qualified therapist now has the same limit. Two weeks was often too short to finish care for a sprain or a flare of back pain, so many patients had to stop and get a referral partway through.',
+            'La regla anterior daba 15 días hábiles a algunos fisioterapeutas con formación de especialidad adicional. Esa categoría ya no existe: ahora todos los fisioterapeutas calificados tienen el mismo límite. Dos semanas muchas veces no alcanzaban para terminar el tratamiento de un esguince o de una crisis de dolor de espalda, así que muchos pacientes tenían que parar a mitad del camino para conseguir una referencia.',
+          )}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap two-col">
+      <h2>{L('Who can treat you without a referral?', '¿Quién te puede tratar sin referencia?')}</h2>
+      <div>
+        <p class="lead">
+          {L(
+            'A Texas physical therapist who has been licensed for at least one year, carries professional liability insurance, and either holds a doctorate in physical therapy or has completed at least 30 hours of training in differential diagnosis (telling apart problems a therapist can treat from ones that need a doctor).',
+            'Un fisioterapeuta de Texas con al menos un año de licencia, con seguro de responsabilidad profesional, y que tenga un doctorado en fisioterapia o al menos 30 horas de formación en diagnóstico diferencial (distinguir los problemas que puede tratar un fisioterapeuta de los que necesitan un médico).',
+          )}
+        </p>
+        <p>
+          {L(
+            'Our doctors of physical therapy meet these requirements, so you can book your evaluation with us directly.',
+            'Nuestros doctores en fisioterapia cumplen estos requisitos, así que puedes agendar tu evaluación directamente con nosotros.',
+          )}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap two-col">
+      <h2>{L(`What happens after ${days} days?`, `¿Qué pasa después de ${days} días?`)}</h2>
+      <div>
+        <p class="lead">
+          {L(
+            'If you need care beyond that, we send your evaluation and progress to your doctor and ask for the referral, so your treatment can continue without a gap.',
+            'Si necesitas atención por más tiempo, enviamos tu evaluación y tu avance a tu médico y le pedimos la referencia, para que tu tratamiento siga sin interrupciones.',
+          )}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap two-col">
+      <h2>{L('Will my insurance pay without a referral?', '¿Mi seguro paga sin referencia?')}</h2>
+      <div>
+        <p class="lead">
+          {L(
+            'The law decides whether a therapist may treat you. Your plan decides what it pays for. Some plans still ask for a referral or prior approval, and Medicare needs a doctor or another qualified provider to sign off on your plan of care.',
+            'La ley decide si un fisioterapeuta te puede tratar. Tu plan decide qué paga. Algunos planes todavía piden una referencia o una aprobación previa, y Medicare necesita que un médico u otro proveedor autorizado firme tu plan de tratamiento.',
+          )}
+        </p>
+        <p>
+          {L(
+            `We check your benefits before your first visit and tell you if your plan needs anything. If you pay for yourself, only the ${days}-day limit applies. `,
+            `Revisamos tus beneficios antes de tu primera visita y te avisamos si tu plan necesita algo. Si pagas por tu cuenta, solo aplica el límite de ${days} días. `,
+          )}<a href={href(lang, '/access.html')}>{L('Insurance and self-pay options', 'Seguros y pago por tu cuenta')}</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap two-col">
+      <div>
+        <h2>{L('When should you see a doctor first?', '¿Cuándo debes ver primero a un médico?')}</h2>
+        <p>
+          {L(
+            'We screen every new patient for signs of something other than a muscle or joint problem and send you to a doctor when needed. Go straight to a doctor or the emergency room if you have:',
+            'Revisamos a cada paciente nuevo para detectar señales de algo distinto a un problema de músculos o articulaciones, y te mandamos con un médico cuando hace falta. Ve directamente al médico o a urgencias si tienes:',
+          )}
+        </p>
+      </div>
+      <div class="callout callout--warn">
+        <ul class="list-check list-flag" style="margin: 0;">
+          <li>{L('A suspected broken bone or dislocation', 'Sospecha de un hueso roto o una luxación')}</li>
+          <li>{L('A head injury with confusion, vomiting or a worsening headache', 'Un golpe en la cabeza con confusión, vómito o dolor de cabeza que empeora')}</li>
+          <li>{L('New loss of bladder or bowel control, or numbness in the groin', 'Pérdida nueva del control de la vejiga o el intestino, o entumecimiento en la ingle')}</li>
+          <li>{L('Pain with fever, chills or unexplained weight loss', 'Dolor con fiebre, escalofríos o pérdida de peso sin explicación')}</li>
+          <li>{L('Chest pain or shortness of breath (call 911)', 'Dolor de pecho o falta de aire (llama al 911)')}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap two-col">
+      <h2>{L('More questions about referrals', 'Más preguntas sobre referencias')}</h2>
+      <div>
+        <FaqList items={faqs} />
+        <p style="margin-top: 24px;">
+          {L(
+            `Still not sure? Book a free ${booking.discoveryCallMinutes}-minute call and we will tell you what applies to you. `,
+            `¿Aún tienes dudas? Agenda una llamada gratuita de ${booking.discoveryCallMinutes} minutos y te decimos qué aplica en tu caso. `,
+          )}<a href={href(lang, '/sign-up.html')}>{t(lang, 'cta.call')}</a>
+        </p>
+        <Sources lang={lang} sources={sources} />
+        <p style="font-size: 0.9rem; color: var(--ink-2);">
+          {L(
+            'This page explains Texas law in plain language for patients. It is not legal advice. Last updated November 2026.',
+            'Esta página explica la ley de Texas en lenguaje sencillo para pacientes. No es asesoría legal. Última actualización: noviembre de 2026.',
+          )}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand lang={lang} />
+</BaseLayout>

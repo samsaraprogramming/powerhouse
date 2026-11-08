@@ -41,6 +41,7 @@ const year = new Date().getFullYear();
         <h2>{t(lang, 'footer.explore')}</h2>
         <ul>
           <li><a href={href(lang, '/access.html')}>{t(lang, 'nav.access')}</a></li>
+          <li><a href={href(lang, '/direct-access.html')}>{lang === 'es' ? 'Sin referencia médica' : 'No referral needed'}</a></li>
           <li><a href={href(lang, '/about.html')}>{t(lang, 'nav.about')}</a></li>
           <li><a href={href(lang, '/library.html')}>{t(lang, 'nav.library')}</a></li>
           <li><a href={href(lang, '/faq.html')}>{t(lang, 'nav.faq')}</a></li>
