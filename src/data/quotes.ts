@@ -79,10 +79,10 @@ export const conditionQuotes: Record<string, TurnQuote> = {
     now: '…my overall running improved tremendously and was even hit multiple personal records throughout my season.',
   },
   'hamstring-groin-strains': {
-    name: 'Saul S.',
-    context: { en: 'Groin tear, with Dr. Sandra Gomez', es: 'Desgarre de ingle, con la Dra. Sandra Gomez' },
-    came: '…recovering from a groin tear.',
-    now: 'I can already see so much improvement and the pain is nearly gone.',
+    name: 'Sharlyn P.',
+    context: { en: 'Her daughter, a young athlete, with Dr. Sandra Gomez', es: 'Su hija, una joven atleta, con la Dra. Sandra Gomez' },
+    came: '…my 11 year old who has had 2 knee surgeries and had pulled a hamstring at the time.',
+    now: 'Dr. Gomez has not only done such a great job overall with my daughter being pain free, but has also made her understand the importance of taking care of her body while being a full time athlete.',
   },
   'post-surgical-rehab': {
     name: 'Emilio G.',
