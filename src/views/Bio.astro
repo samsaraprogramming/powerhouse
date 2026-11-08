@@ -19,8 +19,8 @@ interface Props {
 const { lang, slug } = Astro.props;
 const m = getMember(slug, lang);
 const path = href(lang, `/${slug}-bio.html`);
-const reviewed = conditions.filter((c) => c.reviewer === slug);
-const written = posts.filter((p) => p.reviewer === slug);
+const reviewed = conditions.filter((c) => c.reviewed && c.reviewer === slug);
+const written = posts.filter((p) => p.reviewed && p.reviewer === slug);
 const name = plain(m.name);
 
 const schema = [

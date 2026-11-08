@@ -173,7 +173,7 @@ export function articleNode(p: Post, lang: Lang, path: string) {
     datePublished: p.date,
     dateModified: p.date,
     inLanguage: inLanguage(lang),
-    author: { '@id': personId(p.reviewer) },
+    author: { '@id': p.reviewed ? personId(p.reviewer) : CLINIC_ID },
     publisher: { '@id': CLINIC_ID },
     mainEntityOfPage: { '@id': `${abs(path)}#page` },
   };
