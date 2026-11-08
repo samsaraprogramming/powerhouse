@@ -410,6 +410,11 @@ p {
   margin: 0;
 }
 
+/* A paragraph straight after a lead needs the usual gap (the lead itself has no bottom margin). */
+.lead + p {
+  margin-top: 1em;
+}
+
 .eyebrow {
   display: block;
   margin-bottom: 12px;
