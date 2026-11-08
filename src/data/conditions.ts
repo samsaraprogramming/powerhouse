@@ -3,12 +3,15 @@ import { directAccess } from './clinic';
 
 // Condition pages: one per body region. Plain text (no HTML).
 // `reviewer` and `lastReviewed` drive the "Clinically reviewed by" byline and the
-// MedicalWebPage JSON-LD. MOCK: no clinician has reviewed this copy yet (see MOCK_DATA.md).
+// MedicalWebPage JSON-LD. Both only appear once `reviewed` is true; no clinician has reviewed this copy yet (see MOCK_DATA.md).
 
 export interface Condition {
   slug: string;
   image: string;
+  /** Who will review the page. The byline and reviewedBy schema only appear once `reviewed` is true. */
   reviewer: 'sandra' | 'leslie';
+  /** Set to true (with the real lastReviewed date) after the reviewer has read and approved the page. */
+  reviewed?: boolean;
   lastReviewed: string;
   services: string[];
   name: L10n;

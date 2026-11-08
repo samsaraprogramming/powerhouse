@@ -33,8 +33,8 @@ const related = c.services.map((s) => getService(s, lang));
 const articles = posts.filter((p) => p.conditions.includes(slug));
 
 const schema = [
-  pageNode({ type: 'MedicalWebPage', path, name: title, description, lang, reviewer: c.reviewer, lastReviewed: c.lastReviewed, about: conditionNode(c, lang), extra: { audience: { '@type': 'Patient' } } }),
-  reviewerNode(c.reviewer, lang),
+  pageNode({ type: 'MedicalWebPage', path, name: title, description, lang, ...(c.reviewed ? { reviewer: c.reviewer, lastReviewed: c.lastReviewed } : {}), about: conditionNode(c, lang), extra: { audience: { '@type': 'Patient' } } }),
+  ...(c.reviewed ? [reviewerNode(c.reviewer, lang)] : []),
   faqNode(faqs),
   breadcrumbNode([
     { name: t(lang, 'breadcrumb.home'), path: href(lang, '/') },
@@ -52,7 +52,7 @@ const schema = [
     lead={c.summary[lang]}
     image={{ src: c.image }}
   >
-    <ReviewedBy lang={lang} reviewer={c.reviewer} date={c.lastReviewed} />
+    {c.reviewed && <ReviewedBy lang={lang} reviewer={c.reviewer} date={c.lastReviewed} />}
   </PageHero>
 
   <section class="section section--tight">
