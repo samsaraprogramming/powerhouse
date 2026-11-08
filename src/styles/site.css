@@ -1178,6 +1178,9 @@ a.card:hover {
 .pill-list {
   display: flex;
   flex-wrap: wrap;
+  /* Keep pills at their own height when the list sits beside a taller column. */
+  align-content: flex-start;
+  align-items: flex-start;
   gap: 10px;
   margin: 0;
   padding: 0;
