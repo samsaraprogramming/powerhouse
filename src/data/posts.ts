@@ -57,7 +57,7 @@ export const posts: Post[] = [
     reviewer: 'leslie',
     minutes: 5,
     image: '/images/library/knee-pain.webp',
-    conditions: ['knee-pain', 'sports-injuries'],
+    conditions: ['knee-pain', 'sports-injuries', 'running-injuries'],
     title: {
       en: 'Should you keep running with knee pain?',
       es: '¿Deberías seguir corriendo con dolor de rodilla?',

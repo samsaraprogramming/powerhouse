@@ -43,7 +43,7 @@ function spanishSection(): string {
   const services = getServices('es');
   return `## En español
 
-Clínica de terapia física (fisioterapia) individual en Laredo, Texas, dentro de Gold's Gym. Atendemos dolor de espalda, cuello, hombro, cadera, rodilla, pie y tobillo, lesiones deportivas y rehabilitación después de cirugía. Atención en español.
+Clínica de terapia física (fisioterapia) individual en Laredo, Texas, dentro de Gold's Gym. Atendemos dolor de espalda, cuello, hombro, codo, cadera, rodilla, pie y tobillo, lesiones de LCA, lesiones al correr, desgarres de isquiotibiales e ingle, otras lesiones deportivas y rehabilitación después de cirugía. Atención en español.
 
 ${facts('es')}
 
@@ -71,7 +71,7 @@ export function llmsTxt(): string {
   const team = getTeam('en');
   return `# ${clinic.name}
 
-> One-on-one outpatient physical therapy clinic in Laredo, Texas, inside Gold's Gym. Doctors of physical therapy treat back, neck, shoulder, hip, knee, foot and ankle pain, sports injuries and post-surgical rehab, and offer dry needling, cupping, blood flow restriction (BFR) training and running analysis. Care is available in English and Spanish.
+> One-on-one outpatient physical therapy clinic in Laredo, Texas, inside Gold's Gym. Doctors of physical therapy treat back, neck, shoulder, elbow, hip, knee, foot and ankle pain, ACL tears, running injuries, hamstring and groin strains, other sports injuries and post-surgical rehab, and offer dry needling, cupping, blood flow restriction (BFR) training and running analysis. Care is available in English and Spanish.
 
 ## Key facts
 

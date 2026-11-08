@@ -54,11 +54,35 @@ export const conditionQuotes: Record<string, TurnQuote> = {
     came: 'I was in pain everyday from my right ankle( I couldn’t even go down the stairs)',
     now: '…just from a few sessions I saw improvement and now I am pain free.',
   },
-  'sports-injuries': {
+  'elbow-pain': {
     name: 'Francisco N.',
     context: { en: 'Tennis elbow, with Dr. Sandra Gomez', es: 'Codo de tenista, con la Dra. Sandra Gomez' },
     came: 'I came in dealing with a persistent tennis elbow that was affecting my tennis game.',
     now: '…Im now back on the tennis court feeling significantly better and more confident.',
+  },
+  'acl-injury': {
+    name: 'Oli R.',
+    context: { en: 'Parents of a football player, after ACL surgery', es: 'Padres de un jugador de fútbol americano, después de cirugía de LCA' },
+    came: 'After his ACL surgery, this has been such a long and emotional road for our family…',
+    now: '…helping him get back to doing what he loves most: playing football.',
+  },
+  'sports-injuries': {
+    name: 'Vanessa R.',
+    context: { en: 'Her son, a baseball player, with Dr. Sandra Gomez', es: 'Su hijo, beisbolista, con la Dra. Sandra Gomez' },
+    came: 'When my son began his therapy he had no range of motion…',
+    now: 'Not only did she get his full range of motion back but she also strengthened his shoulder and elbow.',
+  },
+  'running-injuries': {
+    name: 'Mikey C.',
+    context: { en: 'Running injuries', es: 'Lesiones al correr' },
+    came: 'I would get injured often and would not have consistent training because of injuries.',
+    now: '…my overall running improved tremendously and was even hit multiple personal records throughout my season.',
+  },
+  'hamstring-groin-strains': {
+    name: 'Saul S.',
+    context: { en: 'Groin tear, with Dr. Sandra Gomez', es: 'Desgarre de ingle, con la Dra. Sandra Gomez' },
+    came: '…recovering from a groin tear.',
+    now: 'I can already see so much improvement and the pain is nearly gone.',
   },
   'post-surgical-rehab': {
     name: 'Emilio G.',
