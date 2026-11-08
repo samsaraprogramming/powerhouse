@@ -85,6 +85,18 @@
   to = "/images/services/orthopedic-sports-therapy.webp"
   status = 301
 
+# Security headers on every page. The CSP allows only this site, Plausible (analytics script and its
+# event endpoint) and the Google Maps embed; inline scripts and styles stay allowed because Astro inlines them.
+# Adding a new outside service (a chat widget, a video embed) means adding its address here, or it won't load.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io; connect-src 'self' https://plausible.io; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; frame-src https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+
 # Let browsers keep static files. Fonts and Astro's hashed bundles never change in place;
 # photos can be replaced under the same name, so they get a week.
 [[headers]]

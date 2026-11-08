@@ -22,14 +22,14 @@ Scrape the latest Google reviews for Powerhouse PT using Playwright MCP and save
    }
    ```
 
-4. Expand all truncated reviews by clicking every `a.MtCSLb` ("More") link.
+4. Expand all truncated reviews by clicking every `a.FrlmTe` ("More") link. The full text then appears in `.gbdaZe`.
 
 5. Extract all reviews using these selectors:
    - Review block: `div.bwb7ce`
-   - Reviewer name: `.Vpc5Fe`
+   - Reviewer name: `.rhtdWc`
    - Date: `.y3Ibjb`
    - Rating: count `svg path[fill="#fabb05"]`
-   - Review text: `.OA1nbd`
+   - Review text: `.gbdaZe` after expanding (the short version is in `.d83Iyc`; use it when there is no "More" link)
 
 6. Save the result as `all-reviews.json` in the project root.
 
@@ -39,4 +39,5 @@ Scrape the latest Google reviews for Powerhouse PT using Playwright MCP and save
 
 - Reviews mentioning providers no longer at the clinic should be flagged but not automatically added to the carousel.
 - If the review count on the page has grown since the last scrape, highlight the new reviews (those not already in the existing `all-reviews.json`).
-- The home page carousel shows the curated reviews listed in `src/data/reviews.json` (rendered by `src/components/ReviewCard.astro`). To add or update a card, edit that file; each entry has `name`, `date`, `tag`, `text` and `provider`.
+- The home page carousel shows the curated reviews listed in `src/data/reviews.json` (rendered by `src/components/Reviews.astro`). To add or update a card, edit that file; each entry has `name`, `date`, `tag`, `text` and `provider`. Write names as first name + last initial (e.g. "David Z."), as on the rest of the site.
+- Google renames these classes every so often (last checked November 2026). If a selector returns nothing, inspect one review in the page and update this file.

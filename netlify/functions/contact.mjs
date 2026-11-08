@@ -293,4 +293,9 @@ export default async (req) => {
   return json({ status: 'success' });
 };
 
-export const config = { path: '/api/contact' };
+// At most 5 sends a minute from one IP address, so a script that gets past the bot checks can't flood
+// the clinic inbox or use the confirmation email to spam strangers. Extra requests get a 429 from Netlify.
+export const config = {
+  path: '/api/contact',
+  rateLimit: { windowLimit: 5, windowSize: 60, aggregateBy: ['ip', 'domain'] },
+};
