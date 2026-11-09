@@ -8,7 +8,7 @@ Each item names the file and field to edit; pages, JSON-LD and `llms.txt` all re
 
 Confirmed by the clinic in November 2026: hours (Mon–Thu 7am–7pm, Fri 8am–12pm, Sat & Sun closed), parking notes,
 areas served, insurance wording, HSA/FSA accepted, 15-minute discovery call, response within one business day,
-founding year 2023, the 30-day direct access policy (therapists qualify), and the map coordinates (taken from
+founding year 2023, every clinician treats patients in English and Spanish, the 30-day direct access policy (therapists qualify), and the map coordinates (taken from
 the Google Maps pin). Visit lengths and visit frequency are intentionally not published.
 
 Nothing left to confirm in this file.
