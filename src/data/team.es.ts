@@ -37,7 +37,7 @@ export const teamEs: Record<string, {
     title: 'Doctora en Terapia Física &mdash; Fundadora y dueña',
     role: 'Doctora en Terapia Física',
     expertise: 'Experiencia en ortopedia, terapia manual y entrenamiento de fuerza',
-    points: ['Formación extensa en el Manual Therapy Institute', 'Especialización en rehabilitación de LCA', 'Entrenadora USA Weightlifting Nivel 1'],
+    points: ['Formación extensa en el Manual Therapy Institute', 'Especialización en rehabilitación de LCA', 'Entrenadora USA Weightlifting Nivel 1', 'Atiende en inglés y español'],
     teaser: 'La Dra. Sandra Gomez es originaria de Laredo, donde jugó fútbol, voleibol y atletismo en la preparatoria. Estudió su licenciatura en la Universidad de Texas en Austin y su doctorado en Terapia Física en Texas State University...',
     paragraphs: [
       'La Dra. Sandra Gomez es originaria de Laredo, donde jugó fútbol, voleibol y atletismo durante la preparatoria. Estudió su licenciatura en ciencias en la Universidad de Texas en Austin, donde también jugó en el equipo de fútbol del club. Después obtuvo su doctorado en Terapia Física en Texas State University.',
@@ -51,7 +51,7 @@ export const teamEs: Record<string, {
     title: 'Doctora en Terapia Física',
     role: 'Doctora en Terapia Física',
     expertise: 'Experiencia en ortopedia, condiciones neurológicas, terapia manual y entrenamiento de fuerza',
-    points: ['Proveedora certificada de punción seca', 'Entrenadora USA Weightlifting Nivel 1', 'Formación extensa en condiciones neurológicas'],
+    points: ['Proveedora certificada de punción seca', 'Entrenadora USA Weightlifting Nivel 1', 'Formación extensa en condiciones neurológicas', 'Atiende en inglés y español'],
     teaser: 'Orgullosamente laredense, la Dra. Leslie Garcia tiene una pasión de toda la vida por la salud, el movimiento y el servicio a la comunidad. Estudió Biología en Texas A&M International University, donde también fue instructora de acondicionamiento y entrenadora personal...',
     paragraphs: [
       'Orgullosamente laredense, la Dra. Leslie Garcia tiene una pasión de toda la vida por la salud, el movimiento y el servicio a la comunidad. Obtuvo su licenciatura en Biología en Texas A&amp;M International University, donde también trabajó como instructora de acondicionamiento y entrenadora personal, ganando experiencia práctica mientras estudiaba.',
@@ -66,7 +66,7 @@ export const teamEs: Record<string, {
     title: 'Doctor en Terapia Física',
     role: 'Doctor en Terapia Física',
     expertise: 'Experiencia en ortopedia, rehabilitación postquirúrgica y entrenamiento de fuerza',
-    points: ['Doctorado en Terapia Física — UTMB', 'Licenciatura en Biología — TAMIU', 'Experiencia en condiciones ortopédicas y postquirúrgicas', 'Sólida formación en ejercicio, fuerza y movimiento'],
+    points: ['Doctorado en Terapia Física — UTMB', 'Licenciatura en Biología — TAMIU', 'Experiencia en condiciones ortopédicas y postquirúrgicas', 'Sólida formación en ejercicio, fuerza y movimiento', 'Atiende en inglés y español'],
     teaser: 'El Dr. Uriel Garza es Doctor en Terapia Física con pasión por el movimiento, la salud y ayudar a las personas a ser su mejor versión. Jugar básquetbol y fútbol americano despertó su interés por el rendimiento y la biomecánica...',
     paragraphs: [
       'El Dr. Uriel Garza es Doctor en Terapia Física con pasión por el movimiento, la salud y ayudar a las personas a ser su mejor versión. Egresado de United High School, obtuvo su licenciatura en Biología en Texas A&amp;M International University y su doctorado en Terapia Física en la University of Texas Medical Branch.',
@@ -82,7 +82,7 @@ export const teamEs: Record<string, {
     title: 'Asistente de Terapia Física',
     role: 'Asistente de Terapia Física',
     expertise: 'Experiencia en ortopedia, condiciones neurológicas, terapia manual y entrenamiento de fuerza',
-    points: ['Proveedora certificada de punción seca', 'Entrenadora USA Weightlifting Nivel 1', 'Formación extensa en condiciones neurológicas'],
+    points: ['Proveedora certificada de punción seca', 'Entrenadora USA Weightlifting Nivel 1', 'Formación extensa en condiciones neurológicas', 'Atiende en inglés y español'],
     teaser: 'Georgina aporta una sólida trayectoria atlética, formación avanzada y una pasión genuina por ayudar a sus pacientes. Ha sido atleta toda su vida y ha jugado voleibol por 17 años, compitiendo todavía hoy...',
     paragraphs: [
       'Georgina aporta una sólida trayectoria atlética, formación avanzada y una pasión genuina por ayudar a sus pacientes a moverse y sentirse mejor.',
@@ -97,7 +97,7 @@ export const teamEs: Record<string, {
     title: 'Asistente de Terapia Física',
     role: 'Asistente de Terapia Física',
     expertise: 'Enfoque en movimiento funcional, rehabilitación ortopédica y rendimiento',
-    points: ['Asistente de Terapia Física con licencia', 'Licenciatura en Kinesiología — UTSA', 'Experiencia en entornos ortopédicos y de rehabilitación', 'Enfoque en movimiento funcional y rendimiento'],
+    points: ['Asistente de Terapia Física con licencia', 'Licenciatura en Kinesiología — UTSA', 'Experiencia en entornos ortopédicos y de rehabilitación', 'Enfoque en movimiento funcional y rendimiento', 'Atiende en inglés y español'],
     teaser: 'Alejandro es el proveedor de terapia física con licencia más reciente en unirse a Powerhouse PT. Un clínico enfocado en el movimiento, con pasión por construir fuerza, recuperar la función y ayudar a sus pacientes a rendir más...',
     paragraphs: [
       'Nuestro proveedor de terapia física con licencia más reciente en unirse a POWERHOUSE PT. Un clínico enfocado en el movimiento, con pasión por construir fuerza, recuperar la función y ayudar a sus pacientes a rendir a un nivel más alto.',

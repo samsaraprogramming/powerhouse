@@ -24,7 +24,8 @@ export const team = [
       "points": [
         "Certified Dry Needling Provider",
         "USA Weightlifting Level 1 Coach",
-        "Extensive Training in Neurological Conditions"
+        "Extensive Training in Neurological Conditions",
+        "Treats Patients in English and Spanish"
       ],
       "teaser": "A proud Laredo native, Dr. Leslie Garcia brings a lifelong passion for health, movement, and community care. She earned her Bachelor of Science in Biology from Texas A&M International University, where she also worked as a fitness instructor and personal trainer...",
       "accordionId": "aboutLeslieInfo",
@@ -55,7 +56,8 @@ export const team = [
         "Doctor of Physical Therapy — UTMB",
         "Bachelor's Degree in Biology — TAMIU",
         "Experience Treating Orthopedic & Post-Operative Conditions",
-        "Strong Background in Exercise, Strength Training & Movement"
+        "Strong Background in Exercise, Strength Training & Movement",
+        "Treats Patients in English and Spanish"
       ],
       "teaser": "Dr. Uriel Garza is a Doctor of Physical Therapy with a passion for movement, health, and helping people become the best version of themselves. Growing up playing basketball and football sparked his interest in performance, movement, and the biomechanics behind how the body works...",
       "accordionId": "aboutUrielInfo",
@@ -84,7 +86,8 @@ export const team = [
       "points": [
         "Certified Dry Needling Provider",
         "USA Weightlifting Level 1 Coach",
-        "Extensive Training in Neurological Conditions"
+        "Extensive Training in Neurological Conditions",
+        "Treats Patients in English and Spanish"
       ],
       "teaser": "Georgina brings a strong athletic background, advanced training, and a genuine passion for helping patients move and feel their best. She has been an athlete her entire life, playing volleyball for 17 years and still competing today...",
       "accordionId": "aboutGeorginaInfo",
@@ -115,7 +118,8 @@ export const team = [
         "Licensed Physical Therapist Assistant",
         "Bachelor of Science in Kinesiology — UTSA",
         "Experience in Orthopedic and Rehabilitation Settings",
-        "Focus on Functional Movement and Performance"
+        "Focus on Functional Movement and Performance",
+        "Treats Patients in English and Spanish"
       ],
       "teaser": "Alejandro is our newest licensed physical therapy provider joining Powerhouse PT. A movement-focused clinician with a passion for building strength, restoring function, and helping patients perform at a higher level...",
       "accordionId": "aboutAlejandroInfo",
@@ -143,7 +147,8 @@ export const team = [
       "points": [
         "Extensive Training by Manual Therapy Institute",
         "Specialization in ACL Rehabilitation",
-        "USA Weightlifting Level 1 Coach"
+        "USA Weightlifting Level 1 Coach",
+        "Treats Patients in English and Spanish"
       ],
       "teaser": "Dr. Sandra Gomez is a Laredo native who played soccer, volleyball, and track throughout her high school years. She attended the University of Texas at Austin to earn her Bachelors of Science, then went on to earn her Doctorate in Physical Therapy from Texas State University...",
       "accordionId": "aboutSandraInfo",
