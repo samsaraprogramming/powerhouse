@@ -45,8 +45,8 @@ Elbow pain uses an AI-generated photo (`conditions/elbow-pain.webp`); swap in a 
 
 **Service page questions, November 2026 (unreviewed):** two per service in `src/data/serviceFaqs.ts`, English and
 Spanish. They avoid prices, visit lengths and visit counts. Process claims to confirm: "we send you to a doctor if your
-evaluation shows you need one" (orthopedic PT), what to bring to a running analysis, and that BFR starts with a
-health-history check.
+evaluation shows you need one" (orthopedic PT) and what to bring to a running analysis. (BFR's health-history
+check was confirmed by the clinic on November 2.)
 
 ## Direct access page — `src/views/DirectAccess.astro`
 
