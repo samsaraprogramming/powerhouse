@@ -43,6 +43,11 @@ Gomez); Elbow pain and Running injuries (Dr. Leslie Garcia). Each needs its revi
 Hamstring still borrow `library/knee-pain.webp`, `services/running-analysis.webp` and `services/sprint.webp`.
 Elbow pain uses an AI-generated photo (`conditions/elbow-pain.webp`); swap in a real clinic photo when one exists.
 
+**Service page questions, November 2026 (unreviewed):** two per service in `src/data/serviceFaqs.ts`, English and
+Spanish. They avoid prices, visit lengths and visit counts. Process claims to confirm: "we send you to a doctor if your
+evaluation shows you need one" (orthopedic PT), what to bring to a running analysis, and that BFR starts with a
+health-history check.
+
 ## Direct access page — `src/views/DirectAccess.astro`
 
 The legal facts (30 consecutive calendar days, HB 4099 signed June 20, 2025, effective Sept. 1, 2025, the previous

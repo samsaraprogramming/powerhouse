@@ -1,3 +1,4 @@
+import { getGoogleRating } from '../data/googleRating';
 import { llmsFullTxt } from '../lib/llms';
 
-export const GET = () => new Response(llmsFullTxt(), { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
+export const GET = async () => new Response(llmsFullTxt(await getGoogleRating()), { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
