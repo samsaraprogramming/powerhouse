@@ -6,11 +6,13 @@ import CtaBand from '../components/CtaBand.astro';
 import ProcessSteps from '../components/ProcessSteps.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 import PatientQuote from '../components/PatientQuote.astro';
+import FaqList from '../components/FaqList.astro';
 import { serviceQuotes } from '../data/quotes';
+import { serviceFaqs, serviceFaqTopic } from '../data/serviceFaqs';
 import { href, t, type Lang } from '../i18n/ui';
 import { getService, plain } from '../lib/content';
 import { conditions } from '../data/conditions';
-import { breadcrumbNode, pageNode, therapyNode } from '../lib/schema';
+import { breadcrumbNode, faqNode, pageNode, therapyNode } from '../lib/schema';
 
 interface Props {
   lang: Lang;
@@ -22,6 +24,7 @@ const s = getService(slug, lang);
 const path = href(lang, `/service-${slug}.html`);
 const name = plain(s.heroTitle);
 const related = conditions.filter((c) => c.services.includes(slug));
+const faqs = serviceFaqs[slug]?.[lang] ?? [];
 
 const schema = [
   pageNode({ type: 'MedicalWebPage', path, name: s.metaTitle, description: s.metaDescription, lang, about: therapyNode(s, path) }),
@@ -30,6 +33,7 @@ const schema = [
     { name: t(lang, 'nav.care'), path: href(lang, '/services.html') },
     { name, path },
   ]),
+  ...(faqs.length > 0 ? [faqNode(faqs)] : []),
 ];
 ---
 
@@ -87,6 +91,20 @@ const schema = [
   </section>
 
   <ProcessSteps heading={s.processHeading} steps={s.steps} />
+
+  {faqs.length > 0 && (
+    <section class="section">
+      <div class="wrap two-col">
+        <div>
+          <h2>{t(lang, 'conditions.faq')} {serviceFaqTopic[slug]?.[lang] ?? name}</h2>
+          <p>
+            <a href={href(lang, '/faq.html')}>{lang === 'es' ? 'Más preguntas sobre visitas, seguros y referencias' : 'More questions about visits, insurance and referrals'}</a>
+          </p>
+        </div>
+        <FaqList items={faqs} />
+      </div>
+    </section>
+  )}
 
   <CtaBand lang={lang} title={s.ctaHeading} text={s.ctaSubtext} />
 </BaseLayout>
