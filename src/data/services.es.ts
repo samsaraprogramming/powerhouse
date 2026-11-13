@@ -174,7 +174,7 @@ export const servicesEs: Record<string, {
     processHeading: 'Qué <span>esperar</span>',
     steps: [
       { title: 'Evaluación clínica', text: 'Antes de usar agujas evaluamos tu condición para confirmar que la punción seca es apropiada e identificar los músculos y puntos gatillo a tratar.' },
-      { title: 'El procedimiento', text: 'Se insertan agujas finas y estériles en los músculos objetivo. La mayoría siente una contracción breve seguida de alivio de la tensión. Suele tolerarse bien y las sesiones duran de 20 a 40 minutos.' },
+      { title: 'El procedimiento', text: 'Se insertan agujas finas y estériles en los músculos objetivo. La mayoría siente una contracción breve seguida de alivio de la tensión. Suele tolerarse bien y la punción en sí ocupa solo una parte corta de tu visita.' },
       { title: 'Después del tratamiento', text: 'Es normal sentir algo de dolor muscular de 24 a 48 horas, parecido al de después de hacer ejercicio. Desaparece rápido y la mayoría nota alivio en 1 a 3 sesiones.' },
       { title: 'Plan de ejercicio', text: 'Después de la punción te damos ejercicios específicos para reforzar lo logrado y evitar que los puntos gatillo regresen.' },
     ],

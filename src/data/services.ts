@@ -326,7 +326,7 @@ export const services = [
       {
         "number": "02",
         "title": "The Procedure",
-        "text": "Thin, sterile needles are inserted into the target muscles. Most patients feel a brief muscle twitch followed by a release of tension. The procedure is typically well-tolerated, and sessions last 20–40 minutes."
+        "text": "Thin, sterile needles are inserted into the target muscles. Most patients feel a brief muscle twitch followed by a release of tension. The procedure is typically well-tolerated, and the needling itself is only a short part of your visit."
       },
       {
         "number": "03",
