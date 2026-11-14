@@ -48,8 +48,10 @@ be a dropdown value. Dropped bot submissions are logged in Netlify → Logs → 
 - [x] Copy the map pin coordinates from Google Maps into `src/data/clinic.ts` (`geo`).
 - [x] Squarespace: turn on domain auto-renew; leave the nameservers pointing to Netlify.
 - [ ] Cancel HostGator around November 8, 2026, after downloading a backup of the old files. Nothing uses it any more.
-- [ ] Search Console "before" numbers: Performance → Search results, last 3 months. Write down total clicks,
-      impressions, average CTR, average position and the top 10 queries, to compare against in 2–3 months.
+- [ ] Search Console baseline. Data starts November 1, 2026, when the property was added. Nov 1–11: 49 clicks,
+      4.77K impressions, 1% CTR, average position 10.3; impressions grew from about 100 to about 700 a day.
+      Still to write down: the top 10 queries. For a pre-launch baseline, use Google Business Profile →
+      Performance (it keeps months of searches, calls and website clicks).
 - [ ] Netlify → Deploys: the weekly rebuild runs, and its build log shows "IndexNow: sent N URLs".
 
 ## Listings
