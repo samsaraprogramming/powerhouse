@@ -48,6 +48,21 @@ be a dropdown value. Dropped bot submissions are logged in Netlify → Logs → 
 - [x] Copy the map pin coordinates from Google Maps into `src/data/clinic.ts` (`geo`).
 - [x] Squarespace: turn on domain auto-renew; leave the nameservers pointing to Netlify.
 - [ ] Cancel HostGator around November 8, 2026, after downloading a backup of the old files. Nothing uses it any more.
+- [ ] Search Console "before" numbers: Performance → Search results, last 3 months. Write down total clicks,
+      impressions, average CTR, average position and the top 10 queries, to compare against in 2–3 months.
+- [ ] Netlify → Deploys: the weekly rebuild runs, and its build log shows "IndexNow: sent N URLs".
+
+## Listings
+
+- [x] Bing Webmaster Tools.
+- [x] Bing Places.
+- [ ] Yelp: claim the listing (it exists, unclaimed) and check the hours, phone and website.
+- [ ] ThreeBestRated: fix the Friday hours.
+- [ ] Healthgrades: claim or correct Dr. Sandra's and Dr. Leslie's profiles.
+- [ ] Apple Business Connect: claim the Apple Maps listing (it is already accurate, so low priority).
+- [ ] Optional, low priority: Poyst / Experience.com.
+- [ ] Send the Yelp, Bing Places and Apple Maps links so they can be added to the site's structured data (`sameAs`)
+      with the next website change. Not worth a deploy on its own.
 
 ## From the clinic
 
