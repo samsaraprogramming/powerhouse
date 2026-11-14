@@ -44,16 +44,16 @@ Hamstring still borrow `library/knee-pain.webp`, `services/running-analysis.webp
 Elbow pain uses an AI-generated photo (`conditions/elbow-pain.webp`); swap in a real clinic photo when one exists.
 
 **Service page questions, November 2026 (unreviewed):** two per service in `src/data/serviceFaqs.ts`, English and
-Spanish. They avoid prices, visit lengths and visit counts. Process claims to confirm: "we send you to a doctor if your
-evaluation shows you need one" (orthopedic PT) and what to bring to a running analysis. (BFR's health-history
+Spanish. They avoid prices, visit lengths and visit counts. Process claims confirmed by the clinic on November 13: "we send
+you to a doctor if your evaluation shows you need one" (orthopedic PT) and what to bring to a running analysis. (BFR's health-history
 check was confirmed by the clinic on November 2.)
 
 ## Direct access page — `src/views/DirectAccess.astro`
 
 The legal facts (30 consecutive calendar days, HB 4099 signed June 20, 2025, effective Sept. 1, 2025, the previous
 10/15 business-day limits, and the eligibility conditions) come from the enrolled bill and the House bill analysis.
-Before launch the clinic should confirm: that it requests referrals from the patient's doctor after day 30, the
-Medicare plan-of-care sign-off wording, and the workers' compensation answer.
+Confirmed by the clinic on November 13, 2026: it requests the referral from the patient's doctor after day 30, sends
+the plan of care to the doctor for Medicare sign-off, and checks workers' compensation requirements before the first visit.
 
 ## Copy claims
 
