@@ -51,11 +51,11 @@ be a dropdown value. Dropped bot submissions are logged in Netlify → Logs → 
 - [ ] Cancel HostGator around November 8, 2026, after downloading a backup of the old files. Nothing uses it any more.
 - [x] Search Console baseline. Data starts November 1, 2026, when the property was added. Nov 1–11: 49 clicks,
       4.77K impressions, 1% CTR, average position 10.3; impressions grew from about 100 to about 700 a day.
-      Top queries by impressions (clicks / impressions): physical therapy laredo tx 4/98; cuanto dura un esguince
-      de tobillo 0/58; cuanto tarda en recuperarse un esguince de tobillo 0/54; physical therapy 0/50;
-      powerhouse pt 8/49; dolor de rodilla al correr 0/36; cuanto tarda en desinflamarse el tobillo por un
-      esguince 0/35; laredo physical therapy 0/33; cuánto tarda en curar un esguince de tobillo 0/30;
-      physical therapy in laredo tx 0/27. For a pre-launch baseline, use Google Business Profile → Performance.
+      Top queries by impressions (clicks / impressions / average position): physical therapy laredo tx 4/98/2.8;
+      cuanto dura un esguince de tobillo 0/58/9.8; cuanto tarda en recuperarse un esguince de tobillo 0/54/9.5;
+      physical therapy 0/50/4.8; powerhouse pt 8/49/1.9; dolor de rodilla al correr 0/36/45.3; cuanto tarda en
+      desinflamarse el tobillo por un esguince 0/35/8.4; laredo physical therapy 0/33/13.7; cuánto tarda en curar
+      un esguince de tobillo 0/30/9.2; physical therapy in laredo tx 0/27/4.2. 450 queries in total. For a pre-launch baseline, use Google Business Profile → Performance.
 - [ ] Netlify → Deploys: the weekly rebuild runs, and its build log shows "IndexNow: sent N URLs".
 
 ## Listings
