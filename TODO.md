@@ -43,15 +43,19 @@ be a dropdown value. Dropped bot submissions are logged in Netlify → Logs → 
       from old-site addresses (send any to be redirected).
 - [x] Live Google rating: Places API (New) key and Place ID in Netlify (`GOOGLE_PLACES_API_KEY`, `GOOGLE_PLACE_ID`).
 - [x] Netlify build hook saved as `BUILD_HOOK_URL`, so the review count refreshes weekly (daily used too many Netlify credits).
-- [x] Google Business Profile: hours, phone, website, services, Spanish under service options, attributes, new description.
+- [x] Google Business Profile: hours, phone, website, services, Spanish under service options, attributes, new description,
+      "Physical therapy clinic" added as a second category (primary stays "Physical therapist").
 - [ ] Google Business Profile photos: logo, cover photo, team, clinic interior, Gold's Gym entrance (add as they arrive).
 - [x] Copy the map pin coordinates from Google Maps into `src/data/clinic.ts` (`geo`).
 - [x] Squarespace: turn on domain auto-renew; leave the nameservers pointing to Netlify.
 - [ ] Cancel HostGator around November 8, 2026, after downloading a backup of the old files. Nothing uses it any more.
-- [ ] Search Console baseline. Data starts November 1, 2026, when the property was added. Nov 1–11: 49 clicks,
+- [x] Search Console baseline. Data starts November 1, 2026, when the property was added. Nov 1–11: 49 clicks,
       4.77K impressions, 1% CTR, average position 10.3; impressions grew from about 100 to about 700 a day.
-      Still to write down: the top 10 queries. For a pre-launch baseline, use Google Business Profile →
-      Performance (it keeps months of searches, calls and website clicks).
+      Top queries by impressions (clicks / impressions): physical therapy laredo tx 4/98; cuanto dura un esguince
+      de tobillo 0/58; cuanto tarda en recuperarse un esguince de tobillo 0/54; physical therapy 0/50;
+      powerhouse pt 8/49; dolor de rodilla al correr 0/36; cuanto tarda en desinflamarse el tobillo por un
+      esguince 0/35; laredo physical therapy 0/33; cuánto tarda en curar un esguince de tobillo 0/30;
+      physical therapy in laredo tx 0/27. For a pre-launch baseline, use Google Business Profile → Performance.
 - [ ] Netlify → Deploys: the weekly rebuild runs, and its build log shows "IndexNow: sent N URLs".
 
 ## Listings
@@ -73,6 +77,8 @@ be a dropdown value. Dropped bot submissions are logged in Netlify → Logs → 
       Sandra: back, shoulder, hip, sports injuries, desk-job article.
       Leslie: neck, knee, foot & ankle, post-surgical, ankle sprain article, running article.
 - [ ] Spanish read-through by a native speaker.
+- [ ] Ask whether the clinic wants pages for neurological conditions, balance and fall prevention, arthritis or work
+      injuries (only services it actually offers).
 - [ ] Photos: home banner / social share image, clinic interior, gym entrance and parking, team photo, BFR session.
 
 ## Later
