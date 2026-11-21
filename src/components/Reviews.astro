@@ -10,6 +10,14 @@ interface Props {
 const { lang } = Astro.props;
 // Reviews are quoted as written on Google, so they stay in their original language.
 const clean = (text: string) => text.replace(/^"|"$/g, '');
+// Patient names are not shown (privacy); `name` stays in the data only to find the review on Google.
+const es = lang === 'es';
+const withWhom: Record<string, { en: string; es: string }> = {
+  'Dr. Leslie Garcia': { en: 'Dr. Leslie Garcia', es: 'la Dra. Leslie Garcia' },
+  'Dr. Sandra Gomez': { en: 'Dr. Sandra Gomez', es: 'la Dra. Sandra Gomez' },
+  'Powerhouse PT Team': { en: 'the Powerhouse PT team', es: 'el equipo de Powerhouse PT' },
+};
+const who = (provider: string) => withWhom[provider]?.[lang] ?? provider;
 ---
 
 <div class="reviews" tabindex="0" role="region" aria-label={t(lang, 'home.reviewsTitle')}>
@@ -18,7 +26,7 @@ const clean = (text: string) => text.replace(/^"|"$/g, '');
       <span class="review__stars" aria-label="5/5">★★★★★</span>
       <span class="tag">{r.tag}</span>
       <blockquote class="review__text" style="margin: 0;" lang="en">{clean(r.text)}</blockquote>
-      <figcaption class="review__meta"><strong>{r.name}</strong> · {r.provider}</figcaption>
+      <figcaption class="review__meta"><strong>{es ? 'Reseña de Google' : 'Google review'}</strong> · {es ? 'Con' : 'With'} {who(r.provider)}</figcaption>
     </figure>
   ))}
 </div>

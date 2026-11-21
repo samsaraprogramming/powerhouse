@@ -86,10 +86,9 @@ be a dropdown value. Dropped bot submissions are logged in Netlify → Logs → 
 - [ ] HIPAA business associate agreement with Google, accepted by the owner: Admin console → Account → Account settings →
       Legal and compliance → HIPAA Business Associate Amendment → Review and Accept. Covers Gmail, Drive, Calendar,
       Docs and Meet; not the Business Profile, Maps, Search Console or Google Cloud.
-- [ ] Patient quotes on the site (Google reviews, word for word): ask the clinic's compliance contact whether written
-      permission is needed. Safest: a consent line in the intake paperwork from now on, and a quick "OK to quote your
-      review on our website?" message to the patients already quoted; remove any quote without a yes.
-      Also check Mikey C. and O.G. against Google (not found in all-reviews.json under those names).
+- [ ] Patient quotes: since November 20, 2026 the site shows no patient names (each quote is labelled "Google review").
+      Optional: ask the clinic's compliance contact whether written permission is still worth getting; if so, add a
+      consent line to the intake paperwork. Check Mikey C. and O.G. against Google (not in all-reviews.json under those names).
 - [ ] HIPAA and form email: Resend doesn't sign a BAA, but the lead notification carries what the patient wrote about
       their condition. Options, best first: send both form emails through Google Workspace (covered by Google's BAA once
       accepted); or switch to a provider that signs BAAs (for example Amazon SES or Paubox); or keep Resend and leave the
