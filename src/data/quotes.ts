@@ -1,7 +1,8 @@
 /**
  * Patient quotes from Google reviews, matched to the page they appear on.
  * Every fragment is copied word for word from the review (only trimmed, marked with …), so they stay in
- * English on the Spanish pages. Names are first name + last initial.
+ * English on the Spanish pages. Patient names are not shown on the site (privacy); `name` (first name +
+ * last initial) is kept only to find the review on Google and ask the patient for permission.
  *
  * Condition pages use the "Then / Now" layout (`came` + `now`); service pages and bios use the
  * hanging quote (`text`). Before adding one, check it word for word against the review on Google.
@@ -68,7 +69,7 @@ export const conditionQuotes: Record<string, TurnQuote> = {
   },
   'sports-injuries': {
     name: 'Vanessa R.',
-    context: { en: 'Her son, a baseball player, with Dr. Sandra Gomez', es: 'Su hijo, beisbolista, con la Dra. Sandra Gomez' },
+    context: { en: 'Parent of a baseball player, with Dr. Sandra Gomez', es: 'Familia de un beisbolista, con la Dra. Sandra Gomez' },
     came: 'When my son began his therapy he had no range of motion…',
     now: 'Not only did she get his full range of motion back but she also strengthened his shoulder and elbow.',
   },
