@@ -27,7 +27,7 @@ export interface HangQuote {
 export const conditionQuotes: Record<string, TurnQuote> = {
   'hip-pain': {
     name: 'Diana S.',
-    context: { en: 'Hip recovery, with Gina', es: 'Recuperación de cadera, con Gina' },
+    context: { en: 'Hip recovery, with Gina, PTA', es: 'Recuperación de cadera, con Gina, PTA' },
     came: '…she played a big part in helping me recover from my hip.',
     now: 'They truly gave me my life back, and I feel much stronger now than I did before.',
   },
@@ -87,7 +87,7 @@ export const conditionQuotes: Record<string, TurnQuote> = {
   },
   'post-surgical-rehab': {
     name: 'Emilio G.',
-    context: { en: 'After ACL surgery, with Gina and Dr. Sandra Gomez', es: 'Después de cirugía de LCA, con Gina y la Dra. Sandra Gomez' },
+    context: { en: 'After ACL surgery, with Gina, PTA, and Dr. Sandra Gomez', es: 'Después de cirugía de LCA, con Gina, PTA, y la Dra. Sandra Gomez' },
     came: 'I started going to Powerhouse Therapy 2 weeks post ACL surgery with a lot of pain and barely any mobility or strength.',
     now: 'Within 2 weeks of starting therapy, I had already noticed a drastic difference.',
   },
@@ -134,7 +134,7 @@ export const bioQuotes: Record<string, HangQuote> = {
   },
   alejandro: {
     name: 'Rolando G.',
-    context: { en: 'With Alex, Gina and Dr. Leslie', es: 'Con Alex, Gina y la Dra. Leslie' },
+    context: { en: 'With Dr. Leslie, Gina, PTA, and Alex, PTA', es: 'Con la Dra. Leslie, Gina, PTA, y Alex, PTA' },
     text: 'Having worked directly with Gina, Leslie, and Alex throughout my time in therapy, they were able to go above and beyond with getting me back to what my activity level was pre injury.',
   },
 };
