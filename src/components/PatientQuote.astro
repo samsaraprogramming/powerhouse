@@ -30,7 +30,7 @@ const es = lang === 'es';
     </blockquote>
   )}
   <figcaption class="pq__who">
-    <strong>{quote.name}</strong> · {quote.context[lang]} ·{' '}
+    <strong>{es ? 'Reseña de Google' : 'Google review'}</strong> · {quote.context[lang]} ·{' '}
     <a href={REVIEWS_URL} target="_blank" rel="noopener">{es ? 'Más reseñas' : 'More reviews'}</a>
   </figcaption>
 </figure>
